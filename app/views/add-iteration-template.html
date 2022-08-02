@@ -1,0 +1,85 @@
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+{% from 'tag/macro.njk' import tag %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  Blank transactional template - NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+<div style="margin-top: 30px;">
+{{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+  }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+ 
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+  
+             
+            <h3 class="nhsuk-heading-s">
+              Information and documents related to the design 
+            </h3>
+             
+                 <ul class="nhsuk-list nhsuk-list--bullet">
+                 <li style="list-style-type: disc; padding-left: 4px; margin-bottom: 8px; margin-left: 23px;"><a href="#">text</a></li>
+     
+                 <li style="list-style-type: disc; padding-left: 4px; margin-bottom: 8px; margin-left: 23px;"><a href="#">text</a></li>
+               </ul>
+    
+    
+     
+               <h3 class="nhsuk-heading-s">User research</h3>
+     
+               <p class="nhsuk-body">[User need, UR/recommendation summary]</p>
+                 
+     
+               <h3 class="nhsuk-heading-s">Changes from previous iteration</h3>
+     
+               <ul class="nhsuk-list nhsuk-list--bullet">
+                 <li>[this should detail changes to certain pages or overall journey]</li>
+                 <li></li>
+                 <li></li>
+               </ul>
+     
+            
+     
+                 <div class="nhsuk-action-link">
+       <a class="nhsuk-action-link__link" href="#">
+         <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+           <path d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+         </svg>
+         <span class="nhsuk-action-link__text">Go to prototype</span>
+       </a>
+     </div>
+     
+     
+
+            
+            
+    
+           
+          
+       
+    
+    
+         
+         
+        </div>
+        </div>
+
+        
+{% endblock %}
