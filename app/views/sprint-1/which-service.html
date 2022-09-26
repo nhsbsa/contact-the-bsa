@@ -1,0 +1,116 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'radios/macro.njk' import radios %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Contact the NHSBSA
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div style="margin-top: 30px;">
+    {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+      }) }}
+    </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row" >
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-form-group" style="padding-top: 0px;">
+
+
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                <h1 class="nhsuk-fieldset__heading">
+                  Which service are you contacting us about?
+                </h1>
+              </legend>
+          
+              <div class="nhsuk-radios">
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Prescription Prepayment Certificate (PPC)
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                   You have pre-paid for your prescriptions 
+                  </div>
+                </div>
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    Prescription Exemption Checking
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    You do not pay for your prescriptions
+                   </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    General query
+                  </label>
+                </div>
+          
+              </div>
+            </fieldset>
+          
+          </div>
+
+
+          <br>
+
+        
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+               I don't know which service I need
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+             
+              <p>content here</p>
+          
+            </div>
+          </details>
+
+  {{ button({
+    "text": "Continue",
+    "href": "query"
+  }) }}
+  </div>
+  </div>
+
+  <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+
+      
+      {% endblock %}

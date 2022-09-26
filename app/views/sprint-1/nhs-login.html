@@ -3,8 +3,9 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /views/layout.html -->
-{% extends 'layout.html' %}
+{% extends 'layouts/layout-transactional.html' %}
 {% from 'details/macro.njk' import details %}
+{% from 'button/macro.njk' import button %}
 <!-- 
   In /views/layout.html you can:
     - change the header and footer 
@@ -32,17 +33,37 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <!-- Change the page title here -->
-      <h1>
-       Contact the NHSBSA
-        <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version index</span>
+      <form method="post" action="">
+      <h1 class="nhsuk-heading-l">
+       Access the Contact the BSA service securley
       </h1>
 
-      <!-- Add your content here -->
-      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+      <p class="nhsuk-body">If you are outside of (England?) you will not be able to use NHS login to securley access this service.</p>
+      <p> You should use the alternative login option which will require you to have:</p>
+      <ul>
+        <li>an email, with an account you can access</li>
+        <li>a mobile number, with access to the mobile phone</li>
+      </ul>
+    
 
 
+{{ button({
+  "text": "Continue with NHS login",
+  "href": "nhs-login-email"
+}) }}
 
+<br>
+
+{{ button({
+  "text": "Use different login system",
+  "classes": "nhsuk-button--secondary",
+  "href": "#"
+}) }}
+
+</form>
+   
+</div>
+</div>
 
 
       
