@@ -1,0 +1,100 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'button/macro.njk' import button %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Document upload service 
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Change the page title here -->
+      <h1 class="nhsuk-heading-l">
+       Check your email address
+      </h1>
+
+      <p class="nhsuk-body">Enter the four digit security code we've sent to your email address [test.test@nhs.net]</p>
+
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Not received your security code?
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>You should check you have entered your email address correctly and try to resend the one time code.
+          </p>
+      
+        </div>
+      </details>
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="input-width-10">
+          Security code
+        </label>
+        <input class="nhsuk-input nhsuk-input--width-10" id="input-width-10" name="test-width-10" type="text">
+      
+      </div>
+    
+
+  
+    
+
+      {{ button({
+        "text": "Continue",
+        "href": "doc-upload"
+      }) }}
+
+      <br>
+
+      {{ button({
+        "text": "Resend code",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+
+    
+
+
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+    </div>
+    </div>
+
+
+
+
+      
+      {% endblock %}

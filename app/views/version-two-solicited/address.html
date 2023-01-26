@@ -1,0 +1,104 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'radios/macro.njk' import radios %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Contact the NHSBSA
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div style="margin-top: 30px;">
+    {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+      }) }}
+    </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row" >
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                What is your address?
+              </h1>
+            </legend>
+          
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="address-line-1">
+               Address line 1 <span class="nhsuk-u-visually-hidden">line 1 of 2</span>
+              </label>
+              <input class="nhsuk-input" id="address-line-1" name="address-line-1" type="text">
+            </div>
+          
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="address-line-2">
+                Address line 2 (optional)
+              </label>
+              <input class="nhsuk-input" id="address-line-2" name="address-line-2" type="text">
+            </div>
+          
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="address-town">
+                Town or city
+              </label>
+              <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="address-town" type="text">
+            </div>
+          
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="address-county">
+                County
+              </label>
+              <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-county" name="address-county" type="text">
+            </div>
+          
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="address-postcode">
+                Postcode
+              </label>
+              <input class="nhsuk-input nhsuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
+            </div>
+          
+          </fieldset>
+
+       
+
+          <br>
+
+        
+     
+
+  {{ button({
+    "text": "Continue",
+    "href": "contact"
+  }) }}
+  </div>
+  </div>
+
+  <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+
+      
+      {% endblock %}

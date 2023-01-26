@@ -1,0 +1,140 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactiona.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'button/macro.njk' import button %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Document upload service 
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+<div >
+  {{ backLink({
+      "href": "javascript:history.go(-1)",
+      "text": "Go back"
+    }) }}
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form class="form" method="post">
+      <!-- Change the page title here -->
+      <h1 class="nhsuk-heading-l">
+       Create an account
+      </h1>
+
+      <p>You'll need create an account to submit change requests.</p>
+
+        <input type="hidden" name="_csrf" value="ixf1TdCC-6bLCGGD021YcmWimYrYRmMnFWHA">
+
+        <div class="nhsuk-form-group ">
+          <label class="nhsuk-label" for="firstName">First name</label>
+
+          <input value="" class="nhsuk-input nhsuk-input--width-20 " id="firstName" name="firstName" type="text">
+        </div>
+
+        <div class="nhsuk-form-group ">
+          <label class="nhsuk-label" for="surname">Last name</label>
+
+          <input value="" class="nhsuk-input nhsuk-input--width-20 " id="surname" name="surname" type="text">
+        </div>
+
+        <div class="nhsuk-form-group ">
+          <label class="nhsuk-label" for="email">Email address</label>
+          <p class="nhsuk-hint">You'll need this email address to sign in to your account.</p>
+
+          <input value="" class="nhsuk-input nhsuk-input--width-20 " id="email" name="email" type="text">
+        </div>
+
+        <div class="nhsuk-form-group ">
+          <label class="nhsuk-label" for="password">Password</label>
+          <p class="nhsuk-hint">Your password needs:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-0">
+            <li>a number</li>
+            <li>upper and lowercase letters</li>
+            <li class="">to be 8 characters or more</li>
+          </ul>
+
+          <input value="" class="nhsuk-input nhsuk-input--width-20 " id="password" name="password" type="password">
+        </div>
+
+        <div class="nhsuk-form-group ">
+          <label class="nhsuk-label" for="confirmPassword">Confirm password</label>
+
+          <input value="" class="nhsuk-input nhsuk-input--width-20 " id="confirmPassword" name="confirmPassword" type="password">
+        </div>
+
+        <div class="nhsuk-form-group ">
+          <div class="nhsuk-checkboxes">
+
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input " id="acceptableUse" type="checkbox" name="acceptableUse">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="acceptableUse">I agree to comply with the <a target="_blank" href="#">acceptable use declaration</a>.</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="nhsuk-form-group ">
+          <div class="nhsuk-checkboxes">
+
+            <div class="nhsuk-checkboxes__item">
+              <input class="nhsuk-checkboxes__input " id="privacyPolicy" type="checkbox" name="privacyPolicy">
+              <label class="nhsuk-label nhsuk-checkboxes__label" for="privacyPolicy">I accept the terms in the <a target="_blank" href="#">privacy policy</a>.</label>
+            </div>
+          </div>
+        </div>
+
+        {{ button({
+          "text": "Create account",
+          "href": "login-screen"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p>
+        If you already have an account,
+        <a id="link-sign-in" href="login-screen">sign in</a>
+      </p>
+    </div>
+  </div>
+      
+
+
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+ 
+    </div>
+    </div>
+
+
+
+
+      
+      {% endblock %}

@@ -1,0 +1,121 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'radios/macro.njk' import radios %}
+{% from 'tables/macro.njk' import table %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Business Services Authority
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div style="margin-top: 30px;">
+    {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+      }) }}
+    </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row" >
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="nhsuk-error-summary__body">
+
+    <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+      <li>
+        <a href="#example-error-1">      You must add at least 1 document    
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+        <div class="nhsuk-form-group" style="padding-top: 0px;">
+  
+                <h1 class="nhsuk-heading-l" >
+                   Documents added to your query
+               </h1>
+
+               <p class="nhsuk-body nhsuk-u-font-weight-bold">You have no documents attatched to your query.</p>
+
+               <p class="nhsuk-body">You can attach up to 20 documents relating to your query.</p>
+               <br>
+
+               <table role="table" class="nhsuk-table-responsive">
+                <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Documents</caption>
+                <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row">
+                    <th role="columnheader" class="" scope="col">
+                      Document
+                    </th>
+                    <th role="columnheader" class="" scope="col">
+                      What you can do 
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="nhsuk-table__body">
+               
+                 
+                
+                </tbody>
+              </table>
+   
+
+               <br>
+
+
+
+
+
+
+              </div>
+
+       
+
+          <br>
+
+        
+      {{ button({
+            "text": "Add another document",
+            "href": "doc-upload",
+            "classes": "nhsuk-button--secondary"
+          }) }}
+
+          <br>
+  {{ button({
+    "text": "Continue",
+    "href": "cya"
+  }) }}
+  </div>
+  </div>
+
+  <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+
+      
+      {% endblock %}

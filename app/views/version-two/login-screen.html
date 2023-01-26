@@ -1,0 +1,99 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'button/macro.njk' import button %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Document upload service 
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form class="form" method="post" >
+      <!-- Change the page title here -->
+      <h1 class="nhsuk-heading-l">
+       Sign in 
+      </h1>
+
+ 
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="emailAddress">
+          Email address
+        </label>
+        <input class="nhsuk-input" id="email-address" name="emailAddress" type="email" spellcheck="false" autocomplete="email">
+    
+      </div>
+
+     
+     
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="example">
+          Password
+        </label>
+        <input class="nhsuk-input" id="example" name="example" type="text">
+      </div>
+    
+
+      <p class="nhsuk-body"><a href="forgot-password">Forgot your password?</a></p>
+    
+
+      {{ button({
+        "text": "Sign in",
+        "href": "email-auth-code"
+      }) }}
+      </form>
+
+      <hr>
+
+      <h2 class="nhsuk-heading-m">
+        If you do not have an account 
+      </h2>
+
+      <p>
+      
+        What is the info needed here? same as hrss?
+     
+      </p>
+
+      {{ button({
+        "text": "Create an account",
+        "classes": "nhsuk-button--secondary",
+        "href": "create-account"
+      }) }}
+
+
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+ 
+    </div>
+    </div>
+
+
+
+
+      
+      {% endblock %}

@@ -1,0 +1,116 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'radios/macro.njk' import radios %}
+{% from 'button/macro.njk' import button %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Contact the NHSBSA
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-panel nhsuk-panel--confirmation nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+        <h1 class="nhsuk-panel__title">
+          The document to support your query has been submitted
+        </h1>
+
+        <div class="nhsuk-panel__body">
+          Your reference number is <br>
+          <strong>AB 1234 9876</strong>
+        </div>
+      </div>
+
+      <p class="nhsuk-body">We've sent you a confirmation email. Check your spam or junk folder if you cannot find it.</p>
+
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+
+      <p>You will receive a response to your query within 2 working days.</p>
+
+
+
+      {{ button({
+        "text": "Finish",
+        "href": "#"
+      }) }}
+
+<br>
+
+
+     
+  </div>
+
+  <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+
+  <style>
+
+.nhsuk-panel {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: #ffffff;
+    color: #212b32;
+    width: 100%;
+}
+
+.nhsuk-panel--confirmation {
+    padding-bottom: 56px;
+    padding-top: 56px;
+}
+
+.nhsuk-u-margin-top-0 {
+    margin-top: 0 !important;
+}
+
+.nhsuk-u-margin-bottom-4 {
+    margin-bottom: 24px !important;
+}
+
+.nhsuk-panel__title {
+    margin-bottom: 24px;
+}
+
+.nhsuk-panel__body {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.33333;
+}
+.nhsuk-panel__title {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.nhsuk-panel__body {
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+}
+  </style>
+      
+      {% endblock %}

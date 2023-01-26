@@ -22,11 +22,22 @@
 {% block header %}
   {{ header({
     "service": {
-        "name": "Business Services Authority",
+        "name": "Business Services Authority ",
         "href": "/"
       },
-      "showNav": "false",
-      "showSearch": "true"
+    
+      "showNav": "true",
+      "showSearch": "false",
+      "primaryLinks": [
+      {
+        "url"  : "#",
+        "label" : "Knowledge base"
+      },
+      {
+        "url"  : "#",
+        "label" : "Sign-in"
+      }
+    ]
     })
   }}
 {% endblock %}

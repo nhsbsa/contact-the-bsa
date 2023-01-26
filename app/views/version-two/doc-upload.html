@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'radios/macro.njk' import radios %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Business Services Authority
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div style="margin-top: 30px;">
+    {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+      }) }}
+    </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row" >
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-form-group" style="padding-top: 0px;">
+  
+                <h1 class="nhsuk-heading-l" >
+                    Add a document to support your query
+               </h1>
+
+               <br>
+
+               <p class="nhsuk-body">You can attach up to [number] documents relating to your query.</p>
+
+               <p>The file you choose must:</p>
+               <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>not be larger than 1MB in file size</li>
+                <li>be a DOC, DOCX, PNG, JPEG or PDF</li>
+               </ul>
+
+               <br>
+
+               <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="file-upload-1">
+                  Upload a file
+                </label>
+                <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+              </div>
+
+
+
+
+
+
+
+              </div>
+
+       
+
+          <br>
+
+        
+     
+
+  {{ button({
+    "text": "Upload document",
+    "href": "doc-added"
+  }) }}
+  </div>
+  </div>
+
+  <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+
+      
+      {% endblock %}
