@@ -22,22 +22,12 @@
 {% block header %}
   {{ header({
     "service": {
-        "name": "Business Services Authority ",
+        "name": "Business Services Authority",
         "href": "/"
       },
-    
       "showNav": "true",
-      "showSearch": "false",
-      "primaryLinks": [
-      {
-        "url"  : "https://nhsbsa-live.powerappsportals.com/knowledgebase/",
-        "label" : "Knowledge base"
-      },
-      {
-        "url"  : "./login-screen",
-        "label" : "Sign-in"
-      }
-    ]
+      "showSearch": "false"
+      
     })
   }}
 {% endblock %}
@@ -49,6 +39,7 @@
   {{ footer({
     "links": [
       {
+      
         "URL": "https://www.nhsbsa.nhs.uk/",
         "label": "NHSBSA Main Website"
       },
