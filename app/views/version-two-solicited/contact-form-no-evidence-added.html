@@ -138,6 +138,7 @@
             </div>
 
 
+
             <h3 class="nhsuk-heading-l">Address</h3>
 
             <div class="nhsuk-form-group">
@@ -227,62 +228,21 @@
               <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
             </div>
 
+<br>
 
-            <br>
 
-            <p>You can upload a file to support your query.</p>
+            <p>You can upload a file to support your query. To upload a document you will have to sign in or create an account to verify your identity.</p>
                               
 
           <br>
 
-          <table role="table" class="nhsuk-table-responsive">
-            <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Documents added to query</caption>
-            <thead role="rowgroup" class="nhsuk-table__head">
-              <tr role="row">
-                <th role="columnheader" class="" scope="col">
-                  Documents added
-                </th>
-                <th role="columnheader" class="" scope="col">
-                  What you can do 
-                </th>
-              </tr>
-            </thead>
-            <tbody class="nhsuk-table__body">
-              <tr role="row" class="nhsuk-table__row">
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">Document </span>Council tax statement.PDF (PDF, 123KB)
-                </td>
-                <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">What you can do</span><a href="doc-upload">Change</a> or <a href="are-you-sure">Remove</a>
-                </td>
-              </tr>
-             
-            
-            </tbody>
-          </table>
-
-          <br>
-
-          <p>The file you choose must:</p>
-          <ul class="nhsuk-list nhsuk-list--bullet">
-           <li>not be larger than 1MB in file size</li>
-           <li>be a DOC, DOCX or PDF</li>
-          </ul>
-   
-          <br>
-   
-          <div class="nhsuk-form-group">
-           <label class="nhsuk-label" for="file-upload-1">
-             Upload a file
-           </label>
-           <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
-         </div>
+     
 
           <br>
                 {{ button({
-                  "text": "Upload another document",
+                  "text": "Upload a document",
                   "classes": "nhsuk-button--secondary",
-                  "href": "doc-upload"
+                  "href": "add-evidence"
                 }) }}
      
 
@@ -295,7 +255,7 @@
 
   {{ button({
     "text": "Submit",
-    "href": "#"
+    "href": "confirmation"
   }) }}
   </div>
   </div>

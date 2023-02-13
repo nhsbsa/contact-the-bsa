@@ -137,7 +137,7 @@
             
             </div>
 
-
+      
 
             <h3 class="nhsuk-heading-l">Address</h3>
 
@@ -228,21 +228,46 @@
               <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
             </div>
 
-<br>
 
 
-            <p>You can upload a file to support your query. To upload a document you will have to sign in or create an account to verify your identity.</p>
+
+         <br>
+         <p>You can upload a file to support your query. To upload a document you will have to sign in or create an account to verify your identity.</p>
                               
 
           <br>
 
-     
+          <table role="table" class="nhsuk-table-responsive">
+            <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Documents added to query</caption>
+            <thead role="rowgroup" class="nhsuk-table__head">
+              <tr role="row">
+                <th role="columnheader" class="" scope="col">
+                  Documents added
+                </th>
+                <th role="columnheader" class="" scope="col">
+                  What you can do 
+                </th>
+              </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+              <tr role="row" class="nhsuk-table__row">
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">Document </span>Council tax statement.PDF (PDF, 123KB)
+                </td>
+                <td role="cell" class="nhsuk-table__cell">
+                  <span class="nhsuk-table-responsive__heading">What you can do</span><a href="doc-upload">Change</a> or <a href="are-you-sure">Remove</a>
+                </td>
+              </tr>
+             
+            
+            </tbody>
+          </table>
 
           <br>
                 {{ button({
-                  "text": "Upload a document",
+                  "text": "Upload another document",
                   "classes": "nhsuk-button--secondary",
-                  "href": "doc-upload"
+                  "href": "add-evidence"
                 }) }}
      
 
