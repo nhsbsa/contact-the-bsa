@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /views/layout.html -->
-{% extends 'layouts/layout-contact-form-cya.html' %}
+{% extends 'layouts/layout-contact-form.html' %}
 {% from 'details/macro.njk' import details %}
 {% from 'radios/macro.njk' import radios %}
 <!-- 
@@ -14,7 +14,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-  Contact Us form
+Contact us - [SERVICE NAME]- NHSBSA
 {% endblock %}
 
 <!-- For adding a breadcrumb -->
@@ -42,9 +42,11 @@
               </label>
             </h1>
 
-            <p class="nhsuk-u-font-size-19"> Can't seem to find what you are looking for? No problem, just leave us a note here and we will get right back to you.</p>
+            <p class="nhsuk-u-font-size-19"> 
+              If you can not find what you're looking for, send us your query using this form, and we'll get back to you. You can submit documents to support your query. 
+           </p>
 
-            <h2 class="nhsuk-heading-l">Personal</h2>
+            <h2 class="nhsuk-heading-l">Your details</h2>
 
             </div>
 
@@ -64,14 +66,14 @@
 
             <div class="nhsuk-form-group">
               <label class="nhsuk-label" for="select-1">
-                Preferred contact method (optional)
+                How would you like us to contact you? (optional)
               </label>
               <select class="nhsuk-select " id="select-1" name="select-1">
                 <option value="1"></option>
-                <option value="2" >Any</option>
-                <option value="3" selected>Email</option>
-                <option value="2" >Phone</option>
-                <option value="3" >Mail or Post</option>
+                <option value="2" >Email</option>
+                <option value="3" selected>Phone</option>
+                <option value="2" >Post</option>
+                <option value="3" >No preference</option>
               </select>
             </div>
 
@@ -178,19 +180,20 @@
 
             <hr>
 
-            <h2 class="nhsuk-heading-l">Query</h2>
+            <h2 class="nhsuk-heading-l">Your query</h2>
+
+          
 
             <div class="nhsuk-form-group">
               <label class="nhsuk-label" for="input-width-20">
-              Reference number (optional)
+                Reference number (optional)
               </label>
               <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text">
             </div>
 
-
             <div class="nhsuk-form-group">
               <label class="nhsuk-label" for="select-1">
-                Service
+                Service your query relates to
               </label>
               <select class="nhsuk-select " id="select-1" name="select-1">
                 <option value="1"></option>
@@ -215,9 +218,11 @@
 
             <div class="nhsuk-form-group">
               <label class="nhsuk-label" for="example">
-                How can we help?
+                How can we help you?
               </label>
-         
+              <div class="nhsuk-hint" id="example-hint">
+                Do not include personal or financial information, for example, your National Insurance number or credit card details.
+              </div>
               <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
             </div>
 
@@ -225,7 +230,8 @@
 
 
          <br>
-         <p>You can upload a file to support your query. To upload a document you will have to sign in or create an account to verify your identity.</p>
+         <p>
+          You can upload a file to support your query. To upload you'll have to sign in or create an account to verify your identity.          .</p>
                               
 
           <br>
@@ -238,7 +244,7 @@
                   Documents added
                 </th>
                 <th role="columnheader" class="" scope="col">
-                  What you can do 
+                 Actions
                 </th>
               </tr>
             </thead>
@@ -248,7 +254,7 @@
                   <span class="nhsuk-table-responsive__heading">Document </span>Council tax statement.PDF (PDF, 123KB)
                 </td>
                 <td role="cell" class="nhsuk-table__cell">
-                  <span class="nhsuk-table-responsive__heading">What you can do</span><a href="add-evidence">Edit</a> or <a href="are-you-sure">Remove</a>
+                  <span class="nhsuk-table-responsive__heading">Actions</span><a href="doc-upload">Edit</a> or <a href="are-you-sure">Remove</a>
                 </td>
               </tr>
              
@@ -273,7 +279,7 @@
 
   {{ button({
     "text": "Submit",
-    "href": "submit"
+    "href": "confirm"
   }) }}
   </div>
   </div>
