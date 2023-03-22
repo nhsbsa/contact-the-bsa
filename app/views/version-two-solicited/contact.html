@@ -14,7 +14,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-  Contact the NHSBSA
+How would you like us to contact you?- [SERVICE NAME]- NHSBSA
 {% endblock %}
 
 <!-- For adding a breadcrumb -->
@@ -46,13 +46,17 @@
         <fieldset class="nhsuk-fieldset">
           <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
             <h1 class="nhsuk-fieldset__heading">
-             How would you like to be contacted?
+              How would you like us to contact you?
             </h1>
           </legend>
 
       
 
       <div class="nhsuk-radios">
+
+        <div class="nhsuk-hint" id="contact-hint">
+          Select one option
+        </div>
 
         <div class="nhsuk-radios__item">
           <input class="nhsuk-radios__input" id="example-inline-1" name="example-inline" type="radio" value="phone-number" onclick="setLocation(this);">
@@ -71,7 +75,7 @@
         <div class="nhsuk-radios__item">
             <input class="nhsuk-radios__input" id="example-inline-2" name="example-inline" type="radio" value="phone-number1" onclick="setLocation(this);">
             <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
-              Phone or email
+             No preference 
             </label>
           </div>
   

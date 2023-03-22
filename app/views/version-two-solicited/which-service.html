@@ -14,7 +14,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-  Contact the NHSBSA
+Which service are you contacting us about? - [SERVICE NAME]- NHSBSA
 {% endblock %}
 
 <!-- For adding a breadcrumb -->
@@ -48,7 +48,7 @@
             <fieldset class="nhsuk-fieldset">
               <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
                 <h1 class="nhsuk-fieldset__heading">
-                  Which service are you contacting the NHS BSA about?
+                  Which service are you contacting us about?
                 </h1>
               </legend>
 
@@ -62,25 +62,31 @@
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Dental Exemption Checking
+                    Dental exemption checking
                   </label>
                   <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                   You do not pay for your dental care
+                    Help to pay for NHS dental costs
                   </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Dental Services
+                    Dental services
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    All other dental services
+                  </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Global Health Insurance Card
+                    Global Heath Insurance Card (GHIC)
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Pays towards state healthcare in Europe at a reduced cost or for free
+                  </div>
                 </div>
      
 
@@ -89,6 +95,9 @@
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                     Learning Support Fund
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Additional funding for eligible healthcare students
+                  </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
@@ -96,25 +105,28 @@
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                     Low Income Scheme
                   </label>
-                </div>
-
-                <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
-                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Maternity Exemption
-                  </label>
                   <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                   You do not pay for your prescriptions 
+                    Help for people on a low income towards NHS costs 
                   </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Medical Exemption
+                    Maternity exemption certificate
                   </label>
                   <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                   You do not pay for your prescriptions 
+                    Free NHS prescriptions and dental treatment
+                  </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Medical exemption
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                  Free NHS prescriptions
                   </div>
                 </div>
             
@@ -123,6 +135,9 @@
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                     Pension members
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    For members of the NHS pension scheme
+                    </div>
                 </div>
       
                 <div class="nhsuk-radios__item">
@@ -131,17 +146,17 @@
                     Prescription Prepayment Certificate (PPC)
                   </label>
                   <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                   You have pre-paid for your prescriptions 
+                    Certificate that covers all your NHS prescriptions for a set price
                   </div>
                 </div>
           
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                    Prescription Exemption Checking
+                    Prescription exemption checking
                   </label>
                   <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
-                    You do not pay for your prescriptions
+                    Help to pay for NHS prescription costs
                    </div>
                 </div>
 
@@ -150,6 +165,9 @@
                   <label class="nhsuk-label nhsuk-radios__label" for="example-2">
                     Prescription Services (for healthcare professionals)
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Remuneration and reimbursement due to dispensing contractors across England
+                   </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
@@ -157,26 +175,35 @@
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
                     Social Work Bursary
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    For social work trainees to help with living and tuition costs 
+                   </div>
                 </div>
           
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                   Student Bursaries
+                    Student bursaries
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    For social work trainees to help with living and tuition costs 
+                   </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Tax Credit
+                    Tax credit exemption
                   </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Help with health costs for people claiming child or working tax credits
+                   </div>
                 </div>
 
                 <div class="nhsuk-radios__item">
                   <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    TRS Employer
+                    Total Reward Statement (TRS) employer
                   </label>
                   <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
                    You have pre-paid for your prescriptions 
@@ -195,12 +222,14 @@
           <details class="nhsuk-details" style="margin-top:50px;">
             <summary class="nhsuk-details__summary">
               <span class="nhsuk-details__summary-text">
-               I don't know which service I need
+                I do not know which service I need
               </span>
             </summary>
             <div class="nhsuk-details__text">
              
-              <p>You can find which service your query relates to in the email or letter we sent you.</p>
+              <p>
+                You can find which service your query relates to in the email or letter we've sent you.
+              </p>
           
             </div>
           </details>
