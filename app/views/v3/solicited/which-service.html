@@ -1,0 +1,247 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'radios/macro.njk' import radios %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Which service are you contacting us about? - [SERVICE NAME]- NHSBSA
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div style="margin-top: 30px;">
+    {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+      }) }}
+    </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row" >
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-form-group" style="padding-top: 0px;">
+
+
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                <h1 class="nhsuk-fieldset__heading">
+                  Which service are you contacting us about?
+                </h1>
+              </legend>
+
+
+              <div class="nhsuk-hint" id="contact-hint">
+                Select one option
+              </div>
+          
+              <div class="nhsuk-radios">
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Dental exemption checking
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Help to pay for NHS dental costs
+                  </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Dental services
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    All other dental services
+                  </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Global Heath Insurance Card (GHIC)
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Pays towards state healthcare in Europe at a reduced cost or for free
+                  </div>
+                </div>
+     
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Learning Support Fund
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Additional funding for eligible healthcare students
+                  </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Low Income Scheme
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Help for people on a low income towards NHS costs 
+                  </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Maternity exemption certificate
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Free NHS prescriptions and dental treatment
+                  </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Medical exemption
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                  Free NHS prescriptions
+                  </div>
+                </div>
+            
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Pension members
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    For members of the NHS pension scheme
+                    </div>
+                </div>
+      
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Prescription Prepayment Certificate (PPC)
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Certificate that covers all your NHS prescriptions for a set price
+                  </div>
+                </div>
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    Prescription exemption checking
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Help to pay for NHS prescription costs
+                   </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    Prescription Services (for healthcare professionals)
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Remuneration and reimbursement due to dispensing contractors across England
+                   </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Social Work Bursary
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    For social work trainees to help with living and tuition costs 
+                   </div>
+                </div>
+          
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Student bursaries
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    For social work trainees to help with living and tuition costs 
+                   </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Tax credit exemption
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                    Help with health costs for people claiming child or working tax credits
+                   </div>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    Total Reward Statement (TRS) employer
+                  </label>
+                  <div class="nhsuk-hint nhsuk-radios__hint" id="example-hints-1-item-hint">
+                   You have pre-paid for your prescriptions 
+                  </div>
+                </div>
+
+              </div>
+            </fieldset>
+          
+          </div>
+
+
+          
+
+        
+          <details class="nhsuk-details" style="margin-top:50px;">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                I do not know which service I need
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+             
+              <p>
+                You can find which service your query relates to in the email or letter we've sent you.
+              </p>
+          
+            </div>
+          </details>
+
+  {{ button({
+    "text": "Continue",
+    "href": "enter-ref"
+  }) }}
+  </div>
+  </div>
+
+  <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+
+      
+      {% endblock %}

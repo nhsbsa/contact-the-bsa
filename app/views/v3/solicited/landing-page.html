@@ -1,0 +1,76 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+{% from 'details/macro.njk' import details %}
+{% from 'button/macro.njk' import button %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Start - [SERVICE NAME]- NHSBSA
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Change the page title here -->
+      <h1>
+       Contact Us
+      </h1>
+
+      <p class="nhsuk-body">
+        Use this service to upload any evidence you have to support your query. 
+      </p>
+
+  
+
+      <p class="nhsuk-body">
+        We'll ask you for some personal information first, so that we know who you are and how you would like us to contact you.       </p>
+
+
+        <h2 class="nhsuk-heading-m">Before you start</h2>
+
+      <p class="nhsuk-body">
+        We'll ask you for:
+      </p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>your personal details  -your name, date of birth, and contact details</li>
+        <li>any reference numbers you've been provided with</li>
+        <li>any documents you need to upload</li>
+      </ul>
+
+
+      {{ button({
+        "text": "Start now",
+        "href": "which-service"
+      }) }}
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+
+
+
+
+      
+      {% endblock %}
