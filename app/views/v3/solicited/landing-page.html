@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /views/layout.html -->
-{% extends 'layouts/layout-transactional.html' %}
+{% extends 'layouts/layout-logged-in.html' %}
 {% from 'details/macro.njk' import details %}
 {% from 'button/macro.njk' import button %}
 <!-- 
@@ -54,7 +54,7 @@ Start - [SERVICE NAME]- NHSBSA
         We'll ask you for:
       </p>
       <ul class="nhsuk-list nhsuk-list--bullet">
-        <li>your personal details  -your name, date of birth, and contact details</li>
+        <li>your personal details - your name, date of birth, and contact details</li>
         <li>any reference numbers you've been provided with</li>
         <li>any documents you need to upload</li>
       </ul>
