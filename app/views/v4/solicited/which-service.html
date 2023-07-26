@@ -1,0 +1,157 @@
+{% extends 'layout-upload-document.html' %}
+{% block pageTitle %}
+Upload a document to the NHS Business Services Authority - NHSBSA
+{% endblock %}
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="v4/solicited/which-service" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "which-service",
+        "name": "which-service",
+        "fieldset": {
+          "legend": {
+            "text": "Which service are you contacting us about?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "dentail-exemption-checking",
+            "text": "Dental exemption checking",
+            "hint": {
+              "text": "Help to pay for NHS dental costs."
+            }
+          },
+          {
+            "value": "dental-services",
+            "text": "Dental services",
+            "hint": {
+              "text": "All other dental services."
+            }
+          },
+          {
+            "value": "global-health-insurance-card",
+            "text": "Global Heath Insurance Card (GHIC)",
+            "hint": {
+              "text": "Pays towards state healthcare in Europe at a reduced cost or for free."
+            }
+          },
+          {
+            "value": "learning-support-fund",
+            "text": "Learning Support Fund",
+            "hint": {
+              "text": "Additional funding for eligible healthcare students."
+            }
+          },
+          {
+            "value": "low-income-scheme",
+            "text": "Low Income Scheme",
+            "hint": {
+              "text": "Help for people on a low income towards NHS costs."
+            }
+          },
+          {
+            "value": "maternity-exemption-certificate",
+            "text": "Maternity exemption certificate",
+            "hint": {
+              "text": "Free NHS prescriptions and dental treatment."
+            }
+          },
+          {
+            "value": "medical-exemption",
+            "text": "Medical exemption",
+            "hint": {
+              "text": "Free NHS prescriptions."
+            }
+          },
+          {
+            "value": "penion-members",
+            "text": "Pension members",
+            "hint": {
+              "text": "For members of the NHS pension scheme."
+            }
+          },
+          {
+            "value": "prescription-prepayment-certificate",
+            "text": "Prescription Prepayment Certificate (PPC)",
+            "hint": {
+              "text": "Certificate that covers all your NHS prescriptions for a set price."
+            }
+          },
+          {
+            "value": "prescription-exemption-checking",
+            "text": "Prescription exemption checking",
+            "hint": {
+              "text": "Help to pay for NHS prescription costs."
+            }
+          },
+          {
+            "value": "prescription-services",
+            "text": "Prescription Services (for healthcare professionals)",
+            "hint": {
+              "text": "Remuneration and reimbursement due to dispensing contractors across England."
+            }
+          },
+          {
+            "value": "social-work-bursary",
+            "text": "Social Work Bursary",
+            "hint": {
+              "text": "For social work trainees to help with living and tuition costs."
+            }
+          },
+          {
+            "value": "student-bursaries",
+            "text": "Student bursaries",
+            "hint": {
+              "text": "For student trainees to help with living and tuition costs."
+            }
+          },
+          {
+            "value": "tax-credit-exemption",
+            "text": "Tax credit exemption",
+            "hint": {
+              "text": "Help with health costs for people claiming child or working tax credits."
+            }
+          },
+          {
+            "value": "total-reward-statement-employer",
+            "text": "Total Reward Statement (TRS) employer",
+            "hint": {
+              "text": "You have pre-paid for your prescriptions."
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ details({
+      "text": "I do not know which service I need",
+      "HTML": "
+      <p>You can find which service your query relates to in the email or letter we've sent you.</p>
+      "
+    }) }}
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

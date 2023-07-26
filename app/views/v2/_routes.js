@@ -1,5 +1,5 @@
 // ********************************
-// HRSS (VERSION 2)
+// CCS (VERSION 2)
 // ********************************
 
 // External dependencies

@@ -9,6 +9,50 @@
 // Add your custom CSS/Sass styles below...
 ///////////////////////////////////////////
 
+// Footer
+
+.app-ogl-footer {
+  background-color: #d8dde0
+}
+
+.app-ogl-footer--text {
+  font-weight: 400;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1.71429;
+  padding-bottom: 24px;
+  color: #4c6272;
+  margin-bottom: 0;
+  padding-bottom: 24px
+}
+
+@media (min-width: 40.0625em) {
+  .app-ogl-footer--text {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5
+  }
+}
+
+@media print {
+  .app-ogl-footer--text {
+      font-size: 14pt;
+      line-height: 1.2
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .app-ogl-footer--text {
+      padding-bottom: 32px
+  }
+}
+
+.app-ogl-footer--text svg {
+  margin-right: 8px;
+  position: relative;
+  top: 2px
+}
+
 /*
 HEADER - SIGNED IN
 */
@@ -69,3 +113,106 @@ HEADER - SIGNED IN
     }
   
   }
+
+/*
+EMAIL
+*/
+
+.email-message {
+  margin-bottom: 30px;
+  border: 1px solid $nhsuk-border-color;
+  background: white;
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+
+  .email-message-meta {
+    margin: 0;
+    font-size: 19px;
+    line-height: 25px;
+
+    th {
+      color: #505a5f;
+      padding-left: 30px;
+    }
+    td:last-child {
+      padding-right: 30px;
+    }
+  }
+  .email-message-body {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 30px 0 30px;
+    margin: 0;
+    clear: both;
+    position: relative;
+    word-wrap: break-word;
+  }
+}
+
+.placeholder {
+    display: inline;
+    background: #fd0;
+    color: #0b0c0c;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    border-radius: 11px;
+    box-shadow: inset 0.47em 0 0 0 #fff, inset -0.47em 0 0 0 #fff, inset 0 -0.05em 0 0 #fff, inset 0 0.26em 0 0 #fff;
+}
+
+// ***********************************
+// re-usable style for floating text to right
+// ***********************************
+
+.nhsbsa-guidance-steps {
+  width: 100%;
+  text-align: left;
+  
+  @include mq ($from: desktop) {
+    width: 40%;
+    float: right;
+    text-align: right;
+  }
+}
+.nhsbsa-guidance-title {
+  width: 100%;
+  
+  @include mq ($from: desktop) {
+    width: 60%;
+    float: left;
+  }
+}
+
+// ************************************
+// big blue box
+// ************************************
+
+.big-blue-box {
+  background: $color_nhsuk-blue;
+  color: $color_nhsuk-white;
+}
+
+// ************************************
+// file upload
+// ************************************
+
+.nhsuk-file-upload {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.31579;
+  color: #0b0c0c;
+  max-width: 100%;
+  margin-left: -5px;
+  padding: 5px;
+}
+.nhsuk-file-upload:focus {
+  outline: 3px solid #ffdd00;
+  box-shadow: inset 0 0 0 4px #0b0c0c;
+}
