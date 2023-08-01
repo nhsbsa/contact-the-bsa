@@ -24,24 +24,11 @@ Find your address - Upload a document to the NHS Business Services Authority - N
         
         {% call fieldset({
           legend: {
-            "text": "What is your address?",
+            "text": "Find your address",
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
         }) %}
-        
-          {{ input({
-            label: {
-              "text": 'Building number or name (optional)'
-            },
-            "hint": {
-            "text": "For example, Flat 20A"
-            },
-            "id": "housenumber",
-            "name": "housenumber",
-            "autocomplete": "address-line1",
-            "classes": "nhsuk-input--width-20"
-          }) }}
         
           {{ input({
             label: {

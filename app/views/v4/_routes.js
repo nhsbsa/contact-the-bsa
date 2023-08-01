@@ -87,38 +87,25 @@ router.post('/v4/solicited/date-of-birth', function (req, res) {
 
 router.get('/v4/solicited/find-address', function (req, res) {
 
-var houseNumberName = req.session.data['housenumber']
 var postcodeLookup = req.session.data['postcode']
 
 const regex = RegExp('^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$');
 
-if (regex.test(postcodeLookup) === true) {
+if (postcodeLookup) {
 
-    if (houseNumberName) {
+    if (regex.test(postcodeLookup) === true) {
 
-    axios.get("https://api.ordnancesurvey.co.uk/places/v1/addresses/postcode?postcode=" + postcodeLookup + "&uprn=" + houseNumberName + "&key="+ process.env.POSTCODEAPIKEY)
-    .then(response => {
-        console.log(response.data.addresses);
-        var items = response.data.addresses;
-        res.render('/v4/solicited/select-address', {items: items});
-    })
-    .catch(error => {
-        console.log(error);
-        res.redirect('/v4/solicited/no-address-found')
-    });
-
-    } else {
-
-    axios.get("https://api.ordnancesurvey.co.uk/places/v1/addresses/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
-    .then(response => {
-        console.log(response.data.addresses);
-        var items = response.data.addresses;
-        res.render('/v4/solicited/select-address', {items: items});
-    })
-    .catch(error => {
-        console.log(error);
-        res.redirect('/v4/solicited/no-address-found')
-    });
+        axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
+        .then(response => {
+            var addresses = response.data.results.map(result => result.DPA.ADDRESS);
+            req.session.data['addresses'] = addresses;
+            console.log(addresses);
+            res.redirect('/v4/solicited/select-address')
+        })
+        .catch(error => {
+            console.log(error);
+            res.redirect('/v4/solicited/no-address-found')
+        });
 
     }
 
