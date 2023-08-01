@@ -99,7 +99,6 @@ if (postcodeLookup) {
         .then(response => {
             var addresses = response.data.results.map(result => result.DPA.ADDRESS);
             req.session.data['addresses'] = addresses;
-            console.log(addresses);
             res.redirect('/v4/solicited/select-address')
         })
         .catch(error => {
@@ -130,10 +129,34 @@ if (addressLine1 && townOrCity && postcodeManual) {
 
 })
 
+router.post('/v4/solicited/select-address', function (req, res) {
+
+    var address = req.session.data['address'];
+
+    if (address) {
+        res.redirect('/v4/solicited/upload-document');
+    } else {
+        res.redirect('/v4/solicited/select-address');
+    }
+
+})
+
 router.post('/v4/solicited/upload-document', function (req, res) {
 
-res.redirect('/v4/solicited/upload-document');
+res.redirect('/v4/solicited/documents-added');
 
+})
+
+router.post('/v4/solicited/documents-added', function (req, res) {
+
+    res.redirect('/v4/solicited/check-your-answers');
+    
+})
+
+router.post('/v4/solicited/check-your-answers', function (req, res) {
+
+    res.redirect('/v4/solicited/confirmation-successful');
+    
 })
 
 module.exports = router;

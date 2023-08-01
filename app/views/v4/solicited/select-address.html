@@ -22,6 +22,8 @@ Select your address - Upload a document to the NHS Business Services Authority -
 
       <p>{{ data['addresses'] | length }} {% if (data['addresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcode'] }}. <a href="find-address">Search again</a></p>
 
+      <form action="v4/solicited/select-address" method="post" novalidate>
+
       <fieldset class="nhsuk-fieldset">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
           <h1 class="nhsuk-fieldset__heading">
@@ -50,6 +52,8 @@ Select your address - Upload a document to the NHS Business Services Authority -
       {{ button({
         "text": "Use this address"
       }) }}
+
+      </form>
 
       <div class="nhsuk-form-group">
         <p><a href="address">Enter your address manually</a></p>
