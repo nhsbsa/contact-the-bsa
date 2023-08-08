@@ -1,0 +1,66 @@
+{% extends 'layout-contact.html' %}
+{% block pageTitle %}
+Contact the NHS Business Services Authority - NHSBSA
+{% endblock %}
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="v4/unsolicited/nhs-pensions" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "nhs-pensions",
+        "name": "nhs-pensions",
+        "fieldset": {
+          "legend": {
+            "text": "What type of NHS Pension help do you need?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Employer",
+            "text": "Employer",
+            "hint": {
+              "text": "Help as an employer of the NHS Pension Scheme"
+            }
+          },
+          {
+            "value": "Member",
+            "text": "Member",
+            "hint": {
+              "text": "Help as a member of the NHS Pension Scheme"
+            }
+          },
+          {
+            "value": "Payroll",
+            "text": "Payroll",
+            "hint": {
+              "text": "Help as finance staff of the NHS Pension Scheme"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

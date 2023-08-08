@@ -1,0 +1,41 @@
+{% extends 'layout-contact.html' %}
+
+{% block pageTitle %}
+Contact the NHS Business Services Authority - NHSBSA
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1>
+        Contact the NHS Business Services Authority
+        </h1>
+
+        <p>You can use this service if you need help:</p>
+
+        <ul>
+          <li>with the <a href="https://www.nhsbsa.nhs.uk/" target="_blank">services we provide<span class='nhsuk-u-visually-hidden'> (opens in a new tab)</span></a></li>
+          <li>updating your personal details like name, date of birth and address</li>
+          <li>uploading documents like proof of identity or exemption</li>
+        </ul>
+
+        {{ warningCallout({
+          "classes": "nhsuk-u-margin-top-9",
+          "heading": "Important",
+          "HTML": "<p>This service does not provide medical help.</p><p>If you need help now, but it’s not an emergency, go to <a href='https://111.nhs.uk/'' target='_blank'>111.nhs.uk<span class='nhsuk-u-visually-hidden'> (opens in a new tab)</span></a> or call 111.</p>"
+        }) }}
+
+        <form action="v4/unsolicited/start-page" method="post" novalidate>
+
+        {{ button({
+        "text": "Start now",
+        "classes": "nhsuk-u-margin-top-3"
+        }) }}
+
+        </form>
+
+    </div>
+
+  </div>
+{% endblock %}
