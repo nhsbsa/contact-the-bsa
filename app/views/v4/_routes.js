@@ -488,11 +488,15 @@ router.post('/v4/unsolicited/general/how-can-we-help', function (req, res) {
     var howCanWeHelp = req.session.data['how-can-we-help'];
 
     if (howCanWeHelp) {
-        res.redirect('/v4/unsolicited/general/confirmation-successful');
+        res.redirect('/v4/unsolicited/general/check-your-answers');
     } else {
         res.redirect('/v4/unsolicited/general/how-can-we-help');
     }
     
+})
+
+router.post('/v4/unsolicited/general/check-your-answers', function (req, res) {
+    res.redirect('/v4/unsolicited/general/confirmation-successful');
 })
 
 // ******
@@ -715,6 +719,10 @@ router.post('/v4/unsolicited/change/name/new-name', function (req, res) {
 })
 
 router.post('/v4/unsolicited/change/name/confirm', function (req, res) {
+    res.redirect('/v4/unsolicited/change/name/check-your-answers');
+})
+
+router.post('/v4/unsolicited/change/name/confirm/check-your-answers', function (req, res) {
     res.redirect('/v4/unsolicited/change/name/confirmation-successful');
 })
 
@@ -868,6 +876,10 @@ router.post('/v4/unsolicited/change/date-of-birth/new-date-of-birth', function (
 
 
 router.post('/v4/unsolicited/change/date-of-birth/confirm', function (req, res) {
+    res.redirect('/v4/unsolicited/change/date-of-birth/check-your-answers');
+})
+
+router.post('/v4/unsolicited/change/date-of-birth/check-your-answers', function (req, res) {
     res.redirect('/v4/unsolicited/change/date-of-birth/confirmation-successful');
 })
 
@@ -1067,6 +1079,10 @@ router.get('/v4/unsolicited/change/address/find-new-address', function (req, res
     })
 
 router.post('/v4/unsolicited/change/address/confirm', function (req, res) {
+    res.redirect('/v4/unsolicited/change/address/check-your-answers');
+})
+
+router.post('/v4/unsolicited/change/address/check-your-answers', function (req, res) {
     res.redirect('/v4/unsolicited/change/address/confirmation-successful');
 })
 
@@ -1224,6 +1240,12 @@ res.redirect('/v4/unsolicited/upload/documents-added');
 })
 
 router.post('/v4/unsolicited/upload/documents-added', function (req, res) {
+
+    res.redirect('/v4/unsolicited/upload/check-your-answers');
+    
+})
+
+router.post('/v4/unsolicited/upload/check-your-answers', function (req, res) {
 
     res.redirect('/v4/unsolicited/upload/confirmation-successful');
     
