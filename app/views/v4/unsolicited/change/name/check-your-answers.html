@@ -143,6 +143,28 @@ Contact the NHS Business Services Authority - NHSBSA
           </div>
 
           {% endif %}
+
+          {% if (data['type-of-change']) %}
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Type of change
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['type-of-change']}}
+            </dd>
+        
+            <dd class="nhsuk-summary-list__actions">
+        
+              <a href="#">
+                Change<span class="nhsuk-u-visually-hidden"> type of change</span>
+              </a>
+        
+            </dd>
+        
+          </div>
+
+          {% endif %}
                 
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">

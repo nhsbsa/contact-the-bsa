@@ -713,13 +713,22 @@ router.post('/v4/unsolicited/change/name/new-name', function (req, res) {
         res.redirect('/v4/unsolicited/change/name/confirm');
     } else {
         res.redirect('/v4/unsolicited/change/name/new-name');
-
     }
 
 })
 
 router.post('/v4/unsolicited/change/name/confirm', function (req, res) {
-    res.redirect('/v4/unsolicited/change/name/check-your-answers');
+
+    var confirmName = req.session.data['confirm-name'];
+
+    if (confirmName == "Yes") {
+        res.redirect('/v4/unsolicited/change/name/check-your-answers');
+    } else if (confirmName == "No") {
+        res.redirect('/v4/unsolicited/query-type');
+    } else {
+        res.redirect('/v4/unsolicited/change/name/confirm');
+    }
+    
 })
 
 router.post('/v4/unsolicited/change/name/check-your-answers', function (req, res) {
@@ -874,9 +883,18 @@ router.post('/v4/unsolicited/change/date-of-birth/new-date-of-birth', function (
   
   })
 
-
 router.post('/v4/unsolicited/change/date-of-birth/confirm', function (req, res) {
-    res.redirect('/v4/unsolicited/change/date-of-birth/check-your-answers');
+
+    var confirmDateOfBirth = req.session.data['confirm-date-of-birth'];
+
+    if (confirmDateOfBirth == "Yes") {
+        res.redirect('/v4/unsolicited/change/date-of-birth/check-your-answers');
+    } else if (confirmDateOfBirth == "No") {
+        res.redirect('/v4/unsolicited/query-type');
+    } else {
+        res.redirect('/v4/unsolicited/change/date-of-birth/confirm');
+    }
+    
 })
 
 router.post('/v4/unsolicited/change/date-of-birth/check-your-answers', function (req, res) {
@@ -1079,7 +1097,17 @@ router.get('/v4/unsolicited/change/address/find-new-address', function (req, res
     })
 
 router.post('/v4/unsolicited/change/address/confirm', function (req, res) {
-    res.redirect('/v4/unsolicited/change/address/check-your-answers');
+
+    var confirmAddress = req.session.data['confirm-address'];
+
+    if (confirmAddress == "Yes") {
+        res.redirect('/v4/unsolicited/change/address/check-your-answers');
+    } else if (confirmAddress == "No") {
+        res.redirect('/v4/unsolicited/query-type');
+    } else {
+        res.redirect('/v4/unsolicited/change/address/confirm');
+    }
+    
 })
 
 router.post('/v4/unsolicited/change/address/check-your-answers', function (req, res) {
