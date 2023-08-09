@@ -280,7 +280,7 @@ router.post('/v4/unsolicited/query-type', function (req, res) {
         } else if (queryType == "Change of name, date of birth or address") {
             res.redirect('/v4/unsolicited/change/type-of-change');
         } else if (queryType == "Upload a document or evidence") {
-            res.redirect('/v4/unsolicited/upload/reference-number');
+            res.redirect('/v4/unsolicited/upload/reference-number-question');
         } else if (queryType == "None of the above") {
 
             if (whichService == "Apply for a job in the NHS (NHS Jobs)") {
@@ -970,6 +970,21 @@ router.post('/v4/unsolicited/change/address/confirm', function (req, res) {
 })
 
 // UPLOAD
+
+router.post('/v4/unsolicited/upload/reference-number-question', function (req, res) {
+
+    var referenceNumberQuestion = req.session.data['reference-number-question'];
+
+    if (referenceNumberQuestion == "Yes") {
+        res.redirect('/v4/unsolicited/upload/reference-number');
+    } else if (referenceNumberQuestion == "No") {
+        res.redirect('/v4/unsolicited/upload/name');
+    } else {
+        res.redirect('/v4/unsolicited/upload/reference-number-question');
+
+    }
+
+})
 
 router.post('/v4/unsolicited/upload/reference-number', function (req, res) {
 
