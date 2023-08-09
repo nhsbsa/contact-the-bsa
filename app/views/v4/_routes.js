@@ -722,7 +722,7 @@ router.post('/v4/unsolicited/change/name/confirm', function (req, res) {
     res.redirect('/v4/unsolicited/change/name/check-your-answers');
 })
 
-router.post('/v4/unsolicited/change/name/confirm/check-your-answers', function (req, res) {
+router.post('/v4/unsolicited/change/name/check-your-answers', function (req, res) {
     res.redirect('/v4/unsolicited/change/name/confirmation-successful');
 })
 
