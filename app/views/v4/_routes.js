@@ -102,7 +102,23 @@ if (postcodeLookup) {
         axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
         .then(response => {
             var addresses = response.data.results.map(result => result.DPA.ADDRESS);
-            req.session.data['addresses'] = addresses;
+
+            const titleCaseAddresses = addresses.map(address => {
+                const parts = address.split(', ');
+                const formattedParts = parts.map((part, index) => {
+                  if (index === parts.length - 1) {
+                    // Preserve postcode (DL14 0DX) in uppercase
+                    return part.toUpperCase();
+                  }
+                  return part
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(' ');
+                });
+                return formattedParts.join(', ');
+              });
+
+            req.session.data['addresses'] = titleCaseAddresses;
             res.redirect('/v4/solicited/select-address')
         })
         .catch(error => {
@@ -407,7 +423,24 @@ if (postcodeLookup) {
         axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
         .then(response => {
             var addresses = response.data.results.map(result => result.DPA.ADDRESS);
-            req.session.data['addresses'] = addresses;
+            
+            const titleCaseAddresses = addresses.map(address => {
+                const parts = address.split(', ');
+                const formattedParts = parts.map((part, index) => {
+                  if (index === parts.length - 1) {
+                    // Preserve postcode (DL14 0DX) in uppercase
+                    return part.toUpperCase();
+                  }
+                  return part
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(' ');
+                });
+                return formattedParts.join(', ');
+              });
+
+            req.session.data['addresses'] = titleCaseAddresses;
+            
             res.redirect('/v4/unsolicited/general/select-address')
         })
         .catch(error => {
@@ -607,7 +640,24 @@ if (postcodeLookup) {
         axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
         .then(response => {
             var addresses = response.data.results.map(result => result.DPA.ADDRESS);
-            req.session.data['addresses'] = addresses;
+
+            const titleCaseAddresses = addresses.map(address => {
+                const parts = address.split(', ');
+                const formattedParts = parts.map((part, index) => {
+                  if (index === parts.length - 1) {
+                    // Preserve postcode (DL14 0DX) in uppercase
+                    return part.toUpperCase();
+                  }
+                  return part
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(' ');
+                });
+                return formattedParts.join(', ');
+              });
+
+            req.session.data['addresses'] = titleCaseAddresses;
+            
             res.redirect('/v4/unsolicited/change/name/select-address')
         })
         .catch(error => {
@@ -727,7 +777,24 @@ if (postcodeLookup) {
         axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
         .then(response => {
             var addresses = response.data.results.map(result => result.DPA.ADDRESS);
-            req.session.data['addresses'] = addresses;
+
+            const titleCaseAddresses = addresses.map(address => {
+                const parts = address.split(', ');
+                const formattedParts = parts.map((part, index) => {
+                  if (index === parts.length - 1) {
+                    // Preserve postcode (DL14 0DX) in uppercase
+                    return part.toUpperCase();
+                  }
+                  return part
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(' ');
+                });
+                return formattedParts.join(', ');
+              });
+
+            req.session.data['addresses'] = titleCaseAddresses;
+
             res.redirect('/v4/unsolicited/change/date-of-birth/select-address')
         })
         .catch(error => {
@@ -864,7 +931,24 @@ if (postcodeLookupPrevious) {
         axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookupPrevious + "&key="+ process.env.POSTCODEAPIKEY)
         .then(response => {
             var previousAddresses = response.data.results.map(result => result.DPA.ADDRESS);
-            req.session.data['previousAddresses'] = previousAddresses;
+
+            const previoustitleCaseAddresses = previousAddresses.map(previousAddresses => {
+                const previousparts = previousAddresses.split(', ');
+                const previousformattedParts = previousparts.map((part, index) => {
+                  if (index === previousparts.length - 1) {
+                    // Preserve postcode (DL14 0DX) in uppercase
+                    return part.toUpperCase();
+                  }
+                  return part
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(' ');
+                });
+                return previousformattedParts.join(', ');
+              });
+
+            req.session.data['previousAddresses'] = previoustitleCaseAddresses;
+
             res.redirect('/v4/unsolicited/change/address/select-previous-address')
         })
         .catch(error => {
@@ -922,7 +1006,24 @@ router.get('/v4/unsolicited/change/address/find-new-address', function (req, res
             axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookupNew + "&key="+ process.env.POSTCODEAPIKEY)
             .then(response => {
                 var newAddresses = response.data.results.map(result => result.DPA.ADDRESS);
-                req.session.data['newAddresses'] = newAddresses;
+
+                const newtitleCaseAddresses = newAddresses.map(newAddresses => {
+                    const newparts = newAddresses.split(', ');
+                    const newformattedParts = newparts.map((part, index) => {
+                      if (index === newparts.length - 1) {
+                        // Preserve postcode (DL14 0DX) in uppercase
+                        return part.toUpperCase();
+                      }
+                      return part
+                        .split(' ')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                        .join(' ');
+                    });
+                    return newformattedParts.join(', ');
+                  });
+    
+                req.session.data['newAddresses'] = newtitleCaseAddresses;
+
                 res.redirect('/v4/unsolicited/change/address/select-new-address')
             })
             .catch(error => {
@@ -1056,7 +1157,24 @@ if (postcodeLookup) {
         axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
         .then(response => {
             var addresses = response.data.results.map(result => result.DPA.ADDRESS);
-            req.session.data['addresses'] = addresses;
+
+            const titleCaseAddresses = addresses.map(address => {
+                const parts = address.split(', ');
+                const formattedParts = parts.map((part, index) => {
+                  if (index === parts.length - 1) {
+                    // Preserve postcode (DL14 0DX) in uppercase
+                    return part.toUpperCase();
+                  }
+                  return part
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(' ');
+                });
+                return formattedParts.join(', ');
+              });
+
+            req.session.data['addresses'] = titleCaseAddresses;
+
             res.redirect('/v4/unsolicited/upload/select-address')
         })
         .catch(error => {
