@@ -91,46 +91,57 @@ router.post('/v4/solicited/date-of-birth', function (req, res) {
 
 router.get('/v4/solicited/find-address', function (req, res) {
 
-var postcodeLookup = req.session.data['postcode']
+    // Get the 'postcode' data from the submitted form
+    var postcodeLookup = req.session.data['postcode']
 
-const regex = RegExp('^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$');
+    // Define a 'regular expression' to validate the postcode format
+    const regex = RegExp('^([A-PR-UWYZ](([0-9](([0-9]|[A-HJKSTUW])?)?)|([A-HK-Y][0-9]([0-9]|[ABEHMNPRVWXY])?)) ?[0-9][ABD-HJLNP-UW-Z]{2})$');
 
-if (postcodeLookup) {
+    // Check if 'postcodeLookup' has a value
+    if (postcodeLookup) {
 
-    if (regex.test(postcodeLookup) === true) {
+        // Check if the 'postcodeLookup' matches the specified 'regular expression'
+        if (regex.test(postcodeLookup) === true) {
 
-        axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
-        .then(response => {
-            var addresses = response.data.results.map(result => result.DPA.ADDRESS);
+            // Make an HTTP GET request to an external API (OS UK) to retrieve address data based on the postcode
+            axios.get("https://api.os.uk/search/places/v1/postcode?postcode=" + postcodeLookup + "&key="+ process.env.POSTCODEAPIKEY)
+            .then(response => {
+                // Extract and map the addresses from the API response
+                var addresses = response.data.results.map(result => result.DPA.ADDRESS);
 
-            const titleCaseAddresses = addresses.map(address => {
-                const parts = address.split(', ');
-                const formattedParts = parts.map((part, index) => {
-                  if (index === parts.length - 1) {
-                    // Preserve postcode (DL14 0DX) in uppercase
-                    return part.toUpperCase();
-                  }
-                  return part
-                    .split(' ')
-                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-                    .join(' ');
+                // Format the addresses in title case
+                const titleCaseAddresses = addresses.map(address => {
+                    const parts = address.split(', ');
+                    const formattedParts = parts.map((part, index) => {
+                        if (index === parts.length - 1) {
+                            // Preserve postcode (SW1A 2AA) in uppercase
+                            return part.toUpperCase();
+                        }
+                        return part
+                            .split(' ')
+                            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                            .join(' ');
+                    });
+                    return formattedParts.join(', ');
                 });
-                return formattedParts.join(', ');
-              });
 
-            req.session.data['addresses'] = titleCaseAddresses;
-            res.redirect('/v4/solicited/select-address')
-        })
-        .catch(error => {
-            console.log(error);
-            res.redirect('/v4/solicited/no-address-found')
-        });
+                // Store the formatted addresses in the session data
+                req.session.data['addresses'] = titleCaseAddresses;
 
+                // Redirect to the 'Select Address' page
+                res.redirect('/v4/solicited/select-address')
+            })
+            .catch(error => {
+                // Redirect in case of an error
+                res.redirect('/v4/solicited/no-address-found')
+            });
+
+        }
+
+    } else {
+        // Redirect if 'postcodeLookup' is empty
+        res.redirect('/v4/solicited/find-address')
     }
-
-} else {
-    res.redirect('/v4/solicited/find-address')
-}
 
 })
 
