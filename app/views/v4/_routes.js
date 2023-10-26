@@ -95,7 +95,7 @@ router.get('/v4/solicited/find-address', function (req, res) {
     var postcodeLookup = req.session.data['postcode']
 
     // Define a 'regular expression' to validate the postcode format
-    const regex = RegExp('^([A-PR-UWYZ](([0-9](([0-9]|[A-HJKSTUW])?)?)|([A-HK-Y][0-9]([0-9]|[ABEHMNPRVWXY])?)) ?[0-9][ABD-HJLNP-UW-Z]{2})$');
+    const regex = RegExp('^([A-PR-UWYZ](([0-9](([0-9]|[A-HJKSTUW])?)?)|([A-HK-Y][0-9]([0-9]|[ABEHMNPRVWXY])?)) ?[0-9][ABD-HJLNP-UW-Z]{2})$', 'i');
 
     // Check if 'postcodeLookup' has a value
     if (postcodeLookup) {
@@ -136,6 +136,9 @@ router.get('/v4/solicited/find-address', function (req, res) {
                 res.redirect('/v4/solicited/no-address-found')
             });
 
+        } else {
+            // Redirect if 'postcodeLookup' doesn't match the specified 'regular expression'
+            res.redirect('/v4/solicited/find-address')
         }
 
     } else {
