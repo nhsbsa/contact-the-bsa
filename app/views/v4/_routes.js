@@ -267,11 +267,11 @@ router.post('/v4/unsolicited/nhs-student-services', function (req, res) {
 
     var nhsStudentServices = req.session.data['nhs-student-services'];
 
-    if (nhsStudentServices == "NHS Student Bursary") {
+    if (nhsStudentServices == "NHS Bursary") {
         res.redirect('/v4/unsolicited/query-type');
     } else if (nhsStudentServices == "Social Work Bursary") {
         res.redirect('/v4/unsolicited/query-type');
-    } else if (nhsStudentServices == "Learning Support Fund") {
+    } else if (nhsStudentServices == "NHS Learning Support Fund") {
         res.redirect('/v4/unsolicited/query-type');
     } else {
         res.redirect('/v4/unsolicited/nhs-student-services');
@@ -283,11 +283,11 @@ router.post('/v4/unsolicited/nhs-pensions', function (req, res) {
 
     var nhsPensions = req.session.data['nhs-pensions'];
 
-    if (nhsPensions == "Employer") {
+    if (nhsPensions == "Employer query") {
         res.redirect('/v4/unsolicited/query-type');
-    } else if (nhsPensions == "Member") {
+    } else if (nhsPensions == "Member query") {
         res.redirect('/v4/unsolicited/query-type');
-    } else if (nhsPensions == "Payroll") {
+    } else if (nhsPensions == "Payroll query") {
         res.redirect('/v4/unsolicited/query-type');
     } else {
         res.redirect('/v4/unsolicited/nhs-pensions');
@@ -345,11 +345,11 @@ router.post('/v4/unsolicited/query-type', function (req, res) {
 
             } else if (whichService == "NHS Student Services") {
 
-                if (nhsStudentServices == "NHS Student Bursary") {
+                if (nhsStudentServices == "NHS Bursary") {
                     res.redirect('/v4/unsolicited/errors/sb/contact-us');
                 } else if (nhsStudentServices == "Social Work Bursary") {
                     res.redirect('/v4/unsolicited/errors/swb/contact-us');
-                } else if (nhsStudentServices == "Learning Support Fund") {
+                } else if (nhsStudentServices == "NHS Learning Support Fund") {
                     res.redirect('/v4/unsolicited/errors/lsf/contact-us');
                 } else {
                     res.redirect('/v4/unsolicited/errors/general');
@@ -567,11 +567,11 @@ router.post('/v4/unsolicited/change/type-of-change', function (req, res) {
 
             } else if (whichService == "NHS Student Services") {
 
-                if (nhsStudentServices == "NHS Student Bursary") {
+                if (nhsStudentServices == "NHS Bursary") {
                     res.redirect('/v4/unsolicited/errors/sb/contact-us');
                 } else if (nhsStudentServices == "Social Work Bursary") {
                     res.redirect('/v4/unsolicited/errors/swb/contact-us');
-                } else if (nhsStudentServices == "Learning Support Fund") {
+                } else if (nhsStudentServices == "NHS Learning Support Fund") {
                     res.redirect('/v4/unsolicited/errors/lsf/contact-us');
                 } else {
                     res.redirect('/v4/unsolicited/errors/general');
