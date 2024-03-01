@@ -434,7 +434,7 @@ Contact the NHSBSA
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-two-thirds">
             <span class="nhsuk-details__summary-text">
-              CCS (MVP)
+              CCS (MVP v0.4)
             </span>
           </div>
           <div class="nhsuk-grid-column-one-third nhsuk-u-text-align-right">
@@ -471,6 +471,42 @@ Contact the NHSBSA
         {{ button({
           "text": "View Unsolicited Entry",
           "href": "/v4/unsolicited/start-page"
+        }) }}
+        {{ actionLink({
+          "classes": "nhsuk-u-margin-bottom-3",
+          "text": "View user journey (MVP)",
+          "href": "https://miro.com/app/board/uXjVM9aEXeo=/?share_link_id=47478634841"
+        }) }}
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-two-thirds">
+            <span class="nhsuk-details__summary-text">
+              CCS (MVP v0.5) - Simplified
+            </span>
+          </div>
+          <div class="nhsuk-grid-column-one-third nhsuk-u-text-align-right">
+            <strong class="nhsuk-tag nhsuk-tag--yellow">USER RESEARCH</strong>
+          </div>
+        </div>
+      </summary>
+      <div class="nhsuk-details__text">
+        <h3 class="nhsuk-heading-s">User research</h3>
+        <p class="nhsuk-u-font-weight-bold">Awaiting user need and user research recommendation</p>
+        <h3 class="nhsuk-heading-s">Changes from previous iteration</h3>
+        <ul>
+          <li>It has been decided that both solicited and unsolicited entry points should be the same. Both types of user will use the same link to the start page.</li>
+          <li>This iteration is a stripped back version of previous drafts with its main focus being on document upload.</li>
+          <li>After selecting which service they wish to contact us about, users are then directed straight to the point of 'Do you have a reference number?' in order to complete the document upload process. </li>
+        </ul>
+        
+        <hr>
+        {{ button({
+          "text": "View Prototype",
+          "href": "/v5/start-page"
         }) }}
         {{ actionLink({
           "classes": "nhsuk-u-margin-bottom-3",
