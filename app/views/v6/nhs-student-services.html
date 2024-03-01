@@ -1,0 +1,66 @@
+{% extends 'layout-contact.html' %}
+{% block pageTitle %}
+Contact the NHS Business Services Authority - NHSBSA
+{% endblock %}
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="v6/nhs-student-services" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "nhs-student-services",
+        "name": "nhs-student-services",
+        "fieldset": {
+          "legend": {
+            "text": "What type of funding does your query relate to?",
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "NHS Learning Support Fund",
+            "text": "NHS Learning Support Fund",
+            "hint": {
+              "text": "Funding support for nursing, midwifery and Allied Health Professional students"
+            }
+          },
+          {
+            "value": "NHS Bursary",
+            "text": "NHS Bursary",
+            "hint": {
+              "text": "Funding for students studying to become a doctor or dentist"
+            }
+          },
+          {
+            "value": "Social Work Bursary",
+            "text": "Social Work Bursary",
+            "hint": {
+              "text": "Funding available for social work students"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}
