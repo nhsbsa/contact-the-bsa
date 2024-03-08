@@ -216,3 +216,28 @@ EMAIL
   outline: 3px solid #ffdd00;
   box-shadow: inset 0 0 0 4px #0b0c0c;
 }
+
+/* Styles for the button */
+.captureButton,
+.orCapture {
+  display: none; /* Hide the button by default */
+}
+
+/* Media query for mobile devices (up to 767px wide) */
+@media only screen and (max-width: 767px) {
+  .captureButton { /* Show the button only on mobile devices */
+      display: block;
+      font-family: "GDS Transport", arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+      font-size: 1.1875rem;
+      line-height: 1.31579;
+      color: #0b0c0c;
+      max-width: 100%;
+  }
+  .orCapture {
+      display: block; /* Show OR only on mobile devices */
+      margin-bottom:5px;
+  }
+}
