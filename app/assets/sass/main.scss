@@ -205,12 +205,19 @@ EMAIL
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 19px;
-  font-size: 1.1875rem;
-  line-height: 1.31579;
+  font-size: 1rem;
+  line-height: 1;
   color: #0b0c0c;
   max-width: 100%;
   margin-left: -5px;
   padding: 5px;
+  &::file-selector-button{    
+    background-color: #ffffff;
+    border:2px solid #0b0c0c;
+    border-radius: 30px;
+    padding: 8px 16px;
+    color: #0b0c0c;
+  }
 }
 .nhsuk-file-upload:focus {
   outline: 3px solid #ffdd00;
@@ -218,25 +225,37 @@ EMAIL
 }
 
 /* Styles for the button */
-.captureButton,
-.orCapture {
+.capture-button,
+.or-capture {
   display: none; /* Hide the button by default */
 }
 
 /* Media query for mobile devices (up to 767px wide) */
 @media only screen and (max-width: 767px) {
-  .captureButton { /* Show the button only on mobile devices */
+  .capture-button{
+    display: none;
+  }
+  .capture-button-overlay { /* Show the button only on mobile devices */
       display: block;
       font-family: "GDS Transport", arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-weight: 400;
-      font-size: 1.1875rem;
-      line-height: 1.31579;
+      font-size: 1rem;
+      line-height: 1;
       color: #0b0c0c;
       max-width: 100%;
+      background-color: #ffffff;
+      border:2px solid #0b0c0c;
+      border-radius: 30px;
+      padding: 8px 16px;
+      &:focus{
+        background-color:#ffffff;
+        outline: 3px solid #ffdd00;
+        box-shadow: inset 0 0 0 3px #0b0c0c;
+      }
   }
-  .orCapture {
+  .or-capture {
       display: block; /* Show OR only on mobile devices */
       margin-bottom:5px;
   }

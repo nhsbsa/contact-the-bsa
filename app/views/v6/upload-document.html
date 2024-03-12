@@ -41,8 +41,9 @@ Upload a document to the NHS Business Services Authority - NHSBSA
             Upload a file
           </label>
           <input class="nhsuk-file-upload" id="file-upload" name="file-upload" type="file">
-          <p class="orCapture">OR</p>
-          <input class="captureButton" type="submit" value="Take a photo" capture="camera">
+          <p class="or-capture">OR</p>
+          <button class="capture-button-overlay" onclick="document.getElementById('getFile').click()">Take a Photo</button>
+          <input class="capture-button" type="file" accept="image/*" capture="environment" id="getFile">
         </div>
 
         {{ details({
