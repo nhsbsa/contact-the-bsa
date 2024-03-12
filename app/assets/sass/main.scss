@@ -242,7 +242,8 @@ EMAIL
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-weight: 400;
-      font-size: 0.9rem;
+      font-size: 19px;
+      font-size: 0.9rem !important;
       line-height: 1;
       color: #0b0c0c;
       max-width: 100%;
@@ -261,6 +262,6 @@ EMAIL
       margin-bottom:5px;
   }
   .nhsuk-file-upload {
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
   }
 }
