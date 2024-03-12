@@ -233,16 +233,35 @@ EMAIL
 
 /* Media query for mobile devices (up to 767px wide) */
 @media only screen and (max-width: 767px) {
+  .file-capture{
+    position: relative;
+  }
   .capture-button{
-    display: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 60px;
+    z-index: 0;
+  }
+  .spacer{
+    height: 30px;
+    width: 20px;
+    background-color:#f0f4f5;
+    display: block;
+    left: 123px;
+    position: absolute;
+    top: -5px;
+    z-index: 3;
   }
   .capture-button-overlay { /* Show the button only on mobile devices */
-      display: block;
+      display: inline-block;
+      position: relative;
+      z-index: 5;
       font-family: "GDS Transport", arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-weight: 400;
-      font-size: 0.8rem !important;
+      font-size: 16px !important;
       line-height: 1;
       color: #0b0c0c;
       max-width: 100%;
@@ -261,6 +280,6 @@ EMAIL
       margin-bottom:5px;
   }
   .nhsuk-file-upload {
-    font-size: 0.8rem !important;
+    font-size: 16px !important;
   }
 }
