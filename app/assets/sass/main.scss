@@ -242,7 +242,7 @@ EMAIL
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.9rem;
       line-height: 1;
       color: #0b0c0c;
       max-width: 100%;
@@ -259,5 +259,8 @@ EMAIL
   .or-capture {
       display: block; /* Show OR only on mobile devices */
       margin-bottom:5px;
+  }
+  .nhsuk-file-upload {
+    font-size: 0.9rem;
   }
 }
