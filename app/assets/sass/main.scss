@@ -233,26 +233,8 @@ EMAIL
 
 /* Media query for mobile devices (up to 767px wide) */
 @media only screen and (max-width: 767px) {
-  .file-capture{
-    position: relative;
-  }
   .capture-button{
-    display: block;
-    position: absolute;
-    font-size: 0.7rem !important;
-    top: 2px;
-    left: 16px;
-    z-index: 0;
-  }
-  .spacer{
-    height: 30px;
-    width: 20px;
-    background-color:#f0f4f5;
-    display: block;
-    left: 85px;
-    position: absolute;
-    top: -5px;
-    z-index: 3;
+    display: none;
   }
   .capture-button-overlay { /* Show the button only on mobile devices */
       display: inline-block;
