@@ -1,0 +1,134 @@
+{% extends 'layout-upload-document.html' %}
+
+{% block pageTitle %}
+Cookies on Upload a document to the NHS Business Services Authority - NHSBSA
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1>
+      Cookies on Upload a document to the NHS Business Services Authority
+    </h1>
+
+    <p>
+      Cookies are small files saved on your phone, tablet or computer when you visit a website.
+    </p>
+    <p>
+      They store information about how you use the website. Some of them can be turned on and off.
+    </p>
+    <p>
+      This website (<a href="/">services.nhsbsa.nhs.uk/contact-the-bsa</a>) only stores cookies that are
+      essential to make the site secure and work properly. This means they cannot be turned off.
+    </p>
+    <p>
+      You cannot be identified by the cookies used on Upload a document to the NHS Business Services Authority.
+    </p>
+
+    <h2>
+      Cookies needed for the website to work
+    </h2>
+
+    <table role="table" class="nhsuk-table-responsive nhsuk-u-margin-bottom-7">
+      <caption class="nhsuk-table__caption">Cookies needed for the website to work</caption>
+      <thead role="rowgroup" class="nhsuk-table__head">
+        <tr role="row">
+          <th role="columnheader" class="" scope="col">Name</th>
+          <th role="columnheader" class="" scope="col">Purpose</th>
+          <th role="columnheader" class="" scope="col">Expires</th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Name </span>nhsuk-cookie-consent
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Purpose </span>Tracks your journey through the site
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Expires </span>3 months
+          </td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Name </span>hrss.sid
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Purpose </span>This cookie represents the session ID and
+            stores the data entered throughout a journey.
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Expires </span>30 minutes
+          </td>
+        </tr>
+
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Name </span>lang
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Purpose </span>This cookie is used to set default
+            language.
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Expires </span>30 minutes
+          </td>
+        </tr>
+        <tr role="row" class="nhsuk-table__row">
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Name </span>isBrowserCookieEnabled
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Purpose </span>This cookie can be true or false. If this
+            cookie does not exist the application will show the cookies disabled page, it’s used to check if user
+            has cookies enabled.
+          </td>
+          <td role="cell" class="nhsuk-table__cell">
+            <span class="nhsuk-table-responsive__heading">Expires </span>Session
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>
+      Change your cookie settings
+    </h2>
+
+    <p>
+      Some cookies, like those used to measure how you use our website, are not needed for our website to work.
+    </p>
+    <p>
+      These cookies can help us make our website better, but we'll only use them if you say it's OK.
+    </p>
+
+    <div class="nhsuk-action-link">
+      <a class="nhsuk-action-link__link" href="cookie-declaration">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+          </path>
+        </svg>
+        <span class="nhsuk-action-link__text">Choose which cookies we use</span>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
