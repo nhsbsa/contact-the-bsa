@@ -232,6 +232,12 @@ EMAIL
   display: none; /* Hide the button by default */
 }
 
+/* icons */
+.icon_svg img{
+  max-height:300px;
+  text-align: center;
+}
+
 /* Media query for mobile devices (up to 767px wide) */
 @media only screen and (max-width: 767px) {
   .capture-button{
