@@ -270,6 +270,12 @@ router.post('/v5/documents-added', function (req, res) {
 
 })
 
+router.post('/v5/remove-document', function (req, res) {
+
+    res.redirect('/v5/upload-document');
+
+})
+
 router.post('/v5/check-your-answers', function (req, res) {
 
     res.redirect('/v5/confirmation-successful');
