@@ -264,6 +264,12 @@ router.post('/v6/upload-document', function (req, res) {
 
 })
 
+router.post('/v5/remove-document', function (req, res) {
+
+    res.redirect('/v5/upload-document');
+
+})
+
 router.post('/v6/documents-added', function (req, res) {
 
     res.redirect('/v6/preferred-method-of-contact');
