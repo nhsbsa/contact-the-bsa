@@ -18,14 +18,13 @@ router.use('/v6', require('./views/v6/_routes'));
 
 router.use('/v5', require('./views/v5/_routes'));
 
-router.use('/v4/solicited', require('./views/v4/_routes'));
-router.use('/v4/unsolicited', require('./views/v4/_routes'));
-router.use('/v4/unsolicited/general', require('./views/v4/_routes'));
-router.use('/v4/unsolicited/change', require('./views/v4/_routes'));
-router.use('/v4/unsolicited/change/name', require('./views/v4/_routes'));
-router.use('/v4/unsolicited/change/address', require('./views/v4/_routes'));
-router.use('/v4/unsolicited/change/date-of-birth', require('./views/v4/_routes'));
-router.use('/v4/unsolicited/upload', require('./views/v4/_routes'));
+router.use('/v4', require('./views/v4/_routes'));
+router.use('/v4/general', require('./views/v4/_routes'));
+router.use('/v4/change', require('./views/v4/_routes'));
+router.use('/v4/change/name', require('./views/v4/_routes'));
+router.use('/v4/change/address', require('./views/v4/_routes'));
+router.use('/v4/change/date-of-birth', require('./views/v4/_routes'));
+router.use('/v4/upload', require('./views/v4/_routes'));
 
 router.use('/v3/solicited', require('./views/v3/_routes'));
 router.use('/v3/unsolicited', require('./views/v3/_routes'));
