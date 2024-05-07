@@ -33,11 +33,11 @@ router.post('/v4/which-service', function (req, res) {
 
     if (whichService) {
 
-        if (whichService == "Check if you have an NHS exemption") {
+        if (whichService == "Check if you have an exemption from paying NHS costs") {
             res.redirect('/v4/nhs-exemptions');
-        } else if (whichService == "Get help with NHS costs (including prescription prepayment certificates)") {
+        } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates)") {
             res.redirect('/v4/help-with-nhs-costs');
-        } else if (whichService == "NHS Student Services") {
+        } else if (whichService == "Student Services") {
             res.redirect('/v4/nhs-student-services');
         } else if (whichService == "NHS Pensions") {
             res.redirect('/v4/nhs-pensions');
@@ -70,15 +70,15 @@ router.post('/v4/help-with-nhs-costs', function (req, res) {
 
     var helpWithNHSCosts = req.session.data['help-with-nhs-costs'];
 
-    if (helpWithNHSCosts == "Low income scheme") {
+    if (helpWithNHSCosts == "NHS Low Income Scheme") {
         res.redirect('/v4/query-type');
-    } else if (helpWithNHSCosts == "Maternity exemptions") {
+    } else if (helpWithNHSCosts == "NHS Prescription Prepayment Certificate (PPC)") {
         res.redirect('/v4/query-type');
-    } else if (helpWithNHSCosts == "Medical exemptions") {
+    } else if (helpWithNHSCosts == "Maternity exemption certificate") {
         res.redirect('/v4/query-type');
-    } else if (helpWithNHSCosts == "Prescription prepayment certificate") {
+    } else if (helpWithNHSCosts == "Medical exemption certificate") {
         res.redirect('/v4/query-type');
-    } else if (helpWithNHSCosts == "Tax Credit exemptions") {
+    } else if (helpWithNHSCosts == "NHS Tax Credit Exemption Certificate") {
         res.redirect('/v4/query-type');
     } else {
         res.redirect('/v4/help-with-nhs-costs');
@@ -109,6 +109,8 @@ router.post('/v4/nhs-pensions', function (req, res) {
     if (nhsPensions == "Employer query") {
         res.redirect('/v4/query-type');
     } else if (nhsPensions == "Member query") {
+        res.redirect('/v4/query-type');
+    } else if (nhsPensions == "Pensioner query") {
         res.redirect('/v4/query-type');
     } else if (nhsPensions == "Payroll query") {
         res.redirect('/v4/query-type');

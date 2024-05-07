@@ -1,7 +1,7 @@
 {% extends 'layout-upload-document.html' %}
 
 {% block pageTitle %}
-Are you sure you want to remove the document? - Upload a document to the NHS Business Services Authority - NHSBSA
+Confirm that you want to delete this document - Upload a document to the NHS Business Services Authority - NHSBSA
 {% endblock %}
 
 {% block content %}
@@ -24,8 +24,9 @@ Are you sure you want to remove the document? - Upload a document to the NHS Bus
       <form action="v5/remove-document" method="post" novalidate>
 
         <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
-          Are you sure you want to remove the document?
+          Confirm that you want to delete this document
         </h1>
+        <p>Are you sure that you want to delete this uploaded document?</p>
 
         {{ insetText({
           "HTML": "<p>Fake Form.pdf (PDF, 123KB)</p>"

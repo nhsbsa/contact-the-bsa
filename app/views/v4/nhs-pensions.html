@@ -1,6 +1,6 @@
 {% extends 'layout-contact.html' %}
 {% block pageTitle %}
-Contact the NHS Business Services Authority - NHSBSA
+What is your NHS Pension query about? - Contact the NHS Business Services Authority - NHSBSA
 {% endblock %}
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
@@ -22,7 +22,7 @@ Contact the NHS Business Services Authority - NHSBSA
         "name": "nhs-pensions",
         "fieldset": {
           "legend": {
-            "text": "What type of NHS Pension query do you have?",
+            "text": "What is your NHS Pension query about?",
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
@@ -40,6 +40,13 @@ Contact the NHS Business Services Authority - NHSBSA
             "text": "Employer query",
             "hint": {
               "text": "Queries from an NHS employer"
+            }
+          },
+          {
+            "value": "Pensioner query",
+            "text": "Pensioner query",
+            "hint": {
+              "text": "Queries from NHS pensioners, surviving spouses, partners, or dependants"
             }
           },
           {

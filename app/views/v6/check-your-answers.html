@@ -34,7 +34,7 @@ Contact the NHS Business Services Authority - NHSBSA
 
       {% endif %}
 
-      {% if (data['which-service'] == "Check if you have an NHS exemption") %}
+      {% if (data['which-service'] == "Check if you have an exemption from paying NHS costs") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
@@ -56,11 +56,11 @@ Contact the NHS Business Services Authority - NHSBSA
 
       {% endif %}
 
-      {% if (data['which-service'] == "Get help with NHS costs (including prescription prepayment certificates)") %}
+      {% if (data['which-service'] == "NHS Help with Health Costs (including prescription prepayment certificates)") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Help with NHS costs type
+          NHS Help with Health costs type
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['help-with-nhs-costs']}}
@@ -69,7 +69,7 @@ Contact the NHS Business Services Authority - NHSBSA
         <dd class="nhsuk-summary-list__actions">
 
           <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which type of help with NHS costs you are contacting us
+            Change<span class="nhsuk-u-visually-hidden"> which type of help with NHS Health costs you are contacting us
               about</span>
           </a>
 
@@ -79,11 +79,11 @@ Contact the NHS Business Services Authority - NHSBSA
 
       {% endif %}
 
-      {% if (data['which-service'] == "NHS Student Services") %}
+      {% if (data['which-service'] == "Student Services") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          NHS Student Services type
+          Student Services type
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['nhs-student-services']}}
@@ -92,7 +92,7 @@ Contact the NHS Business Services Authority - NHSBSA
         <dd class="nhsuk-summary-list__actions">
 
           <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which NHS Student Services type you are contacting us
+            Change<span class="nhsuk-u-visually-hidden"> which Student Services type you are contacting us
               about</span>
           </a>
 

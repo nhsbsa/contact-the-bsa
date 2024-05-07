@@ -34,14 +34,14 @@ Check your answers - Upload a document to the NHS Business Services Authority - 
 
       {% endif %}
 
-      {% if (data['which-service'] == "Check if you have an NHS exemption") %}
+      {% if (data['which-service'] == "Check if you have an exemption from paying NHS costs") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           NHS exemption type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['nhs-exemptions']}}
+          {{ data['select-your-query-NHS-exemption']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -56,20 +56,20 @@ Check your answers - Upload a document to the NHS Business Services Authority - 
 
       {% endif %}
 
-      {% if (data['which-service'] == "Get help with NHS costs (including prescription prepayment certificates)") %}
+      {% if (data['which-service'] == "NHS Help with Health Costs (including prescription prepayment certificates)") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Help with NHS costs type
+          NHS Help with Health costs type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['help-with-nhs-costs']}}
+          {{ data['select-your-query-help-with-health-costs']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
 
           <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which type of help with NHS costs you are contacting us
+            Change<span class="nhsuk-u-visually-hidden"> which type of help with NHS Health costs you are contacting us
               about</span>
           </a>
 
@@ -79,14 +79,14 @@ Check your answers - Upload a document to the NHS Business Services Authority - 
 
       {% endif %}
 
-      {% if (data['which-service'] == "NHS Student Services") %}
+      {% if (data['which-service'] == "Student Services") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          NHS Student Services type
+          Student Services type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['nhs-student-services']}}
+          {{ data['select-your-query-student-services']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -109,7 +109,7 @@ Check your answers - Upload a document to the NHS Business Services Authority - 
           NHS Pension type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['nhs-pensions']}}
+          {{ data['select-your-query-nhs-pension']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -146,14 +146,14 @@ Check your answers - Upload a document to the NHS Business Services Authority - 
 
       {% endif %}
 
-      {% if (data['reference-number']) %}
+      {% if (data['enter-reference-number']) %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Reference number
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['reference-number']}}
+          {{ data['enter-reference-number']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -195,8 +195,8 @@ Check your answers - Upload a document to the NHS Business Services Authority - 
           Date of birth
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {% if (data['date-of-birth']) %}
-          {{ data['date-of-birth'] }}
+          {% if (data['enter-date-of-birth']) %}
+          {{ data['enter-date-of-birth'] }}
           {% else %}
           18 May 1985
           {% endif %}

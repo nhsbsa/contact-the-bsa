@@ -1,6 +1,6 @@
 {% extends 'layout-upload-document.html' %}
 {% block pageTitle %}
-What type of NHS Pension query do you have? - Upload a document to the NHS Business Services Authority - NHSBSA
+What is your student services query about? - Upload a document to the NHS Business Services Authority - NHSBSA
 {% endblock %}
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
@@ -15,38 +15,38 @@ What type of NHS Pension query do you have? - Upload a document to the NHS Busin
 
     <div class="nhsuk-form-group">
       
-      <form action="v5/nhs-pensions" method="post" novalidate>
+      <form action="v5/select-your-query-student-services" method="post" novalidate>
 
       {{ radios({
-        "idPrefix": "nhs-pensions",
-        "name": "nhs-pensions",
+        "idPrefix": "select-your-query-student-services",
+        "name": "select-your-query-student-services",
         "fieldset": {
           "legend": {
-            "text": "What type of NHS Pension query do you have?",
+            "text": "What is your student services query about?",
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
         },
         "items": [
           {
-            "value": "Member query",
-            "text": "Member query",
+            "value": "NHS Learning Support Fund",
+            "text": "NHS Learning Support Fund",
             "hint": {
-              "text": "Queries from active or deferred members of the NHS Pension"
+              "text": "Funding for nursing, midwifery and Allied Health Professional students"
             }
           },
           {
-            "value": "Employer query",
-            "text": "Employer query",
+            "value": "NHS Bursary",
+            "text": "NHS Bursary",
             "hint": {
-              "text": "Queries from an NHS employer"
+              "text": "Funding for students studying to become a doctor or dentist"
             }
           },
           {
-            "value": "Payroll query",
-            "text": "Payroll query",
+            "value": "Social Work Bursary",
+            "text": "Social Work Bursary",
             "hint": {
-              "text": "Queries from finance staff"
+              "text": "Funding for social work students"
             }
           }
         ]
