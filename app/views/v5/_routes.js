@@ -14,7 +14,7 @@ const axios = require('axios');
 
 // Start Page
 
-router.post('/v5/start-page', function (req, res) {
+router.post('/v5/start', function (req, res) {
 
     res.redirect('/v5/which-service');
 
@@ -123,7 +123,7 @@ router.post('/v5/reference-number', function (req, res) {
     if (referenceNumberQuestion == "Yes") {
         res.redirect('/v5/enter-reference-number');
     } else if (referenceNumberQuestion == "No") {
-        res.redirect('/v5/name');
+        res.redirect('/v5/enter-your-name');
     } else {
         res.redirect('/v5/reference-number');
     }
