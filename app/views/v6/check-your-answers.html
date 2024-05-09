@@ -41,7 +41,7 @@ Contact the NHS Business Services Authority - NHSBSA
           NHS exemption type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['nhs-exemptions']}}
+          {{ data['select-your-query-NHS-exemption']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -63,7 +63,7 @@ Contact the NHS Business Services Authority - NHSBSA
           NHS Help with Health costs type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['help-with-nhs-costs']}}
+          {{ data['select-your-query-help-with-health-costs']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -86,7 +86,7 @@ Contact the NHS Business Services Authority - NHSBSA
           Student Services type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['nhs-student-services']}}
+          {{ data['select-your-query-student-services']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -109,7 +109,7 @@ Contact the NHS Business Services Authority - NHSBSA
           NHS Pension type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['nhs-pensions']}}
+          {{ data['select-your-query-nhs-pension']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -124,14 +124,14 @@ Contact the NHS Business Services Authority - NHSBSA
 
       {% endif %}
 
-      {% if (data['reference-number-question']) %}
+      {% if (data['reference-number']) %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Have reference number
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['reference-number-question']}}
+          {{ data['reference-number']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -146,14 +146,14 @@ Contact the NHS Business Services Authority - NHSBSA
 
       {% endif %}
 
-      {% if (data['reference-number']) %}
+      {% if (data['enter-reference-number']) %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Reference number
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['reference-number']}}
+          {{ data['enter-reference-number']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -195,8 +195,8 @@ Contact the NHS Business Services Authority - NHSBSA
           Date of birth
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {% if (data['date-of-birth']) %}
-          {{ data['date-of-birth'] }}
+          {% if (data['enter-date-of-birth']) %}
+          {{ data['enter-date-of-birth'] }}
           {% else %}
           18 May 1985
           {% endif %}
@@ -243,7 +243,8 @@ Contact the NHS Business Services Authority - NHSBSA
           Documents uploaded
         </dt>
         <dd class="nhsuk-summary-list__value">
-          Fake Form.pdf (PDF, 123KB)
+          Fake Form 1.pdf (PDF, 123KB)<br>
+          Fake Form 2.pdf (PDF, 123KB)
         </dd>
 
         <dd class="nhsuk-summary-list__actions">

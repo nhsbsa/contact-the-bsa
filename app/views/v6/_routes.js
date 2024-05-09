@@ -14,7 +14,7 @@ const axios = require('axios');
 
 // Start Page
 
-router.post('/v6/start-page', function (req, res) {
+router.post('/v6/start', function (req, res) {
 
     res.redirect('/v6/which-service');
 
@@ -29,15 +29,15 @@ router.post('/v6/which-service', function (req, res) {
     if (whichService) {
 
         if (whichService == "Check if you have an exemption from paying NHS costs") {
-            res.redirect('/v6/nhs-exemptions');
+            res.redirect('/v6/select-your-query-NHS-exemption');
         } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates)") {
-            res.redirect('/v6/help-with-nhs-costs');
+            res.redirect('/v6/select-your-query-help-with-health-costs');
         } else if (whichService == "Student Services") {
-            res.redirect('/v6/nhs-student-services');
+            res.redirect('/v6/select-your-query-student-services');
         } else if (whichService == "NHS Pensions") {
-            res.redirect('/v6/nhs-pensions');
+            res.redirect('/v6/select-your-query-nhs-pension');
         } else {
-            res.redirect('/v6/reference-number-question');
+            res.redirect('/v6/reference-number');
         }
 
 
@@ -47,85 +47,85 @@ router.post('/v6/which-service', function (req, res) {
 
 })
 
-router.post('/v6/nhs-exemptions', function (req, res) {
+router.post('/v6/select-your-query-NHS-exemption', function (req, res) {
 
-    var nhsExpemptions = req.session.data['nhs-exemptions'];
+    var nhsExpemptions = req.session.data['select-your-query-NHS-exemption'];
 
     if (nhsExpemptions == "Dental exemption") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (nhsExpemptions == "Prescription exemption") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else {
-        res.redirect('/v6/nhs-exemptions');
+        res.redirect('/v6/select-your-query-NHS-exemption');
     }
 })
 
-router.post('/v6/help-with-nhs-costs', function (req, res) {
+router.post('/v6/select-your-query-help-with-health-costs', function (req, res) {
 
-    var helpWithNHSCosts = req.session.data['help-with-nhs-costs'];
+    var helpWithNHSCosts = req.session.data['select-your-query-help-with-health-costs'];
 
     if (helpWithNHSCosts == "NHS Low Income Scheme") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (helpWithNHSCosts == "NHS Prescription Prepayment Certificate (PPC)") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (helpWithNHSCosts == "Maternity exemption certificate") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (helpWithNHSCosts == "Medical exemption certificate") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (helpWithNHSCosts == "NHS Tax Credit Exemption Certificate") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else {
-        res.redirect('/v6/help-with-nhs-costs');
+        res.redirect('/v6/select-your-query-help-with-health-costs');
     }
 
 })
 
-router.post('/v6/nhs-student-services', function (req, res) {
+router.post('/v6/select-your-query-student-services', function (req, res) {
 
-    var nhsStudentServices = req.session.data['nhs-student-services'];
+    var nhsStudentServices = req.session.data['select-your-query-student-services'];
 
     if (nhsStudentServices == "NHS Bursary") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (nhsStudentServices == "Social Work Bursary") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (nhsStudentServices == "NHS Learning Support Fund") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else {
-        res.redirect('/v6/nhs-student-services');
+        res.redirect('/v6/select-your-query-student-services');
     }
 
 })
 
-router.post('/v6/nhs-pensions', function (req, res) {
+router.post('/v6/select-your-query-nhs-pension', function (req, res) {
 
-    var nhsPensions = req.session.data['nhs-pensions'];
+    var nhsPensions = req.session.data['select-your-query-nhs-pension'];
 
     if (nhsPensions == "Employer query") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (nhsPensions == "Member query") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (nhsPensions == "Pensioner query") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else if (nhsPensions == "Payroll query") {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
     } else {
-        res.redirect('/v6/nhs-pensions');
+        res.redirect('/v6/select-your-query-nhs-pension');
     }
 
 })
 
 // Do you have a reference number?
 
-router.post('/v6/reference-number-question', function (req, res) {
+router.post('/v6/reference-number', function (req, res) {
 
-    var referenceNumberQuestion = req.session.data['reference-number-question'];
+    var referenceNumberQuestion = req.session.data['reference-number'];
 
     if (referenceNumberQuestion == "Yes") {
-        res.redirect('/v6/reference-number');
+        res.redirect('/v6/enter-reference-number');
     } else if (referenceNumberQuestion == "No") {
-        res.redirect('/v6/name');
+        res.redirect('/v6/enter-your-name');
     } else {
-        res.redirect('/v6/reference-number-question');
+        res.redirect('/v6/reference-number');
 
     }
 
@@ -133,23 +133,23 @@ router.post('/v6/reference-number-question', function (req, res) {
 
 // What is your reference number?
 
-router.post('/v6/reference-number', function (req, res) {
+router.post('/v6/enter-reference-number', function (req, res) {
 
-    res.redirect('/v6/name');
+    res.redirect('/v6/enter-your-name');
 
 })
 
 // What is your name?
 
-router.post('/v6/name', function (req, res) {
+router.post('/v6/enter-your-name', function (req, res) {
 
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
 
     if (firstName && lastName) {
-        res.redirect('/v6/date-of-birth');
+        res.redirect('/v6/enter-date-of-birth');
     } else {
-        res.redirect('/v6/name');
+        res.redirect('/v6/enter-your-name');
 
     }
 
@@ -157,7 +157,7 @@ router.post('/v6/name', function (req, res) {
 
 // What is your date of birth?
 
-router.post('/v6/date-of-birth', function (req, res) {
+router.post('/v6/enter-date-of-birth', function (req, res) {
 
     var dateOfBirthDay = req.session.data['date-of-birth-day'];
     var dateOfBirthMonth = req.session.data['date-of-birth-month'];
@@ -173,21 +173,21 @@ router.post('/v6/date-of-birth', function (req, res) {
                 year: dateOfBirthYear
             }).toFormat("d MMMM yyyy");
 
-            res.redirect('/v6/find-address')
+            res.redirect('/v6/find-your-address')
         } else {
-            res.redirect('/v6/date-of-birth')
+            res.redirect('/v6/enter-date-of-birth')
         }
 
     } catch (err) {
 
-        res.redirect('/v6/date-of-birth')
+        res.redirect('/v6/enter-date-of-birth')
 
     }
 })
 
 // Find your Address
 
-router.get('/v6/find-address', function (req, res) {
+router.get('/v6/find-your-address', function (req, res) {
 
     var postcodeLookup = req.session.data['postcode']
 
@@ -218,7 +218,7 @@ router.get('/v6/find-address', function (req, res) {
 
                     req.session.data['addresses'] = titleCaseAddresses;
 
-                    res.redirect('/v6/select-address')
+                    res.redirect('/v6/select-your-address')
                 })
                 .catch(error => {
                     console.log(error);
@@ -228,12 +228,12 @@ router.get('/v6/find-address', function (req, res) {
         }
 
     } else {
-        res.redirect('/v6/find-address')
+        res.redirect('/v6/find-your-address')
     }
 
 })
 
-router.post('/v6/address', function (req, res) {
+router.post('/v6/enter-your-address', function (req, res) {
 
     var addressLine1 = req.session.data['address-line-1'];
     var townOrCity = req.session.data['address-town'];
@@ -241,38 +241,46 @@ router.post('/v6/address', function (req, res) {
 
 
     if (addressLine1 && townOrCity && postcodeManual) {
-        res.redirect('/v6/upload-document');
+        res.redirect('/v6/upload-your-document');
     } else {
-        res.redirect('/v6/address');
+        res.redirect('/v6/enter-your-address');
     }
 
 })
 
-router.post('/v6/select-address', function (req, res) {
+router.post('/v6/select-your-address', function (req, res) {
 
     var address = req.session.data['address'];
 
     if (address) {
-        res.redirect('/v6/upload-document');
+        res.redirect('/v6/upload-your-document');
     } else {
-        res.redirect('/v6/select-address');
+        res.redirect('/v6/select-your-address');
     }
 
 })
 
-router.post('/v6/upload-document', function (req, res) {
+router.post('/v6/upload-your-document', function (req, res) {
 
-    res.redirect('/v6/documents-added');
-
-})
-
-router.post('/v6/remove-document', function (req, res) {
-
-    res.redirect('/v6/upload-document');
+    res.redirect('/v6/your-uploaded-documents');
 
 })
 
-router.post('/v6/documents-added', function (req, res) {
+router.post('/v6/delete-your-document', function (req, res) {
+
+    var deleteYourDocument = req.session.data['delete-your-document'];
+
+    if (deleteYourDocument == "yes") {
+        res.redirect('/v6/upload-your-document');
+    } else if (deleteYourDocument == "no") {
+        res.redirect('/v6/your-uploaded-documents');
+    } else {
+        res.redirect('/v6/upload-your-document');
+    }
+
+})
+
+router.post('/v6/your-uploaded-documents', function (req, res) {
 
     res.redirect('/v6/preferred-method-of-contact');
 
@@ -286,7 +294,7 @@ router.post('/v6/preferred-method-of-contact', function (req, res) {
 
 router.post('/v6/check-your-answers', function (req, res) {
 
-    res.redirect('/v6/confirmation-successful');
+    res.redirect('/v6/your-documents-were-submitted');
 
 })
 
