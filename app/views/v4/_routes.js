@@ -21,7 +21,7 @@ const axios = require('axios');
 // UNSOLICITED
 // ************
 
-router.post('/v4/start-page', function (req, res) {
+router.post('/v4/start', function (req, res) {
 
     res.redirect('/v4/which-service');
 
@@ -34,13 +34,13 @@ router.post('/v4/which-service', function (req, res) {
     if (whichService) {
 
         if (whichService == "Check if you have an exemption from paying NHS costs") {
-            res.redirect('/v4/nhs-exemptions');
+            res.redirect('/v4/select-your-query-NHS-exemption');
         } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates)") {
-            res.redirect('/v4/help-with-nhs-costs');
+            res.redirect('/v4/select-your-query-help-with-health-costs');
         } else if (whichService == "Student Services") {
-            res.redirect('/v4/nhs-student-services');
+            res.redirect('/v4/select-your-query-student-services');
         } else if (whichService == "NHS Pensions") {
-            res.redirect('/v4/nhs-pensions');
+            res.redirect('/v4/select-your-query-nhs-pension');
         } else {
             res.redirect('/v4/query-type');
         }
@@ -52,23 +52,23 @@ router.post('/v4/which-service', function (req, res) {
 
 })
 
-router.post('/v4/nhs-exemptions', function (req, res) {
+router.post('/v4/select-your-query-NHS-exemption', function (req, res) {
 
-    var nhsExpemptions = req.session.data['nhs-exemptions'];
+    var nhsExpemptions = req.session.data['select-your-query-NHS-exemption'];
 
     if (nhsExpemptions == "Dental exemption") {
         res.redirect('/v4/query-type');
     } else if (nhsExpemptions == "Prescription exemption") {
         res.redirect('/v4/query-type');
     } else {
-        res.redirect('/v4/nhs-exemptions');
+        res.redirect('/v4/select-your-query-NHS-exemption');
     }
 
 })
 
-router.post('/v4/help-with-nhs-costs', function (req, res) {
+router.post('/v4/select-your-query-help-with-health-costs', function (req, res) {
 
-    var helpWithNHSCosts = req.session.data['help-with-nhs-costs'];
+    var helpWithNHSCosts = req.session.data['select-your-query-help-with-health-costs'];
 
     if (helpWithNHSCosts == "NHS Low Income Scheme") {
         res.redirect('/v4/query-type');
@@ -81,14 +81,14 @@ router.post('/v4/help-with-nhs-costs', function (req, res) {
     } else if (helpWithNHSCosts == "NHS Tax Credit Exemption Certificate") {
         res.redirect('/v4/query-type');
     } else {
-        res.redirect('/v4/help-with-nhs-costs');
+        res.redirect('/v4/select-your-query-help-with-health-costs');
     }
 
 })
 
-router.post('/v4/nhs-student-services', function (req, res) {
+router.post('/v4/select-your-query-student-services', function (req, res) {
 
-    var nhsStudentServices = req.session.data['nhs-student-services'];
+    var nhsStudentServices = req.session.data['select-your-query-student-services'];
 
     if (nhsStudentServices == "NHS Bursary") {
         res.redirect('/v4/query-type');
@@ -97,14 +97,14 @@ router.post('/v4/nhs-student-services', function (req, res) {
     } else if (nhsStudentServices == "NHS Learning Support Fund") {
         res.redirect('/v4/query-type');
     } else {
-        res.redirect('/v4/nhs-student-services');
+        res.redirect('/v4/select-your-query-student-services');
     }
 
 })
 
-router.post('/v4/nhs-pensions', function (req, res) {
+router.post('/v4/select-your-query-nhs-pension', function (req, res) {
 
-    var nhsPensions = req.session.data['nhs-pensions'];
+    var nhsPensions = req.session.data['select-your-query-nhs-pension'];
 
     if (nhsPensions == "Employer query") {
         res.redirect('/v4/query-type');
@@ -115,7 +115,7 @@ router.post('/v4/nhs-pensions', function (req, res) {
     } else if (nhsPensions == "Payroll query") {
         res.redirect('/v4/query-type');
     } else {
-        res.redirect('/v4/nhs-pensions');
+        res.redirect('/v4/select-your-query-nhs-pension');
     }
 
 })
@@ -124,9 +124,9 @@ router.post('/v4/query-type', function (req, res) {
 
     var queryType = req.session.data['query-type'];
     var whichService = req.session.data['which-service'];
-    var nhsExpemptions = req.session.data['nhs-exemptions'];
-    var helpWithNHSCosts = req.session.data['help-with-nhs-costs'];
-    var nhsStudentServices = req.session.data['nhs-student-services'];
+    var nhsExpemptions = req.session.data['select-your-query-NHS-exemption'];
+    var helpWithNHSCosts = req.session.data['select-your-query-help-with-health-costs'];
+    var nhsStudentServices = req.session.data['select-your-query-student-services'];
 
     if (queryType) {
 
@@ -135,7 +135,7 @@ router.post('/v4/query-type', function (req, res) {
         } else if (queryType == "Change of name, date of birth or address") {
             res.redirect('/v4/change/type-of-change');
         } else if (queryType == "Upload a document or evidence") {
-            res.redirect('/v4/upload/reference-number-question');
+            res.redirect('/v4/upload/reference-number');
         } else if (queryType == "None of the above") {
 
             if (whichService == "Apply for a job in the NHS (NHS Jobs)") {
@@ -182,7 +182,7 @@ router.post('/v4/query-type', function (req, res) {
 
             } else if (whichService == "NHS Pensions") {
                 res.redirect('/v4/errors/pension/contact-us');
-            } else if (whichService == "NHS Prescription Services (for healthcare professionals)") {
+            } else if (whichService == "NHS Prescription Services") {
                 res.redirect('/v4/errors/prescription-services/contact-us');
             } else if (whichService == "NHS Dental Services (for healthcare professionals)") {
                 res.redirect('/v4/errors/dental-services/contact-us');
@@ -346,9 +346,9 @@ router.post('/v4/change/type-of-change', function (req, res) {
 
     var typeOfChange = req.session.data['type-of-change'];
     var whichService = req.session.data['which-service'];
-    var nhsExpemptions = req.session.data['nhs-exemptions'];
-    var helpWithNHSCosts = req.session.data['help-with-nhs-costs'];
-    var nhsStudentServices = req.session.data['nhs-student-services'];
+    var nhsExpemptions = req.session.data['select-your-query-NHS-exemption'];
+    var helpWithNHSCosts = req.session.data['select-your-query-help-with-health-costs'];
+    var nhsStudentServices = req.session.data['select-your-query-student-services'];
 
     if (typeOfChange) {
 
@@ -955,48 +955,48 @@ router.post('/v4/change/address/check-your-answers', function (req, res) {
 
 // UPLOAD
 
-router.post('/v4/upload/reference-number-question', function (req, res) {
-
-    var referenceNumberQuestion = req.session.data['reference-number-question'];
-
-    if (referenceNumberQuestion == "Yes") {
-        res.redirect('/v4/upload/reference-number');
-    } else if (referenceNumberQuestion == "No") {
-        res.redirect('/v4/upload/name');
-    } else {
-        res.redirect('/v4/upload/reference-number-question');
-
-    }
-
-})
-
 router.post('/v4/upload/reference-number', function (req, res) {
 
-    var referenceNumber = req.session.data['reference-number'];
+    var referenceNumberQuestion = req.session.data['reference-number'];
 
-    if (referenceNumber) {
-        res.redirect('/v4/upload/name');
+    if (referenceNumberQuestion == "Yes") {
+        res.redirect('/v4/upload/enter-reference-number');
+    } else if (referenceNumberQuestion == "No") {
+        res.redirect('/v4/upload/enter-your-name');
     } else {
         res.redirect('/v4/upload/reference-number');
+
     }
 
 })
 
-router.post('/v4/upload/name', function (req, res) {
+router.post('/v4/upload/enter-reference-number', function (req, res) {
+
+    var referenceNumber = req.session.data['enter-reference-number'];
+
+    if (referenceNumber) {
+        res.redirect('/v4/upload/enter-your-name');
+    } else {
+        res.redirect('/v4/upload/enter-reference-number');
+    }
+
+})
+
+router.post('/v4/upload/enter-your-name', function (req, res) {
 
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
 
     if (firstName && lastName) {
-        res.redirect('/v4/upload/date-of-birth');
+        res.redirect('/v4/upload/enter-date-of-birth');
     } else {
-        res.redirect('/v4/upload/name');
+        res.redirect('/v4/upload/enter-your-name');
 
     }
 
 })
 
-router.post('/v4/upload/date-of-birth', function (req, res) {
+router.post('/v4/upload/enter-date-of-birth', function (req, res) {
 
     var dateOfBirthDay = req.session.data['date-of-birth-day'];
     var dateOfBirthMonth = req.session.data['date-of-birth-month'];
@@ -1012,9 +1012,9 @@ router.post('/v4/upload/date-of-birth', function (req, res) {
                 year: dateOfBirthYear
             }).toFormat("d MMMM yyyy");
 
-            res.redirect('/v4/upload/find-address')
+            res.redirect('/v4/upload/find-your-address')
         } else {
-            res.redirect('/v4/upload/date-of-birth')
+            res.redirect('/v4/upload/enter-date-of-birth')
         }
 
     } catch (err) {
@@ -1027,7 +1027,7 @@ router.post('/v4/upload/date-of-birth', function (req, res) {
 
 // Find your address
 
-router.get('/v4/upload/find-address', function (req, res) {
+router.get('/v4/upload/find-your-address', function (req, res) {
 
     var postcodeLookup = req.session.data['postcode']
 
@@ -1058,7 +1058,7 @@ router.get('/v4/upload/find-address', function (req, res) {
 
                     req.session.data['addresses'] = titleCaseAddresses;
 
-                    res.redirect('/v4/upload/select-address')
+                    res.redirect('/v4/upload/select-your-address')
                 })
                 .catch(error => {
                     console.log(error);
@@ -1068,12 +1068,12 @@ router.get('/v4/upload/find-address', function (req, res) {
         }
 
     } else {
-        res.redirect('/v4/upload/find-address')
+        res.redirect('/v4/upload/find-your-address')
     }
 
 })
 
-router.post('/v4/upload/address', function (req, res) {
+router.post('/v4/upload/enter-your-address', function (req, res) {
 
     var addressLine1 = req.session.data['address-line-1'];
     var townOrCity = req.session.data['address-town'];
@@ -1081,38 +1081,52 @@ router.post('/v4/upload/address', function (req, res) {
 
 
     if (addressLine1 && townOrCity && postcodeManual) {
-        res.redirect('/v4/upload/upload-document');
+        res.redirect('/v4/upload/upload-your-document');
     } else {
-        res.redirect('/v4/upload/address');
+        res.redirect('/v4/upload/enter-your-address');
     }
 
 })
 
-router.post('/v4/upload/select-address', function (req, res) {
+router.post('/v4/upload/select-your-address', function (req, res) {
 
     var address = req.session.data['address'];
 
     if (address) {
-        res.redirect('/v4/upload/upload-document');
+        res.redirect('/v4/upload/upload-your-document');
     } else {
-        res.redirect('/v4/upload/select-address');
+        res.redirect('/v4/upload/select-your-address');
     }
 
 })
 
-router.post('/v4/upload/upload-document', function (req, res) {
+router.post('/v4/upload/no-address-found', function (req, res) {
 
-    res.redirect('/v4/upload/documents-added');
-
-})
-
-router.post('/v4/upload/remove-document', function (req, res) {
-
-    res.redirect('/v4/upload/upload-document');
+    res.redirect('/v4/upload/find-your-address');
 
 })
 
-router.post('/v4/upload/documents-added', function (req, res) {
+router.post('/v4/upload/upload-your-document', function (req, res) {
+
+    res.redirect('/v4/upload/your-uploaded-documents');
+
+})
+
+router.post('/v4/upload/delete-your-document', function (req, res) {
+
+    var deleteYourDocument = req.session.data['delete-your-document'];
+
+    if (deleteYourDocument == "yes") {
+        res.redirect('/v4/upload/upload-your-document');
+    } else if (deleteYourDocument == "no") {
+        res.redirect('/v4/upload/your-uploaded-documents');
+    } else {
+        res.redirect('/v4/upload/upload-your-document');
+    }
+
+})
+
+router.post('/v4/upload/your-uploaded-documents', function (req, res) {
 
     res.redirect('/v4/upload/check-your-answers');
 
@@ -1120,7 +1134,7 @@ router.post('/v4/upload/documents-added', function (req, res) {
 
 router.post('/v4/upload/check-your-answers', function (req, res) {
 
-    res.redirect('/v4/upload/confirmation-successful');
+    res.redirect('/v4/upload/your-documents-were-submitted');
 
 })
 

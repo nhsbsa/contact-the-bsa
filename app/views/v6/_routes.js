@@ -260,6 +260,12 @@ router.post('/v6/select-your-address', function (req, res) {
 
 })
 
+router.post('/v6/no-address-found', function (req, res) {
+
+    res.redirect('/v6/find-your-address');
+
+})
+
 router.post('/v6/upload-your-document', function (req, res) {
 
     res.redirect('/v6/your-uploaded-documents');

@@ -1,0 +1,57 @@
+{% extends 'layout-contact.html' %}
+
+{% block pageTitle %}
+  What is your reference number? - Contact the NHS Business Services Authority - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+{% set referenceNumber %}
+  <h1 class="nhsuk-heading-l">
+    What is your reference number?
+  </h1>
+  <div class="nhsuk-hint">
+    For example, HDJ2423F.
+  </div>
+{% endset -%}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="v4/upload/enter-reference-number" method="post" novalidate>
+      
+        {{ input({
+          label: {
+            "html": referenceNumber
+          },
+          "id": "enter-reference-number",
+          "name": "enter-reference-number",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

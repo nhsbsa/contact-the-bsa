@@ -259,6 +259,12 @@ router.post('/v5/select-your-address', function (req, res) {
 
 })
 
+router.post('/v5/no-address-found', function (req, res) {
+
+    res.redirect('/v5/find-your-address');
+
+})
+
 router.post('/v5/upload-your-document', function (req, res) {
 
     res.redirect('/v5/your-uploaded-documents');

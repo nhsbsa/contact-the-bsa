@@ -28,14 +28,14 @@ No address found - Contact the NHS Business Services Authority - NHSBSA
             number or name and postcode{% else %}that postcode{% endif %}. Search again or enter your address manually.
         </p>
 
-        <form action="v4/upload/find-address" method="post" novalidate>
+        <form action="v4/upload/no-address-found" method="post" novalidate>
             {{ button({
             "text": "Search again",
             "classes": "nhsuk-u-margin-top-3"
             }) }}
         </form>
 
-        <p><a href="address">Enter {% if data['applyingfor'] == "someoneelse" %}their{% else %}your{% endif %} address
+        <p><a href="enter-your-address">Enter {% if data['applyingfor'] == "someoneelse" %}their{% else %}your{% endif %} address
                 manually</a>.</p>
 
     </div>
