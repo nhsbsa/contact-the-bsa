@@ -138,7 +138,7 @@ router.post('/v4/query-type', function (req, res) {
             res.redirect('/v4/upload/reference-number');
         } else if (queryType == "None of the above") {
 
-            if (whichService == "Apply for a job in the NHS (NHS Jobs)") {
+            if (whichService == "NHS Jobs") {
                 res.redirect('/v4/errors/nhs-jobs/contact-us');
             } else if (whichService == "Check if you have an NHS exemption") {
 
@@ -150,9 +150,9 @@ router.post('/v4/query-type', function (req, res) {
                     res.redirect('/v4/errors/general');
                 }
 
-            } else if (whichService == "Get help to buy healthy food and milk (Healthy Start)") {
+            } else if (whichService == "Get help to buy food and milk (Healthy Start)") {
                 res.redirect('/v4/errors/healthy-start/contact-us');
-            } else if (whichService == "Get help with NHS costs (including prescription prepayment certificates)") {
+            } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates") {
 
                 if (helpWithNHSCosts == "Low income scheme") {
                     res.redirect('/v4/errors/lis/contact-us');
@@ -168,7 +168,7 @@ router.post('/v4/query-type', function (req, res) {
                     res.redirect('/v4/errors/general');
                 }
 
-            } else if (whichService == "NHS Student Services") {
+            } else if (whichService == "Student Services") {
 
                 if (nhsStudentServices == "NHS Bursary") {
                     res.redirect('/v4/errors/sb/contact-us');
@@ -182,6 +182,8 @@ router.post('/v4/query-type', function (req, res) {
 
             } else if (whichService == "NHS Pensions") {
                 res.redirect('/v4/errors/pension/contact-us');
+            } else if (whichService == "Total Reward Statements") {
+                res.redirect('/v4/errors/trs/contact-us');
             } else if (whichService == "NHS Prescription Services") {
                 res.redirect('/v4/errors/prescription-services/contact-us');
             } else if (whichService == "NHS Dental Services (for healthcare professionals)") {
