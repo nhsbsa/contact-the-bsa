@@ -152,7 +152,7 @@ router.post('/v4/query-type', function (req, res) {
 
             } else if (whichService == "Get help to buy food and milk (Healthy Start)") {
                 res.redirect('/v4/errors/healthy-start/contact-us');
-            } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates") {
+            } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates)") {
 
                 if (helpWithNHSCosts == "Low income scheme") {
                     res.redirect('/v4/errors/lis/contact-us');
