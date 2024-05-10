@@ -140,7 +140,7 @@ router.post('/v4/query-type', function (req, res) {
 
             if (whichService == "NHS Jobs") {
                 res.redirect('/v4/errors/nhs-jobs/contact-us');
-            } else if (whichService == "Check if you have an NHS exemption") {
+            } else if (whichService == "Check if you have an exemption from paying NHS costs") {
 
                 if (nhsExpemptions == "Dental exemption") {
                     res.redirect('/v4/errors/decs/contact-us');
