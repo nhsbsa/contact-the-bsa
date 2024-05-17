@@ -1,0 +1,55 @@
+{% extends 'layout-upload-document.html' %}
+
+{% block pageTitle %}
+Upload your photo - Upload a document to the NHS Business Services Authority - NHSBSA
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+    </div>
+</div>
+
+<div class="big-blue-box nhsuk-u-padding-5">
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+
+            <div class="nhsbsa-guidance-steps">
+                <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">How to upload your document</h2>
+                <p>Step 5 of 5</p>
+            </div>
+            <div class="nhsbsa-guidance-title">
+                <h1 class="nhsuk-heading-l">Upload your photo</h1>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+            <p class="nhsuk-body-l">Once you have taken a photo of your document on your smart phone or tablet you should see the option to 'Use photo'.</p>
+            <p>Select 'Use photo' and your photo will be uploaded to us. You can continue to the next section of the form.</p>
+        </div>
+        <div class="nhsuk-grid-column-one-third icon_svg icon-right">
+            <img class="nhsuk-u-margin-bottom-6" src="/images/icon_phone_file.svg"
+                alt="Mobile / Smart Phone showing document">
+        </div>
+    </div>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+            <a href="/v4/upload/upload-your-document"><button class="nhsuk-button nhsuk-button--reverse"
+                    data-module="nhsuk-button">Return to your upload</button></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

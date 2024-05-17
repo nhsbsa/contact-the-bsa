@@ -237,6 +237,11 @@ EMAIL
   max-height:300px;
   text-align: center;
 }
+@media only screen and (min-width: 767px) {
+  .icon-right{
+    text-align: right !important;
+  }
+}
 
 /* Media query for mobile devices (up to 767px wide) */
 @media only screen and (max-width: 767px) {
