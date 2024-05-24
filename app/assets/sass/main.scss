@@ -198,30 +198,14 @@ EMAIL
 }
 
 .nhsuk-phase-banner__content {
-  @include nhsuk-font($size: 16);
-  @include nhsuk-text-colour;
-
+  @include nhsuk-font(16);
+  color: $nhsuk-text-color;
   display: table;
   margin: 0;
 }
 
 .nhsuk-phase-banner__content__tag {
-  @include nhsuk-font-size($size: 16);
-  margin-right: nhsuk-spacing(if($nhsuk-new-typography-scale, 3, 2));
-
-  @if $nhsuk-new-typography-scale {
-    @include nhsuk-media-query($from: tablet) {
-      margin-right: nhsuk-spacing(2);
-    }
-  }
-
-  // When forced colour mode is active, for example to provide high contrast,
-  // the background colour of the tag is the same as the rest of the page. To ensure
-  // that the tag is perceived as separate to the rest of the text in the phase banner,
-  // it is made bold.
-  @media screen and (forced-colors: active) {
-    font-weight: bold;
-  }
+  margin-right: 10px ;
 }
 
 .nhsuk-phase-banner__text {
