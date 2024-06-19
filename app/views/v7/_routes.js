@@ -1018,7 +1018,7 @@ router.post('/enter-date-of-birth', function (req, res) {
 
 // Find your address
 
-router.get('find-your-address', function (req, res) {
+router.post('/find-your-address', function (req, res) {
 
     var postcodeLookup = req.session.data['postcode']
 
