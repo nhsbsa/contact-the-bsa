@@ -20,6 +20,7 @@ router.use((req, res, next) => {
     }
     console.log(JSON.stringify(log, null, 2)) // show all data as a dump in terminal
     next() // continue to next action
+
 })
 
 // GET FOLDER NAME - useful for relative templates
@@ -32,9 +33,26 @@ router.use('/', (req, res, next) => {
     next();
 });
 
+// Check current and previous - good for debugging
+router.use('/', (req, res, next) => {
+    res.locals.currentURL = req.originalUrl; //current screen
+    res.locals.prevURL = req.get('Referrer'); // previous screen
+    console.log('previous page is: ' + res.locals.prevURL + " and current page is " + res.locals.currentURL);
+    next();
+});
+
+
 // ****************************************
 // Route File Versions
 // ****************************************
+
+router.use('/v7', require('./views/v7/\_routes'));
+router.use('/v7/general', require('./views/v7/\_routes'));
+router.use('/v7/change', require('./views/v7/\_routes'));
+router.use('/v7/change/name', require('./views/v7/\_routes'));
+router.use('/v7/change/address', require('./views/v7/\_routes'));
+router.use('/v7/change/date-of-birth', require('./views/v7/\_routes'));
+router.use('/v7/upload', require('./views/v7/\_routes'));
 
 router.use('/v6', require('./views/v6/_routes'));
 

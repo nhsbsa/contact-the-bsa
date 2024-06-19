@@ -1,0 +1,69 @@
+{% extends 'layout-contact.html' %}
+
+{% block pageTitle %}
+  What is your name? - Contact the NHS Business Services Authority - NHSBSA
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="v4/change/date-of-birth/name" method="post" novalidate>
+
+      {% call fieldset({
+        legend: {
+          "html": '
+          <h1 class="nhsuk-heading-l">
+            What is your name?
+          </h1>
+          '
+        }
+      }) %}
+      
+        {{ input({
+          label: {
+            "html": 'First name'
+          },
+          "id": "firstName",
+          "name": "firstName",
+          autocomplete: "given-name",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+        {{ input({
+          label: {
+            "html": 'Last name'
+          },
+          "id": "lastName",
+          "name": "lastName",
+          autocomplete: "family-name",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+      {% endcall %}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}
