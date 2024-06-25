@@ -1,7 +1,7 @@
 {% extends 'layout-contact.html' %}
 
 {% block pageTitle %}
-  What is your reference number? - Contact the NHS Business Services Authority - NHSBSA
+  No new address found - Contact the NHS Business Services Authority - NHSBSA
 {% endblock %}
 
 {% block content %}
@@ -21,59 +21,22 @@
     <div class="nhsuk-grid-column-two-thirds">
 
         <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">
-            No results found for that {% if (data['housenumber']) and (data['postcode']) %}building number or name and postcode{% else %}postcode{% endif %}
+            No new address found
         </h1>
 
-        <dl class="nhsuk-summary-list">
+        <p>We could not find an address that matches {% if (data['housenumber']) and (data['postcode']) %}building
+            number or name and postcode{% else %}that postcode{% endif %}. Search again or enter your address manually.
+        </p>
 
+        <form action="v4/change/address/no-new-address-found" method="post" novalidate>
+            {{ button({
+            "text": "Search again",
+            "classes": "nhsuk-u-margin-top-3"
+            }) }}
+        </form>
 
-
-{% if data['housenumber'] %}
-
-            <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                    Building number or name
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                    {% if data['housenumber'] %}{{ data['housenumber'] }}{% else %}11{% endif %}
-                </dd>
-
-                <dd class="nhsuk-summary-list__actions">
-
-                    <a href="find-address#housenumber">
-                        Change<span class="nhsuk-u-visually-hidden"> {% if data['applyingfor'] == "someoneelse" %}their{% else %}your{% endif %} house number or name</span>
-                    </a>
-
-                </dd>
-
-            </div>
-
-{% endif %}
-
-
-            <div class="nhsuk-summary-list__row">
-                <dt class="nhsuk-summary-list__key">
-                    Postcode
-                </dt>
-                <dd class="nhsuk-summary-list__value">
-                    {% if data['new-postcode'] %}{{ data['new-postcode'] }}{% else %}NE15 8NY{% endif %}
-                </dd>
-
-                <dd class="nhsuk-summary-list__actions">
-
-                    <a href="find-address#postcode">
-                        Change<span class="nhsuk-u-visually-hidden"> {% if data['applyingfor'] == "someoneelse" %}their{% else %}your{% endif %} postcode</span>
-                    </a>
-
-                </dd>
-
-            </div>
-
-        </dl>
-
-        <p><a href="new-address">Enter {% if data['applyingfor'] == "someoneelse" %}their{% else %}your{% endif %} address manually</a> if {% if data['applyingfor'] == "someoneelse" %}they're{% else %}you're{% endif %} sure the information {% if data['applyingfor'] == "someoneelse" %}they{% else %}you{% endif %} gave is correct.</p>
-
-
+        <p><a href="new-address">Enter {% if data['applyingfor'] == "someoneelse" %}their{% else %}your{% endif %} address
+                manually</a>.</p>
 
     </div>
 </div>

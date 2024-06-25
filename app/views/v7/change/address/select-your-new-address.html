@@ -1,0 +1,66 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Select your new address" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+  
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+  
+    </div>
+  </div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p>{{ data['newAddresses'] | length }} {% if (data['newAddresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcodeNew'] }}. <a href="find-your-new-address">Search again</a></p>
+
+      <form action="/{{folder}}/{{subfolder}}/address/select-your-new-address" method="post" novalidate>
+
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h1 class="nhsuk-fieldset__heading">
+            {{pageTitle}}
+          </h1>
+        </legend>
+      
+        <div class="nhsuk-form-group">
+      
+          <div class="nhsuk-radios">
+
+            {% for newAddress in data['newAddresses'] %}
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="{{ newAddress }}" name="newAddress" type="radio" value="{{ newAddress }}">
+              <label class="nhsuk-label nhsuk-radios__label" for="{{ newAddress }}">
+                {{ newAddress }}
+              </label>
+            </div>
+            {% endfor %}
+      
+          </div>
+        </div>
+      
+      </fieldset>
+
+      {{ button({
+        "text": "Use this new address"
+      }) }}
+
+      </form>
+
+      <div class="nhsuk-form-group">
+        <p><a href="enter-your-new-address">Enter your new address manually</a></p>
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}

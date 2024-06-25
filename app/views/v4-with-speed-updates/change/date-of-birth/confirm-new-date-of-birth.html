@@ -1,0 +1,67 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Confirm your date of birth change" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">
+          {{pageTitle}}
+      </h1>
+
+      <div class="nhsuk-inset-text nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-6">
+        <p><span class="nhsuk-u-font-weight-bold">Previous date of birth:</span> {% if (data['previous-date-of-birth']) %}{{ data['previous-date-of-birth'] }}{% else %}1 January 1990{% endif %}</p>
+        <p><span class="nhsuk-u-font-weight-bold">New date of birth:</span> {% if (data['new-date-of-birth']) %}{{ data['new-date-of-birth'] }}{% else %}1 January 1991{% endif %}</p>
+      </div>
+
+      <form action="/{{folder}}/{{subfolder}}/date-of-birth/confirm-new-date-of-birth" method="post" novalidate>
+  
+        {{ radios({
+          "idPrefix": "confirm-date-of-birth",
+          "name": "confirm-date-of-birth",
+          "classes": "nhsuk-radios--inline",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to change this date of birth?",
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
+        }) }}
+  
+        {{ button({
+          "text": "Continue"
+        }) }}
+  
+      </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{{ data['previous-date-of-birth'] }}

@@ -20,7 +20,7 @@ Select your address - Contact the NHS Business Services Authority - NHSBSA
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <p>{{ data['newAddresses'] | length }} {% if (data['newAddresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcodeNew'] }}. <a href="find-address">Search again</a></p>
+      <p>{{ data['newAddresses'] | length }} {% if (data['newAddresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcodeNew'] }}. <a href="find-new-address">Search again</a></p>
 
       <form action="v4/change/address/select-new-address" method="post" novalidate>
 

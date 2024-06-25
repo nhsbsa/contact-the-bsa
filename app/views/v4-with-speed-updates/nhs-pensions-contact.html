@@ -1,0 +1,141 @@
+
+
+<!-- ******************************************
+
+NOTES
+
+This page has been created as an example of an idea for an additional page 
+between choosing the service and beginning the contact process.
+It is not currently linked from any file, purely created for discussion
+
+Katie Twinn - 25-04-2024
+
+  ****************************************** -->
+
+
+{% extends 'layout-contact.html' %}
+{% block pageTitle %}
+Contact the NHS Business Services Authority - NHSBSA
+{% endblock %}
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-u-reading-width">
+
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
+        How would you like to contact NHS Pensions?
+      </h1>
+      <p>Our recommended method of contact is via our <a href="/v4/nhs-pensions">online form</a>, please click continue
+        below to progress through our online contact form</p>
+     <Hr>
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Alternate methods of contacting NHS Pensions
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><strong>Telephone:</strong> 0300 330 1346<br>
+            <strong>Outside UK:</strong> +44 191 283 8918<br>
+            Monday to Friday, 8am to 6pm.
+          </p>
+
+          <p><a class="nhsuk-action-link__link"
+              href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers" target="_blank">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                </path>
+              </svg>
+              <span class="nhsuk-action-link__text">Find out about call charges (opens in a new tab)</span>
+            </a></p>
+          <p><strong class="strong">Email:</strong>&nbsp;<a
+              href="mailto:nhsbsa.pensionsmember@nhsbsa.nhs.uk">nhsbsa.pensionsmember@nhsbsa.nhs.uk</a></p>
+          <p><strong>X (formerly Twitter): </strong>direct message @nhs_pensions</p>
+          <p class="MsoNoSpacing"><strong class="strong">You can write to:</strong><br>
+            NHS Pensions<br>
+            PO Box 683, Unit 5<br>
+            Newcastle Upon Tyne<br>
+            NE5 9EE</p>
+          <p>All handwritten envelopes will require the postage to be paid. Royal Mail will not accept:</p>
+          <ul>
+            <li>handwritten freepost envelopes</li>
+            <li>pre-paid envelopes &nbsp;where the address has been changed</li>
+          </ul>
+          <p>If you're currently receiving your pension, view the <a href="/pensioner-hub/pensioners-contact-us">contact
+              details for pensioners</a>.</p>
+
+        </div>
+      </details>
+      <Hr>
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Complaints
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>If you want to complain about any aspect of NHS Pensions, contact us by:</p>
+          <p><strong>Telephone:</strong> 0300 330 1346</p>
+          <p><a class="nhsuk-action-link__link"
+              href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers" target="_blank">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                </path>
+              </svg>
+              <span class="nhsuk-action-link__text">Find out about call charges (opens in a new tab)</span>
+            </a></p>
+          <p>If the helpline have not been able&nbsp;to resolve your complaint, email the complaints team at&nbsp;<a
+              href="mailto:pensionscomplaints@nhsbsa.nhs.uk">pensionscomplaints@nhsbsa.nhs.uk</a>.</p>
+
+          <p>This email account is only for customers to register complaints. Any general queries sent through to the
+            complaints email account will not be responded to.</p>
+
+          <p>For more information about complaints&nbsp;read <a
+              href="https://www.nhsbsa.nhs.uk/sites/default/files/2019-05/DRP1%20%28V10%29%20Online%20-%2004.2019.pdf"
+              title="Internal Dispute Resolution Stage 1 application form (DRP1)">NHS Pension Scheme&nbsp;- Complaints
+              and disputes procedures (PDF: 218KB)</a>. This contains a 'Complaints and disputes application form' for
+            you to complete and submit.&nbsp;</p>
+
+          <h3>Complaints relating to an ill health application</h3>
+
+          <p>If your complaint relates to an ill health application then you have the opportunity to view the Scheme's
+            medical adviser's report before&nbsp;it's sent to NHS Pensions.<br>
+            &nbsp;</p>
+
+          <h4>If your&nbsp;ill health application was submitted after 13 February 2018</h4>
+
+          <p>We'll&nbsp;use the decision stated on the member declaration of the AW33E or AW240&nbsp;unless you formally
+            inform us otherwise.<br>
+            &nbsp;</p>
+
+          <h4>If your ill health application was submitted before 13 February 2018</h4>
+
+          <p>To see a copy of your report before NHS Pensions, make this clear on your complaint to us.</p>
+        </div>
+      </details>
+      <hr>
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

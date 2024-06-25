@@ -586,7 +586,7 @@ router.post('/v4/change/date-of-birth/name', function (req, res) {
     if (firstName && lastName) {
         res.redirect('/v4/change/date-of-birth/previous-date-of-birth');
     } else {
-        res.redirect('/v4/change/date-of-birth/previous-name');
+        res.redirect('/v4/change/date-of-birth/name');
     }
 
 })
