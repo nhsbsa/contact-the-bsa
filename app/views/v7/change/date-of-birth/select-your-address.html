@@ -23,7 +23,7 @@
 
       <p>{{ data['addresses'] | length }} {% if (data['addresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcode'] }}. <a href="find-your-address">Search again</a></p>
 
-      <form action="/{{folder}}{{subfolder}}/date-of-birth/select-address" method="post" novalidate>
+      <form action="/{{folder}}/{{subfolder}}/date-of-birth/select-address" method="post" novalidate>
 
       <fieldset class="nhsuk-fieldset">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
