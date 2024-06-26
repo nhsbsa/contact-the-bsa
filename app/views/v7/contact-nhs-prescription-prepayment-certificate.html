@@ -1,0 +1,141 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "NHS Prescription Prepayment Certificate (PPC)" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">Contact us</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+
+      <p>A prepayment prescription certificate (PPC) could save you money if you pay for your NHS prescriptions. </p>
+    </div>
+
+    <div class="nhsuk-u-full-width">
+
+      <h2 class="nhsuk-heading-l">I want help with:</h2>
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          {{ card({
+          "href": "#",
+          "clickable": "true",
+          "headingLevel": 5,
+          "heading": "Replace my lost or damaged certificate",
+          "headingClasses": "nhsuk-heading-xs"
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          {{ card({
+          "href": "/" + folder + "/change/type-of-change",
+          "clickable": "true",
+          "headingLevel": 5,
+          "heading": "Change my name, date of birth or address",
+          "headingClasses": "nhsuk-heading-xs"
+          }) }}
+        </li>
+        <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+          {{ card({
+          "href": "/" + folder + "/upload/reference-number",
+          "clickable": "true",
+          "headingLevel": 5,
+          "heading": "Upload supporting documents",
+          "headingClasses": "nhsuk-heading-xs"
+          }) }}
+        </li>
+      </ul>
+
+      {% set chevronIcon = "<svg class=\"nhsuk-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" aria-hidden=\"true\" focusable=\"false\">
+        <circle cx=\"13.333\" cy=\"13.33\" r=\"13.333\" fill=\"\" />
+        <g data-name=\"Group 1\" fill=\"none\" stroke=\"#fff\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" stroke-width=\"2.667\">
+          <path d=\"M15.438 13l-3.771 3.771\" />
+          <path data-name=\"Path\" d=\"M11.667 9.229L15.438 13\" />
+        </g>
+      </svg>" %}
+
+      <ul class="nhsuk-grid-row nhsuk-card-group">
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content nhsuk-card__content--primary">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start" target="_blank" aria-label="Use eligibility checker - Opens in a new tab" >Check your eligibility</a>
+              </h2>
+              <p class="nhsuk-card__description">Check if you're entitled to free NHS prescriptions using our eligibility checker.</p>
+              {{chevronIcon|safe}}
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content nhsuk-card__content--primary">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start" target="_blank" aria-label="Buy your PPC - Opens in a new tab" >Buy a PPC</a>
+              </h2>
+              <p class="nhsuk-card__description">Pay a set price for prescriptions for 3 or 12 months, no matter how many you need.</p>
+              {{chevronIcon|safe}}
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content nhsuk-card__content--primary">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="https://check-my-nhs-exemption.nhsbsa.nhs.uk/start" target="_blank" aria-label="Check if your PPC is valid - Opens in a new tab" >Check your PPC is valid</a>
+              </h2>
+              <p class="nhsuk-card__description">Check that your PPC is valid before claiming free NHS prescriptions.</p>
+              {{chevronIcon|safe}}
+            </div>
+          </div>
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content nhsuk-card__content--primary">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link" href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-prescription-prepayment-certificate-ppc" target="_blank" aria-label="Find out more about PPC - Opens in a new tab" >Something else</a>
+              </h2>
+              <p class="nhsuk-card__description">Details on refunds, renewing a certificate, digital PPC and general PPC information.</p>
+              {{chevronIcon|safe}}
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="nhsuk-heading-l">Talk to us:</h2>
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p><strong>Telephone:</strong> 0300 330 1341</p>
+        <p>Current waiting time is <strong>20 minutes</strong></p>
+        <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+        <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers" aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call charges​​​​​​</a></p>
+      </div>
+
+      <hr>
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p><strong>Email:</strong> nhsbsa.ppc1@nhsbsa.nhs.uk</p>
+        <p>We aim to respond to your email within 2 working days.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}
