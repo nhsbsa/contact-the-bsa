@@ -46,6 +46,14 @@ router.use('/', (req, res, next) => {
 // Route File Versions
 // ****************************************
 
+router.use('/v7-b', require('./views/v7-b/\_routes'));
+router.use('/v7-b/general', require('./views/v7-b/\_routes'));
+router.use('/v7-b/change', require('./views/v7-b/\_routes'));
+router.use('/v7-b/change/name', require('./views/v7-b/\_routes'));
+router.use('/v7-b/change/address', require('./views/v7-b/\_routes'));
+router.use('/v7-b/change/date-of-birth', require('./views/v7-b/\_routes'));
+router.use('/v7-b/upload', require('./views/v7-b/\_routes'));
+
 router.use('/v7', require('./views/v7/\_routes'));
 router.use('/v7/general', require('./views/v7/\_routes'));
 router.use('/v7/change', require('./views/v7/\_routes'));

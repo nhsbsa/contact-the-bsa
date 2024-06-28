@@ -1,0 +1,50 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "How can we help?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/{{subfolder}}/how-can-we-help" method="post" novalidate>
+      
+      {{ textarea({
+        "name": "how-can-we-help",
+        "id": "how-can-we-help",
+        "rows": "5",
+        "label": {
+          "text": pageTitle,
+          classes: "nhsuk-label--l",
+          isPageHeading: true
+        },
+        "hint": {
+            "text": "Do not include personal or financial information, for example, your National Insurance number or credit card details."
+        }
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

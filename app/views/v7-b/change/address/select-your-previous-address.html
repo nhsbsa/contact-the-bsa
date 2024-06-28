@@ -1,0 +1,66 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Select your previous address" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+  
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+  
+    </div>
+  </div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p>{{ data['previousAddresses'] | length }} {% if (data['previousAddresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcodePrevious'] }}. <a href="find-your-previous-address">Search again</a></p>
+
+      <form action="/{{folder}}/{{subfolder}}/address/select-your-previous-address" method="post" novalidate>
+
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h1 class="nhsuk-fieldset__heading">
+            {{pageTitle}}
+          </h1>
+        </legend>
+      
+        <div class="nhsuk-form-group">
+      
+          <div class="nhsuk-radios">
+
+            {% for previousAddress in data['previousAddresses'] %}
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="{{ previousAddress }}" name="previousAddress" type="radio" value="{{ previousAddress }}">
+              <label class="nhsuk-label nhsuk-radios__label" for="{{ previousAddress }}">
+                {{ previousAddress }}
+              </label>
+            </div>
+            {% endfor %}
+      
+          </div>
+        </div>
+      
+      </fieldset>
+
+      {{ button({
+        "text": "Use this previous address"
+      }) }}
+
+      </form>
+
+      <div class="nhsuk-form-group">
+        <p><a href="enter-your-previous-address">Enter your previous address manually</a></p>
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}

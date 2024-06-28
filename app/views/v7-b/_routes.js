@@ -1,5 +1,5 @@
 // ********************************
-// CCS (VERSION 7)
+// CCS (VERSION 7 - B)
 // ********************************
 
 // External dependencies
@@ -62,7 +62,7 @@ router.post('/select-your-query-help-with-health-costs', function (req, res) {
     if (helpWithNHSCosts == "NHS Low Income Scheme") {
         res.redirect('query-type');
     } else if (helpWithNHSCosts == "NHS Prescription Prepayment Certificate (PPC)") {
-        res.redirect('contact-nhs-prescription-prepayment-certificate');
+        res.redirect('contact-nhs-prescription-prepayment-certificate-v2');
     } else if (helpWithNHSCosts == "Maternity exemption certificate") {
         res.redirect('query-type');
     } else if (helpWithNHSCosts == "Medical exemption certificate") {
