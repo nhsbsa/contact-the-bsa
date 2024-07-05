@@ -62,7 +62,7 @@ router.post('/select-your-query-help-with-health-costs', function (req, res) {
     if (helpWithNHSCosts == "NHS Low Income Scheme") {
         res.redirect('query-type');
     } else if (helpWithNHSCosts == "NHS Prescription Prepayment Certificate (PPC)") {
-        res.redirect('contact-nhs-prescription-prepayment-certificate-v2');
+        res.redirect('ppc/contact-nhs-prescription-prepayment-certificate-v2');
     } else if (helpWithNHSCosts == "Maternity exemption certificate") {
         res.redirect('query-type');
     } else if (helpWithNHSCosts == "Medical exemption certificate") {
@@ -189,6 +189,31 @@ router.post('/query-type', function (req, res) {
     } else {
         res.redirect('query-type');
     }
+
+})
+
+// ****
+// PPC
+// ****
+
+router.post('/ppc/certificate-number', function (req, res) {
+
+    var certificateNumberQuestion = req.session.data['certificate-number'];
+
+    if (certificateNumberQuestion == "Yes") {
+        res.redirect('enter-your-certificate-number');
+    } else if (certificateNumberQuestion == "No") {
+        res.redirect('../change/type-of-change');
+    } else {
+        res.redirect('certificate-number');
+
+    }
+
+})
+
+router.post('/enter-your-certificate-number', function (req, res) {
+
+    res.redirect('change/type-of-change');
 
 })
 

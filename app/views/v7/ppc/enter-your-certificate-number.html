@@ -1,0 +1,56 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your NHS Prescription Prepayment Certificate number?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/enter-your-certificate-number" method="post" novalidate>
+
+      {% call fieldset({
+        legend: {
+          "text": pageTitle,
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      }) %}
+      
+        {{ input({
+          label: {
+            "html": 'For example: XXXXXX XXXXX'
+          },
+          "id": "certificateNumber",
+          "name": "certificateNumber",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+      {% endcall %}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}
