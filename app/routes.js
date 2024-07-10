@@ -54,14 +54,19 @@ router.use('/v7-b/change/name', versionSevenB);
 router.use('/v7-b/change/address', versionSevenB);
 router.use('/v7-b/change/date-of-birth', versionSevenB);
 router.use('/v7-b/upload', versionSevenB); 
+router.use('/v7-b/ppc', versionSevenB); 
+router.use('/v7-b/ppc/replacement', versionSevenB); 
 
-router.use('/v7', require('./views/v7/\_routes'));
-router.use('/v7/general', require('./views/v7/\_routes'));
-router.use('/v7/change', require('./views/v7/\_routes'));
-router.use('/v7/change/name', require('./views/v7/\_routes'));
-router.use('/v7/change/address', require('./views/v7/\_routes'));
-router.use('/v7/change/date-of-birth', require('./views/v7/\_routes'));
-router.use('/v7/upload', require('./views/v7/\_routes'));
+const versionSeven =  require('./views/v7/\_routes')
+router.use('/v7', versionSeven );
+router.use('/v7/general', versionSeven );
+router.use('/v7/change', versionSeven );
+router.use('/v7/change/name', versionSeven );
+router.use('/v7/change/address', versionSeven );
+router.use('/v7/change/date-of-birth', versionSeven );
+router.use('/v7/upload', versionSeven );
+router.use('/v7/ppc', versionSeven); 
+router.use('/v7/ppc/replacement', versionSeven); 
 
 router.use('/v6', require('./views/v6/_routes'));
 

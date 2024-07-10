@@ -192,33 +192,6 @@ router.post('/query-type', function (req, res) {
 
 })
 
-
-// ****
-// PPC
-// ****
-
-router.post('/ppc/certificate-number', function (req, res) {
-
-    var certificateNumberQuestion = req.session.data['certificate-number'];
-
-    if (certificateNumberQuestion == "Yes") {
-        res.redirect('enter-your-certificate-number');
-    } else if (certificateNumberQuestion == "No") {
-        res.redirect('../change/type-of-change');
-    } else {
-        res.redirect('certificate-number');
-
-    }
-
-})
-
-router.post('/enter-your-certificate-number', function (req, res) {
-
-    res.redirect('change/type-of-change');
-
-})
-
-
 // *************************
 // GENERAL & UPLOAD & CHANGE
 // *************************
@@ -370,6 +343,85 @@ router.post('/how-can-we-help', function (req, res) {
 router.post('/general/check-your-answers', function (req, res) {
     res.redirect('your-query-has-been-submitted');
 })
+
+// ****
+// PPC
+// ****
+
+router.post('/certificate-number', function (req, res) {
+
+    var certificateNumberQuestion = req.session.data['certificate-number'];
+
+    if (certificateNumberQuestion == "Yes") {
+        res.redirect('enter-your-certificate-number');
+    } else if (certificateNumberQuestion == "No") {
+        res.redirect('../change/type-of-change');
+    } else {
+        res.redirect('certificate-number');
+
+    }
+
+})
+
+router.post('/enter-your-certificate-number', function (req, res) {
+
+    res.redirect('change/type-of-change');
+
+})
+
+router.post('/replacement/certificate-number', function (req, res) {
+
+    var certificateNumberQuestion = req.session.data['certificate-number'];
+
+    if (certificateNumberQuestion == "Yes") {
+        res.redirect('enter-your-certificate-number');
+    } else if (certificateNumberQuestion == "No") {
+        res.redirect('enter-your-name');
+    } else {
+        res.redirect('certificate-number');
+
+    }
+
+})
+
+router.post('/replacement/enter-your-certificate-number', function (req, res) {
+
+    res.redirect('enter-your-name');
+
+})
+
+router.post('/replacement/enter-your-address', function (req, res) {
+
+    var addressLine1 = req.session.data['address-line-1'];
+    var townOrCity = req.session.data['address-town'];
+    var postcodeManual = req.session.data['address-postcode'];
+
+
+    if (addressLine1 && townOrCity && postcodeManual) {
+        res.redirect('ppc-replacement-record-found');
+    } else {
+        res.redirect('enter-your-address');
+    }
+
+})
+
+router.post('/replacement/select-your-address', function (req, res) {
+
+    var address = req.session.data['address'];
+
+    if (address) {
+        res.redirect('ppc-replacement-record-found');
+    } else {
+        res.redirect('select-your-address');
+    }
+})
+
+router.post('/ppc-replacement-record-found', function (req, res) {
+
+    res.redirect('ppc-replacement-request-confirmation');
+
+})
+
 
 // ******
 // CHANGE

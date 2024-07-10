@@ -1,0 +1,62 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Find your address" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+  
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+  
+    </div>
+  </div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="/{{folder}}/{{subfolder}}/replacement/find-your-address" method="post" novalidate>
+        
+        {% call fieldset({
+          legend: {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        }) %}
+        
+          {{ input({
+            label: {
+              "text": 'Postcode'
+            },
+            "hint": {
+            "text": "For example, WA4 1AB"
+            },
+            "id": "postcode",
+            "name": "postcode",
+            "autocomplete": "postal-code",
+            "classes": "nhsuk-input--width-10"
+          }) }}
+        
+        {% endcall %}
+
+        <div class="nhsuk-form-group">
+            <p><a href="enter-your-address">Enter your address manually</a></p>
+        </div>
+
+        {{ button({
+            "text": "Continue"
+        }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

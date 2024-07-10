@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you have a NHS Prescription Prepayment Certificate number?" %}
+{% set pageTitle = "Do you know your NHS Prescription Prepayment Certificate number?" %}
 
 {% block pageTitle %}
   {{pageTitle}} - {{serviceName}}
@@ -22,7 +22,7 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/{{subfolder}}/certificate-number" method="post" novalidate>
+      <form action="/{{folder}}/{{subfolder}}/replacement/certificate-number" method="post" novalidate>
 
       {{ radios({
         "idPrefix": "certificate-number", 
@@ -34,9 +34,6 @@
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
-        },
-        "hint": {
-          "text": "If you have have an existing PPC you will find the number on your certificate."
         },
         "items": [
           {

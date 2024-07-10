@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "What is your NHS Prescription Prepayment Certificate number?" %}
+{% set pageTitle = "What is your name?" %}
 
 {% block pageTitle %}
   {{pageTitle}} - {{serviceName}}
@@ -22,7 +22,7 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/enter-your-certificate-number" method="post" novalidate>
+      <form action="/{{folder}}/{{subfolder}}/replacement/enter-your-name" method="post" novalidate>
 
       {% call fieldset({
         legend: {
@@ -34,10 +34,22 @@
       
         {{ input({
           label: {
-            "html": 'For example: 10193121121'
+            "html": 'First name'
           },
-          "id": "certificateNumber",
-          "name": "certificateNumber",
+          "id": "firstName",
+          "name": "firstName",
+          autocomplete: "given-name",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+        {{ input({
+          label: {
+            "html": 'Last name'
+          },
+          "id": "lastName",
+          "name": "lastName",
+          autocomplete: "family-name",
           spellcheck: false,
           "classes": "nhsuk-input--width-20"
         }) }}
