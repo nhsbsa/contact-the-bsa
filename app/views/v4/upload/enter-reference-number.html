@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your reference number?" %}
 
 {% block pageTitle %}
-  What is your reference number? - Contact the NHS Business Services Authority - NHSBSA
+  {{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,7 +12,7 @@
 
 {% set referenceNumber %}
   <h1 class="nhsuk-heading-l">
-    What is your reference number?
+    {{pageTitle}}
   </h1>
   <div class="nhsuk-hint">
     For example, 
@@ -81,7 +82,7 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-        <form action="v4/upload/enter-reference-number" method="post" novalidate>
+        <form action="/{{folder}}/{{subfolder}}/enter-reference-number" method="post" novalidate>
       
         {{ input({
           label: {

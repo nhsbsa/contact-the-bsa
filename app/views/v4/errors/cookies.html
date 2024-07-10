@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "Enable cookies to continue" %}
 
 {% block pageTitle %}
-Enable cookies to continue
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -9,7 +10,7 @@ Enable cookies to continue
     <div class="nhsuk-grid-column-two-thirds">
 
         <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">
-            Enable cookies to continue
+            {{pageTitle}}
         </h1>
 
         <p>

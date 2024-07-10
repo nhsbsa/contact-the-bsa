@@ -1,7 +1,10 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your student services query about?" %}
+
 {% block pageTitle %}
-What is your student services query about? - Contact the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
+
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
@@ -15,14 +18,14 @@ What is your student services query about? - Contact the NHS Business Services A
 
     <div class="nhsuk-form-group">
       
-      <form action="v4/select-your-query-student-services" method="post" novalidate>
+      <form action="/{{folder}}/select-your-query-student-services" method="post" novalidate>
 
       {{ radios({
         "idPrefix": "select-your-query-student-services",
         "name": "select-your-query-student-services",
         "fieldset": {
           "legend": {
-            "text": "What is your student services query about?",
+            "text": pageTitle,
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }

@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "Find your address" %}
 
 {% block pageTitle %}
-Find your address - Contact the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -20,11 +21,11 @@ Find your address - Contact the NHS Business Services Authority - NHSBSA
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <form action="v4/upload/find-your-address" method="post" novalidate>
+        <form action="/{{folder}}/{{subfolder}}/find-your-address" method="post" novalidate>
         
         {% call fieldset({
           legend: {
-            "text": "Find your address",
+            "text": pageTitle,
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }

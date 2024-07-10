@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "Do you have a reference number?" %}
 
 {% block pageTitle %}
-  Do you have a reference number? - Contact the NHS Business Services Authority - NHSBSA
+  {{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -21,15 +22,15 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="v4/upload/reference-number" method="post" novalidate>
+      <form action="/{{folder}}/{{subfolder}}/reference-number" method="post" novalidate>
 
       {{ radios({
-        "idPrefix": "reference-number",
+        "idPrefix": "reference-number", 
         "name": "reference-number",
         "classes": "nhsuk-radios--inline",
         "fieldset": {
           "legend": {
-            "text": "Do you have a reference number?",
+            "text": pageTitle,
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }

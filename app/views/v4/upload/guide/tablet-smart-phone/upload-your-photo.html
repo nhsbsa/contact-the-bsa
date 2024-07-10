@@ -1,7 +1,8 @@
 {% extends 'layout-upload-document.html' %}
+{% set pageTitle = "Upload your photo" %}
 
 {% block pageTitle %}
-Upload your photo - Upload a document to the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -27,7 +28,7 @@ Upload your photo - Upload a document to the NHS Business Services Authority - N
                 <p>Step 5 of 5</p>
             </div>
             <div class="nhsbsa-guidance-title">
-                <h1 class="nhsuk-heading-l">Upload your photo</h1>
+                <h1 class="nhsuk-heading-l">{{pageTitle}}</h1>
             </div>
 
 
@@ -46,7 +47,7 @@ Upload your photo - Upload a document to the NHS Business Services Authority - N
     </div>
     <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
-            <a href="/v4/upload/upload-your-document"><button class="nhsuk-button nhsuk-button--reverse"
+            <a href="/{{folder}}/{{subfolder}}/upload-your-document"><button class="nhsuk-button nhsuk-button--reverse"
                     data-module="nhsuk-button">Return to your upload</button></a>
         </div>
     </div>

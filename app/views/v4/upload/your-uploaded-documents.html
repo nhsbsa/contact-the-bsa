@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "Your uploaded documents" %}
 
 {% block pageTitle %}
-Your uploaded documents - Contact the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -37,34 +38,30 @@ Your uploaded documents - Contact the NHS Business Services Authority - NHSBSA
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="v4/upload/your-uploaded-documents" method="post" novalidate>
+      <form action="/{{folder}}/{{subfolder}}/your-uploaded-documents" method="post" novalidate>
 
         <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
-          Your uploaded documents
+          {{pageTitle}}
         </h1>
 
-        {{ table({
-          panel: false,
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: "Documents"
-            },
-            {
-              text: "Actions"
-            }
-          ],
-          rows: [
-            [
-              {
-                html: fileName
-              },
-              {
-                html: '<a href=\"/v4/upload/upload-your-document">Change</a> or <a href=\"/v4/upload/delete-your-document\">Delete</a><span class=\"nhsuk-u-visually-hidden\"> type of change</span>'
-              }
-            ]
-          ]
-        }) }}
+        <table class="nhsuk-table">
+          <thead role="rowgroup" class="nhsuk-table__head">
+            <tr role="row">
+              <th role="columnheader" class="" scope="col">
+                Documents
+              </th>
+              <th role="columnheader" class="" scope="col">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr role="row" class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">{{fileName}}</td>
+              <td class="nhsuk-table__cell "><a href="/{{folder}}/{{subfolder}}/upload-your-document">Change</a> or <a href="/{{folder}}/{{subfolder}}/delete-your-document">Delete</a><span class="nhsuk-u-visually-hidden"> type of change</span></td>
+            </tr>
+          </tbody>
+        </table>
 
         <p>
           You can upload up to 10 documents.

@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "Select your address" %}
 
 {% block pageTitle %}
-Select your address - Contact the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -22,12 +23,12 @@ Select your address - Contact the NHS Business Services Authority - NHSBSA
 
       <p>{{ data['addresses'] | length }} {% if (data['addresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcode'] }}. <a href="find-your-address">Search again</a></p>
 
-      <form action="v4/upload/select-your-address" method="post" novalidate>
+      <form action="/{{folder}}/{{subfolder}}/select-your-address" method="post" novalidate>
 
       <fieldset class="nhsuk-fieldset">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
           <h1 class="nhsuk-fieldset__heading">
-            Select your address
+            {{pageTitle}}
           </h1>
         </legend>
       

@@ -1,7 +1,8 @@
 {% extends 'layout-upload-document.html' %}
+{% set pageTitle = "What you'll need" %}
 
 {% block pageTitle %}
-What you'll need - Upload a document to the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -27,7 +28,7 @@ What you'll need - Upload a document to the NHS Business Services Authority - NH
                 <p>Step 2 of 5</p>
             </div>
             <div class="nhsbsa-guidance-title">
-                <h1 class="nhsuk-heading-l">What you'll need</h1>
+                <h1 class="nhsuk-heading-l">{{pageTitle}}</h1>
             </div>
 
 

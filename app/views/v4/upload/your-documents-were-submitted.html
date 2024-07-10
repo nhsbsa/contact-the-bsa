@@ -1,7 +1,8 @@
 {% extends 'layout-contact.html' %}
+{% set pageTitle = "Documents to support your query have been submitted" %}
 
 {% block pageTitle %}
-Upload a document to the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -11,7 +12,7 @@ Upload a document to the NHS Business Services Authority - NHSBSA
       <div class="nhsuk-card" style="background: #005EB8; margin-top: 0;">
         <div class="nhsuk-card__content">
           <h1 class="nhsuk-card__heading" style="text-align: center; color: white;">
-            Documents to support your query have been submitted
+            {{pageTitle}}
           </h1>
           <h2 class="nhsuk-card__heading nhsuk-u-font-weight-normal" style="text-align: center; color: white;">
             Reference number: <span class="nhsuk-caption-xl nhsuk-caption--bottom nhsuk-u-font-weight-bold" style="color: white;">HDJ2123F</span>
