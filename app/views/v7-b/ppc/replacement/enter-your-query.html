@@ -1,0 +1,55 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Enter your query" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/{{subfolder}}/replacement/enter-your-query" method="post" novalidate>
+
+      {% call fieldset({
+        legend: {
+          "text": pageTitle,
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      }) %}
+      
+        {{ textarea({
+          label: {
+            "html": 'How can we help?'
+          },
+          "id": "queryDetails",
+          "name": "queryDetails",
+          spellcheck: false
+        }) }}
+      
+      {% endcall %}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

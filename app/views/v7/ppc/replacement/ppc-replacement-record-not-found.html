@@ -9,17 +9,6 @@
 
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-  
-        {{ backLink({
-            "href": "javascript:history.go(-1)",
-            "text": "Go back"
-        }) }}
-  
-    </div>
-  </div>
-
-<div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
 
         <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">
            {{pageTitle}} 
@@ -204,6 +193,21 @@
           "
         }) }}
   
+        <hr>
+
+        <h2 class="nhsuk-heading-m">Send us an email:</h2>
+
+        <p>Send us an email using our online form and we will get back to you within 2 working days.</p>
+
+        <form action="/{{folder}}/{{subfolder}}/replacement/ppc-replacement-record-not-found" method="post" novalidate>
+
+        {{ button({
+        "text": "Enter query",
+        "classes": "nhsuk-u-margin-top-3"
+        }) }}
+
+        </form>
+
         <hr>
 
         <h2 class="nhsuk-heading-m">Talk to us:</h2>

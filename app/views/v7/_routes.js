@@ -422,6 +422,30 @@ router.post('/ppc-replacement-record-found', function (req, res) {
 
 })
 
+router.post('/ppc-replacement-record-not-found', function (req, res) {
+
+    res.redirect('enter-your-query');
+
+})
+
+router.post('/enter-your-query', function (req, res) {
+
+    res.redirect('enter-your-email-address');
+
+})
+
+router.post('/enter-your-email-address', function (req, res) {
+
+    res.redirect('check-your-answers');
+
+})
+
+router.post('/replacement/check-your-answers', function (req, res) {
+
+    res.redirect('query-successfully-submitted');
+
+})
+
 
 // ******
 // CHANGE
