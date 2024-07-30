@@ -30,25 +30,18 @@ Contact the NHSBSA
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
 <div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-u-reading-width">
+      <h1>
+        Contact Centre Services (CCS)
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom">Contact the NHS Business Services Authority</span>
+      </h1>
+    </div>
+  </div>
   <div class="nhsuk-grid-column-two-thirds">
-
-    <!-- Change the page title here -->
-    <h1>
-      Contact Centre Services (CCS)
-      <span class="nhsuk-caption-xl nhsuk-caption--bottom">Contact the NHS Business Services Authority</span>
-    </h1>
-
-    <!-- Add your content here -->
-    <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
-
-
-
-
-
     <h2>
       Versions
     </h2>
-
     <details class="nhsuk-details nhsuk-expander">
       <summary class="nhsuk-details__summary">
         <div class="nhsuk-grid-row">
@@ -634,6 +627,37 @@ Contact the NHSBSA
 
     
 
+  </div>
+  <div class="nhsuk-grid-column-one-third key-padding-left">
+      <h3>Key</h2>
+      <table class="nhsuk-table">
+        <tbody class="nhsuk-table__body">
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              <strong class="nhsuk-tag nhsuk-tag--blue  nhsuk-u-font-size-14">DESIGN</strong>
+            </td>
+            <td class="nhsuk-table__cell nhsuk-u-font-size-14">All or parts of the version are still being designed</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              <strong class="nhsuk-tag nhsuk-tag--yellow nhsuk-u-font-size-14">UR</strong>
+            </td>
+            <td class="nhsuk-table__cell nhsuk-u-font-size-14">All or parts of the version are currently with UR for usability testing</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-font-size-14">DEV</strong>
+            </td>
+            <td class="nhsuk-table__cell nhsuk-u-font-size-14">All or parts of the version are currently in development</td>
+          </tr>
+          <tr role="row" class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">
+              <strong class="nhsuk-tag nhsuk-tag--red  nhsuk-u-font-size-14">RETIRED</strong>
+            </td>
+            <td class="nhsuk-table__cell nhsuk-u-font-size-14">All or parts of the version have been retired and replaced with new prototypes and Miro boards</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
 </div>
 {% endblock %}
