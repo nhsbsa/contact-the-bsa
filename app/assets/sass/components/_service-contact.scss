@@ -1,0 +1,94 @@
+// ************************************
+// primary contact card
+// ************************************
+
+.nhsuk-card__content--primary .nhsuk-icon {
+    display: block;
+    fill: #005eb8;
+    margin-top: -8px;
+    pointer-events: none;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+}
+
+.nhsuk-card__content--primary {
+    padding-right: 75px !important;
+}
+
+@media (min-width: 48.0625em) {
+    .nhsuk-card__content--primary {
+        height: 100%
+    }
+}
+
+.nhsuk-list-group {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    .nhsuk-list-group__item {
+        margin-bottom: 10px;
+
+        .nhsuk-list-item__content {
+            background-color: $color_nhsuk-blue;
+            position: relative;
+            height: 100%;
+            display: grid;
+            align-items: center;
+            overflow: hidden;
+            transition: all ease-in-out 0.1s;
+
+            p {
+                color: $color_nhsuk-white;
+                margin: 0;
+
+                a {
+                    color: $color_nhsuk-white;
+                    font-weight: bold;
+                    text-decoration: none;
+                    width: 100%;
+                    display: inline-grid;
+                    padding-right: 62px !important;
+
+                    &:focus,
+                    &:hover {
+                        color: $color_nhsuk-white;
+                    }
+                }
+            }
+
+            .nhsuk-icon {
+                display: block;
+                fill: #ffffff;
+                margin-top: -13px;
+                pointer-events: none;
+                position: absolute;
+                right: 11px;
+                top: 50%;
+            }
+
+            &:focus,
+            &:hover {
+                background-color: $nhsuk-focus-color;
+                cursor: pointer;
+
+                p {
+                    color: $nhsuk-text-color;
+
+                    a {
+                        color: $nhsuk-text-color;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 48.0624em) {
+        .nhsuk-grid-column-one-half {
+            width: 100%;
+        }
+    }
+}

@@ -5,6 +5,9 @@
 @import 'components/list-border';
 @import 'components/related-nav';
 @import 'components/cookies';
+@import 'components/phase-banner';
+@import 'components/service-contact';
+@import 'components/file-upload';
 
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below...
@@ -197,115 +200,6 @@ EMAIL
   }
 }
 
-// ************************************
-// phase banner
-// ************************************
-
-.nhsuk-phase-banner {
-  padding-top: nhsuk-spacing(2);
-  padding-bottom: nhsuk-spacing(2);
-  border-bottom: 1px solid $nhsuk-border-color;
-}
-
-.nhsuk-phase-banner__content {
-  @include nhsuk-font(16);
-  color: $nhsuk-text-color;
-  display: table;
-  margin: 0;
-}
-
-.nhsuk-phase-banner__content__tag {
-  margin-right: 10px ;
-}
-
-.nhsuk-phase-banner__text {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-// ************************************
-// primary contact card
-// ************************************
-
-.nhsuk-card__content--primary .nhsuk-icon {
-  display: block;
-  fill: #005eb8;
-  margin-top: -8px;
-  pointer-events: none;
-  position: absolute;
-  right: 24px;
-  top: 50%;
-}
-.nhsuk-card__content--primary {
-  padding-right: 75px !important;
-}
-
-@media (min-width: 48.0625em) {
-    .nhsuk-card__content--primary {
-        height:100%
-    }
-}
-
-.nhsuk-list-group{
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  .nhsuk-list-group__item{
-    margin-bottom: 10px;
-      .nhsuk-list-item__content{
-        background-color: $color_nhsuk-blue;
-        position: relative;
-        height: 100%;
-        display: grid;
-        align-items: center;
-        overflow: hidden;
-        transition: all ease-in-out 0.1s;
-        p{
-          color: $color_nhsuk-white;
-          margin: 0;
-          a{
-            color: $color_nhsuk-white;
-            font-weight: bold;
-            text-decoration: none;
-            width: 100%;
-            display: inline-grid;
-            padding-right: 62px !important;
-            &:focus, &:hover{
-              color: $color_nhsuk-white;
-            }
-          }
-        }
-        .nhsuk-icon {
-          display: block;
-          fill: #ffffff;
-          margin-top: -13px;
-          pointer-events: none;
-          position: absolute;
-          right: 11px;
-          top: 50%;
-        }
-        &:focus, &:hover{
-          background-color: $nhsuk-focus-color;
-          cursor: pointer;
-          p{
-            color: $nhsuk-text-color;
-            a{
-              color: $nhsuk-text-color;
-            }
-          }
-        }
-      }
-  }
-  @media (max-width: 48.0624em){
-      .nhsuk-grid-column-one-half{
-        width: 100%;
-      }
-  }
-}
-
-
 
 // ************************************
 // big blue box
@@ -314,87 +208,4 @@ EMAIL
 .big-blue-box {
   background: $color_nhsuk-blue;
   color: $color_nhsuk-white;
-}
-
-// ************************************
-// file upload
-// ************************************
-
-.nhsuk-file-upload {
-  font-family: "GDS Transport", arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 19px;
-  font-size: 1rem;
-  line-height: 1;
-  color: #0b0c0c;
-  max-width: 100%;
-  margin-left: -5px;
-  padding: 5px;
-  &::file-selector-button{    
-    background-color: #ffffff;
-    border:2px solid #0b0c0c;
-    border-radius: 30px;
-    padding: 8px 16px;
-    color: #0b0c0c;
-  }
-}
-.nhsuk-file-upload:focus {
-  outline: 3px solid #ffdd00;
-  box-shadow: inset 0 0 0 4px #0b0c0c;
-}
-
-/* Styles for the button */
-.capture-button-overlay,
-.capture-button,
-.or-capture {
-  display: none; /* Hide the button by default */
-}
-
-/* icons */
-.icon_svg img{
-  max-height:300px;
-  text-align: center;
-}
-@media only screen and (min-width: 767px) {
-  .icon-right{
-    text-align: right !important;
-  }
-}
-
-/* Media query for mobile devices (up to 767px wide) */
-@media only screen and (max-width: 767px) {
-  .capture-button{
-    display: none;
-  }
-  .capture-button-overlay { /* Show the button only on mobile devices */
-      display: inline-block;
-      position: relative;
-      z-index: 5;
-      font-family: "GDS Transport", arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-weight: 400;
-      font-size: 0.7rem !important;
-      line-height: 1;
-      color: #0b0c0c;
-      max-width: 100%;
-      background-color: #ffffff;
-      border:2px solid #0b0c0c;
-      border-radius: 30px;
-      padding: 8px 16px;
-      &:focus{
-        background-color:#ffffff;
-        outline: 3px solid #ffdd00;
-        box-shadow: inset 0 0 0 3px #0b0c0c;
-      }
-  }
-  .or-capture {
-      display: block; /* Show OR only on mobile devices */
-      margin-bottom:5px;
-  }
-  .nhsuk-file-upload {
-    font-size: 0.7rem !important;
-  }
 }
