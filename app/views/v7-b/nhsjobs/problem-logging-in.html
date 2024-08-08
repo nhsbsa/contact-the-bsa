@@ -1,0 +1,67 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Are you having a problem logging in?" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">NHS Jobs</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+
+      <p>If you know your login details but are having a problem logging into the system you may be using the wrong website.</p>
+      <p>We have two separate sites one for candidates and another for employers.</p>
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+
+      {% set chevronIcon = "<svg class=\"nhsuk-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" aria-hidden=\"true\" focusable=\"false\">
+        <circle cx=\"13.333\" cy=\"13.33\" r=\"13.333\" fill=\"\" />
+        <g data-name=\"Group 1\" fill=\"none\" stroke=\"#005eb8\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" stroke-width=\"2.667\">
+          <path d=\"M15.438 13l-3.771 3.771\" />
+          <path data-name=\"Path\" d=\"M11.667 9.229L15.438 13\" />
+        </g>
+      </svg>" %}
+
+      {{ warningCallout({
+        heading: "Important",
+        HTML: "<p>If your account was created before 31st May 2023 you will need to create a new account as the NHS Jobs website had been upgraded to a new system. </p>"
+      }) }}
+
+      <h2 class="nhsuk-heading-l">Select the site you require below:</h2>
+
+      <ul class="nhsuk-grid-row nhsuk-list-group">
+        <li class="nhsuk-grid-column-one-half nhsuk-list-group__item">
+          <div class="nhsuk-list-item__content">
+          <p><a href="https://www.jobs.nhs.uk/candidate" target="_blank" aria-label="Sign in as a candidate - opens in a new tab" class="nhsuk-u-padding-4">Candidates</a></p>
+          {{chevronIcon|safe}}
+        </div>
+        </li>
+        <li class="nhsuk-grid-column-one-half nhsuk-list-group__item">
+          <div class="nhsuk-list-item__content">
+          <p><a href="https://www.jobs.nhs.uk/employer/home" target="_blank" aria-label="Sign in as an employer - opens in a new tab" class="nhsuk-u-padding-4">Employers</a></p>
+          {{chevronIcon|safe}}
+        </div>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

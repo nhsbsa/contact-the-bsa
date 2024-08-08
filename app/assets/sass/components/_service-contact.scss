@@ -53,9 +53,13 @@
                     display: inline-grid;
                     padding-right: 62px !important;
 
+                    &:visited {
+                        color:$color_nhsuk-white;
+                    }
+
                     &:focus,
                     &:hover {
-                        color: $color_nhsuk-white;
+                        color: $nhsuk-text-color;
                     }
                 }
             }

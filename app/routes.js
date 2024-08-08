@@ -56,6 +56,7 @@ router.use('/v7-b/change/date-of-birth', versionSevenB);
 router.use('/v7-b/upload', versionSevenB); 
 router.use('/v7-b/ppc', versionSevenB); 
 router.use('/v7-b/ppc/replacement', versionSevenB); 
+router.use('/v7-b/nhsjobs', versionSevenB); 
 
 const versionSeven =  require('./views/v7/\_routes')
 router.use('/v7', versionSeven );

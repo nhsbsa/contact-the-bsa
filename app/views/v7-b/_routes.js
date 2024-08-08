@@ -30,6 +30,8 @@ router.post('/which-service', function (req, res) {
             res.redirect('select-your-query-student-services');
         } else if (whichService == "NHS Pensions") {
             res.redirect('select-your-query-nhs-pension');
+        } else if (whichService == "NHS Jobs") {
+            res.redirect('nhsjobs/contact-nhs-jobs');
         } else {
             res.redirect('query-type');
         }
