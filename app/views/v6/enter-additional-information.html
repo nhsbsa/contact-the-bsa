@@ -1,0 +1,49 @@
+{% extends 'layout-upload-document.html' %}
+
+{% block pageTitle %}
+What is the reason for uploading this document? - Upload a document to the NHS Business Services Authority - NHSBSA
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">
+        What is the reason for uploading this document?
+      </h1>
+
+      <form action="v6/enter-additional-information" method="post" novalidate>
+
+        {{ textarea({
+          name: "additionalInfo",
+          id: "additionalInfo",
+          label: {
+            text: "Can you provide more detail relating to your document upload?"
+          },
+          hint: {
+            text: "Do not include personal or financial information, for example, your National Insurance number or credit card details."
+          }
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+  
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

@@ -288,6 +288,12 @@ router.post('/v6/delete-your-document', function (req, res) {
 
 router.post('/v6/your-uploaded-documents', function (req, res) {
 
+    res.redirect('/v6/enter-additional-information');
+
+})
+
+router.post('/v6/enter-additional-information', function (req, res) {
+
     res.redirect('/v6/preferred-method-of-contact');
 
 })
