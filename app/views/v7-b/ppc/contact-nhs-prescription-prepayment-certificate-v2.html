@@ -20,14 +20,17 @@
   </g>
 </svg>" %}
 
+{% set generalURL = '/' + folder + '/general/enter-your-name' %}
+{% set uploadURL = '/' + folder + '/upload/reference-number' %}
+
 {% block serviceOptions %}
 
     {{serviceContactList(link="replacement/certificate-number", title="Replace my lost or damaged certificate")}}
     {{serviceContactList(link="certificate-number", title="Change my name, date of birth or address")}}
-    {{serviceContactList(link="/v7-b/upload/reference-number", title="Upload supporting documents")}}
+    {{serviceContactList(link=uploadURL, title="Upload supporting documents")}}
     {{serviceContactList(link="https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start", target="_blank", aria="Opens in a new tab", title="Check your eligibility")}}
     {{serviceContactList(link="https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start", target="_blank", aria="Opens in a new tab", title="Buy a PPC")}}
-    {{serviceContactList(link="/v7-b/general/enter-your-name", title="Something else")}}  
+    {{serviceContactList(link=generalURL, title="Something else")}}  
 
 {% endblock %}
 

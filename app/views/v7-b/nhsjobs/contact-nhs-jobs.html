@@ -19,13 +19,15 @@
   </g>
 </svg>" %}
 
+{% set generalURL = '/' + folder + '/general/enter-your-name' %}
+
 {% block serviceOptions %}
 
     {{serviceContactList(link="problem-logging-in", title="Problem logging in?")}}
     {{serviceContactList(link="help-with-the-nhs-jobs-website", title="Help with NHS Jobs website")}}
     {{serviceContactList(link="#", title="Make a complaint")}}
     {{serviceContactList(link="send-your-CV", title="Send your CV")}}
-    {{serviceContactList(link="/v7-b/general/enter-your-name", title="Something else")}}  
+    {{serviceContactList(link=generalURL, title="Something else")}}  
 
 {% endblock %}
 
