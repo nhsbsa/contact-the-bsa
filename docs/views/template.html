@@ -91,20 +91,22 @@
       {% endblock %}
 
       {% block beforeContent %}
+        <div class="versionTag">
+          {% if (folder == 'v4') %} 
+          <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS 'To Be' Version </strong>
+          {% elseif (folder == 'v5') %}
+          <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS MVP (Simplified)</strong>
+          {% elseif (folder == 'v6') %}
+          <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS MVP (Simplified) Iteration 1</strong>
+          {% elseif (folder == 'v7') %}
+          <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS 'To Be' Version - Iteration 1 - A</strong>
+          {% elseif (folder == 'v7-b') %}
+          <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS 'To Be' Version - Iteration 1 - B</strong>
+          {% endif %}
+        </div>
         <div class="nhsuk-width-container">
           <div class="nhsuk-phase-banner">
             <p class="nhsuk-phase-banner__content">
-              {% if (folder == 'v4') %} 
-              <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS 'To Be' Version </strong>
-              {% elseif (folder == 'v5') %}
-              <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS MVP (Simplified)</strong>
-              {% elseif (folder == 'v6') %}
-              <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS MVP (Simplified) Iteration 1</strong>
-              {% elseif (folder == 'v7') %}
-              <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS 'To Be' Version - Iteration 1 - A</strong>
-              {% elseif (folder == 'v7-b') %}
-              <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">CCS 'To Be' Version - Iteration 1 - B</strong>
-              {% endif %}
               <strong class="nhsuk-tag nhsuk-phase-banner__content__tag">
                 Beta
               </strong>
