@@ -1,0 +1,68 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your name?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/{{subfolder}}/complaints/enter-your-name" method="post" novalidate>
+
+      {% call fieldset({
+        legend: {
+          "text": pageTitle,
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      }) %}
+      
+        {{ input({
+          label: {
+            "html": 'First name'
+          },
+          "id": "firstName",
+          "name": "firstName",
+          autocomplete: "given-name",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+        {{ input({
+          label: {
+            "html": 'Last name'
+          },
+          "id": "lastName",
+          "name": "lastName",
+          autocomplete: "family-name",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+      {% endcall %}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

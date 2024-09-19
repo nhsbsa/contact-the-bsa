@@ -346,6 +346,54 @@ router.post('/general/check-your-answers', function (req, res) {
     res.redirect('your-query-has-been-submitted');
 })
 
+// ********
+// NHS JOBS
+// ********
+
+router.post('/complaints/enter-your-name', function (req, res) {
+
+    res.redirect('enter-your-complaint');
+
+})
+
+router.post('/complaints/enter-your-complaint', function (req, res) {
+
+    res.redirect('preferred-contact-method');
+
+})
+
+router.post('/complaints/preferred-contact-method', function (req, res) {
+
+    var nhsjobsContactMethod = req.session.data['complaintsContact'];
+
+    if (nhsjobsContactMethod == "By telephone") {
+        res.redirect('enter-your-telephone-number');
+    } else if (nhsjobsContactMethod == "By email") {
+        res.redirect('enter-your-email-address');
+    } else {
+        res.redirect('preferred-contact-method');
+    }
+
+})
+
+router.post('/complaints/enter-your-telephone-number', function (req, res) {
+
+    res.redirect('check-your-answers');
+
+})
+
+router.post('/complaints/enter-your-email-address', function (req, res) {
+
+    res.redirect('check-your-answers');
+
+})
+
+router.post('/complaints/check-your-answers', function (req, res) {
+
+    res.redirect('complaint-successfully-submitted');
+
+})
+
 // ****
 // PPC
 // ****

@@ -1,0 +1,154 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Check your answers" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">
+      {{pageTitle}}
+    </h1>
+
+    <dl class="nhsuk-summary-list">
+
+      {% if (data['which-service']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['which-service']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['firstName']) and (data['lastName']) %}
+          {{ data['firstName']}} {{ data['lastName'] }}
+          {% else %}
+          Simon Jones
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> name</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+
+        <dt class="nhsuk-summary-list__key">
+          Your Complaint
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['complaintDetails']) %}
+          {{ data['complaintDetails'] }}
+          {% else %}
+          This is my complaint due to the system not finding my details
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> if you want to change your complaint</span>
+          </a>
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Preferred method of contact
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['complaintsContact']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> contact method</span>
+          </a>
+
+        </dd>
+      </div>
+
+      {% if (data['emailAddress']) %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['emailAddress']) %}
+          {{ data['emailAddress'] }}
+          {% else %}
+          simon.jones@nhsbsa.nhs.uk
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> email address</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      {% if (data['telephoneNumber']) %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Telephone number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['telephoneNumber']) %}
+          {{ data['telephoneNumber'] }}
+          {% else %}
+          0191 1234 567
+          {% endif %}
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> telephone number</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+    </dl>
+
+    <form action="/{{folder}}/{{subfolder}}/complaints/check-your-answers" method="post" novalidate>
+
+      {{ button({
+      "text": "Confirm and send",
+      "classes": "nhsuk-u-margin-top-3"
+      }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

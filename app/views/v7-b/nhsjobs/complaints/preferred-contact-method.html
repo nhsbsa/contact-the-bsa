@@ -1,0 +1,56 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "How would you like to be contacted?" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/{{subfolder}}/complaints/preferred-contact-method" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "complaintsContact",
+        "name": "complaintsContact",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "By telephone",
+            "text": "By telephone"
+          },
+          {
+            "value": "By email",
+            "text": "By email"
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

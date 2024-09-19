@@ -1,0 +1,57 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Enter your complaint" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/{{subfolder}}/complaints/enter-your-complaint" method="post" novalidate>
+
+      {% call fieldset({
+        legend: {
+          "text": pageTitle,
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      }) %}
+      
+        {{ textarea({
+          label: {
+            "html": 'Do not include personal or financial information, for example, National Insurance number or credit card details.'
+          },
+          "id": "complaintDetails",
+          "name": "complaintDetails",
+          spellcheck: false
+        }) }}
+      
+      {% endcall %}
+
+      <p class="nhsuk-body-s">For more information about complaints read the <a href="https://www.nhsbsa.nhs.uk/sites/default/files/2024-07/NHSBSA%20Complaints%20Policy%20%28V6%29%2006.2024.pdf" target="_blank">Business Services Authority Complaints policy (PDF: 156KB) - opens in a new window</a>. </p>
+        
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}
