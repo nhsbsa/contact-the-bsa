@@ -1,0 +1,84 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Your uploaded documents"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+{% set fileName %}
+  {% if (data['change-type']) == "maternity-paternity" %}
+    Maternity Form.pdf (PDF, 123KB)
+  {% elif (data['change-type']) == "upaid-leave-career-break" %}
+    Career Break.pdf (PDF, 123KB)
+  {% elif (data['change-type']) == "other" %}
+    Random Form.pdf (PDF, 123KB)
+  {% elif (data['new-starter-form']) == "Yes" %}
+    New Starter Form.pdf (PDF, 123KB)
+  {% elif (data['working-pattern']) == "Changes to term time" %}
+    Changes to term time.pdf (PDF, 123KB)
+  {% else %}
+    Fake Form.pdf (PDF, 123KB)
+  {% endif %}
+{% endset -%}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+    </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/your-uploaded-documents" method="post" novalidate>
+
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
+          Your uploaded documents
+        </h1>
+
+        {{ table({
+          panel: false,
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Documents"
+            },
+            {
+              text: "Actions"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: fileName
+              },
+              {
+                html: '<a href=\"/v8/upload-your-document">Change</a> or <a href=\"/v8/delete-your-document\">Delete</a><span class=\"nhsuk-u-visually-hidden\"> type of change</span>'
+              }
+            ]
+          ]
+        }) }}
+
+        <p>
+          You can upload up to 10 documents.
+        </p>
+        <p class="nhsuk-u-margin-bottom-0"><a href="#" class="nhsuk-button nhsuk-button--secondary">Upload another document</a></p>
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+  
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Which of our services are you contacting us about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/which-service" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "which-service",
+        "name": "which-service",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+        {
+          "value": "NHS Jobs",
+          "text": "NHS Jobs",
+          "hint": {
+            "text": "Apply for a job and help and support for employers and jobseekers"
+          }
+        },
+        {
+          "value": "Check if you have an exemption from paying NHS costs",
+          "text": "Check if you have an exemption from paying NHS costs",
+          "hint": {
+            "text": "Help to see if you have an exemption from paying NHS prescription and dental costs"
+          }
+        },
+        {
+          "value": "Get help to buy food and milk (Healthy Start)",
+          "text": "Get help to buy food and milk (Healthy Start)",
+          "hint": {
+            "text": "Help with the cost of healthy food and milk for people who are pregnant or have children under 4"
+          }
+        },
+        {
+          "value": "NHS Help with Health Costs (including prescription prepayment certificates)",
+          "text": "NHS Help with Health Costs (including prescription prepayment certificates)",
+          "hint": {
+            "text": "Get help with prescription costs and other NHS charges"
+          }
+        },
+        {
+          "value": "Student Services",
+          "text": "Student Services",
+          "hint": {
+            "text": "Bursaries for students on healthcare, medical, dental or social work courses"
+          }
+        },
+        {
+          "value": "NHS Pensions",
+          "text": "NHS Pensions",
+          "hint": {
+            "text": "For members and employers of the NHS pension scheme"
+          }
+        },
+        {
+          "value": "Total Reward Statements",
+          "text": "Total Reward Statements",
+          "hint": {
+            "text": "Help and support for NHS staff with their remuneration and benefits"
+          }
+        },
+        {
+          "value": "NHS Prescription Services",
+          "text": "NHS Prescription Services",
+          "hint": {
+            "text": "Prescribing and dispensing information for healthcare professionals"
+          }
+        },
+        {
+          "value": "NHS Dental Services (for healthcare professionals)",
+          "text": "NHS Dental Services (for healthcare professionals)",
+          "hint": {
+            "text": "Help and support for dental professionals"
+          }
+        }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

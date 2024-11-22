@@ -1,0 +1,68 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Upload a document"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+
+          {{ backLink({
+              "href": "javascript:history.go(-1)",
+              "text": "Go back"
+          }) }}
+
+      </div>
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/upload-your-document" method="post" novalidate>
+
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
+          {{pageTitle}}
+        </h1>
+        <p class="nhsuk-hint">Use this page to upload a document to {{ data['which-service']}}</p>
+
+        <p>
+          Your document must be:
+        </p>
+
+        <ul>
+          <li>smaller than 5MB</li>
+          <li>a DOC, DOCX, PNG, JPEG, PDF, HEIF or HEIC</li>
+        </ul>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="file-upload">
+            Upload a document
+          </label>
+          <input class="nhsuk-file-upload" id="file-upload" name="file-upload" type="file">
+        </div>
+
+        {{ details({
+          "text": "Need help uploading your document?",
+          "HTML": "
+          <p>You can use a digital camera, smartphone, tablet, or scanner to create the document. </p>
+          <p>We've written a <a href='/{{folder}}/guide/choose-computer-tablet-smart-phone'>step-by-step guide</a> on how to upload a document. We'll bring you back to this page after you've read the guide.</p>
+          <p>If you're unable to upload your document, call us on 0191 232 5371.</p>
+          "
+        }) }}
+  
+        <p class="nhsuk-u-margin-bottom-0"><a href="/{{folder}}/your-uploaded-documents" class="nhsuk-button nhsuk-button--secondary">View uploaded documents</a></p>
+
+        {{ button({
+          "text": "Upload document"
+        }) }}
+  
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

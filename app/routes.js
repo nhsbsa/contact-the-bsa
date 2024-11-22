@@ -46,6 +46,8 @@ router.use('/', (req, res, next) => {
 // Route File Versions
 // ****************************************
 
+router.use('/v8', require('./views/v8/_routes'));
+
 const versionSevenB =  require('./views/v7-b/\_routes')
 router.use('/v7-b', versionSevenB );
 router.use('/v7-b/general', versionSevenB);

@@ -1,0 +1,106 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle  = "What is your reference number?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+{% set referenceNumber %}
+  <h1 class="nhsuk-heading-l">
+    {{pageTitle}}
+  </h1>
+  <div class="nhsuk-hint">
+    For example, 
+    {% if (data['which-service'] == "NHS Jobs") %}
+    the email address of the applicant or employer or Job Reference from website.
+    {% elseif (data['which-service'] == "Get help to buy food and milk (Healthy Start)") %}
+    A0456Y7UH5.
+    {% elseif (data['select-your-query-NHS-exemption'] == "Dental exemption") %}
+    524311111111.
+    {% elseif (data['select-your-query-NHS-exemption'] == "Prescription exemption") %}
+    01241111111.
+    {% elseif (data['select-your-query-help-with-health-costs'] == "NHS Low Income Scheme") %}
+    2-W1K7G8C4.
+    {% elseif (data['select-your-query-help-with-health-costs'] == "NHS Prescription Prepayment Certificate (PPC)") %}
+    10193121121.
+    {% elseif (data['select-your-query-help-with-health-costs'] == "Maternity exemption certificate") %}
+    10192311111.
+    {% elseif (data['select-your-query-help-with-health-costs'] == "Medical exemption certificate") %}
+    10192311111.
+    {% elseif (data['select-your-query-help-with-health-costs'] == "NHS Tax Credit Exemption Certificate") %}
+    10194312111.
+    {% elseif (data['select-your-query-student-services'] == "NHS Learning Support Fund") %}
+    PRN9999999.
+    {% elseif (data['select-your-query-student-services'] == "NHS Pensions") %}
+    SD69210000.
+    {% elseif (data['select-your-query-student-services'] == "Total Reward Statements") %}
+    SD69210000.
+    {% elseif (data['which-service'] == "NHS Dental Services (for healthcare professionals)") %}
+    enter your personal id, e.g. 120653.
+    {% else %}
+    HDJ2423F.
+    {% endif %}
+  
+    <!-- 
+        NHS Jobs                    - Email address of applicant or employer or Job Reference from website
+        Exemption (Dental)          - 524311111111
+        Exemption (Prescription)    - 01241111111
+        Healthy Start               - A0456Y7UH5
+        Costs - LIS                 - 2-W1K7G8C4
+        Costs - PPC                 - 10193121121
+        Costs - Maternity Cert      - 10192311111
+        Costs - Medical Cert        - 10192311111
+        Costs - Tax credit Cert     - 10194312111
+        Student Services - SB       - BRN9999999 or SSRN9999999
+        Student Services - LSF      - PRN9999999
+        Student Services - SC       - N/A
+        NHS Pensions                - SD69210000
+        Total Reward Statements     - SD69210000
+        NHS Dental Services         - Personal ID: 120653
+        NHS Prescription Services   - N/A
+      -->
+  </div>
+{% endset -%}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+      }) }}
+
+  </div>
+</div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="/{{folder}}/enter-reference-number" method="post" novalidate>
+      
+        {{ input({
+          label: {
+            "html": referenceNumber
+          },
+          "id": "enter-reference-number",
+          "name": "enter-reference-number",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

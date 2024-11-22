@@ -1,0 +1,56 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your NHS exemption query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-NHS-exemption" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-NHS-exemption",
+        "name": "select-your-query-NHS-exemption",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Dental exemption",
+            "text": "Dental exemption"
+          },
+          {
+            "value": "Prescription exemption",
+            "text": "Prescription exemption"
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}
