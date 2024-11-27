@@ -193,6 +193,28 @@
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
+          Email Address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['emailAddress']) and (data['emailConfirm']) %}
+          {{ data['emailAddress']}} 
+          {% else %}
+          simon.jones@nhsbsa.nhs.uk
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> email</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
           Date of birth
         </dt>
         <dd class="nhsuk-summary-list__value">

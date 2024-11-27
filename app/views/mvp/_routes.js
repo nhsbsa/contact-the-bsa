@@ -147,9 +147,23 @@ router.post('/enter-your-name', function (req, res) {
     var lastName = req.session.data['lastName'];
 
     if (firstName && lastName) {
-        res.redirect('enter-date-of-birth');
+        res.redirect('enter-your-email');
     } else {
         res.redirect('enter-your-name');
+
+    }
+
+})
+
+router.post('/enter-your-email', function (req, res) {
+
+    var firstName = req.session.data['emailAddress'];
+    var lastName = req.session.data['emailConfirm'];
+
+    if (firstName && lastName) {
+        res.redirect('enter-date-of-birth');
+    } else {
+        res.redirect('enter-your-email');
 
     }
 
