@@ -147,23 +147,9 @@ router.post('/enter-your-name', function (req, res) {
     var lastName = req.session.data['lastName'];
 
     if (firstName && lastName) {
-        res.redirect('enter-your-email');
-    } else {
-        res.redirect('enter-your-name');
-
-    }
-
-})
-
-router.post('/enter-your-email', function (req, res) {
-
-    var firstName = req.session.data['emailAddress'];
-    var lastName = req.session.data['emailConfirm'];
-
-    if (firstName && lastName) {
         res.redirect('enter-date-of-birth');
     } else {
-        res.redirect('enter-your-email');
+        res.redirect('enter-your-name');
 
     }
 
@@ -255,7 +241,7 @@ router.post('/enter-your-address', function (req, res) {
 
 
     if (addressLine1 && townOrCity && postcodeManual) {
-        res.redirect('document');
+        res.redirect('enter-your-email');
     } else {
         res.redirect('enter-your-address');
     }
@@ -267,7 +253,7 @@ router.post('/select-your-address', function (req, res) {
     var address = req.session.data['address'];
 
     if (address) {
-        res.redirect('document');
+        res.redirect('enter-your-email');
     } else {
         res.redirect('select-your-address');
     }
@@ -279,6 +265,17 @@ router.post('/no-address-found', function (req, res) {
     res.redirect('find-your-address');
 
 })
+
+
+// What is your email?
+
+router.post('/enter-your-email', function (req, res) {
+
+        res.redirect('document');
+
+})
+
+// Do you have a document to upload?
 
 router.post('/document', function (req, res) {
 
@@ -294,11 +291,15 @@ router.post('/document', function (req, res) {
 
 })
 
+// Upload your documents
+
 router.post('/upload-your-document', function (req, res) {
 
     res.redirect('your-uploaded-documents');
 
 })
+
+// Delete your document
 
 router.post('/delete-your-document', function (req, res) {
 
@@ -314,17 +315,23 @@ router.post('/delete-your-document', function (req, res) {
 
 })
 
+// Your uploaded documents
+
 router.post('/your-uploaded-documents', function (req, res) {
 
     res.redirect('enter-additional-information');
 
 })
 
+// Enter additional information
+
 router.post('/enter-additional-information', function (req, res) {
 
     res.redirect('check-your-answers');
 
 })
+
+// Check your answers
 
 router.post('/check-your-answers', function (req, res) {
 
