@@ -20,15 +20,17 @@
         </div>
       </div>
 
-      {% if data['emailAddress'] %}
-          <p>We have sent you an email as confirmation of your request.</p>
-      {% endif %}
+      {% if (data['emailAddress']) and (data['emailConfirm']) %}
+      <p>We have sent you an email to {{ data['emailAddress']}} as confirmation of your request</p>
+      <p>You can also save a copy of your request by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
+      {% else %}
       <p>You can save a copy of your request by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
-
+      {% endif %}
+      
       <h2 class="nhsuk-heading-m">What happens next</h2>
 
       <p>
-        You'll get a response to your document upload within 2 working days.  
+        You'll get a response to your request within 2 working days.  
       </p>     
 
       <h2 class="nhsuk-heading-m">Give feedback</h2>
