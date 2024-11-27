@@ -20,19 +20,15 @@
         </div>
       </div>
 
+      {% if data['emailAddress'] %}
+          <p>We have sent you an email as confirmation of your request.</p>
+      {% endif %}
+      <p>You can also save a copy of your request by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
+
       <h2 class="nhsuk-heading-m">What happens next</h2>
 
       <p>
-        You'll get a response to your document upload within 2 working days  
-        {% if data['email'] %}
-          by email - {{ data['email'] }}
-        {% elif data['phone']%}
-          by telephone - {{ data['phone'] }}
-        {% elif data['mobile']%}
-          by text message - {{ data['mobile'] }}
-        {% else %}
-          NO CONTACT METHOD SELECTED
-        {% endif %}.
+        You'll get a response to your document upload within 2 working days.  
       </p>     
 
       <h2 class="nhsuk-heading-m">Give feedback</h2>
