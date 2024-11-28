@@ -335,7 +335,7 @@ router.post('/enter-additional-information', function (req, res) {
 
 router.post('/check-your-answers', function (req, res) {
 
-    res.redirect('your-documents-were-submitted');
+    res.redirect('your-query-has-been-received');
 
 })
 
