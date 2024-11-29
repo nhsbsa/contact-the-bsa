@@ -271,7 +271,14 @@ router.post('/no-address-found', function (req, res) {
 
 router.post('/enter-your-email', function (req, res) {
 
+    var emailAddress = req.session.data['emailAddress'];
+
+    if (emailAddress) {
         res.redirect('enter-your-phone-number');
+    } else {
+        res.redirect('enter-your-email');
+
+    }
 
 })
 
