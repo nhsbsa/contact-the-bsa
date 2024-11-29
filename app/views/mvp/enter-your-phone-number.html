@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "What is your email address?"%}
+{% set pageTitle = "What is your phone number? (optional)"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -22,7 +22,7 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/enter-your-email" method="post" novalidate>
+      <form action="/{{folder}}/enter-your-phone-number" method="post" novalidate>
 
       {% call fieldset({
         legend: {
@@ -34,25 +34,18 @@
       
         {{ input({
           label: {
-            "html": 'Email Address'
+            "html": 'Phone number'
           },
           hint: {
-            text: "You must use an email address that is only used by you. Using shared email address could result in your personal information being passed on to other people."
+            text: "For international numbers include the country code"
           },
-          "id": "emailAddress",
-          "name": "emailAddress",
+          "id": "phoneNumber",
+          "name": "phoneNumber",
           spellcheck: false,
           "classes": "nhsuk-input--width-20"
         }) }}
       
       {% endcall %}
-
-      {{ details({
-        text: "Why do we ask for your email address",
-        HTML: "
-        <p>We use this to send confirmation that your query has been received.</p>
-        "
-      }) }}
 
       {{ button({
         "text": "Continue"

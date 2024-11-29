@@ -271,7 +271,15 @@ router.post('/no-address-found', function (req, res) {
 
 router.post('/enter-your-email', function (req, res) {
 
-        res.redirect('document');
+        res.redirect('enter-your-phone-number');
+
+})
+
+// What is your phone number?
+
+router.post('/enter-your-phone-number', function (req, res) {
+
+    res.redirect('document');
 
 })
 
