@@ -261,6 +261,26 @@
 
       </div>
 
+      {% if (data['phoneNumber']) %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Phone Number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['phoneNumber']}} 
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> phone number</span>
+          </a>
+
+        </dd>
+
+      </div>
+      {% endif %}
+
       {% if (data['document-yes-no']) %}
 
       <div class="nhsuk-summary-list__row">
