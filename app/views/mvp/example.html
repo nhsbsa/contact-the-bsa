@@ -1,0 +1,45 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Contact the NHS Business Services Authority"%}
+
+{% block pageTitle %}
+{{serviceName}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+        }) }}
+
+      <form action="/{{folder}}/example" method="post" novalidate>
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading"> Which of our services are you contacting us about? </h1>
+            </legend>
+            <label class="nhsuk-label" for="my-autocomplete">NHSBSA Services</label>
+            <div id="my-autocomplete-container"></div>
+          </fieldset>
+        </div>
+        <button type="submit" class="nhsuk-button" data-module="nhsuk-button"> Continue </button>
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/js/nhsbsa-services.js"></script>
+<script>
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: service_options
+  })
+</script>
+{% endblock %}
