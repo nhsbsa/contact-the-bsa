@@ -1,1 +1,21 @@
-var service_options = ["Apply for a job in the NHS (NHS Jobs)", "Check if you have a dental exemption from paying NHS costs", "Check if you have a prescription exemption from paying NHS costs", "Get help to buy food and milk (Healthy Start)", "Help with health costs for people on a low income (Low Income Scheme)", "Save money on NHS prescriptions by prepaying for them (Prescription Prepayment Certificate)", "Help with health costs for people who are pregnant or have given birth in the last 12 months (Maternity Exemption Certificate)", "Help with health costs for people who have certain medical conditions (Medical Exemption Certificate)", "Help with health costs for some people getting Child Tax Credit or Working Tax Credit (Tax Credit Exemption Certificate)", "Funding for nursing, midwifery and Allied Health Professional students (NHS Learning Support Fund)", "Funding for students studying to become a doctor or dentist (NHS Bursary)", "Funding for social work students (Social Work Bursary)", "Help for active or deferred members of the NHS Pension Scheme", "Help for NHS employers of the NHS Pension Scheme", "Help for pensioners, surviving spouses, partners, or dependants of the NHS Pension Scheme", "Payroll queries from finance staff about the NHS Pension Scheme", "Help and support for NHS staff with their remuneration and benefits (Total Reward Statements)", "Prescribing and dispensing information for healthcare professionals (NHS Prescription Services)", "Help and support for dental professionals (NHS Dental Services)"];
+var service_options = [
+    { endonym: 'NHS Jobs', name: 'Apply for a job in the NHS (NHS Jobs)' },
+    { endonym: 'Dental Exemption', name: 'Check if you have a dental exemption from paying NHS costs' },
+    { endonym: 'Prescription Exemption', name: 'Check if you have a prescription exemption from paying NHS costs' },
+    { endonym: 'Healthy Start', name: 'Get help to buy food and milk (Healthy Start)' },
+    { endonym: 'Low Income Scheme', name: 'Help with health costs for people on a low income' },
+    { endonym: 'Prescription Prepayment Certificate, PPC', name: 'Save money on NHS prescriptions by prepaying for them' },
+    { endonym: 'Maternity Exemption Certificate', name: 'Help with health costs for people who are pregnant or have given birth in the last 12 months' },
+    { endonym: 'Medical Exemption Certificate', name: 'Help with health costs for people who have certain medical conditions' },
+    { endonym: 'Tax Credit Exemption Certificate', name: 'Help with health costs for some people getting Child Tax Credit or Working Tax Credit' },
+    { endonym: 'NHS Learning Support Fund', name: 'Funding for nursing, midwifery and Allied Health Professional students' },
+    { endonym: 'NHS Bursary', name: 'Funding for students studying to become a doctor or dentist' },
+    { endonym: 'Social Work Bursary', name: 'Funding for social work students' },
+    { endonym: 'NHS Pension Members', name: 'Help for active or deferred members of the NHS Pension Scheme' },
+    { endonym: 'NHS Pension Employers', name: 'Help for NHS employers of the NHS Pension Scheme' },
+    { endonym: 'NHS Pension Pensioner, NHS Pension Spouse, NHS Pension Partner, NHS Pension Dependant', name: 'Help for pensioners, surviving spouses, partners, or dependants of the NHS Pension Scheme' },
+    { endonym: 'NHS Pension Finance Staff', name: 'Payroll queries from finance staff about the NHS Pension Scheme' },
+    { endonym: 'Total Reward Statements', name: 'Help and support for NHS staff with their remuneration and benefits' },
+    { endonym: 'NHS Prescription Services', name: 'Prescribing and dispensing information for healthcare professionals' },
+    { endonym: 'NHS Dental Services', name: 'Help and support for dental professionals' }
+]

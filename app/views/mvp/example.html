@@ -35,11 +35,36 @@
 
 {% block pageScripts %}
 <script src="/js/nhsbsa-services.js"></script>
-<script>
+<script type="text/javascript">
+  function customSuggest (query, syncResults) {
+    syncResults(query
+      ? service_options.filter(function (result) {
+          var resultContains = result.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          var endonymContains = result.endonym.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          return resultContains || endonymContains
+        })
+      : []
+    )
+  }
+
+  function inputValueTemplate (result) {
+    return result && result.name
+  }
+
+  function suggestionTemplate (result) {
+    return result && result.name
+  }
+
+  element = document.querySelector('#my-autocomplete-container')
+  id = 'my-autocomplete'
   accessibleAutocomplete({
-    element: document.querySelector('#my-autocomplete-container'),
-    id: 'my-autocomplete', // To match it to the existing <label>.
-    source: service_options
+    element: element,
+    id: id,
+    source: customSuggest,
+    templates: {
+      inputValue: inputValueTemplate,
+      suggestion: suggestionTemplate
+    }
   })
 </script>
 {% endblock %}
