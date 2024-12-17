@@ -1,7 +1,8 @@
-{% extends 'layout-upload-document.html' %}
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Sorry, the service is unavailable"%}
 
 {% block pageTitle %}
-Sorry, the service is unavailable - Upload a document to the NHS Business Services Authority - NHSBSA
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -11,7 +12,7 @@ Sorry, the service is unavailable - Upload a document to the NHS Business Servic
   <div class="nhsuk-grid-column-full">
     <div class="nhsuk-u-reading-width">
 
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">Sorry, the service is unavailable</h1>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">{{pageTitle}}</h1>
 
       <p>
         Try again later.
