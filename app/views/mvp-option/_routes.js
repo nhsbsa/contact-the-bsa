@@ -20,7 +20,7 @@ router.post('/start', function (req, res) {
 
 })
 
-// Which of our services are you contacting us about?
+// Which of our services are you contacting us about? (radios)
 
 router.post('/which-service', function (req, res) {
 
@@ -44,6 +44,16 @@ router.post('/which-service', function (req, res) {
     } else {
         res.redirect('which-service');
     }
+
+})
+
+// Which of our services are you contacting us about? (autocomplete)
+
+router.post('/which-service-search', function (req, res) {
+ 
+    var serviceName = req.session.data['input-autocomplete'];
+
+    res.redirect('reference-number');
 
 })
 

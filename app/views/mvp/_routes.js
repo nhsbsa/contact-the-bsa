@@ -20,7 +20,7 @@ router.post('/start', function (req, res) {
 
 })
 
-// Which of our services are you contacting us about?
+// Which of our services are you contacting us about? (radios)
 
 router.post('/which-service', function (req, res) {
 
