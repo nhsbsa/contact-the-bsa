@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Which of our services are you contacting us about?"%}
+{% set pageTitle = "Are you looking for one of the following services?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -29,6 +29,9 @@
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
+        },
+        "hint": {
+          "text": "These are services which the NHS Business Services Authority support - if you require further help with any other NHS service please contact your GP or visit the NHS website"
         },
         "items": [
         {
@@ -93,6 +96,13 @@
           "hint": {
             "text": "Help and support for dental professionals"
           }
+        },
+        {
+          "value": "Other",
+          "text": "Other",
+          "hint": {
+            "text": "The service I am contacting about is not listed"
+          }
         }
         ]
       }) }}
@@ -105,7 +115,14 @@
 
   </form>
 
+  {{ insetText({
+    html: "<p>If you are not sure who to contact, you can contact our switchboard by telephone: 0191 283 8924.<br><br><a target=\"_blank\" href=\"/contact-us/call-charges-and-phone-numbers\">Find out about call charges (opens in a new tab)</a></p>"
+  }) }}
+
   </div>
+
+
+
 </div>
 <script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
 {% endblock %}

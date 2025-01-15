@@ -1,0 +1,83 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your Help with Health costs query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-help-with-health-costs" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-help-with-health-costs",
+        "name": "select-your-query-help-with-health-costs",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+        {
+          "value": "NHS Low Income Scheme",
+          "text": "NHS Low Income Scheme",
+          "hint": {
+            "text": "Help with health costs for people on a low income"
+          }
+        },
+        {
+          "value": "NHS Prescription Prepayment Certificate (PPC)",
+          "text": "NHS Prescription Prepayment Certificate (PPC)",
+          "hint": {
+            "text": "Save money on NHS prescriptions by prepaying for them"
+          }
+        },
+        {
+          "value": "Maternity exemption certificate",
+          "text": "Maternity exemption certificate",
+          "hint": {
+            "text": "Help with health costs for people who are pregnant or have given birth in the last 12 months"
+          }
+        },
+        {
+          "value": "Medical exemption certificate",
+          "text": "Medical exemption certificate",
+          "hint": {
+            "text": "Help with health costs for people who have certain medical conditions"
+          }
+        },
+        {
+          "value": "NHS Tax Credit Exemption Certificate",
+          "text": "NHS Tax Credit Exemption Certificate",
+          "hint": {
+            "text": "Help with health costs for some people getting Child Tax Credit or Working Tax Credit"
+          }
+        }
+      ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}
