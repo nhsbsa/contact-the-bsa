@@ -50,10 +50,35 @@ router.post('/which-service', function (req, res) {
 // Which of our services are you contacting us about? (autocomplete)
 
 router.post('/which-service-search', function (req, res) {
- 
+    const validServices = [
+        "Apply for a job in the NHS (NHS Jobs)",
+        "Check if you have a dental exemption from paying NHS costs",
+        "Check if you have a prescription exemption from paying NHS costs",
+        "Get help to buy food and milk (Healthy Start)",
+        "Help with health costs for people on a low income",
+        "Save money on NHS prescriptions by prepaying for them",
+        "Help with health costs for people who are pregnant or have given birth in the last 12 months",
+        "Help with health costs for people who have certain medical conditions",
+        "Help with health costs for some people getting Child Tax Credit or Working Tax Credit",
+        "Funding for nursing, midwifery and Allied Health Professional students",
+        "Funding for students studying to become a doctor or dentist",
+        "Funding for social work students",
+        "Help for active or deferred members of the NHS Pension Scheme",
+        "Help for NHS employers of the NHS Pension Scheme",
+        "Help for pensioners, surviving spouses, partners, or dependants of the NHS Pension Scheme",
+        "Payroll queries from finance staff about the NHS Pension Scheme",
+        "Help and support for NHS staff with their remuneration and benefits",
+        "Prescribing and dispensing information for healthcare professionals",
+        "Help and support for dental professionals"
+    ];
+
     var serviceName = req.session.data['input-autocomplete'];
 
-    res.redirect('reference-number');
+    if (validServices.includes(serviceName)) {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('which-service-search');
+    }
 
 })
 
