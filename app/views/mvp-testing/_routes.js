@@ -106,7 +106,7 @@ router.post('/select-your-query-help-with-health-costs', function (req, res) {
     } else if (helpWithNHSCosts == "Maternity exemption certificate") {
         res.redirect('reference-number');
     } else if (helpWithNHSCosts == "Medical exemption certificate") {
-        res.redirect('reference-number');
+        res.redirect('medical-exemption-certificate-entitlement');
     } else if (helpWithNHSCosts == "NHS Tax Credit Exemption Certificate") {
         res.redirect('reference-number');
     } else if (helpWithNHSCosts == "NHS penalty charges and enquiry letters") {

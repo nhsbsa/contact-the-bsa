@@ -1,0 +1,63 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Are you entitled to a medical exemption certificate?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+        }) }}
+
+    </div>
+</div>
+
+<div class="big-blue-box nhsuk-u-padding-5">
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+
+            <div class="nhsbsa-guidance-title">
+                <h1 class="nhsuk-heading-l">{{pageTitle}}</h1>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+            <div class="nhsuk-u-reading-width">
+                <p class="nhsuk-body-l">You're entitled to a medical exemption certificate if you have either:</p>
+                    <ul>
+                    <li>a permanent fistula (for example, caecostomy, colostomy, laryngostomy or ileostomy) which needs continuous surgical dressing or an appliance</li>
+                    <li>a form of hypoadrenalism (for example, Addison's Disease) for which specific substitution therapy is essential</li>
+                    <li>diabetes insipidus and other forms of hypopituitarism</li>
+                    <li>diabetes mellitus, except where treatment is by diet alone</li>
+                    <li>hypoparathyroidism</li>
+                    <li>myasthenia gravis</li>
+                    <li>myxoedema (that is, hypothyroidism which needs thyroid hormone replacement)</li>
+                    <li>epilepsy which needs continuous anticonvulsive therapy</li>
+                    <li>a continuing physical disability which means you cannot go out without the help of another person</li>
+                    <li>cancer and are undergoing treatment for either: cancer, the effects of cancer or the effects of cancer treatment</li>
+                    </ul>
+                <p>These are the only conditions that entitle you to a medical exemption certificate. If you're not sure about the name of your condition, speak to your doctor.</p>
+            </div>
+        </div>
+    </div>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+            <a href="reference-number"><button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-right-5"
+                    data-module="nhsuk-button">Continue</button></a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
