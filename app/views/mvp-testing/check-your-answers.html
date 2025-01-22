@@ -79,7 +79,7 @@
 
       {% endif %}
 
-      {% if (data['which-service'] == "NHS Help with Health Costs (including prescription prepayment certificates)") %}
+      {% if (data['which-service'] == "NHS Help with Health Costs") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
@@ -139,6 +139,28 @@
 
           <a href="#">
             Change<span class="nhsuk-u-visually-hidden"> which NHS Pension type you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "NHS Healthcare Professionals") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          NHS Healthcare Professionals type
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-healthcare-professionals']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which NHS Healthcare Professionals type you are contacting us about</span>
           </a>
 
         </dd>

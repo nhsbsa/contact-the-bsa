@@ -28,14 +28,14 @@ router.post('/which-service', function (req, res) {
 
     if (whichService) {
 
-        if (whichService == "Check if you have an exemption from paying NHS costs") {
-            res.redirect('select-your-query-NHS-exemption');
-        } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates)") {
+        if (whichService == "NHS Help with Health Costs") {
             res.redirect('select-your-query-help-with-health-costs');
         } else if (whichService == "Student Services") {
             res.redirect('select-your-query-student-services');
         } else if (whichService == "NHS Pensions") {
             res.redirect('select-your-query-nhs-pension');
+        } else if (whichService == "NHS Healthcare Professionals") {
+            res.redirect('select-your-query-healthcare-professionals');
         } else {
             res.redirect('reference-number');
         }
@@ -109,6 +109,8 @@ router.post('/select-your-query-help-with-health-costs', function (req, res) {
         res.redirect('reference-number');
     } else if (helpWithNHSCosts == "NHS Tax Credit Exemption Certificate") {
         res.redirect('reference-number');
+    } else if (helpWithNHSCosts == "NHS penalty charges and enquiry letters") {
+        res.redirect('select-your-query-NHS-exemption');
     } else {
         res.redirect('select-your-query-help-with-health-costs');
     }
@@ -143,8 +145,24 @@ router.post('/select-your-query-nhs-pension', function (req, res) {
         res.redirect('reference-number');
     } else if (nhsPensions == "Payroll query") {
         res.redirect('reference-number');
+    } else if (nhsPensions == "Total Reward Statements") {
+        res.redirect('reference-number');
     } else {
         res.redirect('select-your-query-nhs-pension');
+    }
+
+})
+
+router.post('/select-your-query-healthcare-professionals', function (req, res) {
+
+    var nhsStudentServices = req.session.data['select-your-query-healthcare-professionals'];
+
+    if (nhsStudentServices == "NHS Prescription Services") {
+        res.redirect('reference-number');
+    } else if (nhsStudentServices == "NHS Dental Services") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('select-your-query-healthcare-professionals');
     }
 
 })

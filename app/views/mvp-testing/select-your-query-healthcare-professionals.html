@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "What is your NHS exemption query about?"%}
+{% set pageTitle = "What is your NHS Healthcare Professionals query about?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -18,11 +18,11 @@
 
     <div class="nhsuk-form-group">
       
-      <form action="/{{folder}}/select-your-query-NHS-exemption" method="post" novalidate>
+      <form action="/{{folder}}/select-your-query-healthcare-professionals" method="post" novalidate>
 
       {{ radios({
-        "idPrefix": "select-your-query-NHS-exemption",
-        "name": "select-your-query-NHS-exemption",
+        "idPrefix": "select-your-query-healthcare-professionals",
+        "name": "select-your-query-healthcare-professionals",
         "fieldset": {
           "legend": {
             "text": pageTitle,
@@ -30,18 +30,21 @@
             "isPageHeading": true
           }
         },
-        "hint":  {
-          "text": "If you incorrectly claim free NHS prescriptions or free or reduced cost dental treatment, you're at risk of getting a Penalty Charge Notice."
-        },
         "items": [
-          {
-            "value": "Dental exemption",
-            "text": "Dental exemption"
-          },
-          {
-            "value": "Prescription exemption",
-            "text": "Prescription exemption"
+        {
+          "value": "NHS Prescription Services",
+          "text": "NHS Prescription Services",
+          "hint": {
+            "text": "Prescribing and dispensing information for healthcare professionals"
           }
+        },
+        {
+          "value": "NHS Dental Services",
+          "text": "NHS Dental Services",
+          "hint": {
+            "text": "Help and support for dental professionals"
+          }
+        }
         ]
       }) }}
     </div>

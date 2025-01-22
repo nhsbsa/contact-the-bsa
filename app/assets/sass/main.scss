@@ -211,3 +211,10 @@ EMAIL
   background: $color_nhsuk-blue;
   color: $color_nhsuk-white;
 }
+
+.nhsuk-radios__divider{
+  width: 100% !important;
+  height:1px;
+  background-color: #d8dde0;
+  margin: 40px 0 !important;
+}

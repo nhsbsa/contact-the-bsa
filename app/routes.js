@@ -46,6 +46,7 @@ router.use('/', (req, res, next) => {
 // Route File Versions
 // ****************************************
 
+router.use('/mvp-testing', require('./views/mvp-testing/_routes'));
 router.use('/mvp-option', require('./views/mvp-option/_routes'));
 router.use('/mvp', require('./views/mvp/_routes'));
 
