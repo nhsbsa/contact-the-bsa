@@ -36,6 +36,8 @@ router.post('/which-service', function (req, res) {
             res.redirect('select-your-query-nhs-pension');
         } else if (whichService == "NHS Healthcare Professionals") {
             res.redirect('select-your-query-healthcare-professionals');
+        } else if (whichService == "None of the above") {
+            res.redirect('unable-to-help-online');
         } else {
             res.redirect('reference-number');
         }
