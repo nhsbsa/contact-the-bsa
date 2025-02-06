@@ -1,0 +1,66 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Upload your photo"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+    </div>
+</div>
+
+<div class="big-blue-box nhsuk-u-padding-5">
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+
+            <div class="nhsbsa-guidance-steps">
+                <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">How to upload your document</h2>
+                <p>Step 6 of 6</p>
+            </div>
+            <div class="nhsbsa-guidance-title">
+                <h1 class="nhsuk-heading-l">{{pageTitle}}</h1>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+            <p class="nhsuk-body-l">Send the photo to your computer.</p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-half">
+            <p>You can do this by:</p>
+            <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-bottom-6">
+                <li>emailing it to yourself</li>
+                <li>sending it via Bluetooth&reg;</li>
+                <li>attaching a cable between your mobile phone, tablet or digital camera and your computer</li>
+            </ul>
+        </div>
+        <div class="nhsuk-grid-column-one-half">
+            <img class="nhsuk-image__img nhsuk-u-margin-bottom-6" src="/images/icon_symbols.svg"
+                alt="Email, Bluetooth or Cable used for uploading document">
+        </div>
+    </div>
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+            <a href="/{{folder}}/upload-your-document"><button class="nhsuk-button nhsuk-button--reverse"
+                    data-module="nhsuk-button">Return to your upload</button></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

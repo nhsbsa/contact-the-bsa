@@ -46,8 +46,9 @@ router.use('/', (req, res, next) => {
 // Route File Versions
 // ****************************************
 
+router.use('/mvp-as-is', require('./views/mvp-as-is/_routes'));
 router.use('/mvp-testing', require('./views/mvp-testing/_routes'));
-router.use('/mvp-option', require('./views/mvp-option/_routes'));
+router.use('/mvp-autocomplete', require('./views/mvp-autocomplete/_routes'));
 router.use('/mvp', require('./views/mvp/_routes'));
 
 const versionSevenB =  require('./views/v7-b/\_routes')
