@@ -28,8 +28,14 @@ router.post('/which-service', function (req, res) {
 
     if (whichService) {
 
-        if (whichService == "Overseas Healthcare") {
-            res.redirect('select-your-query-overseas-healthcare');
+        if (whichService == "Check if you have an exemption from paying NHS costs") {
+            res.redirect('select-your-query-NHS-exemption');
+        } else if (whichService == "NHS Help with Health Costs (including prescription prepayment certificates)") {
+            res.redirect('select-your-query-help-with-health-costs');
+        } else if (whichService == "Student Services") {
+            res.redirect('select-your-query-student-services');
+        } else if (whichService == "NHS Pensions") {
+            res.redirect('select-your-query-nhs-pension');
         } else {
             res.redirect('reference-number');
         }
@@ -41,27 +47,71 @@ router.post('/which-service', function (req, res) {
 
 })
 
-router.post('/select-your-query-overseas-healthcare', function (req, res) {
+router.post('/select-your-query-NHS-exemption', function (req, res) {
 
-    var nhsExpemptions = req.session.data['select-your-query-overseas-healthcare'];
+    var nhsExpemptions = req.session.data['select-your-query-NHS-exemption'];
 
-    if (nhsExpemptions == "UK European Health Insurance Card (EHIC)") {
+    if (nhsExpemptions == "Dental exemption") {
         res.redirect('reference-number');
-    } else if (nhsExpemptions == "UK Global Health Insurance Card (GHIC)") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "Immigration Health Surcharge (IHS)") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "S1 Application") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "S2 Application") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "Direct Claims") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "Provisional Replacement Certificate (PRC)") {
+    } else if (nhsExpemptions == "Prescription exemption") {
         res.redirect('reference-number');
     } else {
-        res.redirect('select-your-query-overseas-healthcare');
+        res.redirect('select-your-query-NHS-exemption');
     }
+})
+
+router.post('/select-your-query-help-with-health-costs', function (req, res) {
+
+    var helpWithNHSCosts = req.session.data['select-your-query-help-with-health-costs'];
+
+    if (helpWithNHSCosts == "NHS Low Income Scheme") {
+        res.redirect('reference-number');
+    } else if (helpWithNHSCosts == "NHS Prescription Prepayment Certificate (PPC)") {
+        res.redirect('reference-number');
+    } else if (helpWithNHSCosts == "Maternity exemption certificate") {
+        res.redirect('reference-number');
+    } else if (helpWithNHSCosts == "Medical exemption certificate") {
+        res.redirect('reference-number');
+    } else if (helpWithNHSCosts == "NHS Tax Credit Exemption Certificate") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('select-your-query-help-with-health-costs');
+    }
+
+})
+
+router.post('/select-your-query-student-services', function (req, res) {
+
+    var nhsStudentServices = req.session.data['select-your-query-student-services'];
+
+    if (nhsStudentServices == "NHS Bursary") {
+        res.redirect('reference-number');
+    } else if (nhsStudentServices == "Social Work Bursary") {
+        res.redirect('reference-number');
+    } else if (nhsStudentServices == "NHS Learning Support Fund") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('select-your-query-student-services');
+    }
+
+})
+
+router.post('/select-your-query-nhs-pension', function (req, res) {
+
+    var nhsPensions = req.session.data['select-your-query-nhs-pension'];
+
+    if (nhsPensions == "Employer query") {
+        res.redirect('reference-number');
+    } else if (nhsPensions == "Member query") {
+        res.redirect('reference-number');
+    } else if (nhsPensions == "Pensioner query") {
+        res.redirect('reference-number');
+    } else if (nhsPensions == "Payroll query") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('select-your-query-nhs-pension');
+    }
+
 })
 
 // Do you have a reference number?

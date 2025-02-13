@@ -18,30 +18,54 @@
     For example, 
     {% if (data['which-service'] == "NHS Jobs") %}
     the email address of the applicant or employer or Job Reference from website.
-    {% elseif (data['which-service'] == "Get help to buy food and milk (Healthy Start)") %}
-    A0456Y7UH5.
-    {% elseif (data['select-your-query-NHS-exemption'] == "Dental exemption") %}
-    524311111111.
-    {% elseif (data['select-your-query-NHS-exemption'] == "Prescription exemption") %}
-    01241111111.
-    {% elseif (data['select-your-query-help-with-health-costs'] == "NHS Low Income Scheme") %}
-    2-W1K7G8C4.
-    {% elseif (data['select-your-query-help-with-health-costs'] == "NHS Prescription Prepayment Certificate (PPC)") %}
+    {% elseif (data['which-service'] == "Prescription Prepayment Certificate (PPC)") %}
     10193121121.
-    {% elseif (data['select-your-query-help-with-health-costs'] == "Maternity exemption certificate") %}
+    {% elseif (data['which-service'] == "Prescription Exemption Checking") %}
+    01241111111.
+    {% elseif (data['which-service'] == "Dental Exemption Checking") %}
+    524311111111.
+    {% elseif (data['which-service'] == "Maternity Exemption") %}
     10192311111.
-    {% elseif (data['select-your-query-help-with-health-costs'] == "Medical exemption certificate") %}
+    {% elseif (data['which-service'] == "Medical Exemption") %}
     10192311111.
-    {% elseif (data['select-your-query-help-with-health-costs'] == "NHS Tax Credit Exemption Certificate") %}
+    {% elseif (data['which-service'] == "Low Income Scheme") %}
+    2-W1K7G8C4.
+    {% elseif (data['which-service'] == "Tax Credit") %}
     10194312111.
-    {% elseif (data['select-your-query-student-services'] == "NHS Learning Support Fund") %}
+    {% elseif (data['which-service'] == "Healthy Start") %}
+    A0456Y7UH5.
+    {% elseif (data['which-service'] == "NHS Bursary (Medical and dental funding queries)") %}
+    BRN9999999 or SSRN9999999.
+    {% elseif (data['which-service'] == "NHS Learning Support Fund (Healthcare student funding queries)") %}
     PRN9999999.
-    {% elseif (data['select-your-query-student-services'] == "NHS Pensions") %}
+    {% elseif (data['which-service'] == "My NHS Pension Portal Support") %}
     SD69210000.
-    {% elseif (data['select-your-query-student-services'] == "Total Reward Statements") %}
+    {% elseif (data['which-service'] == "My NHS Pension Registration") %}
     SD69210000.
-    {% elseif (data['which-service'] == "NHS Dental Services (for healthcare professionals)") %}
+    {% elseif (data['which-service'] == "TRS Employer") %}
+    SD69210000.
+    {% elseif (data['which-service'] == "Dental Services") %}
     enter your personal id, e.g. 120653.
+    {% elseif (data['which-service'] == "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate") %}
+    HRT11A11A11.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "UK European Health Insurance Card (EHIC)") %}
+    87999999 or 879999.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "Immigration Health Surcharge (IHS)") %}
+    IHS123456789.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "UK Global Health Insurance Card (GHIC)") %}
+    87999999.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "S1 Application") %}
+    87999999.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "S2 Application") %}
+    87999999 or 879999.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "Provisional Replacement Certificate (PRC)") %}
+    87999999.
+    {% elseif (data['select-your-query-overseas-healthcare'] == "Direct Claims") %}
+    87999999.
+    {% elseif (data['which-service'] == "Adult Social Care") %}
+    H27-C813-3XF7-C.
+    {% elseif (data['which-service'] == "NHS Volunteering") %}
+    enter the email address for recruiter.
     {% else %}
     HDJ2423F.
     {% endif %}
@@ -63,6 +87,16 @@
         Total Reward Statements     - SD69210000
         NHS Dental Services         - Personal ID: 120653
         NHS Prescription Services   - N/A
+        HRT PPC                     - HRT11A11A11
+        EHIC                        - 87999999 or 879999
+        GHIC                        - 87999999
+        IHS                         - IHS123456789
+        S1 Application              - 87999999
+        S2 Application              - 87999999 or 879999
+        Provisional Replacement Cert- 87999999
+        Direct Claims (OHS)         - 87999999
+        Adult Social Care           - H27-C813-3XF7-C
+        NHS Volunteering            - Email address for Recruiter
       -->
   </div>
 {% endset -%}

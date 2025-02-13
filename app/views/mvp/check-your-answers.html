@@ -35,88 +35,20 @@
 
       {% endif %}
 
-      {% if (data['which-service'] == "Check if you have an exemption from paying NHS costs") %}
+      {% if (data['which-service'] == "Overseas Healthcare") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          NHS exemption type
+          Overseas Healthcare service
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['select-your-query-NHS-exemption']}}
+          {{ data['select-your-query-overseas-healthcare']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
 
           <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which NHS exemption type you are contacting us about</span>
-          </a>
-
-        </dd>
-
-      </div>
-
-      {% endif %}
-
-      {% if (data['which-service'] == "NHS Help with Health Costs (including prescription prepayment certificates)") %}
-
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          NHS Help with Health costs type
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['select-your-query-help-with-health-costs']}}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which type of help with NHS Health costs you are contacting us
-              about</span>
-          </a>
-
-        </dd>
-
-      </div>
-
-      {% endif %}
-
-      {% if (data['which-service'] == "Student Services") %}
-
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Student Services type
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['select-your-query-student-services']}}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which Student Services type you are contacting us
-              about</span>
-          </a>
-
-        </dd>
-
-      </div>
-
-      {% endif %}
-
-      {% if (data['which-service'] == "NHS Pensions") %}
-
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          NHS Pension type
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['select-your-query-nhs-pension']}}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which NHS Pension type you are contacting us about</span>
+            Change<span class="nhsuk-u-visually-hidden"> which Overseas Healthcare service you are contacting us about</span>
           </a>
 
         </dd>
