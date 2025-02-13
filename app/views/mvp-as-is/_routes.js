@@ -24,8 +24,44 @@ router.post('/start', function (req, res) {
 
 router.post('/which-service', function (req, res) {
 
-    res.redirect('reference-number');
+    var whichService = req.session.data['which-service'];
 
+    if (whichService) {
+
+        if (whichService == "Overseas Healthcare") {
+            res.redirect('select-your-query-overseas-healthcare');
+        } else {
+            res.redirect('reference-number');
+        }
+
+
+    } else {
+        res.redirect('which-service');
+    }
+
+})
+
+router.post('/select-your-query-overseas-healthcare', function (req, res) {
+
+    var nhsExpemptions = req.session.data['select-your-query-overseas-healthcare'];
+
+    if (nhsExpemptions == "UK European Health Insurance Card (EHIC)") {
+        res.redirect('reference-number');
+    } else if (nhsExpemptions == "UK Global Health Insurance Card (GHIC)") {
+        res.redirect('reference-number');
+    } else if (nhsExpemptions == "Immigration Health Surcharge (IHS)") {
+        res.redirect('reference-number');
+    } else if (nhsExpemptions == "S1 Application") {
+        res.redirect('reference-number');
+    } else if (nhsExpemptions == "S2 Application") {
+        res.redirect('reference-number');
+    } else if (nhsExpemptions == "Direct Claims") {
+        res.redirect('reference-number');
+    } else if (nhsExpemptions == "Provisional Replacement Certificate (PRC)") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('select-your-query-overseas-healthcare');
+    }
 })
 
 // Do you have a reference number?
