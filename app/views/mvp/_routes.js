@@ -30,6 +30,10 @@ router.post('/which-service', function (req, res) {
 
         if (whichService == "Overseas Healthcare") {
             res.redirect('select-your-query-overseas-healthcare');
+        } else if (whichService == "Prescription Services (for healthcare professionals)") {
+            res.redirect('enter-your-name');
+        } else if (whichService == "Social Work Bursary (Social work funding queries)") {
+            res.redirect('enter-your-name');
         } else {
             res.redirect('reference-number');
         }
