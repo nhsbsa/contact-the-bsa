@@ -1,5 +1,16 @@
 # NHS.UK prototype kit Changelog
 
+## 5.0.0 - 15 October 2024
+
+:new: **New features**
+
+- Update to NHS.UK frontend v9.0.1 - see [version 9.0.0 release notes](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v9.0.0) for details on the breaking changes
+- Drop `outerContent` block and use `beforeContent` block for both breadcrumbs and back links
+
+:wrench: **Fixes**
+
+- Updates to dependencies
+
 ## 4.12.0 - 15 August 2024
 
 :wrench:
@@ -7,6 +18,7 @@
 - Enable console logging for nodemon
 - Replace basic auth with a custom authentication process
 - Update NHS.UK frontend to [v8.3.0](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v8.3.0)
+- Fix setting PORT via the command line ([PR 347](https://github.com/nhsuk/nhsuk-prototype-kit/pull/347))
 
 ## 4.11.0 - 27 June 2024
 

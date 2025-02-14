@@ -12,7 +12,7 @@ const nodemon = require('gulp-nodemon');
 const config = require('./app/config');
 
 // Set configuration variables
-const port = process.env.PORT || config.port;
+const port = parseInt(process.env.PORT) || config.port;
 
 // Delete all the files in /public build directory
 function cleanPublic() {
@@ -49,7 +49,7 @@ function compileAssets() {
       'docs/assets/**/**/*.*',
       '!**/assets/**/**/*.js', // Don't copy JS files
       '!**/assets/**/**/*.scss', // Don't copy SCSS files
-    ])
+    ], { encoding: false })
     .pipe(gulp.dest('public'));
 }
 
