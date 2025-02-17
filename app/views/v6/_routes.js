@@ -159,9 +159,9 @@ router.post('/v6/enter-your-name', function (req, res) {
 
 router.post('/v6/enter-date-of-birth', function (req, res) {
 
-    var dateOfBirthDay = req.session.data['date-of-birth-day'];
-    var dateOfBirthMonth = req.session.data['date-of-birth-month'];
-    var dateOfBirthYear = req.session.data['date-of-birth-year'];
+    var dateOfBirthDay = req.session.data['date-of-birth']?.day;
+    var dateOfBirthMonth = req.session.data['date-of-birth']?.month;
+    var dateOfBirthYear = req.session.data['date-of-birth']?.year;
 
     try {
 
