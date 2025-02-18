@@ -21,17 +21,15 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">
-        What is your reason for contacting us?
-      </h1>
-
       <form action="/{{folder}}/enter-additional-information" method="post" novalidate>
 
         {{ textarea({
           name: "additionalInfo",
           id: "additionalInfo",
           label: {
-            text: "Can you provide more detail relating to your query?"
+            text: "What is your reason for contacting us?",
+            classes: "nhsuk-label--l",
+            isPageHeading: true
           },
           hint: {
             text: "Do not include personal or financial information, for example, your National Insurance number or credit card details."
