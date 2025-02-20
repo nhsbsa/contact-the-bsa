@@ -1,0 +1,90 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your students and healthcare professionals query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-students-healthcare-professionals" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-students-healthcare-professionals",
+        "name": "select-your-query-students-healthcare-professionals",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Prescription Services (for healthcare professionals)",
+            "text": "Prescription Services (for healthcare professionals)",
+            "hint": {
+              "text": "Prescribing and dispensing information for healthcare professionals"
+            }
+          },
+          {
+            "value": "Dental Services",
+            "text": "Dental Services",
+            "hint": {
+              "text": "Help and support for dental professionals"
+            }
+          },
+          {
+            "value": "NHS Bursary (Medical and dental funding queries)",
+            "text": "NHS Bursary (Medical and dental funding queries)",
+            "hint": {
+              "text": "Funding for students studying to become a doctor or dentist"
+            }
+          },
+          {
+            "value": "NHS Learning Support Fund (Healthcare student funding queries)",
+            "text": "NHS Learning Support Fund (Healthcare student funding queries)",
+            "hint": {
+              "text": "Funding for nursing, midwifery and Allied Health Professional students"
+            }
+          },
+          {
+            "value": "Social Work Bursary (Social work funding queries)",
+            "text": "Social Work Bursary (Social work funding queries)",
+            "hint": {
+              "text": "Funding for social work students"
+            }
+          },
+          {
+            "value": "Adult Social Care",
+            "text": "Adult Social Care",
+            "hint": {
+              "text": "Funding and reimbursement for adult social care training"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

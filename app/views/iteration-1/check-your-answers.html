@@ -1,0 +1,405 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Check your answers"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>{{pageTitle}}</h1>
+
+    <dl class="nhsuk-summary-list">
+
+      {% if (data['which-service']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['which-service']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "Support with Healthcare Costs") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Healthcare Costs service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-healthcare-costs']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which Healthcare Costs service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "Support with Medical Exemptions and Penalty Charges") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Medical Exemptions and Penalty Charge service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-exemptions-charges']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which Medical Exemptions and Penalty Charge service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "Support for Students and Healthcare Professionals") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Students and Healthcare Professionals service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-students-healthcare-professionals']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which Students and Healthcare Professionals service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "Pensions and Employee Benefits") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Pensions and Employee Benefits service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-pensions-employee-benefits']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which Pensions and Employee Benefits service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "NHS Careers and Volunteering") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          NHS Careers and Volunteering service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-careers-volunteering']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which NHS Careers and Volunteering service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "Overseas Healthcare") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Overseas Healthcare service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-overseas-healthcare']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which Overseas Healthcare service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['reference-number']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Have reference number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['reference-number']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> if you have a reference number</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['enter-reference-number']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Reference number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['enter-reference-number']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> reference number</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['firstName']) and (data['lastName']) %}
+          {{ data['firstName']}} {{ data['lastName'] }}
+          {% else %}
+          Simon Jones
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> name</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['date-of-birth']) %}
+          {{ data['date-of-birth'] }}
+          {% else %}
+          18 May 1985
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['address']) and not (data['address-line-1']) %}
+            {{ data['address'] }}
+          {% elif (data['address-line-1']) and not (data['address']) %}
+            {{data['address-line-1']}} {{data['address-line-2']}} {{data['address-town']}} {{data['address-county']}} {{data['address-postcode']}}
+          {% elif (data['address-line-1']) and (data['address']) %}
+            {{data['address-line-1']}} {{data['address-line-2']}} {{data['address-town']}} {{data['address-county']}} {{data['address-postcode']}}
+          {% else %}
+            NHS BSA, STELLA HOUSE, GOLDCREST WAY, NEWCASTLE UPON TYNE, NE15 8NY
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> address</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Email Address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['emailAddress']) %}
+          {{ data['emailAddress']}} 
+          {% else %}
+          simon.jones@nhsbsa.nhs.uk
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> email</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% if (data['phoneNumber']) %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Phone Number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['phoneNumber']}} 
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> phone number</span>
+          </a>
+
+        </dd>
+
+      </div>
+      {% endif %}
+
+      {% if (data['document-yes-no']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Documents to upload
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['document-yes-no']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> if you have document(s) to upload</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['document-yes-no']) == "Yes" %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Documents uploaded
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Fake Form 1.pdf (PDF, 123KB)<br>
+          Fake Form 2.pdf (PDF, 123KB)
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> uploaded documents</span>
+          </a>
+
+        </dd>
+      </div>
+      
+      {% endif %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Additional Information
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data['additionalInfo'] %}
+          {{ data['additionalInfo']}}
+          {% else %}
+          NO ADDITIONAL INFORMATION ADDED
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> additional information</span>
+          </a>
+
+        </dd>
+      </div>
+
+    </dl>
+
+    <form action="/{{folder}}/check-your-answers" method="post" novalidate>
+
+      {{ button({
+      "text": "Confirm and send",
+      "classes": "nhsuk-u-margin-top-3"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your support with healthcare costs query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-healthcare-costs" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-healthcare-costs",
+        "name": "select-your-query-healthcare-costs",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Prescription Prepayment Certificate (PPC)",
+            "text": "Prescription Prepayment Certificate (PPC)",
+            "hint": {
+              "text": "Save money on NHS prescriptions by prepaying for them"
+            }
+          },
+          {
+            "value": "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate",
+            "text": "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate",
+            "hint": {
+              "text": "Save money on NHS prescriptions by prepaying for them"
+            }
+          },
+          {
+            "value": "Low Income Scheme",
+            "text": "Low Income Scheme",
+            "hint": {
+              "text": "Help with health costs for people on a low income"
+            }
+          },
+          {
+            "value": "Healthy Start",
+            "text": "Healthy Start",
+            "hint": {
+              "text": "Help with the cost of healthy food and milk for people who are pregnant or have children under 4"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

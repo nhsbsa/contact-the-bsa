@@ -1,0 +1,38 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Your query has been received"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ panel({
+        titleText: pageTitle,
+        html: "Reference number: HDJ2123F"
+      }) }}
+
+      {% if (data['emailAddress']) %}
+      <p>We have sent you an email to {{ data['emailAddress']}} as confirmation of your query.</p>
+      <p>You can also save a copy of your query by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
+      {% else %}
+      <p>You can save a copy of your query by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
+      {% endif %}
+      
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+
+      <p>
+        You'll get a response to your query within 2 working days.  
+      </p>     
+
+      <h2 class="nhsuk-heading-m">Give feedback</h2>
+
+      <p><a href="https://online1.snapsurveys.com/Upload_a_doc_to_NHSBSA" target="_blank">What did you think of this service?<span class="nhsuk-u-visually-hidden"> (opens in a new window)</span></a> (takes 30 seconds).</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

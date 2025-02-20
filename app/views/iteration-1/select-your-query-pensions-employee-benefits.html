@@ -1,0 +1,69 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your pensions and employee benefits query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-pensions-employee-benefits" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-pensions-employee-benefits",
+        "name": "select-your-query-pensions-employee-benefits",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "My NHS Pension Portal Support",
+            "text": "My NHS Pension Portal Support",
+            "hint": {
+              "text": "For members and employers of the NHS pension scheme"
+            }
+          },
+          {
+            "value": "My NHS Pension Registration",
+            "text": "My NHS Pension Registration",
+            "hint": {
+              "text": "For members and employers of the NHS pension scheme"
+            }
+          },
+          {
+            "value": "TRS Employer",
+            "text": "TRS Employer", 
+            "hint": {
+              "text": "Help and support for NHS staff with their Total Reward Statement remuneration and benefits"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

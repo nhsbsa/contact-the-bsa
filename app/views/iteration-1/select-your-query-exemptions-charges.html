@@ -1,0 +1,83 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your medical exemption and penalty charge query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ backLink({
+    "href": "javascript:history.go(-1)",
+    "text": "Go back"
+    }) }}
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-exemptions-charges" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-exemptions-charges",
+        "name": "select-your-query-exemptions-charges",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "Prescription Exemption Checking",
+            "text": "Prescription Exemption Checking",
+            "hint": {
+              "text": "Help with health costs for some people getting Child Tax Credit or Working Tax Credit"
+            }
+          },
+          {
+            "value": "Dental Exemption Checking",
+            "text": "Dental Exemption Checking",
+            "hint": {
+              "text": "Help with health costs for people who are pregnant or have given birth in the last 12 months"
+            }
+          },
+          {
+            "value": "Maternity Exemption",
+            "text": "Maternity Exemption",
+            "hint": {
+              "text": "Help with health costs for people who are pregnant or have given birth in the last 12 months"
+            }
+          },
+          {
+            "value": "Medical Exemption",
+            "text": "Medical Exemption",
+            "hint": {
+              "text": "Help with health costs for people who have certain medical conditions"
+            }
+          },
+          {
+            "value": "Tax Credit",
+            "text": "Tax Credit",
+            "hint": {
+              "text": "Help with health costs for some people getting Child Tax Credit or Working Tax Credit"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}
