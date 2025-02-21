@@ -111,6 +111,15 @@
         </div>
       {% endblock %}
 
+      {% if not hideBack %}
+      <div class="nhsuk-width-container">
+        {{ backLink({
+          "href": "javascript:history.go(-1)",
+          "text": "Go back"
+        }) }}
+      </div>
+      {% endif %}
+
       {% block main %}
         <div class="nhsuk-width-container {{ containerClasses }}">
           {% block outerContent %}{% endblock %}

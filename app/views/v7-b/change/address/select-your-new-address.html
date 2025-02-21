@@ -9,17 +9,6 @@
 
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-  
-        {{ backLink({
-            "href": "javascript:history.go(-1)",
-            "text": "Go back"
-        }) }}
-  
-    </div>
-  </div>
-
-<div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
 
       <p>{{ data['newAddresses'] | length }} {% if (data['newAddresses'] | length > 1)  %}addresses{% else %}address{% endif %} found for {{ data['postcodeNew'] }}. <a href="find-your-new-address">Search again</a></p>
 

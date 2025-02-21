@@ -6,33 +6,6 @@ Your uploaded documents - Upload a document to the NHS Business Services Authori
 
 {% block content %}
 
-{% set fileName %}
-  {% if (data['change-type']) == "maternity-paternity" %}
-    Maternity Form.pdf (PDF, 123KB)
-  {% elif (data['change-type']) == "upaid-leave-career-break" %}
-    Career Break.pdf (PDF, 123KB)
-  {% elif (data['change-type']) == "other" %}
-    Random Form.pdf (PDF, 123KB)
-  {% elif (data['new-starter-form']) == "Yes" %}
-    New Starter Form.pdf (PDF, 123KB)
-  {% elif (data['working-pattern']) == "Changes to term time" %}
-    Changes to term time.pdf (PDF, 123KB)
-  {% else %}
-    Fake Form.pdf (PDF, 123KB)
-  {% endif %}
-{% endset -%}
-
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-
-        {{ backLink({
-            "href": "javascript:history.go(-1)",
-            "text": "Go back"
-        }) }}
-
-    </div>
-  </div>
-
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
@@ -57,7 +30,7 @@ Your uploaded documents - Upload a document to the NHS Business Services Authori
           rows: [
             [
               {
-                html: fileName
+                html: "Fake Form.pdf (PDF, 123KB)"
               },
               {
                 html: '<a href=\"/v5/upload-your-document">Change</a> or <a href=\"/v5/delete-your-document\">Delete</a><span class=\"nhsuk-u-visually-hidden\"> type of change</span>'
