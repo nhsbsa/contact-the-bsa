@@ -16,42 +16,52 @@
   </h1>
   <div class="nhsuk-hint">
     For example, 
-    {% if (data['which-service'] == "NHS Jobs") %}
-    the email address of the applicant or employer or Job Reference from website.
-    {% elseif (data['which-service'] == "Prescription Prepayment Certificate (PPC)") %}
-    10193121121.
-    {% elseif (data['which-service'] == "Prescription Exemption Checking") %}
-    01241111111.
-    {% elseif (data['which-service'] == "Dental Exemption Checking") %}
-    524311111111.
-    {% elseif (data['which-service'] == "Maternity Exemption") %}
-    10192311111.
-    {% elseif (data['which-service'] == "Medical Exemption") %}
-    10192311111.
-    {% elseif (data['which-service'] == "Low Income Scheme") %}
-    2-W1K7G8C4.
-    {% elseif (data['which-service'] == "Tax Credit") %}
-    10194312111.
-    {% elseif (data['which-service'] == "Healthy Start") %}
-    A0456Y7UH5.
-    {% elseif (data['which-service'] == "NHS Bursary (Medical and dental funding queries)") %}
-    BRN9999999 or SSRN9999999.
-    {% elseif (data['which-service'] == "NHS Learning Support Fund (Healthcare student funding queries)") %}
-    PRN9999999.
-    {% elseif (data['which-service'] == "My NHS Pension Portal Support") %}
-    SD69210000.
-    {% elseif (data['which-service'] == "My NHS Pension Registration") %}
-    SD69210000.
-    {% elseif (data['which-service'] == "TRS Employer") %}
-    SD69210000.
-    {% elseif (data['which-service'] == "Dental Services") %}
-    enter your personal id, e.g. 120653.
-    {% elseif (data['which-service'] == "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate") %}
-    HRT11A11A11.
-    {% elseif (data['which-service'] == "Adult Social Care") %}
-    H27-C813-3XF7-C.
-    {% elseif (data['which-service'] == "NHS Volunteering") %}
-    enter the email address for recruiter.
+    {% if (data['which-service'] == "Support with Healthcare Costs") %}
+      {% if (data['select-your-query-healthcare-costs'] == "Prescription Prepayment Certificate (PPC)") %}
+      10193121121.
+      {% elseif (data['select-your-query-healthcare-costs'] == "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate") %}
+      HRT11A11A11.
+      {% elseif (data['select-your-query-healthcare-costs'] == "Low Income Scheme") %}
+      2-W1K7G8C4.
+      {% elseif (data['select-your-query-healthcare-costs'] == "Healthy Start") %}
+      A0456Y7UH5.
+      {% endif %}
+    {% elseif (data['which-service'] == "Support with Medical Exemptions and Penalty Charges") %}
+      {% if (data['select-your-query-exemptions-charges'] == "Prescription Exemption Checking") %}
+      01241111111.
+      {% elseif (data['select-your-query-exemptions-charges'] == "Dental Exemption Checking") %}
+      524311111111.
+      {% elseif (data['select-your-query-exemptions-charges'] == "Maternity Exemption") %}
+      10192311111.
+      {% elseif (data['select-your-query-exemptions-charges'] == "Medical Exemption") %}
+      10192311111.
+      {% elseif (data['select-your-query-exemptions-charges'] == "Tax Credit") %}
+      10194312111.
+      {% endif %}
+    {% elseif (data['which-service'] == "Support for Students and Healthcare Professionals") %}
+      {% if (data['select-your-query-students-healthcare-professionals'] == "NHS Bursary (Medical and dental funding queries)") %}
+      BRN9999999 or SSRN9999999.
+      {% elseif (data['select-your-query-students-healthcare-professionals'] == "NHS Learning Support Fund (Healthcare student funding queries)") %}
+      PRN9999999.
+      {% elseif (data['select-your-query-students-healthcare-professionals'] == "Dental Services") %}
+      enter your personal id, e.g. 120653.
+      {% elseif (data['select-your-query-students-healthcare-professionals'] == "Adult Social Care") %}
+      H27-C813-3XF7-C.
+      {% endif %}
+    {% elseif (data['which-service'] == "Pensions and Employee Benefits") %}
+      {% if (data['select-your-query-pensions-employee-benefits'] == "My NHS Pension Portal Support") %}
+      SD69210000.
+      {% elseif (data['select-your-query-pensions-employee-benefits'] == "My NHS Pension Registration") %}
+      SD69210000.
+      {% elseif (data['select-your-query-pensions-employee-benefits'] == "TRS Employer") %}
+      SD69210000.
+      {% endif %}
+    {% elseif (data['which-service'] == "NHS Careers and Volunteering") %}
+      {% if (data['select-your-query-careers-volunteering'] == "NHS Jobs") %}
+      the email address of the applicant or employer or Job Reference from website.
+      {% elseif (data['select-your-query-careers-volunteering'] == "NHS Volunteering") %}
+      enter the email address for recruiter.
+      {% endif %}
     {% elseif (data['which-service'] == "Overseas Healthcare") %}
       {% if (data['select-your-query-overseas-healthcare'] == "UK European Health Insurance Card (EHIC)") %}
       87999999 or 879999.
