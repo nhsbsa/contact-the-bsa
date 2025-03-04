@@ -1,20 +1,13 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle  = "What is your reference number?" %}
+{% set pageTitle = "Do you have a reference number?"%}
 
 {% block pageTitle %}
-  {{pageTitle}} - {{serviceName}}
-{% endblock %}
-
-{% block beforeContent %}
+{{pageTitle}} - {{serviceName}}
 {% endblock %}
 
 {% block content %}
 
 {% set referenceNumber %}
-  <h1 class="nhsuk-heading-l">
-    {{pageTitle}}
-  </h1>
-  <div class="nhsuk-hint">
     For example, 
     {% if (data['which-service'] == "NHS Jobs") %}
     the email address of the applicant or employer or Job Reference from website.
@@ -100,29 +93,53 @@
         Adult Social Care           - H27-C813-3XF7-C
         NHS Volunteering            - Email address for Recruiter
       -->
-  </div>
 {% endset -%}
-
 
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-        <form action="/{{folder}}/enter-reference-number" method="post" novalidate>
-      
-        {{ input({
-          label: {
-            "html": referenceNumber
-          },
-          "id": "enter-reference-number",
-          "name": "enter-reference-number",
-          "type": "text",
-          "classes": "nhsuk-input--width-10"
-        }) }}
+      <form action="/{{folder}}/reference-number" method="post" novalidate>
 
-        {{ button({
-          "text": "Continue"
-        }) }}
+      {{ radios({
+        "idPrefix": "reference-number",
+        "name": "reference-number",
+        "classes": "nhsuk-radios--inline",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "If you have contacted us before, you can find the reference number in our reply."
+        },
+        "items": [ 
+          {
+            "value": "service-ref",
+            "text": "I have a Service Reference Number",
+            "hint":{
+              "html": referenceNumber
+            }
+          },
+          {
+            "value": "case-ref",
+            "text": "I have a Case Reference / Certificate Number",
+            "hint":{
+              "text": "For example, NHS-1234567-ABCD"
+            }
+          },
+          {
+            "value": "No",
+            "text": "No I don't have a reference number"
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
 
       </form>
 

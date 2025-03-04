@@ -10,10 +10,11 @@
 
 {% block content %}
 
+<h1 class="nhsuk-heading-l">
+  {{pageTitle}}
+</h1>
 {% set referenceNumber %}
-  <h1 class="nhsuk-heading-l">
-    {{pageTitle}}
-  </h1>
+  Enter your Service Reference Number
   <div class="nhsuk-hint">
     For example, 
     {% if (data['which-service'] == "NHS Jobs") %}
@@ -116,6 +117,19 @@
           },
           "id": "enter-reference-number",
           "name": "enter-reference-number",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ input({
+          label: {
+            "text": "Enter your Case Reference / Certificate Number (optional)"
+          },
+          hint: {
+          text: "For example, NHS-1234567-ABCD"
+        },
+          "id": "enter-case-number",
+          "name": "enter-case-number",
           "type": "text",
           "classes": "nhsuk-input--width-10"
         }) }}
