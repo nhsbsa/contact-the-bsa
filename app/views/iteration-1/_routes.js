@@ -92,7 +92,7 @@ router.post('/select-your-query-students-healthcare-professionals', function (re
     var studentsProfessionals = req.session.data['select-your-query-students-healthcare-professionals'];
 
     if (studentsProfessionals == "Prescription Services (for healthcare professionals)") {
-        res.redirect('enter-your-name');
+        res.redirect('reference-number');
     } else if (studentsProfessionals == "Dental Services") {
         res.redirect('reference-number');
     } else if (studentsProfessionals == "NHS Bursary (Medical and dental funding queries)") {
@@ -100,7 +100,7 @@ router.post('/select-your-query-students-healthcare-professionals', function (re
     } else if (studentsProfessionals == "NHS Learning Support Fund (Healthcare student funding queries)") {
         res.redirect('reference-number');
     } else if (studentsProfessionals == "Social Work Bursary (Social work funding queries)") {
-        res.redirect('enter-your-name');
+        res.redirect('reference-number');
     } else if (nhsExpemptions == "Adult Social Care") {
         res.redirect('reference-number');
     } else {
