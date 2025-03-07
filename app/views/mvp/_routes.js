@@ -28,8 +28,8 @@ router.post('/which-service', function (req, res) {
 
     if (whichService) {
 
-        if (whichService == "Overseas Healthcare") {
-            res.redirect('select-your-query-overseas-healthcare');
+        if (whichService == "NHS Jobs") {
+            res.redirect('select-your-query-nhs-jobs');
         } else {
             res.redirect('reference-number');
         }
@@ -41,26 +41,18 @@ router.post('/which-service', function (req, res) {
 
 })
 
-router.post('/select-your-query-overseas-healthcare', function (req, res) {
+router.post('/select-your-query-nhs-jobs', function (req, res) {
 
-    var nhsExpemptions = req.session.data['select-your-query-overseas-healthcare'];
+    var nhsJobs = req.session.data['select-your-query-nhs-jobs'];
 
-    if (nhsExpemptions == "UK European Health Insurance Card (EHIC)") {
+    if (nhsJobs == "General query") {
         res.redirect('reference-number');
-    } else if (nhsExpemptions == "UK Global Health Insurance Card (GHIC)") {
+    } else if (nhsJobs == "Technical query") {
         res.redirect('reference-number');
-    } else if (nhsExpemptions == "Immigration Health Surcharge (IHS)") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "S1 Application") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "S2 Application") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "Direct Claims") {
-        res.redirect('reference-number');
-    } else if (nhsExpemptions == "Provisional Replacement Certificate (PRC)") {
-        res.redirect('reference-number');
+    } else if (nhsJobs == "Upload a CV") {
+        res.redirect('upload-a-cv');
     } else {
-        res.redirect('select-your-query-overseas-healthcare');
+        res.redirect('select-your-query-nhs-jobs');
     }
 })
 
@@ -95,9 +87,14 @@ router.post('/enter-your-name', function (req, res) {
 
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
+    var nhsJobs = req.session.data['which-service'];
 
     if (firstName && lastName) {
+        if (nhsJobs == "NHS Jobs") {
+        res.redirect('enter-your-email');
+        } else {
         res.redirect('enter-date-of-birth');
+        }
     } else {
         res.redirect('enter-your-name');
 
@@ -239,7 +236,13 @@ router.post('/enter-your-email', function (req, res) {
 
 router.post('/enter-your-phone-number', function (req, res) {
 
-    res.redirect('document');
+    var nhsJobs = req.session.data['which-service'];
+
+    if (nhsJobs == "NHS Jobs") {
+        res.redirect('enter-additional-information');
+    } else {
+        res.redirect('document');
+    }
 
 })
 

@@ -124,42 +124,20 @@
 
       {% endif %}
 
-      {% if (data['which-service'] == "NHS Careers and Volunteering") %}
+      {% if (data['which-service'] == "NHS Jobs") %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          NHS Careers and Volunteering service
+          NHS Jobs query type
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['select-your-query-careers-volunteering']}}
+          {{ data['select-your-query-nhs-jobs']}}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
 
           <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which NHS Careers and Volunteering service you are contacting us about</span>
-          </a>
-
-        </dd>
-
-      </div>
-
-      {% endif %}
-
-      {% if (data['which-service'] == "Overseas Healthcare") %}
-
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Overseas Healthcare service
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['select-your-query-overseas-healthcare']}}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> which Overseas Healthcare service you are contacting us about</span>
+            Change<span class="nhsuk-u-visually-hidden"> which NHS Jobs service you are contacting us about</span>
           </a>
 
         </dd>
@@ -234,6 +212,7 @@
 
       </div>
 
+      {% if (data['which-service'] != "NHS Jobs") %}
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Date of birth
@@ -281,6 +260,7 @@
         </dd>
 
       </div>
+      {% endif %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">

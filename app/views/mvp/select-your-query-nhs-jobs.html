@@ -1,0 +1,67 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your NHS Jobs query about?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row" >
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="nhsuk-form-group">
+      
+      <form action="/{{folder}}/select-your-query-nhs-jobs" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "select-your-query-nhs-jobs",
+        "name": "select-your-query-nhs-jobs",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+        {
+            "value": "General query",
+            "text": "General query",
+            "hint": {
+              "text": "Help and support for applicants applying for jobs in the NHS"
+            }
+          },
+          {
+            "value": "Technical query",
+            "text": "Technical query",
+            "hint": {
+              "text": "Support for technical issues with your application or the NHS Jobs website"
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            "value": "Upload a CV",
+            "text": "Upload a CV",
+            "hint": {
+              "text": "Advice on how to send us your CV"
+            }
+          }
+        ]
+      }) }}
+    </div>
+
+    {{ button({
+    "text": "Continue",
+    "classes": "nhsuk-u-margin-top-4"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

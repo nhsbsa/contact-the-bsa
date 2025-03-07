@@ -36,10 +36,8 @@ router.post('/which-service', function (req, res) {
             res.redirect('select-your-query-students-healthcare-professionals');
         } else if (whichService == "Pensions and Employee Benefits") {
             res.redirect('select-your-query-pensions-employee-benefits');
-        } else if (whichService == "NHS Careers and Volunteering") {
-            res.redirect('select-your-query-careers-volunteering');
-        } else if (whichService == "Overseas Healthcare") {
-            res.redirect('select-your-query-overseas-healthcare');
+        } else if (whichService == "NHS Jobs") {
+            res.redirect('select-your-query-nhs-jobs');
         } else {
             res.redirect('reference-number');
         }
@@ -101,8 +99,6 @@ router.post('/select-your-query-students-healthcare-professionals', function (re
         res.redirect('reference-number');
     } else if (studentsProfessionals == "Social Work Bursary (Social work funding queries)") {
         res.redirect('reference-number');
-    } else if (nhsExpemptions == "Adult Social Care") {
-        res.redirect('reference-number');
     } else {
         res.redirect('select-your-query-students-healthcare-professionals');
     }
@@ -123,39 +119,18 @@ router.post('/select-your-query-pensions-employee-benefits', function (req, res)
     }
 })
 
-router.post('/select-your-query-careers-volunteering', function (req, res) {
+router.post('/select-your-query-nhs-jobs', function (req, res) {
 
-    var nhsJobsVolunteering = req.session.data['select-your-query-careers-volunteering'];
+    var nhsJobs = req.session.data['select-your-query-nhs-jobs'];
 
-    if (nhsJobsVolunteering == "NHS Jobs") {
+    if (nhsJobs == "General query") {
         res.redirect('reference-number');
-    } else if (nhsJobsVolunteering == "NHS Volunteering") {
+    } else if (nhsJobs == "Technical query") {
         res.redirect('reference-number');
+    } else if (nhsJobs == "Upload a CV") {
+        res.redirect('upload-a-cv');
     } else {
-        res.redirect('select-your-query-careers-volunteering');
-    }
-})
-
-router.post('/select-your-query-overseas-healthcare', function (req, res) {
-
-    var overseasHealthcare = req.session.data['select-your-query-overseas-healthcare'];
-
-    if (overseasHealthcare == "UK European Health Insurance Card (EHIC)") {
-        res.redirect('reference-number');
-    } else if (overseasHealthcare == "UK Global Health Insurance Card (GHIC)") {
-        res.redirect('reference-number');
-    } else if (overseasHealthcare == "Immigration Health Surcharge (IHS)") {
-        res.redirect('reference-number');
-    } else if (overseasHealthcare == "S1 Application") {
-        res.redirect('reference-number');
-    } else if (overseasHealthcare == "S2 Application") {
-        res.redirect('reference-number');
-    } else if (overseasHealthcare == "Direct Claims") {
-        res.redirect('reference-number');
-    } else if (overseasHealthcare == "Provisional Replacement Certificate (PRC)") {
-        res.redirect('reference-number');
-    } else {
-        res.redirect('select-your-query-overseas-healthcare');
+        res.redirect('select-your-query-nhs-jobs');
     }
 })
 
@@ -190,9 +165,14 @@ router.post('/enter-your-name', function (req, res) {
 
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
+    var nhsJobs = req.session.data['which-service'];
 
     if (firstName && lastName) {
+        if (nhsJobs == "NHS Jobs") {
+        res.redirect('enter-your-email');
+        } else {
         res.redirect('enter-date-of-birth');
+        }
     } else {
         res.redirect('enter-your-name');
 
@@ -334,7 +314,13 @@ router.post('/enter-your-email', function (req, res) {
 
 router.post('/enter-your-phone-number', function (req, res) {
 
-    res.redirect('document');
+    var nhsJobs = req.session.data['which-service'];
+
+    if (nhsJobs == "NHS Jobs") {
+        res.redirect('enter-additional-information');
+    } else {
+        res.redirect('document');
+    }
 
 })
 
