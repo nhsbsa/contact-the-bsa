@@ -376,7 +376,19 @@ router.post('/your-uploaded-documents', function (req, res) {
 
 router.post('/enter-additional-information', function (req, res) {
 
-    res.redirect('check-your-answers');
+    var additionalInfo = req.session.data['additionalInfo'];
+
+    if (additionalInfo) {
+
+        if (additionalInfo.length > 4000) {
+            res.redirect('enter-additional-information');
+        } else {
+            res.redirect('check-your-answers');
+        }
+
+    } else {
+        res.redirect('enter-additional-information');
+    }
 
 })
 
