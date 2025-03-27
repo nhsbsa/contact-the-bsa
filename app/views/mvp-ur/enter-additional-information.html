@@ -17,14 +17,17 @@
 
       <form action="/{{folder}}/enter-additional-information" method="post" novalidate>
 
-        {{ textarea({
+        {{ characterCount({
           name: "additionalInfo",
           id: "additionalInfo",
+          maxlength: 4000,
           label: {
-            text: "Can you provide more detail relating to your query?"
+            text: "What is your reason for contacting us?",
+            classes: "nhsuk-label--l",
+            isPageHeading: "true"
           },
           hint: {
-            text: "Do not include personal or financial information, for example, your National Insurance number or credit card details."
+            text: "Do not include personal or financial information, for example, your National Insurance number or credit card details"
           }
         }) }}
 
