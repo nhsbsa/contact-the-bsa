@@ -354,7 +354,7 @@
         </dt>
         <dd class="nhsuk-summary-list__value">
           {% if data['additionalInfo'] %}
-          {{ data['additionalInfo'] | truncate(175)}}
+          {{ data['additionalInfo'] | truncate(175, false)}}
           {% else %}
           NO ADDITIONAL INFORMATION ADDED
           {% endif %}
