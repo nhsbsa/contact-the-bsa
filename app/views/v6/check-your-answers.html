@@ -263,7 +263,7 @@ Contact the NHS Business Services Authority - NHSBSA
         </dt>
         <dd class="nhsuk-summary-list__value">
           {% if data['additionalInfo'] %}
-          {{ data['additionalInfo']}}
+          {{ data['additionalInfo'] | truncate(175)}}
           {% else %}
           NO ADDITIONAL INFORMATION ADDED
           {% endif %}
