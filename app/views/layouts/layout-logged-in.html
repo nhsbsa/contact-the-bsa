@@ -12,9 +12,11 @@
   <link href="/css/main.css" rel="stylesheet">
 {% endblock %}
 
+{% set serviceName = "Contact the NHS Business Services Authority (NHSBSA)" %}
+
 <!-- Set the page title inside the pageTitle block -->
 {% block pageTitle %}
-Business Services Authority
+{{serviceName}}
 {% endblock %}
 
 <!-- Header goes inside the header block -->
@@ -22,7 +24,7 @@ Business Services Authority
 {% block header %}
 {{ header({
     "service": {
-        "name": "Business Services Authority",
+        "name": serviceName,
         "href": "/"
       },
       "showNav": "false",
