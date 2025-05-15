@@ -1,0 +1,70 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Do you have a NHS Pension number?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/nhs-pension-number" method="post" novalidate>
+
+        {% set sdnumberHtml %}
+        {{ input({
+        id: "sdnumber",
+        name: "sdnumber",
+        classes: "nhsuk-u-width-two-thirds",
+        label: {
+        text: "NHS Pension number"
+        }
+        }) }}
+        {% endset -%}
+  
+
+      {{ radios({
+        "idPrefix": "pension-number",
+        "name": "pension-number",
+        "classes": "nhsuk-radios--inline",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "For example SD12345678"
+        },
+        "items": [ 
+          {
+            "value": "Yes, I know my NHS Pension number",
+            "text": "Yes, I know my NHS Pension number",
+            "conditional": {
+            "html": sdnumberHtml
+            }
+          },
+          {
+            "value": "No, I do not know my NHS Pension number",
+            "text": "No, I do not know my NHS Pension number"
+          },
+          {
+            "value": "I'm not sure",
+            "text": "I'm not sure"
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

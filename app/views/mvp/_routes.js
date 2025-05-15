@@ -30,6 +30,12 @@ router.post('/which-service', function (req, res) {
 
         if (whichService == "NHS Jobs") {
             res.redirect('select-your-query-nhs-jobs');
+        } else if (whichService == "My NHS Pension Portal Support") {
+            res.redirect('nhs-pension-number');
+        } else if (whichService == "My NHS Pension Registration") {
+            res.redirect('nhs-pension-number');
+        } else if (whichService == "TRS Employer") {
+            res.redirect('nhs-pension-number');
         } else {
             res.redirect('reference-number');
         }
@@ -54,6 +60,14 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
     } else {
         res.redirect('select-your-query-nhs-jobs');
     }
+})
+
+// Do you have a nhs pension number?
+
+router.post('/nhs-pension-number', function (req, res) {
+
+    res.redirect('reference-number');
+
 })
 
 // Do you have a reference number?
@@ -88,10 +102,13 @@ router.post('/enter-your-name', function (req, res) {
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
     var nhsJobs = req.session.data['which-service'];
+    var pensionNumber = req.session.data['pension-number'];
 
     if (firstName && lastName) {
         if (nhsJobs == "NHS Jobs") {
         res.redirect('enter-your-email');
+        } else if (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure") {
+            res.redirect('enter-your-national-insurance-number');
         } else {
         res.redirect('enter-date-of-birth');
         }
@@ -99,6 +116,14 @@ router.post('/enter-your-name', function (req, res) {
         res.redirect('enter-your-name');
 
     }
+
+})
+
+// What is your national insurance number?
+
+router.post('/enter-your-national-insurance-number', function (req, res) {
+
+    res.redirect('enter-date-of-birth');
 
 })
 
