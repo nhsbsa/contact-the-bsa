@@ -118,7 +118,7 @@ router.post('/enter-reference-number', function (req, res) {
         var refNum = req.session.data['enter-reference-number'];
         const regex = new RegExp('^NHS-\\d{7}-[A-Za-z]{3}$');
 
-        if (whichService === "My NHS Pension Portal Support"){
+        if (whichService == "My NHS Pension Portal Support" || whichService == "My NHS Pension Registration" || whichService == "TRS Employer"){
             if (regex.test(refNum) === true){
                 res.redirect('enter-your-name');
             } else {

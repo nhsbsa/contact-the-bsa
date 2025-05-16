@@ -109,11 +109,11 @@ router.post('/select-your-query-pensions-employee-benefits', function (req, res)
     var nhsPensions = req.session.data['select-your-query-pensions-employee-benefits'];
 
     if (nhsPensions == "My NHS Pension Portal Support") {
-        res.redirect('reference-number');
+        res.redirect('nhs-pension-number');
     } else if (nhsPensions == "My NHS Pension Registration") {
-        res.redirect('reference-number');
+        res.redirect('nhs-pension-number');
     } else if (nhsPensions == "TRS Employer") {
-        res.redirect('reference-number');
+        res.redirect('nhs-pension-number');
     } else {
         res.redirect('select-your-query-pensions-employee-benefits');
     }
@@ -190,7 +190,7 @@ router.post('/enter-reference-number', function (req, res) {
         var refNum = req.session.data['enter-reference-number'];
         const regex = new RegExp('^NHS-\\d{7}-[A-Za-z]{3}$');
 
-        if (whichService === "My NHS Pension Portal Support"){
+        if (whichService === "Pensions and Employee Benefits"){
             if (regex.test(refNum) === true){
                 res.redirect('enter-your-name');
             } else {

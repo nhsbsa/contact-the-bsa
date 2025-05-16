@@ -149,7 +149,7 @@
       {% if (data['pension-number']) %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Have NHS Pension number?
+            Have NHS Pension number
           </dt>
           <dd class="nhsuk-summary-list__value">
             {{ data['pension-number']}}
@@ -245,6 +245,26 @@
         </dd>
 
       </div>
+
+      {% if (data['nationalInsuranceNumber']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            National Insurance Number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['nationalInsuranceNumber']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> National Insurance Number</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
 
       {% if (data['which-service'] != "NHS Jobs") %}
       <div class="nhsuk-summary-list__row">
