@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you have a NHS Pension number?"%}
+{% set pageTitle = "Do you know your NHS Pension number?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -13,15 +13,15 @@
 
       <form action="/{{folder}}/nhs-pension-number" method="post" novalidate>
 
-        {% set sdnumberHtml %}
-        {{ input({
-        id: "sdnumber",
-        name: "sdnumber",
-        classes: "nhsuk-u-width-two-thirds",
-        label: {
-        text: "NHS Pension number"
-        }
-        }) }}
+        {% set sdNumberHtml %}
+          {{ input({
+          id: "sdNumber",
+          name: "sdNumber",
+          classes: "nhsuk-input--width-10",
+          label: {
+          text: "NHS Pension number"
+          }
+          }) }}
         {% endset -%}
   
 
@@ -37,14 +37,14 @@
           }
         },
         "hint": {
-          "text": "For example SD12345678"
+          "text": "For example, SD69210000"
         },
         "items": [ 
           {
             "value": "Yes, I know my NHS Pension number",
             "text": "Yes, I know my NHS Pension number",
             "conditional": {
-            "html": sdnumberHtml
+            "html": sdNumberHtml
             }
           },
           {
