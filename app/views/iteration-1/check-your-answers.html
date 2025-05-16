@@ -146,6 +146,40 @@
 
       {% endif %}
 
+      {% if (data['pension-number']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have NHS Pension number?
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['pension-number']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add NHS Pension number</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['pension-number'] == "Yes, I know my NHS Pension number") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            NHS Pension number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['sdNumber']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> NHS Pension number</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
       {% if (data['reference-number']) %}
 
       <div class="nhsuk-summary-list__row">
@@ -284,13 +318,16 @@
 
       </div>
 
-      {% if (data['phoneNumber']) %}
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Phone Number
         </dt>
         <dd class="nhsuk-summary-list__value">
-          {{ data['phoneNumber']}} 
+          {% if (data['phoneNumber']) %}
+          {{ data['phoneNumber']}}
+          {% else %}
+          Not entered
+          {% endif %}
         </dd>
 
         <dd class="nhsuk-summary-list__actions">
@@ -302,9 +339,6 @@
         </dd>
 
       </div>
-      {% endif %}
-
-      {% if (data['document-yes-no']) %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
@@ -323,8 +357,6 @@
         </dd>
 
       </div>
-
-      {% endif %}
 
       {% if (data['document-yes-no']) == "Yes" %}
 

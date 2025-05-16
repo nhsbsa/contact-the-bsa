@@ -87,10 +87,7 @@ router.post('/nhs-pension-number', function (req, res) {
         res.redirect('reference-number');
     } else {
         res.redirect('nhs-pension-number');
-    }
-
-    
-
+    }   
 })
 
 // Do you have a reference number?

@@ -134,6 +134,34 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
     }
 })
 
+// Do you have a nhs pension number?
+
+router.post('/nhs-pension-number', function (req, res) {
+
+    var pensionsNum = req.session.data['pension-number'];
+
+    if (pensionsNum == "Yes, I know my NHS Pension number") {
+        var pensionNumber = req.session.data['sdNumber'];
+        const regex = RegExp('^\\s*SD\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*$', 'i');
+
+        if (pensionNumber){
+            if (regex.test(pensionNumber) === true){
+                res.redirect('reference-number');
+            } else {
+                res.redirect('nhs-pension-number');
+            }
+        } else {
+            res.redirect('nhs-pension-number');
+        }
+    } else if (pensionsNum == "No, I do not know my NHS Pension number") {
+        res.redirect('reference-number');
+    } else if (pensionsNum == "I'm not sure") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('nhs-pension-number');
+    }   
+})
+
 // Do you have a reference number?
 
 router.post('/reference-number', function (req, res) {
@@ -155,7 +183,23 @@ router.post('/reference-number', function (req, res) {
 
 router.post('/enter-reference-number', function (req, res) {
 
-    res.redirect('enter-your-name');
+    var whichService = req.session.data['which-service'];
+
+    if (whichService){
+
+        var refNum = req.session.data['enter-reference-number'];
+        const regex = new RegExp('^NHS-\\d{7}-[A-Za-z]{3}$');
+
+        if (whichService === "My NHS Pension Portal Support"){
+            if (regex.test(refNum) === true){
+                res.redirect('enter-your-name');
+            } else {
+                res.redirect('enter-reference-number');
+            }
+        }
+    } else{
+        res.redirect('enter-your-name');
+    }
 
 })
 
@@ -166,10 +210,13 @@ router.post('/enter-your-name', function (req, res) {
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
     var nhsJobs = req.session.data['which-service'];
+    var pensionNumber = req.session.data['pension-number'];
 
     if (firstName && lastName) {
         if (nhsJobs == "NHS Jobs") {
         res.redirect('enter-your-email');
+        } else if (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure") {
+            res.redirect('enter-your-national-insurance-number');
         } else {
         res.redirect('enter-date-of-birth');
         }
@@ -177,8 +224,29 @@ router.post('/enter-your-name', function (req, res) {
         res.redirect('enter-your-name');
 
     }
-
 })
+
+// What is your national insurance number?
+
+router.post('/enter-your-national-insurance-number', function (req, res) {
+
+    let nino = req.session.data['nationalInsuranceNumber'];
+
+    // Remove all spaces and normalize to uppercase
+    nino = (nino || '').replace(/\s+/g, '').toUpperCase();
+
+    const regex = new RegExp('^(?!BG|GB|KN|NK|NT|TN|ZZ)[A-CEGHJ-PR-TW-Z]{2}\\d{6}[A-D]$');
+
+    if (nino) {
+        if (regex.test(nino)|| nino === 'QQ123456C') {
+            res.redirect('enter-date-of-birth');  // Valid National Insurance Number
+        } else {
+            res.redirect('enter-your-national-insurance-number');  // Invalid format
+        }
+    } else {
+        res.redirect('enter-your-national-insurance-number');  // Field is empty
+    }
+});
 
 // What is your date of birth?
 
