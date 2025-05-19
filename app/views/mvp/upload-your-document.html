@@ -43,7 +43,13 @@
           "
         }) }}
   
-        <p class="nhsuk-u-margin-bottom-0"><a href="/{{folder}}/your-uploaded-documents" class="nhsuk-button nhsuk-button--secondary">View uploaded documents</a></p>
+        {% if data['from'] == 'add-another-mvp' %}
+          <p class="nhsuk-u-margin-bottom-0">
+            <a href="/{{folder}}/your-uploaded-documents" class="nhsuk-button nhsuk-button--secondary">
+              View uploaded documents
+            </a>
+          </p>
+        {% endif %}
 
         {{ button({
           "text": "Upload document"
