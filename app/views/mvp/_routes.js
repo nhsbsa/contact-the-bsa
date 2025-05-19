@@ -113,21 +113,28 @@ router.post('/enter-reference-number', function (req, res) {
 
     var whichService = req.session.data['which-service'];
 
-    if (whichService){
+    var referenceNumber = req.session.data['enter-reference-number'];
 
-        var refNum = req.session.data['enter-reference-number'];
-        const regex = new RegExp('^NHS-\\d{7}-[A-Za-z]{3}$');
+    if (referenceNumber) {
 
-        if (whichService == "My NHS Pension Portal Support" || whichService == "My NHS Pension Registration" || whichService == "TRS Employer"){
-            if (regex.test(refNum) === true){
+        if (whichService == "My NHS Pension Portal Support" || 
+        whichService == "My NHS Pension Registration" || 
+        whichService == "TRS Employer") {
+
+            if (regex.test(refNum)) {
                 res.redirect('enter-your-name');
             } else {
                 res.redirect('enter-reference-number');
             }
+
+        } else if (whichService) {
+            res.redirect('enter-your-name');
         }
-    } else{
-        res.redirect('enter-your-name');
+
+    } else {
+        res.redirect('enter-reference-number');
     }
+
 })
 
 // What is your name?
