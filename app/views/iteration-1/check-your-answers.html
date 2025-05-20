@@ -360,6 +360,7 @@
 
       </div>
 
+      {% if (data['document-yes-no']) %}
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Documents to upload
@@ -377,6 +378,7 @@
         </dd>
 
       </div>
+      {% endif %}
 
       {% if (data['document-yes-no']) == "Yes" %}
 
