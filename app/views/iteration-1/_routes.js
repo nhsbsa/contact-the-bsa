@@ -16,6 +16,8 @@ const axios = require('axios');
 
 router.post('/start', function (req, res) {
  
+    req.session.destroy()
+
     res.redirect('which-service');
 
 })
