@@ -145,23 +145,25 @@ router.post('/enter-your-name', function (req, res) {
 
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
-    var nhsJobs = req.session.data['which-service'];
+    var whichService = req.session.data['which-service'];
     var pensionNumber = req.session.data['pension-number'];
 
     if (firstName && lastName) {
-        if (nhsJobs == "NHS Jobs") {
-        res.redirect('enter-your-email');
-        } else if (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure") {
+        if (whichService == "NHS Jobs") {
+            res.redirect('enter-your-email');
+        } else if (
+            (whichService == "My NHS Pension Portal Support" || whichService == "My NHS Pension Registration" || whichService == "TRS Employer") &&
+            (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
+        ) {
             res.redirect('enter-your-national-insurance-number');
         } else {
-        res.redirect('enter-date-of-birth');
+            res.redirect('enter-date-of-birth');
         }
     } else {
         res.redirect('enter-your-name');
-
     }
 
-})
+});
 
 // What is your national insurance number?
 

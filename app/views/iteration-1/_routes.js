@@ -217,22 +217,26 @@ router.post('/enter-your-name', function (req, res) {
 
     var firstName = req.session.data['firstName'];
     var lastName = req.session.data['lastName'];
-    var nhsJobs = req.session.data['which-service'];
+    var whichService = req.session.data['which-service'];
+    var nhsPensions = req.session.data['select-your-query-pensions-employee-benefits'];
     var pensionNumber = req.session.data['pension-number'];
 
     if (firstName && lastName) {
-        if (nhsJobs == "NHS Jobs") {
-        res.redirect('enter-your-email');
-        } else if (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure") {
+        if (whichService == "NHS Jobs") {
+            res.redirect('enter-your-email');
+        } else if (
+            (nhsPensions == "My NHS Pension Portal Support" || nhsPensions == "My NHS Pension Registration" || nhsPensions == "TRS Employer") &&
+            (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
+        ) {
             res.redirect('enter-your-national-insurance-number');
         } else {
-        res.redirect('enter-date-of-birth');
+            res.redirect('enter-date-of-birth');
         }
     } else {
         res.redirect('enter-your-name');
-
     }
-})
+
+});
 
 // What is your national insurance number?
 
