@@ -11,16 +11,10 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ panel({
-        titleText: pageTitle,
-        html: "Reference number: HDJ2123F"
+        titleText: pageTitle
       }) }}
 
-      {% if (data['emailAddress']) %}
-      <p>We have sent you an email to {{ data['emailAddress']}} as confirmation of your query.</p>
-      <p>You can also save a copy of your query by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
-      {% else %}
-      <p>You can save a copy of your query by printing this page, saving it as a PDF or by taking a screenshot of the details above.</p>
-      {% endif %}
+      <p>We have sent you a confirmation email to {% if (data['emailAddress']) %}{{ data['emailAddress']}}{% else %}email@emailaddress.com{% endif %} with your reference number.</p>
       
       <h2 class="nhsuk-heading-m">What happens next</h2>
 
