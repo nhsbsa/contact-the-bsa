@@ -1,5 +1,12 @@
 # NHS prototype kit Changelog
 
+## 6.2.0 - 23 May 2025
+
+- Update to NHS frontend 9.6.1 ([PR #528](https://github.com/nhsuk/nhsuk-prototype-kit/pull/528))
+- Mark the kit as compatible with Node 22 as well as Node 20 ([PR #531)(https://github.com/nhsuk/nhsuk-prototype-kit/pull/531))
+- Remove duplicate import from default template ([PR #526)(https://github.com/nhsuk/nhsuk-prototype-kit/pull/526))
+- Preserve query when redirecting POSTs to GETs ([PR #527](https://github.com/nhsuk/nhsuk-prototype-kit/pull/527))
+
 ## 6.1.0 - 16 May 2025
 
 - Fix to include the NHS javascript in the default template ([PR 518](https://github.com/nhsuk/nhsuk-prototype-kit/pull/518)).
