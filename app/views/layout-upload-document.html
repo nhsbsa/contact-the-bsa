@@ -1,13 +1,13 @@
-<!-- Extends the layout from /docs/views/template.html -->
-{% extends "template.html" %}
+<!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+{% extends "prototype-kit-template.njk" %}
+
+{% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/css/main.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
+{% endblock %}
 
 {% set serviceName = "Upload a document to the NHS Business Services Authority" %}
-
-{% block headCSS %}
-  <link href="/css/main.css" rel="stylesheet">
-  <link href="/css/prism.css" rel="stylesheet">
-  <link href="/css/docs.css" rel="stylesheet">
-{% endblock %}
 
 {% block pageTitle %}
   NHS.UK prototype kit

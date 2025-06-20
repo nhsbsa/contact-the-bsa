@@ -1,13 +1,13 @@
-<!-- Extends the layout from /docs/views/template.html -->
-{% extends "template.html" %}
+<!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+{% extends "prototype-kit-template.njk" %}
+
+{% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/css/main.css" rel="stylesheet">
+  <script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
+{% endblock %}
 
 {% set serviceName = "Contact the NHS Business Services Authority (NHSBSA)" %}
-
-{% block headCSS %}
-  <link href="/css/main.css" rel="stylesheet">
-  <link href="/css/prism.css" rel="stylesheet">
-  <link href="/css/docs.css" rel="stylesheet">
-{% endblock %}
 
 {% block pageTitle %}
   NHS.UK prototype kit
@@ -30,6 +30,41 @@
     </div>
   </header>
 {% endblock %}
+
+{% block beforeContent %}
+  {% if (folder == 'mvp') %} 
+    <div class="versionTag">
+      <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us MVP </strong>
+    </div>
+    {% elseif (folder == 'iteration-1') %}
+    <div class="versionTag">
+      <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us Iteration 1</strong>
+    </div>
+  {% endif %}
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-phase-banner">
+      <p class="nhsuk-phase-banner__content">
+        <strong class="nhsuk-tag nhsuk-phase-banner__content__tag">
+          Beta
+        </strong>
+        <span class="nhsuk-phase-banner__text">
+          This is a new service – <a class="nhsuk-link" href="https://online1.snapsurveys.com/ContactNHSBSAFormIssue" target="_blank">your feedback will help us to improve it (opens in a new tab).</a>
+        </span>
+      </p>
+    </div>
+  </div> 
+  {% from 'back-link/macro.njk' import backLink %}
+  {% if not hideBack %}
+    <div class="nhsuk-width-container">
+      {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+
 
 {% block footer %}
 {{ footer({
