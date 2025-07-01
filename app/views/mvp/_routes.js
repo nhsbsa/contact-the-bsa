@@ -32,11 +32,11 @@ router.post('/which-service', function (req, res) {
 
         if (whichService == "NHS Jobs") {
             res.redirect('select-your-query-nhs-jobs');
-        } else if (whichService == "My NHS Pension Portal Support") {
+        } else if (whichService == "My NHS Pension portal") {
             res.redirect('nhs-pension-number');
-        } else if (whichService == "My NHS Pension Registration") {
+        } else if (whichService == "NHS Pension Scheme") {
             res.redirect('nhs-pension-number');
-        } else if (whichService == "TRS Employer") {
+        } else if (whichService == "Total Reward Statement") {
             res.redirect('nhs-pension-number');
         } else {
             res.redirect('reference-number');
@@ -121,9 +121,9 @@ router.post('/enter-reference-number', function (req, res) {
 
     if (referenceNumber) {
 
-        if (whichService == "My NHS Pension Portal Support" || 
-        whichService == "My NHS Pension Registration" || 
-        whichService == "TRS Employer") {
+        if (whichService == "My NHS Pension portal" || 
+        whichService == "NHS Pension Scheme" || 
+        whichService == "Total Reward Statement") {
 
             if (dynamicsRegex.test(referenceNumber)) {
                 res.redirect('enter-your-name');
@@ -154,7 +154,7 @@ router.post('/enter-your-name', function (req, res) {
         if (whichService == "NHS Jobs") {
             res.redirect('enter-your-email');
         } else if (
-            (whichService == "My NHS Pension Portal Support" || whichService == "My NHS Pension Registration" || whichService == "TRS Employer") &&
+            (whichService == "My NHS Pension portal" || whichService == "NHS Pension Scheme" || whichService == "Total Reward Statement") &&
             (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
         ) {
             res.redirect('enter-your-national-insurance-number');
