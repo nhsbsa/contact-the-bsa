@@ -110,11 +110,11 @@ router.post('/select-your-query-pensions-employee-benefits', function (req, res)
 
     var nhsPensions = req.session.data['select-your-query-pensions-employee-benefits'];
 
-    if (nhsPensions == "My NHS Pension Portal Support") {
+    if (nhsPensions == "My NHS Pension portal") {
         res.redirect('nhs-pension-number');
-    } else if (nhsPensions == "My NHS Pension Registration") {
+    } else if (nhsPensions == "NHS Pension Scheme") {
         res.redirect('nhs-pension-number');
-    } else if (nhsPensions == "TRS Employer") {
+    } else if (nhsPensions == "Total Reward Statement") {
         res.redirect('nhs-pension-number');
     } else {
         res.redirect('select-your-query-pensions-employee-benefits');
@@ -193,9 +193,9 @@ router.post('/enter-reference-number', function (req, res) {
 
     if (referenceNumber) {
 
-        if (whichService == "My NHS Pension Portal Support" || 
-        whichService == "My NHS Pension Registration" || 
-        whichService == "TRS Employer") {
+        if (whichService == "My NHS Pension portal" || 
+        whichService == "NHS Pension Scheme" || 
+        whichService == "Total Reward Statement") {
 
             if (dynamicsRegex.test(referenceNumber)) {
                 res.redirect('enter-your-name');
@@ -227,7 +227,7 @@ router.post('/enter-your-name', function (req, res) {
         if (whichService == "NHS Jobs") {
             res.redirect('enter-your-email');
         } else if (
-            (nhsPensions == "My NHS Pension Portal Support" || nhsPensions == "My NHS Pension Registration" || nhsPensions == "TRS Employer") &&
+            (nhsPensions == "My NHS Pension portal" || nhsPensions == "NHS Pension Scheme" || nhsPensions == "Total Reward Statement") &&
             (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
         ) {
             res.redirect('enter-your-national-insurance-number');
