@@ -1,0 +1,107 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Upload a document"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/upload-your-document" method="post" novalidate>
+
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-3">
+          {{pageTitle}}
+        </h1>
+        <p class="nhsuk-hint">Use this page to upload a document to {{ data['which-service']}}</p>
+
+        <p>
+          Your document must be:
+        </p>
+
+        <ul>
+          <li>smaller than 8MB</li>
+          <li>a DOC, DOCX, PNG, JPEG, PDF, HEIF or HEIC</li>
+        </ul>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="file-upload">
+            Upload a document
+          </label>
+          <input class="nhsuk-file-upload" id="file-upload" name="file-upload" type="file">
+        </div>
+
+        {% set contactNumber %}
+          {% if (data['which-service'] == "Prescription Prepayment Certificate (PPC)") %}
+              0300 330 1341.
+            {% elseif (data['which-service'] == "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate") %}
+              0300 330 2089.
+            {% elseif (data['which-service'] == "Prescription Exemption Checking") %}
+              0300 330 9291.
+            {% elseif (data['which-service'] == "Dental Exemption Checking") %}
+              0300 330 1293.
+            {% elseif (data['which-service'] == "Maternity Exemption") %}
+              0300 330 1341.
+            {% elseif (data['which-service'] == "Medical Exemption") %}
+              0300 330 1341.
+            {% elseif (data['which-service'] == "Low Income Scheme") %}
+              0300 330 1343.
+            {% elseif (data['which-service'] == "Tax Credit") %}
+              0300 330 1347.
+            {% elseif (data['which-service'] == "Healthy Start") %}
+              0300 330 7010.
+            {% elseif (data['which-service'] == "NHS Jobs") %}
+              0300 330 1013.
+            {% elseif (data['which-service'] == "NHS Bursary (Medical and dental funding queries)") %}
+              0300 330 1345.
+            {% elseif (data['which-service'] == "NHS Learning Support Fund (Healthcare student funding queries)") %}
+              0300 330 0521.
+            {% elseif (data['which-service'] == "Social Work Bursary (Social work funding queries)") %}
+              0300 330 1342.
+            {% elseif (data['which-service'] == "My NHS Pension portal") %}
+              0300 330 2083.
+            {% elseif (data['which-service'] == "NHS Pension Scheme") %}
+              0300 330 2083.
+            {% elseif (data['which-service'] == "Total Reward Statement") %}
+              0300 330 1352.
+            {% elseif (data['which-service'] == "Prescription Services (for healthcare professionals)") %}
+              0300 330 1349.
+            {% elseif (data['which-service'] == "Dental Services") %}
+              0300 330 1348.
+            {% else %}
+              0191 283 8924.
+          {% endif %}
+        {% endset %}
+
+        {% set helpHtml %}
+          <p>You can use a digital camera, smartphone, tablet, or scanner to create the document.</p>
+          <p>We've written a <a href='/mvp/guide/choose-computer-tablet-smart-phone'>step-by-step guide</a> on how to upload a document. We'll bring you back to this page after you've read the guide.</p>
+          <p>If you're unable to upload your document, call us on {{ contactNumber }}</p>
+        {% endset %}
+
+        {{ details({
+          "text": "Need help uploading your document?",
+          "HTML": helpHtml | safe
+        }) }}
+  
+        {% if data['from'] == 'add-another-mvp' %}
+          <p class="nhsuk-u-margin-bottom-0">
+            <a href="/{{folder}}/your-uploaded-documents" class="nhsuk-button nhsuk-button--secondary">
+              View uploaded documents
+            </a>
+          </p>
+        {% endif %}
+
+        {{ button({
+          "text": "Upload document"
+        }) }}
+  
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

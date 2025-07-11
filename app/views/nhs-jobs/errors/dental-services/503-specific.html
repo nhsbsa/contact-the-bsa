@@ -1,0 +1,41 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Sorry, the service is unavailable"%}
+{% set hideBack = "true" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %} 
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-u-reading-width">
+
+        <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">
+            {{pageTitle}}
+        </h1>
+
+        <p>
+          You will be able to use the service from 9am on Tuesday 9 April 2024.
+        </p>
+  
+        <hr>
+  
+        <p>
+          If you have an urgent query, contact the Dental Services team on <a href="tel:03003301348">0300 330 1348</a>.<br>
+          This phoneline is available Monday to Friday, 8am to 6pm (except public holidays).
+        </p>
+  
+        <p>
+          <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+            target="_blank">Find out about call charges</a>
+        </p>
+  
+        <p>
+          Alternatively, you can email your documents to us <a class="nhsuk-link" href="mailto:nhsbsa.dentalservices@nhsbsa.nhs.uk">nhsbsa.dentalservices@nhsbsa.nhs.uk</a><br>
+          We aim to respond to your email within 2 working days.
+        </p>  
+
+    </div>
+</div>
+
+{% endblock %}

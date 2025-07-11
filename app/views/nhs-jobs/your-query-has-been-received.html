@@ -1,0 +1,33 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Your query has been received"%}
+{% set hideBack ="true" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ panel({
+        titleText: pageTitle
+      }) }}
+
+      <p>We have sent a confirmation email to {% if (data['emailAddress']) %}{{ data['emailAddress']}}{% else %}email@emailaddress.com{% endif %} with your reference number.</p>
+      
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+
+      <p>
+        You'll get a response to your query within 2 working days.  
+      </p>     
+
+      <h2 class="nhsuk-heading-m">Give feedback</h2>
+
+      <p><a href="https://online1.snapsurveys.com/ContactNHSBSAFormFeedback" target="_blank">What did you think of this service?<span class="nhsuk-u-visually-hidden"> (opens in a new window)</span></a> (takes 30 seconds).</p>
+
+    </div>
+
+</div>
+
+{% endblock %}
