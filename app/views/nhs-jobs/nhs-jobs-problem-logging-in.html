@@ -19,7 +19,7 @@
       </h1>
 
       <p>If you know your login details but are having a problem logging into the system you may be using the wrong website.</p>
-      <p>We have two separate sites one for candidates and another for employers.</p>
+      <p>We have two separate sites one for applicants and another for employers.</p>
     </div>
 
     <div class="nhsuk-u-reading-width">
@@ -37,9 +37,9 @@
         HTML: "<p>If your account was created before 31st May 2023 you will need to create a new account as the NHS Jobs website had been upgraded to a new system. </p>"
       }) }}
 
-      {% if 'candidate' in prevURL %}
+      {% if 'applicant' in prevURL %}
         {{ actionLink({
-          text: "Sign in as a candidate (opens in new tab)",
+          text: "Sign in as an applicant (opens in new tab)",
           href: "https://www.jobs.nhs.uk/candidate",
           openInNewWindow: "true"
         }) }}
@@ -65,6 +65,24 @@
         }) }}
 
       </form>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Alternative contact methods
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><strong>Telephone:</strong> 0300 330 1013</p>
+          <p>Current waiting time is <strong>20 minutes</strong></p>
+          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
+              charges​​​​​​</a></p>
+          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
+          <p>We aim to respond to your email within 2 working days.</p>
+        </div>
+      </details>
 
     </div>
 

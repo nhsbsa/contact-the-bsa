@@ -30,16 +30,18 @@ router.post('/which-service', function (req, res) {
 
     if (whichService) {
 
-        if (whichService == "NHS Jobs") {
+        if (whichService == "Support with Healthcare Costs") {
+            res.redirect('/iteration-1/select-your-query-healthcare-costs');
+        } else if (whichService == "Support with Medical Exemptions and Penalty Charges") {
+            res.redirect('/iteration-1/select-your-query-exemptions-charges');
+        } else if (whichService == "Support for Students and Healthcare Professionals") {
+            res.redirect('/iteration-1/select-your-query-students-healthcare-professionals');
+        } else if (whichService == "Pensions and Employee Benefits") {
+            res.redirect('/iteration-1/select-your-query-pensions-employee-benefits');
+        } else if (whichService == "NHS Jobs") {
             res.redirect('select-your-query-nhs-jobs');
-        } else if (whichService == "My NHS Pension portal") {
-            res.redirect('/mvp/nhs-pension-number');
-        } else if (whichService == "NHS Pension Scheme") {
-            res.redirect('/mvp/nhs-pension-number');
-        } else if (whichService == "Total Reward Statement") {
-            res.redirect('/mvp/nhs-pension-number');
         } else {
-            res.redirect('/mvp/reference-number');
+            res.redirect('/iteration-1/reference-number');
         }
 
 
@@ -54,8 +56,8 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
     var nhsJobs = req.session.data['select-your-query-nhs-jobs'];
 
     if (nhsJobs) {
-        if (nhsJobs == "Candidate") {
-            res.redirect('nhs-jobs-candidate');
+        if (nhsJobs == "Applicant") {
+            res.redirect('nhs-jobs-applicant');
         } else if (nhsJobs == "Employer") {
             res.redirect('nhs-jobs-employer');
         } 
