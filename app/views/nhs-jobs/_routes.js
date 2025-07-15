@@ -49,6 +49,21 @@ router.post('/which-service', function (req, res) {
 
 })
 
+router.post('/select-your-query-nhs-jobs', function (req, res) {
+
+    var nhsJobs = req.session.data['select-your-query-nhs-jobs'];
+
+    if (nhsJobs) {
+        if (nhsJobs == "Candidate") {
+            res.redirect('nhs-jobs-candidate');
+        } else if (nhsJobs == "Employer") {
+            res.redirect('nhs-jobs-employer');
+        } 
+    } else {
+        res.redirect('select-your-query-nhs-jobs');
+    }
+
+})
 
 router.post('/nhs-jobs-problem-logging-in', function (req, res) {
 
