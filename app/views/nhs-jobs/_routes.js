@@ -67,14 +67,94 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
 
 })
 
+// Problem Logging in?
+
 router.post('/nhs-jobs-problem-logging-in', function (req, res) {
 
     res.redirect('reference-number');
 
 })
+
+// Help with NHS Jobs website
 router.post('/help-with-the-nhs-jobs-website', function (req, res) {
 
     res.redirect('reference-number');
+
+})
+
+// Help with a NHS job application
+router.post('/nhs-jobs-application-support', function (req, res) {
+
+    res.redirect('job-reference-number');
+
+})
+
+// Do you have a job reference number?
+
+router.post('/job-reference-number', function (req, res) {
+
+    var jobReferenceQuestion = req.session.data['job-reference-number'];
+
+    if (jobReferenceQuestion == "Yes") {
+        res.redirect('enter-job-reference-number');
+    } else if (jobReferenceQuestion == "No") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('job-reference-number');
+
+    }
+
+})
+
+// Enter job reference number
+router.post('/enter-job-reference-number', function (req, res) {
+
+    res.redirect('reference-number');
+
+})
+
+// Help with NHS Jobs employer account management
+router.post('/nhs-jobs-account-management', function (req, res) {
+
+    res.redirect('account-number');
+
+})
+
+// Do you have an account number?
+
+router.post('/account-number', function (req, res) {
+
+    var accountNumberQuestion = req.session.data['account-number'];
+
+    if (accountNumberQuestion == "Yes") {
+        res.redirect('enter-account-number');
+    } else if (accountNumberQuestion == "No") {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('account-number');
+
+    }
+
+})
+
+// Enter your account number
+router.post('/enter-account-number', function (req, res) {
+
+    res.redirect('reference-number');
+
+})
+
+// Help with job listing
+router.post('/nhs-jobs-job-listing', function (req, res) {
+
+    res.redirect('enter-job-listing-reference-number');
+
+})
+
+// Job listing reference number
+router.post('/enter-job-listing-reference-number', function (req, res) {
+
+    res.redirect('account-number');
 
 })
 

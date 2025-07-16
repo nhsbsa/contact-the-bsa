@@ -1,0 +1,42 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle  = "What is your account number?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}} 
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-l">
+    {{pageTitle}}
+  </h1>
+  <div class="nhsuk-hint">
+    For example, 12345678
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="/{{folder}}/enter-account-number" method="post" novalidate>
+      
+        {{ input({
+          label: {
+            "html": accountNumber
+          },
+          "id": "enter-account-number",
+          "name": "enter-account-number",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

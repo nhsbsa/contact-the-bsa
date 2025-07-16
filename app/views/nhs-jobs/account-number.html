@@ -1,0 +1,51 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Do you have an account number?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/account-number" method="post" novalidate>
+
+      {{ radios({
+        "idPrefix": "account-number",
+        "name": "account-number",
+        "classes": "nhsuk-radios--inline",
+        "fieldset": {
+          "legend": {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+          "text": "If you have an employer account your account number will be on your user profile"
+        },
+        "items": [ 
+          {
+            "value": "Yes",
+            "text": "Yes"
+          },
+          {
+            "value": "No",
+            "text": "No"
+          }
+        ]
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

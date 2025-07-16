@@ -58,34 +58,88 @@
 
       {% endif %}
 
-      {% if (data['pension-number']) %}
+      {% if (data['job-reference-number']) %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Have NHS Pension number
+            Have Job reference number
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['pension-number']}}
+            {{ data['job-reference-number']}}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add NHS Pension number</span> </a>
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add Job reference number</span> </a>
           </dd>
         </div>
       {% endif %}
 
 
-      {% if (data['pension-number'] == "Yes, I know my NHS Pension number") %}
+      {% if (data['job-reference-number'] == "Yes") %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            NHS Pension number
+            Job reference number
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['sdNumber']}}
+            {{ data['enter-job-reference-number']}}
           </dd>
 
           <dd class="nhsuk-summary-list__actions">
 
             <a href="#">
-              Change<span class="nhsuk-u-visually-hidden"> NHS Pension number</span>
+              Change<span class="nhsuk-u-visually-hidden"> Job reference number</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
+      {% if (data['account-number']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have account number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['account-number']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add account number</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['account-number'] == "Yes") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Account number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-account-number']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Employer account number</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
+      {% if (data['enter-job-listing-reference-number']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Job listing reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-job-listing-reference-number']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> job listing-reference number</span>
             </a>
 
           </dd>
@@ -159,79 +213,6 @@
 
       </div>
 
-
-      {% if (data['nationalInsuranceNumber']) %}
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-            National Insurance number
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {{ data['nationalInsuranceNumber']}}
-          </dd>
-
-          <dd class="nhsuk-summary-list__actions">
-
-            <a href="#">
-              Change<span class="nhsuk-u-visually-hidden"> National Insurance number</span>
-            </a>
-
-          </dd>
-
-        </div>
-      {% endif %}
-
-      {% if (data['which-service'] != "NHS Jobs") %}
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Date of birth
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {% if (data['date-of-birth']) %}
-          {{ data['date-of-birth'] }}
-          {% else %}
-          18 May 1985
-          {% endif %}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
-          </a>
-
-        </dd>
-
-      </div>
-      {% endif %}
-
-      {% if (data['which-service'] != "NHS Jobs") %}
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Address
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {% if (data['address']) and not (data['address-line-1']) %}
-            {{ data['address'] }}
-          {% elif (data['address-line-1']) and not (data['address']) %}
-            {{data['address-line-1']}} {{data['address-line-2']}} {{data['address-town']}} {{data['address-county']}} {{data['address-postcode']}}
-          {% elif (data['address-line-1']) and (data['address']) %}
-            {{data['address-line-1']}} {{data['address-line-2']}} {{data['address-town']}} {{data['address-county']}} {{data['address-postcode']}}
-          {% else %}
-            NHS BSA, STELLA HOUSE, GOLDCREST WAY, NEWCASTLE UPON TYNE, NE15 8NY
-          {% endif %}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> address</span>
-          </a>
-
-        </dd>
-
-      </div>
-      {% endif %}
-
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
           Email address
@@ -275,48 +256,6 @@
         </dd>
 
       </div>
-
-      {% if (data['document-yes-no']) %}
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Documents to upload
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          {{ data['document-yes-no']}}
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> if you have document(s) to upload</span>
-          </a>
-
-        </dd>
-
-      </div>
-      {% endif %}
-
-      {% if (data['document-yes-no']) == "Yes" %}
-
-      <div class="nhsuk-summary-list__row">
-        <dt class="nhsuk-summary-list__key">
-          Documents uploaded
-        </dt>
-        <dd class="nhsuk-summary-list__value">
-          Fake Form 1.pdf (PDF, 123KB)<br>
-          Fake Form 2.pdf (PDF, 123KB)
-        </dd>
-
-        <dd class="nhsuk-summary-list__actions">
-
-          <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> uploaded documents</span>
-          </a>
-
-        </dd>
-      </div>
-      
-      {% endif %}
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">

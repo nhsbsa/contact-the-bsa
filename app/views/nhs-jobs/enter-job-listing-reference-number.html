@@ -1,0 +1,42 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle  = "What is the job listing reference number?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}} 
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-l">
+    {{pageTitle}}
+  </h1>
+  <div class="nhsuk-hint">
+    For example, 123-NHS7654321
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="/{{folder}}/enter-job-listing-reference-number" method="post" novalidate>
+      
+        {{ input({
+          label: {
+            "html": jobListingReference
+          },
+          "id": "enter-job-listing-reference-number",
+          "name": "enter-job-listing-reference-number",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}
