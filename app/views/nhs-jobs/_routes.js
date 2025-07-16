@@ -98,7 +98,7 @@ router.post('/job-reference-number', function (req, res) {
     if (jobReferenceQuestion == "Yes") {
         res.redirect('enter-job-reference-number');
     } else if (jobReferenceQuestion == "No") {
-        res.redirect('reference-number');
+        res.redirect('application-support-email');
     } else {
         res.redirect('job-reference-number');
 
@@ -109,7 +109,7 @@ router.post('/job-reference-number', function (req, res) {
 // Enter job reference number
 router.post('/enter-job-reference-number', function (req, res) {
 
-    res.redirect('reference-number');
+    res.redirect('application-support-email');
 
 })
 
