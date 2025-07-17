@@ -7,7 +7,8 @@
 
 {%block contactIntro %}
 
-    <p>Employers can contact the NHS Jobs team to get the help they need. Choose your reason for contacting us about NHS Jobs below.</p>
+    <p>If you are a recruiting manager, please speak to the super user in your organisation. If your super user is unable to solve the matter themselves, they can escalate the issue on your behalf.</p> 
+    <p>7Choose your reason for contacting us about NHS Jobs below.</p>
     
 {% endblock %}
 
@@ -25,6 +26,7 @@
 
 {% block serviceOptions %}
 
+    {{serviceContactList(link="nhs-jobs-super-user", title="Who is my super user?")}}
     {{serviceContactList(link="nhs-jobs-problem-logging-in", title="Problem logging in?")}}
     {{serviceContactList(link="nhs-jobs-account-management", title="Account Management")}}
     {{serviceContactList(link="nhs-jobs-job-listing", title="Help with job listings")}}
