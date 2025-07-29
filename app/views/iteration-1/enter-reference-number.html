@@ -48,11 +48,11 @@
       enter your personal id, e.g. 120653 or NHS-1234567-ABC
       {% endif %}
     {% elseif (data['which-service'] == "Pensions and Employee Benefits") %}
-      {% if (data['select-your-query-pensions-employee-benefits'] == "My NHS Pension Portal Support") %}
+      {% if (data['select-your-query-pensions-employee-benefits'] == "My NHS Pension portal") %}
       NHS-1234567-ABC
-      {% elseif (data['select-your-query-pensions-employee-benefits'] == "My NHS Pension Registration") %}
-      NHS-1234567-ABC
-      {% elseif (data['select-your-query-pensions-employee-benefits'] == "TRS Employer") %}
+      {% elseif (data['select-your-query-pensions-employee-benefits'] == "NHS Pension Scheme") %}
+      NHS-1234567-ABC 
+      {% elseif (data['select-your-query-pensions-employee-benefits'] == "Total Reward Statement") %}
       NHS-1234567-ABC
       {% endif %}
     {% elseif (data['which-service'] == "NHS Jobs") %}

@@ -146,24 +146,24 @@
 
       {% endif %}
 
-      {% if (data['pension-number']) %}
+      {% if (data['membership-number']) %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Have NHS Pension number
+            Have membership number
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['pension-number']}}
+            {{ data['membership-number']}}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add NHS Pension number</span> </a>
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add membership number</span> </a>
           </dd>
         </div>
       {% endif %}
 
-      {% if (data['pension-number'] == "Yes, I know my NHS Pension number") %}
+      {% if (data['membership-number'] == "Yes, I know my membership number") %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            NHS Pension number
+            Membership number
           </dt>
           <dd class="nhsuk-summary-list__value">
             {{ data['sdNumber']}}
@@ -172,7 +172,7 @@
           <dd class="nhsuk-summary-list__actions">
 
             <a href="#">
-              Change<span class="nhsuk-u-visually-hidden"> NHS Pension number</span>
+              Change<span class="nhsuk-u-visually-hidden"> membership number</span>
             </a>
 
           </dd>
