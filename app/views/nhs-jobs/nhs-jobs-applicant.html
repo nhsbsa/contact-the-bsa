@@ -23,11 +23,13 @@
 
 {% set generalURL = '/' + folder + '/reference-number' %}
 
-{% block serviceOptions %}
+{% block serviceOptions %} 
 
-    {{serviceContactList(link="nhs-jobs-problem-logging-in", title="Problem logging in?")}}
-    {{serviceContactList(link="help-with-the-nhs-jobs-website", title="Help with NHS Jobs website")}}
-    {{serviceContactList(link="nhs-jobs-application-support", title="Help with your application")}}
+    {{serviceContactList(link="account-access-and-management", title="Account access and management")}}
+    {{serviceContactList(link="job-search-and-alerts", title="Job search and alerts")}}
+    {{serviceContactList(link="application-and-submissions", title="Applications and submissions")}}
+    {{serviceContactList(link="post-application-actions", title="Post-application actions")}}
+    {{serviceContactList(link="system-support-and-data-requests", title="System support and data requests")}}
     {{serviceContactList(link="job-reference-number", title="Send your CV")}}
     {{serviceContactList(link=generalURL, title="Something else")}}  
 

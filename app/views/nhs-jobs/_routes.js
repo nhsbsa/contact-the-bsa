@@ -67,25 +67,40 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
 
 })
 
-// Problem Logging in?
+// Account access and management
 
-router.post('/nhs-jobs-problem-logging-in', function (req, res) {
-
-    res.redirect('reference-number');
-
-})
-
-// Help with NHS Jobs website
-router.post('/help-with-the-nhs-jobs-website', function (req, res) {
+router.post('/account-access-and-management', function (req, res) {
 
     res.redirect('reference-number');
 
 })
 
-// Help with a NHS job application
-router.post('/nhs-jobs-application-support', function (req, res) {
+// Job search and alerts
+router.post('/job-search-and-alerts', function (req, res) {
+
+    res.redirect('reference-number');
+
+})
+
+// Application and submissions
+router.post('/application-and-submissions', function (req, res) {
 
     res.redirect('job-reference-number');
+
+})
+
+
+// Post application actions
+router.post('/post-application-actions', function (req, res) {
+
+    res.redirect('job-reference-number');
+
+})
+
+// System support and data requests
+router.post('/system-support-and-data-requests', function (req, res) {
+
+    res.redirect('reference-number');
 
 })
 
@@ -113,8 +128,20 @@ router.post('/enter-job-reference-number', function (req, res) {
 
 })
 
-// Help with NHS Jobs employer account management
-router.post('/nhs-jobs-account-management', function (req, res) {
+// Settings and permissions management
+router.post('/settings-and-permissions-management', function (req, res) {
+
+    res.redirect('account-number');
+
+})
+// applicant and interview management
+router.post('/applicant-interview-management', function (req, res) {
+
+    res.redirect('account-number');
+
+})
+// Post-interview actions
+router.post('/post-interview-actions', function (req, res) {
 
     res.redirect('account-number');
 
@@ -144,8 +171,8 @@ router.post('/enter-account-number', function (req, res) {
 
 })
 
-// Help with job listing
-router.post('/nhs-jobs-job-listing', function (req, res) {
+// Job Listing Management
+router.post('/job-listing-management', function (req, res) {
 
     res.redirect('enter-job-listing-reference-number');
 

@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you need help with your job listing?" %}
+{% set pageTitle = "Help with applicant and interview management" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -18,33 +18,49 @@
         {{pageTitle}}
       </h1>
 
-      <p>If you are experiencing problems creating a job listing please refer to the links below.</p>
+      <p>If you are experiencing problems with applicant and interview management please refer to the FAQs below.</p>
     </div>
 
     <div class="nhsuk-u-reading-width">
-      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages listed linking to knowledge base">
-        <ol class="nhsuk-contents-list__list">
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="https://faq.nhsbsa.nhs.uk/knowledgebase/" target="_blank">Link one</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="https://faq.nhsbsa.nhs.uk/knowledgebase/" target="_blank">Link two</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="https://faq.nhsbsa.nhs.uk/knowledgebase/" target="_blank">Link three</a>
-          </li>
-          <li class="nhsuk-contents-list__item">
-            <a class="nhsuk-contents-list__link" href="https://faq.nhsbsa.nhs.uk/knowledgebase/" target="_blank">Link four</a>
-          </li>
-        </ol>
-      </nav>
+
+      <h2 class="nhsuk-heading-m">FAQs</h2>
+      
+      <div class="nhsuk-expander-group">
+        {{ details({
+          classes: "nhsuk-expander",
+          text: "How do I score applicants?",
+          HTML: "Conent to go here"
+          }) }}
+          {{ details({
+          classes: "nhsuk-expander",
+          text: "How do I assign an interviewee to a slot?",
+          HTML: "Conent to go here"
+          }) }}
+          {{ details({
+          classes: "nhsuk-expander",
+          text: "How do I rearrange an interview?",
+          HTML: "Conent to go here"
+          }) }}
+      </div>
 
       <hr>
+
+      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
+
+      <p>Please refer to our knowledge base if your questions have not been answered through out FAQ's</p>
+      {{ actionLink({
+        text: "NHSBSA knowledge base (opens in new tab)",
+        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
+        openInNewWindow: "true"
+      }) }}
+
+      <hr>
+      
       <h2 class="nhsuk-heading-m">Still having problems?</h2>
-      <p>If you are experiencing a problem creating a job listing click the link below to send us a general enquiry and a member of our support team will get back to you within 2 working days.</p>
+      <p>If you are experiencing a problem with your employer account click the link below to send us a general enquiry and a member of our support team will get back to you within 2 working days.</p>
 
       
-      <form action="/{{folder}}/nhs-jobs-job-listing" method="post" novalidate>
+      <form action="/{{folder}}/applicant-interview-management" method="post" novalidate>
 
         {{ button({
         "text": "Start now",

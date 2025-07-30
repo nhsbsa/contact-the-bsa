@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Are you having a problem logging in?" %}
+{% set pageTitle = "Help with account access and management" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -41,7 +41,7 @@
       {% if 'applicant' in prevURL %}
         {{ actionLink({
           text: "Sign in as an applicant (opens in new tab)",
-          href: "https://www.jobs.nhs.uk/candidate",
+          href: "https://www.jobs.nhs.uk/candidate/auth/login",
           openInNewWindow: "true"
         }) }}
       {% elif 'employer' in prevURL %}
@@ -54,11 +54,70 @@
 
       <hr>
 
+      <h2 class="nhsuk-heading-m">Need help with your account?</h2>
+
+      {% set createAccount %}
+        {% if 'applicant' in prevURL %}
+          <p>To create an account as an applicant you need to go to the NHS Jobs website. Click the link below to create your account.</p>
+          {{ actionLink({
+            text: "Create an account as an applicant (opens in new tab)",
+            href: "https://www.jobs.nhs.uk/candidate/auth/register/first-last-name",
+            openInNewWindow: "true"
+          }) }}
+        {% elif 'employer' in prevURL %}
+          <p>If your organisation already has an NHS Jobs account, you can ask your organisation's super-user to create an account for you.</p>
+        {% endif %}
+      {% endset %}
+
+
+      {% set forgotPassword %}
+        {% if 'applicant' in prevURL %}
+          <p>if your login details aren't letting you login to your account and you need to reset your password you need to go to the NHS Jobs website. Click the link below to reset your password.</p>
+          {{ actionLink({
+            text: "Reset your password (opens in new tab)",
+            href: "https://www.jobs.nhs.uk/candidate/auth/forgot-password",
+            openInNewWindow: "true"
+          }) }}
+        {% elif 'employer' in prevURL %}
+          <p>if your login details aren't letting you login to your account and you need to reset your password you need to go to the NHS Jobs website. Click the link below to reset your password.</p>
+          {{ actionLink({
+            text: "Reset your password (opens in new tab)",
+            href: "https://www.jobs.nhs.uk/employer/auth/forgot-password",
+            openInNewWindow: "true"
+          }) }}
+        {% endif %}
+      {% endset %}
+
+      
+
+
+      <div class="nhsuk-expander-group">
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "I need to create an account",
+        HTML: createAccount
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "I have forgotten my password and need to reset",
+        HTML: forgotPassword
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "I need to cancel/delete my account",
+        HTML: "
+        <p>work around example to go here</p>
+        "
+        }) }}
+      </div>
+
+      <hr>
+
       <h2 class="nhsuk-heading-m">Still having problems?</h2>
 
       <p>If you are still having problems accessing your account click the link below to submit your query and you will get a response within 2 working days.</p>
 
-      <form action="/{{folder}}/nhs-jobs-problem-logging-in" method="post" novalidate>
+      <form action="/{{folder}}/account-access-and-management" method="post" novalidate>
 
         {{ button({
         "text": "Start now",

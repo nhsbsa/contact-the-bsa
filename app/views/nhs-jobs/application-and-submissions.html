@@ -1,0 +1,119 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Help with applications and submissions" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">NHS Jobs</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+
+      <p>If you are experiencing problems with your application please refer to the FAQs below.</p>
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+
+      <h2 class="nhsuk-heading-m">FAQs</h2>
+
+      {% set applyCV %}
+        <p>We cannot accept CV's via email. If you would like to apply for a job using your CV you need to contact the employer directly using the contact details on the application.</p>
+        <p>To get the employers email address click the link below to enter the job reference number.</p>
+        <form action="/{{folder}}/application-and-submissions" method="post" novalidate>
+
+          {{ button({
+          "text": "Start now",
+          "classes": "nhsuk-u-margin-top-3"
+          }) }}
+  
+        </form>
+      {% endset %}
+      
+      <div class="nhsuk-expander-group">
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "I cannot submit my application",
+        HTML: "
+        <p>Answer to go here</p>
+        "
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "What is the difference between essential and desirable criteria?",
+        HTML: "
+        <p>Answer to go here</p>
+        "
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "How do I track my application?",
+        HTML: "
+        <p>Answer to go here</p>
+        "
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        text: "Can I apply via CV or send in my CV?",
+        HTML: applyCV
+        }) }}
+      </div>
+
+      <hr>
+
+      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
+
+      <p>Please refer to our knowledge base if your questions have not been answered through out FAQ's</p>
+      {{ actionLink({
+        text: "NHSBSA knowledge base (opens in new tab)",
+        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
+        openInNewWindow: "true"
+      }) }}
+
+      <hr>
+      
+      <h2 class="nhsuk-heading-m">Still having problems?</h2>
+      <p>If you are experiencing a problem with your employer account click the link below to send us a general enquiry and a member of our support team will get back to you within 2 working days.</p>
+
+      
+      <form action="/{{folder}}/application-and-submissions" method="post" novalidate>
+
+        {{ button({
+        "text": "Start now",
+        "classes": "nhsuk-u-margin-top-3"
+        }) }}
+
+      </form>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Alternative contact methods
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><strong>Telephone:</strong> 0300 330 1013</p>
+          <p>Current waiting time is <strong>20 minutes</strong></p>
+          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
+              charges​​​​​​</a></p>
+          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
+          <p>We aim to respond to your email within 2 working days.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}
