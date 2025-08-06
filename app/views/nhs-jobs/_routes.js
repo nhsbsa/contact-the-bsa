@@ -131,41 +131,41 @@ router.post('/enter-job-reference-number', function (req, res) {
 // Settings and permissions management
 router.post('/settings-and-permissions-management', function (req, res) {
 
-    res.redirect('account-number');
+    res.redirect('employer-code');
 
 })
 // applicant and interview management
 router.post('/applicant-interview-management', function (req, res) {
 
-    res.redirect('account-number');
+    res.redirect('employer-code');
 
 })
 // Post-interview actions
 router.post('/post-interview-actions', function (req, res) {
 
-    res.redirect('account-number');
+    res.redirect('employer-code');
 
 })
 
 // Do you have an account number?
 
-router.post('/account-number', function (req, res) {
+router.post('/employer-code', function (req, res) {
 
-    var accountNumberQuestion = req.session.data['account-number'];
+    var accountNumberQuestion = req.session.data['employer-code'];
 
     if (accountNumberQuestion == "Yes") {
-        res.redirect('enter-account-number');
+        res.redirect('enter-employer-code');
     } else if (accountNumberQuestion == "No") {
         res.redirect('reference-number');
     } else {
-        res.redirect('account-number');
+        res.redirect('employer-code');
 
     }
 
 })
 
 // Enter your account number
-router.post('/enter-account-number', function (req, res) {
+router.post('/enter-employer-code', function (req, res) {
 
     res.redirect('reference-number');
 
@@ -181,7 +181,7 @@ router.post('/job-listing-management', function (req, res) {
 // Job listing reference number
 router.post('/enter-job-listing-reference-number', function (req, res) {
 
-    res.redirect('account-number');
+    res.redirect('employer-code');
 
 })
 

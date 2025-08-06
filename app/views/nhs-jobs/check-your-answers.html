@@ -93,33 +93,33 @@
         </div>
       {% endif %}
 
-      {% if (data['account-number']) %}
+      {% if (data['employer-code']) %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Have account number
+            Have employer code
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['account-number']}}
+            {{ data['employer-code']}}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add account number</span> </a>
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add employer code</span> </a>
           </dd>
         </div>
       {% endif %}
 
-      {% if (data['account-number'] == "Yes") %}
+      {% if (data['employer-code'] == "Yes") %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Account number
+            Employer code
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['enter-account-number']}}
+            {{ data['enter-employer-code']}}
           </dd>
 
           <dd class="nhsuk-summary-list__actions">
 
             <a href="#">
-              Change<span class="nhsuk-u-visually-hidden"> Employer account number</span>
+              Change<span class="nhsuk-u-visually-hidden"> Employer code</span>
             </a>
 
           </dd>

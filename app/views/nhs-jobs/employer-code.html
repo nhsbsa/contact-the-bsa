@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you have an account number?"%}
+{% set pageTitle = "Do you know your employer code?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -11,11 +11,11 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/account-number" method="post" novalidate>
+      <form action="/{{folder}}/employer-code" method="post" novalidate>
 
       {{ radios({
-        "idPrefix": "account-number",
-        "name": "account-number",
+        "idPrefix": "employer-code",
+        "name": "employer-code",
         "classes": "nhsuk-radios--inline",
         "fieldset": {
           "legend": {
@@ -25,7 +25,7 @@
           }
         },
         "hint": {
-          "text": "If you have an employer account your account number will be on your user profile"
+          "text": "If you have an employer your employer code will be on your account"
         },
         "items": [ 
           {
