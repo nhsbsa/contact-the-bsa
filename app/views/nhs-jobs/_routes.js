@@ -200,28 +200,12 @@ router.post('/reference-number', function (req, res) {
 
 router.post('/enter-reference-number', function (req, res) {
 
-    var whichService = req.session.data['which-service'];
-
     var referenceNumber = req.session.data['enter-reference-number'].trim();
 
     const dynamicsRegex = /^NHS-\d{7}-[A-Za-z]{3}$/;
 
-    if (referenceNumber) {
-
-        if (whichService == "My NHS Pension portal" || 
-        whichService == "NHS Pension Scheme" || 
-        whichService == "Total Reward Statement") {
-
-            if (dynamicsRegex.test(referenceNumber)) {
-                res.redirect('enter-your-name');
-            } else {
-                res.redirect('enter-reference-number');
-            }
-
-        } else if (whichService) {
+    if (dynamicsRegex.test(referenceNumber)) {
             res.redirect('enter-your-name');
-        }
-
     } else {
         res.redirect('enter-reference-number');
     }
