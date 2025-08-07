@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Help with account access and management" %}
+{% set pageTitle = "Help accessing an account" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -113,11 +113,10 @@
 
       <hr>
 
-      <h2 class="nhsuk-heading-m">Still having problems?</h2>
+      <h2 class="nhsuk-heading-m">Need more support?</h2>
+      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
 
-      <p>If you are still having problems accessing your account click the link below to submit your query and you will get a response within 2 working days.</p>
-
-      <form action="/{{folder}}/account-access-and-management" method="post" novalidate>
+      <form action="/{{folder}}/accessing-an-account" method="post" novalidate>
 
         {{ button({
         "text": "Start now",

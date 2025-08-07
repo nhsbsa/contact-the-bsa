@@ -7,7 +7,7 @@
 
 {%block contactIntro %}
 
-    <p>Please choose the reason for contacting us about NHS Jobs below.</p>
+    <p>Select the reason you're contacting us</p>
     
 {% endblock %}
 
@@ -25,12 +25,12 @@
 
 {% block serviceOptions %} 
 
-    {{serviceContactList(link="account-access-and-management", title="Account access and management")}}
-    {{serviceContactList(link="job-search-and-alerts", title="Job search and alerts")}}
-    {{serviceContactList(link="application-and-submissions", title="Applications and submissions")}}
-    {{serviceContactList(link="post-application-actions", title="Post-application actions")}}
-    {{serviceContactList(link="system-support-and-data-requests", title="System support and data requests")}}
-    {{serviceContactList(link="job-reference-number", title="Send your CV")}}
+    {{serviceContactList(link="accessing-an-account", title="Accessing an account")}}
+    {{serviceContactList(link="searching-for-a-job", title="Searching for a job")}}
+    {{serviceContactList(link="completing-an-application", title="Completing an application")}}
+    {{serviceContactList(link="managing-a-job-offer", title="Managing a job offer")}}
+    {{serviceContactList(link="nhs-jobs-website-support", title="A problem on the website")}}
+    {{serviceContactList(link="application-support-email", title="Sending a CV")}}
     {{serviceContactList(link=generalURL, title="Something else")}}  
 
 {% endblock %}

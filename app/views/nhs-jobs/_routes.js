@@ -69,36 +69,36 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
 
 // Account access and management
 
-router.post('/account-access-and-management', function (req, res) {
+router.post('/accessing-an-account', function (req, res) {
 
     res.redirect('reference-number');
 
 })
 
-// Job search and alerts
-router.post('/job-search-and-alerts', function (req, res) {
+// Searching for a job
+router.post('/searching-for-a-job', function (req, res) {
 
     res.redirect('reference-number');
 
 })
 
-// Application and submissions
-router.post('/application-and-submissions', function (req, res) {
+// Completing an application
+router.post('/completing-an-application', function (req, res) {
 
     res.redirect('job-reference-number');
 
 })
 
 
-// Post application actions
-router.post('/post-application-actions', function (req, res) {
+// Managing a job offer
+router.post('/managing-a-job-offer', function (req, res) {
 
     res.redirect('job-reference-number');
 
 })
 
-// System support and data requests
-router.post('/system-support-and-data-requests', function (req, res) {
+// Problem on the website
+router.post('/nhs-jobs-website-support', function (req, res) {
 
     res.redirect('reference-number');
 
@@ -113,7 +113,7 @@ router.post('/job-reference-number', function (req, res) {
     if (jobReferenceQuestion == "Yes") {
         res.redirect('enter-job-reference-number');
     } else if (jobReferenceQuestion == "No") {
-        res.redirect('application-support-email');
+        res.redirect('reference-number');
     } else {
         res.redirect('job-reference-number');
 
@@ -124,12 +124,12 @@ router.post('/job-reference-number', function (req, res) {
 // Enter job reference number
 router.post('/enter-job-reference-number', function (req, res) {
 
-    res.redirect('application-support-email');
+    res.redirect('reference-number');
 
 })
 
 // Settings and permissions management
-router.post('/settings-and-permissions-management', function (req, res) {
+router.post('/stakeholder-engagement-team', function (req, res) {
 
     res.redirect('employer-code');
 
@@ -137,11 +137,19 @@ router.post('/settings-and-permissions-management', function (req, res) {
 // applicant and interview management
 router.post('/applicant-interview-management', function (req, res) {
 
+    res.redirect('enter-job-listing-reference-number');
+
+})
+
+// Job listing reference number
+router.post('/enter-job-listing-reference-number', function (req, res) {
+
     res.redirect('employer-code');
 
 })
-// Post-interview actions
-router.post('/post-interview-actions', function (req, res) {
+
+// Managing Job Offers, pre-employment checks and contracts
+router.post('/job-offers-pre-employment-checks-contracts', function (req, res) {
 
     res.redirect('employer-code');
 
@@ -168,20 +176,6 @@ router.post('/employer-code', function (req, res) {
 router.post('/enter-employer-code', function (req, res) {
 
     res.redirect('reference-number');
-
-})
-
-// Job Listing Management
-router.post('/job-listing-management', function (req, res) {
-
-    res.redirect('enter-job-listing-reference-number');
-
-})
-
-// Job listing reference number
-router.post('/enter-job-listing-reference-number', function (req, res) {
-
-    res.redirect('employer-code');
 
 })
 

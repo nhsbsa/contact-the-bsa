@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle  = "What is your reference number?" %}
+{% set pageTitle  = "What reference number were you given for your query?" %}
 
 {% block pageTitle %}
   {{pageTitle}} - {{serviceName}} 
@@ -12,75 +12,7 @@
     {{pageTitle}}
   </h1>
   <div class="nhsuk-hint">
-    For example, 
-    {% if (data['which-service'] == "NHS Jobs") %}
-    the email address of the applicant or employer or Job Reference from website
-    {% elseif (data['which-service'] == "Prescription Prepayment Certificate (PPC)") %}
-    10193121121 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Prescription Exemption Checking") %}
-    01241111111 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Dental Exemption Checking") %}
-    524311111111 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Maternity Exemption") %}
-    10192311111 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Medical Exemption") %}
-    10192311111 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Low Income Scheme") %}
-    2-W1K7G8C4 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Tax Credit") %}
-    10194312111 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Healthy Start") %}
-    A0456Y7UH5 or NHS-1234567-ABC 
-    {% elseif (data['which-service'] == "NHS Bursary (Medical and dental funding queries)") %}
-    BRN9999999, SSRN9999999 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "NHS Learning Support Fund (Healthcare student funding queries)") %}
-    PRN9999999 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Social Work Bursary (Social work funding queries)") %}
-    NHS-1234567-ABC
-    {% elseif (data['which-service'] == "My NHS Pension Portal Support") %}
-    NHS-1234567-ABC
-    {% elseif (data['which-service'] == "My NHS Pension Registration") %}
-    NHS-1234567-ABC
-    {% elseif (data['which-service'] == "TRS Employer") %}
-    NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Prescription Services (for healthcare professionals)") %}
-    NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Dental Services") %}
-    enter your personal id, e.g. 120653 or NHS-1234567-ABC
-    {% elseif (data['which-service'] == "Hormone Replacement Therapy (HRT) Prescription Prepayment Certificate") %}
-    HRT11A11A11 or NHS-1234567-ABC
-    {% else %}
-    HDJ2423F or NHS-1234567-ABC
-    {% endif %}
-  
-    <!-- 
-        NHS Jobs                    - Email address of applicant or employer or Job Reference from website
-        Exemption (Dental)          - 524311111111
-        Exemption (Prescription)    - 01241111111
-        Healthy Start               - A0456Y7UH5
-        Costs - LIS                 - 2-W1K7G8C4
-        Costs - PPC                 - 10193121121
-        Costs - Maternity Cert      - 10192311111
-        Costs - Medical Cert        - 10192311111
-        Costs - Tax credit Cert     - 10194312111
-        Student Services - SB       - BRN9999999 or SSRN9999999
-        Student Services - LSF      - PRN9999999
-        Student Services - SC       - N/A
-        NHS Pensions                - SD69210000
-        Total Reward Statements     - SD69210000
-        NHS Dental Services         - Personal ID: 120653
-        NHS Prescription Services   - N/A
-        HRT PPC                     - HRT11A11A11
-        EHIC                        - 87999999 or 879999
-        GHIC                        - 87999999
-        IHS                         - IHS123456789
-        S1 Application              - 87999999
-        S2 Application              - 87999999 or 879999
-        Provisional Replacement Cert- 87999999
-        Direct Claims (OHS)         - 87999999
-        Adult Social Care           - H27-C813-3XF7-C
-        NHS Volunteering            - Email address for Recruiter
-      -->
+    For example, NHS-1234567-ABC
   </div>
 {% endset -%}
 

@@ -12,13 +12,7 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       {% set hintContent %}
-
-        {% if 'application' in prevURL %}
           The job listing on the NHS Jobs website has a job reference number
-        {% else %}
-          If you are trying to upload a CV for a job vacancy you are applying to you need to send it directly to the employer
-        {% endif %}
-
       {% endset %}
 
       <form action="/{{folder}}/job-reference-number" method="post" novalidate>
