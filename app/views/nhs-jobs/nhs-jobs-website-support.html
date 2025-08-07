@@ -27,32 +27,87 @@
 
       {% set feedbackFaq %}
         {% if 'applicant' in prevURL %}
-          <p>More information on applicant feedback</p>
+          <p>You must contact the employer directly to request feedback.</p>
+          <p>You can find the contact details for the employer by going to the job listing using the 'view application' link. The contact details of the employer will be listed on this page in the top-right.</p>
+          <p>NHS Jobs are unable to provide any contact information that is not included in the job listing.</p>
+          <div class="nhsuk-action-link">
+            <a class="nhsuk-action-link__link" href="https://www.jobs.nhs.uk/candidate/search" target="_blank">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+              </svg>
+              <span class="nhsuk-action-link__text">Go to NHS Jobs (opens in a new tab)</span>
+            </a>
+          </div>
         {% elif 'employer' in prevURL %}
-          <p>More information on employer feedback</p>
+          <p>It's best practice to enter feedback after an interview.</p>
+          <p>Feedback is not shared with the applicant, unless they request this information from the employer.</p>
+          <p><a title="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials, <a style="overflow-wrap: break-word\" title="https://www.youtube.com/@nhs_jobs_service?cbrd=1" href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+        {% endif %}
+      {% endset %}
+
+
+      {% set accessAccount %}
+        {% if 'applicant' in prevURL %}
+          <p>You can update most of your personal details and supporting information in your account.</p>
+          <p>When you log into your account, you can update your:</p>
+          <ul>
+          <li>name</li>
+          <li>contact preferences</li>
+          <li>telephone number</li>
+          <li>password</li>
+          </ul>
+          <p>You can make your applications quicker by updating your account profile with your:</p>
+          <ul>
+          <li>qualifications</li>
+          <li>training</li>
+          <li>job history</li>
+          <li>equality and diversity details</li>
+          </ul>
+          <p>The saved information will be pre-populated when you complete an application. No one can view your saved information.</p>
+          <h2>Email address</h2>
+          <p>You cannot change the email address linked to your NHS Jobs account.&nbsp;</p>
+          <p>If you cannot access the email linked to your account, you’ll not receive emails updating you about the progress of your application.</p>
+          <p>Password reset emails are also sent to the email account registered to the NHS Jobs service. &nbsp;</p>
+          <p>If you cannot access your NHS Jobs account and do not have access to the linked email address, create a new account with a new email address.&nbsp;</p>
+          <p>You cannot transfer previous applications or applications in progress to the new account.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+        {% elif 'employer' in prevURL %}
+          <p>User accounts are created by your organisation’s Super Users.</p>
+          <p>Once they've created your account, you'll receive an email asking you to set up your password and sign into your account.</p>
+          <p>Your password must be 12 characters or more.</p>
+          <p>You can access the sign in page at any time from the Employer Hub.</p>
+          <p><a title="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials, <a title="https://www.youtube.com/@nhs_jobs_service?cbrd=1" href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
         {% endif %}
       {% endset %}
 
       <div class="nhsuk-expander-group">
-        {{ details({
-        classes: "nhsuk-expander",
-        text: "I want to delete my account and all data relating to my account",
-        HTML: "
-        <p>More information on the right to be forgotten / delete account and data</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        text: "I need to access the details on my account",
-        HTML: "
-        <p>More information on the FOI (Freedom of information request)</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        text: "I want to give feedback relating to some support I have received",
-        HTML: feedbackFaq
-        }) }}
+        {% if 'applicant' in prevURL %}
+          {{ details({
+          classes: "nhsuk-expander",
+          text: "What can I update on my applicant account?",
+          HTML: accessAccount
+          }) }}
+          {{ details({
+          classes: "nhsuk-expander",
+          text: "I want to give feedback relating to some support I have received",
+          HTML: feedbackFaq
+          }) }}
+        {% elif 'employer' in prevURL %}
+          {{ details({
+          classes: "nhsuk-expander",
+          text: "I need to access the details on my account",
+          HTML: accessAccount
+          }) }}
+          {{ details({
+          classes: "nhsuk-expander",
+          text: "Why do I need to add feedback to interviewed applicants?",
+          HTML: feedbackFaq
+          }) }}
+        {% endif %}
       </div>
 
 

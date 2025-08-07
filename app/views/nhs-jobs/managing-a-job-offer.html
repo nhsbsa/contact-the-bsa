@@ -27,27 +27,39 @@
 
 
       {% set contactEmployer %}
-        <p>If you have a query relating to a job application and need to contact the employer directly you can use the link below to get their direct contact details or alternatively they will be listed on the job advert.</p>
-        <form action="/{{folder}}/managing-a-job-offer" method="post" novalidate>
-
-          {{ button({
-          "text": "Start now",
-          "classes": "nhsuk-u-margin-top-3"
-          }) }}
-  
-        </form>
+        <p>If you need to contact the employer directly you can find their contact information on the job advert.</p>
+        <div class="nhsuk-action-link">
+          <a class="nhsuk-action-link__link" href="https://www.jobs.nhs.uk/candidate/search" target="_blank">
+            <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+            </svg>
+            <span class="nhsuk-action-link__text">Go to NHS Jobs (opens in a new tab)</span>
+          </a>
+        </div>
       {% endset %}
 
       {% set preEmployment %}
-        <p>You need to send pre-employment details direct to the employer you can use the link below to get their direct contact details or alternatively they will be listed on the job advert.</p>
-        <form action="/{{folder}}/managing-a-job-offer" method="post" novalidate>
-
-          {{ button({
-          "text": "Start now",
-          "classes": "nhsuk-u-margin-top-3"
-          }) }}
-  
-        </form>
+        <p>If pre-employment checks are being completed online, you must complete the following:</p>
+        <ul>
+        <li>references</li>
+        <li>home address</li>
+        </ul>
+        <p>If the job vacancy needs the details of your professional registration, you'll also need to provide this using the NHS jobs service.</p>
+        <p>You must complete the following checks outside of the NHS Jobs service:</p>
+        <ul>
+        <li>identity check</li>
+        <li>right to work in UK</li>
+        <li>qualifications</li>
+        <li>occupational health check</li>
+        </ul>
+        <p>You'll also need to provide details of Disclosure and Barring Service (DBS) and Healthcare Professional Alert Notices (HPANs) outside of the NHS Jobs service if they are needed.</p>
+        <p>You must provide documents as evidence of your pre-employment checks with the employer.</p>
+        <p>You're unable to upload any pre-employment documents directly to the NHS Jobs service. The employer will contact you to let you know how to provide your documents.</p>
+        <p>If you have any questions about pre-employment documents, contact the employer.</p>
+        <p>You can find their contact details on the right hand side of the vacancy advert.</p>
+        <p><a title="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+        <p>For bitesize video tutorials, <a title="https://www.youtube.com/@nhs_jobs_service?cbrd=1" href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
       {% endset %}
       
       <div class="nhsuk-expander-group">

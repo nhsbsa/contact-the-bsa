@@ -11,12 +11,17 @@
     {{pageTitle}}
   </h1>
   <div class="nhsuk-hint">
-    For example, 123-NHS7654321
+    <p>For example, A0547-25-0005</p>
   </div>
 
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
+
+      {% set findRef %}
+            <p>You can find the reference number next to the job title in both 'Draft' and 'Pre-employment checks'. It’s an 11-character code that starts with 'A'.</p>
+            <p><img class="nhsuk-image__img nhsuk-u-width-one-half" src="/images/job-ref-help.png" alt="Example of where to find the job reference number"></p>
+      {% endset %}
 
         <form action="/{{folder}}/enter-job-listing-reference-number" method="post" novalidate>
       
@@ -28,6 +33,11 @@
           "name": "enter-job-listing-reference-number",
           "type": "text",
           "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ details({
+          text: "How to find the job reference number",
+          html: findRef
         }) }}
 
         {{ button({

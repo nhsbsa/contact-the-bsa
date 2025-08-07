@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you know your employer code?"%}
+{% set pageTitle = "Do you have an employer code?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -25,7 +25,7 @@
           }
         },
         "hint": {
-          "text": "If you have an employer your employer code will be on your account"
+          "text": "For example, B9876"
         },
         "items": [ 
           {
@@ -37,6 +37,11 @@
             "text": "No"
           }
         ]
+      }) }}
+
+      {{ details({
+        text: "How to find the employer code",
+        html: "<p>Employer codes are found in Admin Lite.<br/>The code is a 5 digit alphanumeric code.</p>"
       }) }}
 
       {{ button({

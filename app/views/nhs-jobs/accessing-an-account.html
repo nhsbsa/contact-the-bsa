@@ -58,14 +58,29 @@
 
       {% set createAccount %}
         {% if 'applicant' in prevURL %}
-          <p>To create an account as an applicant you need to go to the NHS Jobs website. Click the link below to create your account.</p>
+          <p>To apply for a job listing on the NHS Jobs service, you must create an account.</p>
           {{ actionLink({
             text: "Create an account as an applicant (opens in new tab)",
             href: "https://www.jobs.nhs.uk/candidate/auth/register/first-last-name",
             openInNewWindow: "true"
           }) }}
+          <p>To create a new account, select ‘Create an account' and enter your:</p>
+          <ul>
+          <li>first name</li>
+          <li>last name</li>
+          <li>email address</li>
+          </ul>
+          <p>You must also create a password.</p>
+          <p>You cannot register the same email address to more than one account.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
         {% elif 'employer' in prevURL %}
           <p>If your organisation already has an NHS Jobs account, you can ask your organisation's super-user to create an account for you.</p>
+          <p>'Super users' can add and delete departments to your organisations account.</p>
+          <p>'Super users' can also add users to a department.</p>
+          <p>Once a user is added to a department, they can view their own tasks and the tasks for the department.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
         {% endif %}
       {% endset %}
 
@@ -88,7 +103,31 @@
         {% endif %}
       {% endset %}
 
-      
+      {% set deleteAccount %}
+        {% if 'applicant' in prevURL %}
+          <p>If you want to delete your account with the NHS Jobs service, you must contact us.</p>
+          <p>Your email must include your full name and the email address linked to your account.</p>
+          <p>Requests will be processed as quickly as possible. The maximum time to process a request is one calendar month.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+          <form action="/{{folder}}/accessing-an-account" method="post" novalidate>
+            {{ button({
+            "text": "Start now",
+            "classes": "nhsuk-u-margin-top-3"
+            }) }}
+          </form>
+        {% elif 'employer' in prevURL %}
+          <p>To close your account within the new NHS Jobs service, send an email with your details.</p>
+          <p><a title="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials, <a title="https://www.youtube.com/@nhs_jobs_service?cbrd=1" href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>    
+          <form action="/{{folder}}/accessing-an-account" method="post" novalidate>
+            {{ button({
+            "text": "Start now",
+            "classes": "nhsuk-u-margin-top-3"
+            }) }}
+          </form>
+        {% endif %}
+      {% endset %}
 
 
       <div class="nhsuk-expander-group">
@@ -105,9 +144,7 @@
         {{ details({
         classes: "nhsuk-expander",
         text: "I need to cancel/delete my account",
-        HTML: "
-        <p>work around example to go here</p>
-        "
+        HTML: deleteAccount
         }) }}
       </div>
 
