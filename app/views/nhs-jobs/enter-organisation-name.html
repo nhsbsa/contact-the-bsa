@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle  = "What is your employer code?" %}
+{% set pageTitle  = "Which organisation do you work for?" %}
 
 {% block pageTitle %}
   {{pageTitle}} - {{serviceName}} 
@@ -10,24 +10,24 @@
   <h1 class="nhsuk-heading-l">
     {{pageTitle}}
   </h1>
-  <div class="nhsuk-hint">
-    For example, B9876
-  </div>
+  <!-- <div class="nhsuk-hint">
+    <p>For example, XX</p>
+  </div> -->
 
   <div class="nhsuk-grid-row">
 
     <div class="nhsuk-grid-column-two-thirds">
 
-        <form action="/{{folder}}/enter-employer-code" method="post" novalidate>
+        <form action="/{{folder}}/enter-organisation-name" method="post" novalidate>
       
         {{ input({
           label: {
-            "html": accountNumber
+            "html": organisationName
           },
-          "id": "enter-employer-code",
-          "name": "enter-employer-code",
+          "id": "enter-organisation-name",
+          "name": "enter-organisation-name",
           "type": "text",
-          "classes": "nhsuk-input--width-10"
+          "classes": "nhsuk-input--width-20"
         }) }}
 
         {{ button({
@@ -35,6 +35,8 @@
         }) }}
 
       </form>
+
+
 
     </div>  
 

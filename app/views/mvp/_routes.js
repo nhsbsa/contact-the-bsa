@@ -32,11 +32,9 @@ router.post('/which-service', function (req, res) {
 
         if (whichService == "NHS Jobs") {
             res.redirect('select-your-query-nhs-jobs');
-        } else if (whichService == "My NHS Pension portal") {
+        } else if (whichService == "Pensions Member") {
             res.redirect('nhs-pension-number');
-        } else if (whichService == "NHS Pension Scheme") {
-            res.redirect('nhs-pension-number');
-        } else if (whichService == "Total Reward Statement") {
+        } else if (whichService == "Pensions Employer") {
             res.redirect('nhs-pension-number');
         } else {
             res.redirect('reference-number');
@@ -121,9 +119,8 @@ router.post('/enter-reference-number', function (req, res) {
 
     if (referenceNumber) {
 
-        if (whichService == "My NHS Pension portal" || 
-        whichService == "NHS Pension Scheme" || 
-        whichService == "Total Reward Statement") {
+        if (whichService == "Pensions Member" || 
+        whichService == "Pensions Employer") {
 
             if (dynamicsRegex.test(referenceNumber)) {
                 res.redirect('enter-your-name');
@@ -154,10 +151,15 @@ router.post('/enter-your-name', function (req, res) {
         if (whichService == "NHS Jobs") {
             res.redirect('enter-your-email');
         } else if (
-            (whichService == "My NHS Pension portal" || whichService == "NHS Pension Scheme" || whichService == "Total Reward Statement") &&
+            (whichService == "Pensions Member" || whichService == "Pensions Employer") &&
             (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
         ) {
             res.redirect('enter-your-national-insurance-number');
+        } else if (
+            (whichService == "Pensions Employer") &&
+            (pensionNumber == "Yes, I know my NHS Pension number")
+        ) {
+            res.redirect('enter-employing-authority-code');
         } else {
             res.redirect('enter-date-of-birth');
         }
@@ -171,6 +173,8 @@ router.post('/enter-your-name', function (req, res) {
 
 router.post('/enter-your-national-insurance-number', function (req, res) {
 
+    var whichService = req.session.data['which-service'];
+    
     let nino = req.session.data['nationalInsuranceNumber'];
 
     // Remove all spaces and normalize to uppercase
@@ -180,14 +184,25 @@ router.post('/enter-your-national-insurance-number', function (req, res) {
 
     if (nino) {
         if (regex.test(nino)|| nino === 'QQ123456C') {
-            res.redirect('enter-date-of-birth');  // Valid National Insurance Number
+            if(whichService == "Pensions Employer"){
+                res.redirect('enter-employing-authority-code');  // Enter EA code
+            } else {
+                res.redirect('enter-date-of-birth');  // Valid National Insurance Number
+            }
         } else {
             res.redirect('enter-your-national-insurance-number');  // Invalid format
         }
     } else {
         res.redirect('enter-your-national-insurance-number');  // Field is empty
     }
+
 });
+
+
+router.post('/enter-employing-authority-code', function (req, res) {
+
+    res.redirect('enter-date-of-birth');
+})
 
 
 // What is your date of birth?

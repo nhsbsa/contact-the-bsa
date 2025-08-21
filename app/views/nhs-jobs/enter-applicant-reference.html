@@ -1,0 +1,52 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle  = "What is your applicant reference number?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}} 
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-l">
+    {{pageTitle}}
+  </h1>
+  <div class="nhsuk-hint">
+    For example, AR-250619-06712
+  </div>
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% set findRef %}
+            <p>You can find the applicant reference number below the applicants name within the job listing in your account. It's an 13-character code that starts with 'A'.</p>
+            <p><img class="nhsuk-image__img nhsuk-u-width-one-half" src="/images/applicant-reference.png" alt="Example of where to find the applicant reference number"></p>
+      {% endset %}
+
+        <form action="/{{folder}}/enter-applicant-reference" method="post" novalidate>
+      
+        {{ input({
+          label: {
+            "html": accountNumber
+          },
+          "id": "enter-applicant-reference",
+          "name": "enter-applicant-reference",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ details({
+          text: "How to find the applicant reference number",
+          html: findRef
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

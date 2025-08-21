@@ -58,6 +58,20 @@
 
       {% endif %}
 
+      {% if (data['enter-organisation-name']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-organisation-name']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add organisation</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
       {% if (data['job-reference-number']) %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
@@ -93,33 +107,33 @@
         </div>
       {% endif %}
 
-      {% if (data['employer-code']) %}
+      {% if (data['applicant-reference']) %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Have employer code
+            Have applicant reference number
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['employer-code']}}
+            {{ data['applicant-reference']}}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add employer code</span> </a>
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add applicant reference</span> </a>
           </dd>
         </div>
       {% endif %}
 
-      {% if (data['employer-code'] == "Yes") %}
+      {% if (data['applicant-reference'] == "Yes") %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
-            Employer code
+            Applicant reference number
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {{ data['enter-employer-code']}}
+            {{ data['enter-applicant-reference']}}
           </dd>
 
           <dd class="nhsuk-summary-list__actions">
 
             <a href="#">
-              Change<span class="nhsuk-u-visually-hidden"> Employer code</span>
+              Change<span class="nhsuk-u-visually-hidden"> Applicant Reference</span>
             </a>
 
           </dd>
@@ -127,7 +141,21 @@
         </div>
       {% endif %}
 
-      {% if (data['enter-job-listing-reference-number']) %}
+      {% if (data['job-listing-reference']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have job listing reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['job-listing-reference']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add job listing reference</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['job-listing-reference'] == "Yes") %}
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
             Job listing reference number
@@ -151,7 +179,7 @@
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Have reference number
+          Have contacted before
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['reference-number']}}
@@ -160,7 +188,7 @@
         <dd class="nhsuk-summary-list__actions">
 
           <a href="#">
-            Change<span class="nhsuk-u-visually-hidden"> if you have a reference number</span>
+            Change<span class="nhsuk-u-visually-hidden"> if you have previous contact</span>
           </a>
 
         </dd>
@@ -173,7 +201,7 @@
 
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
-          Reference number
+          Contact reference
         </dt>
         <dd class="nhsuk-summary-list__value">
           {{ data['enter-reference-number']}}

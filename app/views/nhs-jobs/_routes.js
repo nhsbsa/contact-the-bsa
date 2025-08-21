@@ -71,7 +71,17 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
 
 router.post('/accessing-an-account', function (req, res) {
 
-    res.redirect('reference-number');
+    var employerApplicant = req.session.data['select-your-query-nhs-jobs'];
+
+    if (employerApplicant) {
+        if (employerApplicant == "Applicant") {
+            res.redirect('reference-number');
+        } else if (employerApplicant == "Employer") {
+            res.redirect('enter-organisation-name');
+        } 
+    } else {
+        res.redirect('accessing-an-account');
+    }
 
 })
 
@@ -100,7 +110,17 @@ router.post('/managing-a-job-offer', function (req, res) {
 // Problem on the website
 router.post('/nhs-jobs-website-support', function (req, res) {
 
-    res.redirect('reference-number');
+    var employerApplicant = req.session.data['select-your-query-nhs-jobs'];
+
+    if (employerApplicant) {
+        if (employerApplicant == "Applicant") {
+            res.redirect('reference-number');
+        } else if (employerApplicant == "Employer") {
+            res.redirect('enter-organisation-name');
+        } 
+    } else {
+        res.redirect('nhs-jobs-website-support');
+    }
 
 })
 
@@ -128,58 +148,80 @@ router.post('/enter-job-reference-number', function (req, res) {
 
 })
 
-// Settings and permissions management
+// Stakeholder Engagement Team
 router.post('/stakeholder-engagement-team', function (req, res) {
 
-    res.redirect('employer-code');
+    res.redirect('enter-organisation-name');
 
 })
 // applicant and interview management
 router.post('/applicant-interview-management', function (req, res) {
 
-    res.redirect('enter-job-listing-reference-number');
-
-})
-
-// Job listing reference number
-router.post('/enter-job-listing-reference-number', function (req, res) {
-
-    res.redirect('employer-code');
+    res.redirect('applicant-reference');
 
 })
 
 // Managing Job Offers, pre-employment checks and contracts
 router.post('/job-offers-pre-employment-checks-contracts', function (req, res) {
 
-    res.redirect('employer-code');
+    res.redirect('applicant-reference');
 
 })
 
-// Do you have an account number?
+// Do you have an applicant reference number?
+router.post('/applicant-reference', function (req, res) {
 
-router.post('/employer-code', function (req, res) {
+    var applicantReference = req.session.data['applicant-reference'];
 
-    var accountNumberQuestion = req.session.data['employer-code'];
-
-    if (accountNumberQuestion == "Yes") {
-        res.redirect('enter-employer-code');
-    } else if (accountNumberQuestion == "No") {
-        res.redirect('reference-number');
+    if (applicantReference == "Yes") {
+        res.redirect('enter-applicant-reference');
+    } else if (applicantReference == "No") {
+        res.redirect('job-listing-reference');
     } else {
-        res.redirect('employer-code');
+        res.redirect('job-listing-reference');
 
     }
 
 })
 
-// Enter your account number
-router.post('/enter-employer-code', function (req, res) {
+// Applicant reference number
+router.post('/enter-applicant-reference', function (req, res) {
+
+    res.redirect('job-listing-reference');
+
+})
+
+// Do you have a job listing reference number?
+router.post('/job-listing-reference', function (req, res) {
+
+    var listingReference = req.session.data['job-listing-reference'];
+
+    if (listingReference == "Yes") {
+        res.redirect('enter-job-listing-reference-number');
+    } else if (listingReference == "No") {
+        res.redirect('enter-organisation-name');
+    } else {
+        res.redirect('enter-organisation-name');
+
+    }
+
+})
+
+// Job listing reference number
+router.post('/enter-job-listing-reference-number', function (req, res) {
+
+    res.redirect('enter-organisation-name');
+
+})
+
+// Enter your organisation name
+router.post('/enter-organisation-name', function (req, res) {
 
     res.redirect('reference-number');
 
 })
 
-// Do you have a reference number?
+// Have you contacted us before?
 
 router.post('/reference-number', function (req, res) {
 

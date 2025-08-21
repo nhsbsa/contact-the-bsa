@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you have an employer code?"%}
+{% set pageTitle = "Do you have a job listing reference number?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -11,11 +11,11 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/employer-code" method="post" novalidate>
+      <form action="/{{folder}}/job-listing-reference" method="post" novalidate>
 
       {{ radios({
-        "idPrefix": "employer-code",
-        "name": "employer-code",
+        "idPrefix": "job-listing-reference",
+        "name": "job-listing-reference",
         "classes": "nhsuk-radios--inline",
         "fieldset": {
           "legend": {
@@ -25,7 +25,7 @@
           }
         },
         "hint": {
-          "text": "For example, B9876"
+          "text": "For example, A0547-25-0005"
         },
         "items": [ 
           {
@@ -37,11 +37,6 @@
             "text": "No"
           }
         ]
-      }) }}
-
-      {{ details({
-        text: "How to find the employer code",
-        html: "<p>Employer codes are found in Admin Lite.<br/>The code is a 5 digit alphanumeric code.</p>"
       }) }}
 
       {{ button({

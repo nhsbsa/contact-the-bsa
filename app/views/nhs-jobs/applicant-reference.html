@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Have you contacted us before?"%}
+{% set pageTitle = "Do you have an applicant reference number?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -11,11 +11,11 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/reference-number" method="post" novalidate>
+      <form action="/{{folder}}/applicant-reference" method="post" novalidate>
 
       {{ radios({
-        "idPrefix": "reference-number",
-        "name": "reference-number",
+        "idPrefix": "applicant-reference",
+        "name": "applicant-reference",
         "classes": "nhsuk-radios--inline",
         "fieldset": {
           "legend": {
@@ -25,7 +25,7 @@
           }
         },
         "hint": {
-          "text": "If you've contacted us before about this, our reply will include a reference number."
+          "text": "For example, AR-250619-06712"
         },
         "items": [ 
           {
