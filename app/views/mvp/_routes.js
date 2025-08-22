@@ -33,9 +33,9 @@ router.post('/which-service', function (req, res) {
         if (whichService == "NHS Jobs") {
             res.redirect('select-your-query-nhs-jobs');
         } else if (whichService == "NHS Pensions Member") {
-            res.redirect('nhs-pension-number');
+            res.redirect('membership-number');
         } else if (whichService == "NHS Pensions Employer") {
-            res.redirect('nhs-pension-number');
+            res.redirect('membership-number');
         } else {
             res.redirect('reference-number');
         }
@@ -64,11 +64,11 @@ router.post('/select-your-query-nhs-jobs', function (req, res) {
 
 // Do you have a nhs pension number?
 
-router.post('/nhs-pension-number', function (req, res) {
+router.post('/membership-number', function (req, res) {
 
     var pensionsNum = req.session.data['pension-number'];
 
-    if (pensionsNum == "Yes, I know my NHS Pension number") {
+    if (pensionsNum == "Yes, I know my membership number") {
         var pensionNumber = req.session.data['sdNumber'];
         const regex = RegExp('^\\s*SD\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*$', 'i');
 
@@ -76,17 +76,17 @@ router.post('/nhs-pension-number', function (req, res) {
             if (regex.test(pensionNumber) === true){
                 res.redirect('reference-number');
             } else {
-                res.redirect('nhs-pension-number');
+                res.redirect('membership-number');
             }
         } else {
-            res.redirect('nhs-pension-number');
+            res.redirect('membership-number');
         }
-    } else if (pensionsNum == "No, I do not know my NHS Pension number") {
+    } else if (pensionsNum == "No, I do not know my membership number") {
         res.redirect('reference-number');
     } else if (pensionsNum == "I'm not sure") {
         res.redirect('reference-number');
     } else {
-        res.redirect('nhs-pension-number');
+        res.redirect('membership-number');
     }   
 })
 
@@ -152,12 +152,12 @@ router.post('/enter-your-name', function (req, res) {
             res.redirect('enter-your-email');
         } else if (
             (whichService == "NHS Pensions Member" || whichService == "NHS Pensions Employer") &&
-            (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
+            (pensionNumber == "No, I do not know my membership number" || pensionNumber == "I'm not sure")
         ) {
             res.redirect('enter-your-national-insurance-number');
         } else if (
             (whichService == "NHS Pensions Employer") &&
-            (pensionNumber == "Yes, I know my NHS Pension number")
+            (pensionNumber == "Yes, I know my membership number")
         ) {
             res.redirect('enter-employing-authority-code');
         } else {
@@ -184,7 +184,7 @@ router.post('/enter-your-national-insurance-number', function (req, res) {
 
     if (nino) {
         if (regex.test(nino)|| nino === 'QQ123456C') {
-            if(whichService == "Pensions Employer"){
+            if(whichService == "NHS Pensions Employer"){
                 res.redirect('enter-employing-authority-code');  // Enter EA code
             } else {
                 res.redirect('enter-date-of-birth');  // Valid National Insurance Number

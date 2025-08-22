@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Do you know your NHS Pension number?"%}
+{% set pageTitle = "Do you know your membership number?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -11,7 +11,7 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{folder}}/nhs-pension-number" method="post" novalidate>
+      <form action="/{{folder}}/membership-number" method="post" novalidate>
 
         {% set sdNumberHtml %}
           {{ input({
@@ -19,7 +19,7 @@
           name: "sdNumber",
           classes: "nhsuk-input--width-10",
           label: {
-          text: "NHS Pension number"
+          text: "Membership number"
           }
           }) }}
         {% endset -%}
@@ -41,15 +41,15 @@
         },
         "items": [ 
           {
-            "value": "Yes, I know my NHS Pension number",
-            "text": "Yes, I know my NHS Pension number",
+            "value": "Yes, I know my membership number",
+            "text": "Yes, I know my membership number",
             "conditional": {
             "html": sdNumberHtml
             }
           },
           {
-            "value": "No, I do not know my NHS Pension number",
-            "text": "No, I do not know my NHS Pension number"
+            "value": "No, I do not know my membership number",
+            "text": "No, I do not know my membership number"
           },
           {
             "value": "I'm not sure",
