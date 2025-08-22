@@ -20,6 +20,22 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% set findCode %}
+        <p>An EA code is a 4-digit reference number unique to each employer who offers it's employee's access to the NHS Pension Scheme.</p>
+        <p>If you're an employer and need to find your EA code, email&nbsp;<a href="mailto:nhsbsa.pensionsemployers@nhsbsa.nhs.uk">nhsbsa.pensionsemployers@nhsbsa.nhs.uk</a>. You must include your:</p>
+        <ul>
+        <li>name</li>
+        <li>position in the organisation</li>
+        <li>organisations name</li>
+        <li>organisations address.</li>
+        </ul>
+        {{ actionLink({
+          text: "Go to Employing Authority Look-up (opens in a new tab)",
+          href: "https://www.nhspensions.nhsbsa.nhs.uk/EmployerContactsLookup/EALookup.aspx",
+          openInNewWindow: true
+        }) }}
+      {% endset %}
+
         <form action="/{{folder}}/enter-employing-authority-code" method="post" novalidate>
       
         {{ input({
@@ -30,6 +46,11 @@
           "name": "enter-employing-authority-code",
           "type": "text",
           "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ details({
+          text: "How to find your Employing Authority (EA) code",
+          html: findCode
         }) }}
 
         {{ button({
