@@ -180,6 +180,26 @@
         </div>
       {% endif %}
 
+      {% if (data['enter-employing-authority-code']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Employing Authority (EA) Code
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-employing-authority-code']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Employing Authority (EA) Code</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
       {% if (data['which-service'] != "NHS Jobs") %}
       <div class="nhsuk-summary-list__row">
         <dt class="nhsuk-summary-list__key">
