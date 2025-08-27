@@ -95,7 +95,7 @@ router.post('/searching-for-a-job', function (req, res) {
 // Completing an application
 router.post('/completing-an-application', function (req, res) {
 
-    res.redirect('job-reference-number');
+    res.redirect('application-reference');
 
 })
 
@@ -103,7 +103,7 @@ router.post('/completing-an-application', function (req, res) {
 // Managing a job offer
 router.post('/managing-a-job-offer', function (req, res) {
 
-    res.redirect('job-reference-number');
+    res.redirect('application-reference');
 
 })
 
@@ -124,7 +124,34 @@ router.post('/nhs-jobs-website-support', function (req, res) {
 
 })
 
-// Do you have a job reference number?
+// Do you have an application reference number?
+router.post('/application-reference', function (req, res) {
+
+    var applicationReferenceQuestion = req.session.data['application-reference'];
+
+    if (applicationReferenceQuestion == "Yes") {
+        res.redirect('enter-application-reference');
+    } else if (applicationReferenceQuestion == "No") {
+        res.redirect('job-reference-number');
+    } else {
+        res.redirect('application-reference');
+
+    }
+
+})
+
+// Enter application reference number
+router.post('/enter-application-reference', function (req, res) {
+
+    var applicationRef = req.session.data['enter-application-reference'];
+
+    if (applicationRef) {
+        res.redirect('job-reference-number');
+    } else {
+        res.redirect('enter-application-reference');
+    }
+
+})
 
 router.post('/job-reference-number', function (req, res) {
 
@@ -144,7 +171,13 @@ router.post('/job-reference-number', function (req, res) {
 // Enter job reference number
 router.post('/enter-job-reference-number', function (req, res) {
 
-    res.redirect('reference-number');
+    var jobRef = req.session.data['enter-job-reference-number'];
+
+    if (jobRef) {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('enter-job-reference-number');
+    }
 
 })
 
@@ -187,7 +220,13 @@ router.post('/applicant-reference', function (req, res) {
 // Applicant reference number
 router.post('/enter-applicant-reference', function (req, res) {
 
-    res.redirect('job-listing-reference');
+    var applicantRef = req.session.data['enter-applicant-reference'];
+
+    if (applicantRef) {
+        res.redirect('job-listing-reference');
+    } else {
+        res.redirect('enter-applicant-reference');
+    }
 
 })
 
@@ -210,14 +249,26 @@ router.post('/job-listing-reference', function (req, res) {
 // Job listing reference number
 router.post('/enter-job-listing-reference-number', function (req, res) {
 
-    res.redirect('enter-organisation-name');
+    var jobListingRef = req.session.data['enter-job-listing-reference-number'];
+
+    if (jobListingRef) {
+        res.redirect('enter-organisation-name');
+    } else {
+        res.redirect('enter-job-listing-reference-number');
+    }
 
 })
 
 // Enter your organisation name
 router.post('/enter-organisation-name', function (req, res) {
 
-    res.redirect('reference-number');
+    var organisationName = req.session.data['enter-organisation-name'];
+
+    if (organisationName) {
+        res.redirect('reference-number');
+    } else {
+        res.redirect('enter-organisation-name');
+    }
 
 })
 

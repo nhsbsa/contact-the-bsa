@@ -183,7 +183,7 @@ router.post('/enter-your-national-insurance-number', function (req, res) {
     const regex = new RegExp('^(?!BG|GB|KN|NK|NT|TN|ZZ)[A-CEGHJ-PR-TW-Z]{2}\\d{6}[A-D]$');
 
     if (nino) {
-        if (regex.test(nino)|| nino === 'QQ123456C') {
+        if (regex.test(nino)|| nino === 'QQ123456C') { 
             if(whichService == "NHS Pensions Employer"){
                 res.redirect('enter-employing-authority-code');  // Enter EA code
             } else {
@@ -201,7 +201,14 @@ router.post('/enter-your-national-insurance-number', function (req, res) {
 
 router.post('/enter-employing-authority-code', function (req, res) {
 
-    res.redirect('enter-date-of-birth');
+    var eaCode = req.session.data['enter-employing-authority-code'];
+
+    if (eaCode) {
+        res.redirect('enter-date-of-birth');
+    } else {
+        res.redirect('enter-employing-authority-code');
+    }
+    
 })
 
 
