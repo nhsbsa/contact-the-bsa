@@ -155,11 +155,11 @@ router.post('/enter-your-name', function (req, res) {
             (pensionNumber == "No, I do not know my membership number" || pensionNumber == "I'm not sure")
         ) {
             res.redirect('enter-your-national-insurance-number');
-        } else if (
-            (whichService == "NHS Pensions Employer") &&
-            (pensionNumber == "Yes, I know my membership number")
-        ) {
-            res.redirect('enter-employing-authority-code');
+        // } else if (
+        //     (whichService == "NHS Pensions Employer") &&
+        //     (pensionNumber == "Yes, I know my membership number")
+        // ) {
+        //     res.redirect('enter-employing-authority-code');
         } else {
             res.redirect('enter-date-of-birth');
         }
@@ -184,11 +184,11 @@ router.post('/enter-your-national-insurance-number', function (req, res) {
 
     if (nino) {
         if (regex.test(nino)|| nino === 'QQ123456C') { 
-            if(whichService == "NHS Pensions Employer"){
-                res.redirect('enter-employing-authority-code');  // Enter EA code
-            } else {
+            // if(whichService == "NHS Pensions Employer"){
+            //     res.redirect('enter-employing-authority-code');  // Enter EA code
+            // } else {
                 res.redirect('enter-date-of-birth');  // Valid National Insurance Number
-            }
+           // }
         } else {
             res.redirect('enter-your-national-insurance-number');  // Invalid format
         }
