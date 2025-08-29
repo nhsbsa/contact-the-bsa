@@ -15,45 +15,45 @@
 
         {% set sdNumberHtml %}
           {{ input({
-          id: "sdNumber",
-          name: "sdNumber",
-          classes: "nhsuk-input--width-10",
-          label: {
-          text: "Membership number"
-          }
+            id: "sdNumber",
+            name: "sdNumber",
+            classes: "nhsuk-u-width-two-thirds",
+            label: {
+              text: "Membership number"
+            }
           }) }}
         {% endset -%}
   
 
       {{ radios({
-        "idPrefix": "pension-number",
-        "name": "pension-number",
-        "classes": "nhsuk-radios--inline",
-        "fieldset": {
-          "legend": {
-            "text": pageTitle,
-            "classes": "nhsuk-fieldset__legend--l",
-            "isPageHeading": true
+        idPrefix: "pension-number",
+        name: "pension-number",
+        classes: "nhsuk-radios--inline",
+        fieldset: {
+          legend: {
+            text: pageTitle,
+            classes: "nhsuk-fieldset__legend--l",
+            isPageHeading: true
           }
         },
-        "hint": {
-          "text": "For example, SD69210000"
+        hint: {
+          text: "For example, SD69210000"
         },
-        "items": [ 
+        items: [ 
           {
-            "value": "Yes, I know my membership number",
-            "text": "Yes, I know my membership number",
-            "conditional": {
-            "html": sdNumberHtml
+            value: "Yes, I know my membership number",
+            text: "Yes, I know my membership number",
+            conditional: {
+              html: sdNumberHtml
             }
           },
           {
-            "value": "No, I do not know my membership number",
-            "text": "No, I do not know my membership number"
+            value: "No, I do not know my membership number",
+            text: "No, I do not know my membership number"
           },
           {
-            "value": "I'm not sure",
-            "text": "I'm not sure"
+            value: "I'm not sure",
+            text: "I'm not sure"
           }
         ]
       }) }}

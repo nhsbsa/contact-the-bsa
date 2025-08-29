@@ -5,7 +5,7 @@
 -->
 
 <!-- Extends the layout from /docs/views/template.html -->
-{% extends "template.html" %}
+{% extends "prototype-kit-template.njk" %}
 
 <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 {% block headCSS %}
@@ -20,15 +20,16 @@
 <!-- Edit the header -->
 <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
 {% block header %}
-  {{ header({
-    "service": {
-        "name": "Business Services Authority",
-        "href": "/"
-      },
-      "showNav": "false",
-      "showSearch": "true"
-    })
-  }}
+{{ header({
+  logo: {
+    href: "#",
+    ariaLabel: serviceName
+  },
+  service: {
+    text: serviceName,
+    href: "/"
+  }
+}) }}
 {% endblock %}
 
 
@@ -36,22 +37,24 @@
 <!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
 {% block footer %}
   {{ footer({
-    "links": [
+    meta: {
+      items: [
       {
         
-        "URL": "https://www.nhsbsa.nhs.uk/",
-        "label": "NHSBSA Main Website"
+        href: "https://www.nhsbsa.nhs.uk/",
+        text: "NHSBSA Main Website"
       },
       {
-        "URL": "https://www.nhsbsa.nhs.uk/accessibility-statement-knowledge-base-website-and-associated-contact-us-page",
+        href: "https://www.nhsbsa.nhs.uk/accessibility-statement-knowledge-base-website-and-associated-contact-us-page",
         "label": "Accessibility"
       },
       {
-        "URL": "/clear-data",
-        "label": "Clear data"        
+        href: "/clear-data",
+        text: "Clear data"        
       }
-    ]
-  })}}
+      ]
+    }
+  }) }}
 {% endblock %}
 
 {% block bodyEnd %}

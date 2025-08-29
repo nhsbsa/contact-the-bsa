@@ -1,9 +1,9 @@
 // Import NHS.UK frontend library
-@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+@import 'nhsuk-frontend/dist/nhsuk';
 
 // Components that are not in the NHS.UK frontend library
 @import 'components/list-border';
-@import 'components/related-nav';
+// @import 'components/related-nav';
 @import 'components/cookies';
 @import 'components/phase-banner';
 @import 'components/service-contact';
@@ -67,54 +67,54 @@ HEADER - SIGNED IN
     @include nhsuk-font(16);
     border-bottom: 4px solid transparent;
     border-top: 4px solid transparent;
-    color: $color_nhsuk-white;
+    color: nhsuk-colour("white");
     display: block;
     padding: 6px nhsuk-spacing(3);
     text-decoration: none;
   
     .nhsuk-icon__chevron-right {
-      fill: $color_nhsuk-grey-3;
+      fill: nhsuk-colour("grey-3");
       position: absolute;
       right: nhsuk-spacing(1);
       top: 11px;
     }
   
     &:visited {
-      @include mq($from: large-desktop) {
-        color: $color_nhsuk-white;
+      @include nhsuk-media-query($from: large-desktop) {
+        color: nhsuk-colour("white");
       }
     }
   
     &:hover {
-      background-color: $color_shade_nhsuk-blue-35;
+      background-color: nhsuk-colour("blue");
       box-shadow: none;
-      color: $color_nhsuk-white;
+      color: nhsuk-colour("white");
       text-decoration: underline;
   
       .nhsuk-icon__chevron-right {
-        fill: $color_nhsuk-blue;
+        fill: nhsuk-colour("blue");
       }
   
     }
   
     &:active,
     &:focus {
-      background-color: $nhsuk-focus-color;
-      border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-color;
+      background-color: $nhsuk-focus-colour;
+      border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
       box-shadow: none;
-      color: $nhsuk-focus-text-color;
+      color: $nhsuk-focus-text-colour;
       outline: $nhsuk-focus-width solid transparent;
       outline-offset: $nhsuk-focus-width;
       text-decoration: none;
   
       &:hover {
-        background-color: $nhsuk-focus-color;
-        color: $nhsuk-focus-text-color;
+        background-color: $nhsuk-focus-colour;
+        color: $nhsuk-focus-text-colour;
       }
   
       &:visited {
-        background-color: $nhsuk-focus-color;
-        color: $nhsuk-focus-text-color;
+        background-color: $nhsuk-focus-colour;
+        color: $nhsuk-focus-text-colour;
       }
     }
   
@@ -126,7 +126,7 @@ EMAIL
 
 .email-message {
   margin-bottom: 30px;
-  border: 1px solid $nhsuk-border-color;
+  border: 1px solid $nhsuk-border-colour;
   background: white;
 
   table {
@@ -177,7 +177,7 @@ EMAIL
   width: 100%;
   text-align: left;
   
-  @include mq ($from: desktop) {
+  @include nhsuk-media-query ($from: desktop) {
     width: 40%;
     float: right;
     text-align: right;
@@ -186,7 +186,7 @@ EMAIL
 .nhsbsa-guidance-title {
   width: 100%;
   
-  @include mq ($from: desktop) {
+  @include nhsuk-media-query ($from: desktop) {
     width: 60%;
     float: left;
   }
@@ -232,8 +232,8 @@ EMAIL
 // ************************************
 
 .big-blue-box {
-  background: $color_nhsuk-blue;
-  color: $color_nhsuk-white;
+  background: nhsuk-colour("blue");
+  color: nhsuk-colour("white");
 }
 
 .blueBoxGrid{

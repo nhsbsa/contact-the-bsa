@@ -33,7 +33,7 @@
         margin-bottom: 10px;
 
         .nhsuk-list-item__content {
-            background-color: $color_nhsuk-blue;
+            background-color: nhsuk-colour("blue");
             position: relative;
             height: 100%;
             display: grid;
@@ -42,11 +42,11 @@
             transition: all ease-in-out 0.1s;
 
             p {
-                color: $color_nhsuk-white;
+                color: nhsuk-colour("white");
                 margin: 0;
 
                 a {
-                    color: $color_nhsuk-white;
+                    color: nhsuk-colour("white");
                     font-weight: bold;
                     text-decoration: none;
                     width: 100%;
@@ -54,12 +54,12 @@
                     padding-right: 62px !important;
 
                     &:visited {
-                        color:$color_nhsuk-white;
+                        color:nhsuk-colour("white");
                     }
 
                     &:focus,
                     &:hover {
-                        color: $nhsuk-text-color;
+                        color: $nhsuk-text-colour;
                     }
                 }
             }
@@ -76,14 +76,14 @@
 
             &:focus,
             &:hover {
-                background-color: $nhsuk-focus-color;
+                background-color: $nhsuk-focus-colour;
                 cursor: pointer;
 
                 p {
-                    color: $nhsuk-text-color;
+                    color: $nhsuk-text-colour;
 
                     a {
-                        color: $nhsuk-text-color;
+                        color: $nhsuk-text-colour;
                     }
                 }
             }

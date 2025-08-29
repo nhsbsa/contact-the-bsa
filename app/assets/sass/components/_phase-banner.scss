@@ -12,12 +12,12 @@
 .nhsuk-phase-banner {
     padding-top: nhsuk-spacing(2);
     padding-bottom: nhsuk-spacing(2);
-    border-bottom: 1px solid $nhsuk-border-color;
+    border-bottom: 1px solid $nhsuk-border-colour;
 }
 
 .nhsuk-phase-banner__content {
     @include nhsuk-font(16);
-    color: $nhsuk-text-color;
+    color: $nhsuk-text-colour;
     display: table;
     margin: 0;
 }

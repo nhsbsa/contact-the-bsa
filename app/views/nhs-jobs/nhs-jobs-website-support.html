@@ -88,24 +88,24 @@
         {% if 'applicant' in prevURL %}
           {{ details({
           classes: "nhsuk-expander",
-          text: "What can I update on my applicant account?",
-          HTML: accessAccount
+          summaryText: "What can I update on my applicant account?",
+          html: accessAccount
           }) }}
           {{ details({
           classes: "nhsuk-expander",
-          text: "I want to give feedback relating to some support I have received",
-          HTML: feedbackFaq
+          summaryText: "I want to give feedback relating to some support I have received",
+          html: feedbackFaq
           }) }}
         {% elif 'employer' in prevURL %}
           {{ details({
           classes: "nhsuk-expander",
-          text: "I need to access the details on my account",
-          HTML: accessAccount
+          summaryText: "I need to access the details on my account",
+          html: accessAccount
           }) }}
           {{ details({
           classes: "nhsuk-expander",
-          text: "Why do I need to add feedback to interviewed applicants?",
-          HTML: feedbackFaq
+          summaryText: "Why do I need to add feedback to interviewed applicants?",
+          html: feedbackFaq
           }) }}
         {% endif %}
       </div>

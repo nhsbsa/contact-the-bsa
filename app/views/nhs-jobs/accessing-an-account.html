@@ -27,7 +27,7 @@
       {{ warningCallout({
         heading: "Important",
         headingLevel: 2,
-        HTML: "<p>If your account was created before 31st May 2023 you will need to create a new account as the NHS Jobs website had been upgraded to a new system. </p>"
+        html: "<p>If your account was created before 31st May 2023 you will need to create a new account as the NHS Jobs website had been upgraded to a new system. </p>"
       }) }}
 
       {% if 'applicant' in prevURL %}
@@ -125,18 +125,18 @@
       <div class="nhsuk-expander-group">
         {{ details({
         classes: "nhsuk-expander",
-        text: "I need to create an account",
-        HTML: createAccount
+        summaryText: "I need to create an account",
+        html: createAccount
         }) }}
         {{ details({
         classes: "nhsuk-expander",
-        text: "I have forgotten my password and need to reset",
-        HTML: forgotPassword
+        summaryText: "I have forgotten my password and need to reset",
+        html: forgotPassword
         }) }}
         {{ details({
         classes: "nhsuk-expander",
-        text: "I need to cancel/delete my account",
-        HTML: deleteAccount
+        summaryText: "I need to cancel/delete my account",
+        html: deleteAccount
         }) }}
       </div>
 

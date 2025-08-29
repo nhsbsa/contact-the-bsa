@@ -83,8 +83,8 @@
         {% endset %}
 
         {{ details({
-          "text": "Need help uploading your document?",
-          "HTML": helpHtml | safe
+          summaryText: "Need help uploading your document?",
+          html: helpHtml | safe
         }) }}
   
         {% if data['from'] == 'add-another-mvp' %}
