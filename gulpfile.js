@@ -24,7 +24,7 @@ function cleanPublic() {
 const sass = gulpSass(dartSass)
 
 // Compile SASS to CSS
-function compileStyles(done) {
+function compileStyles() {
   return gulp
     .src(['app/assets/sass/**/*.scss'], {
       sourcemaps: true
@@ -35,11 +35,9 @@ function compileStyles(done) {
         sourceMap: true,
         sourceMapIncludeSources: true
       }).on('error', (error) => {
-        done(
-          new PluginError('compileCSS', error.messageFormatted, {
-            showProperties: false
-          })
-        )
+        throw new PluginError('compileCSS', error.messageFormatted, {
+          showProperties: false
+        })
       })
     )
     .pipe(
@@ -97,7 +95,9 @@ async function startNodemon(done) {
   const server = nodemon({
     script: 'app.js',
     stdout: true,
-    ext: 'js',
+    ext: 'js json',
+    watch: ['.env', 'app.js', 'app', 'lib'],
+    ignore: ['app/assets', '**.test.*'],
     quiet: false
   })
 
