@@ -5,11 +5,11 @@
 -->
 
 <!-- Extends the layout from /docs/views/template.html -->
-{% extends "template.html" %}
+{% extends "prototype-kit-template.njk" %}
 
 <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
-{% block headCSS %}
-  <link href="/css/main.css" rel="stylesheet">
+{% block head %}
+  <link href="/assets/sass/main.css" rel="stylesheet">
 {% endblock %}
 
 <!-- Set the page title -->
@@ -64,10 +64,8 @@
 {% endblock %}
 
 {% block bodyEnd %}
-  {% block scripts %}
-    <!-- Custom JavaScript files can be added to this file -->
-    {% include "includes/scripts.html" %}
-    <!-- For adding page specific JavsScript -->
-    {% block pageScripts %}{% endblock %}
-  {% endblock %}
+  {{ super() }}
+  <script type="module" src="/assets/javascript/main.js"></script>
+  {% include 'includes/scripts.html' %}
+  {% block pageScripts %}{% endblock %}
 {% endblock %}
