@@ -25,6 +25,7 @@
   }) }}
 {% endblock %}
 
+
 {% block beforeContent %}
   {% if (folder == 'mvp') %} 
     <div class="versionTag">
@@ -38,7 +39,7 @@
     <div class="versionTag">
       <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us NHS Jobs</strong>
     </div>
-  {% elseif (folder == 'nhs-jobs-v2') %}
+    {% elseif (folder == 'nhs-jobs-v2') %}
     <div class="versionTag">
       <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us NHS Jobs - v2</strong>
     </div>
@@ -64,6 +65,67 @@
       }) }}
     </div>
   {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">Contact us</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+
+      {%block contactIntro %}
+      {% endblock %}
+
+    </div>
+
+    <div class="nhsuk-u-full-width blueBoxGrid">
+
+      <h2 class="nhsuk-heading-l">{{blueBoxTitle}}</h2>
+
+      {% set chevronIcon = "<svg class=\"nhsuk-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" aria-hidden=\"true\" focusable=\"false\">
+        <circle cx=\"13.333\" cy=\"13.33\" r=\"13.333\" fill=\"\" />
+        <g data-name=\"Group 1\" fill=\"none\" stroke=\"#005eb8\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" stroke-width=\"2.667\">
+          <path d=\"M15.438 13l-3.771 3.771\" />
+          <path data-name=\"Path\" d=\"M11.667 9.229L15.438 13\" />
+        </g>
+      </svg>" %}
+      
+      {% macro serviceContactList(link='#', target="_self", aria="Continue journey with this service", title="'title'") %}
+      
+      <li class="nhsuk-grid-column-one-half nhsuk-list-group__item">
+        <div class="nhsuk-list-item__content">
+        <p><a href="{{link}}" class="nhsuk-u-padding-4" target="{{target}}" aria-label="{{aria}}">{{title}}</a></p>
+        {{chevronIcon|safe}}
+      </div>
+      </li>
+      
+      {% endmacro %}
+
+      <ul class="nhsuk-grid-row nhsuk-list-group">
+        {% block serviceOptions %}
+        {% endblock %}
+      </ul>
+
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+      {% block serviceExtras %}
+
+          <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you are looking for?</h2>
+          <p>You can send us a general enquiry. We will reply within 2 working days.</p>
+          <p><a href="reference-number" class="nhsuk-button">Submit a request</a></p>
+
+        {% endblock %}
+    </div>
+
+  </div>
+</div>
+
 {% endblock %}
 
 
@@ -109,6 +171,7 @@
   </div>
 </div>
 {% endblock %}
+
 
 {% block bodyEnd %}
   {{ super() }}

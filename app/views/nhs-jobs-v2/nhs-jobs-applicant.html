@@ -1,5 +1,5 @@
-{% extends 'layout-contact-service.html' %}
-{% set pageTitle = "NHS Jobs (Applicants)" %}
+{% extends 'layout-contact-service-v2.html' %}
+{% set pageTitle = "Help for applicants using NHS Jobs" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -7,7 +7,7 @@
 
 {%block contactIntro %}
 
-    <p>Select the reason you're contacting us</p>
+    <p>Select the reason you're contacting us.</p>
     
 {% endblock %}
 
@@ -25,27 +25,46 @@
 
 {% block serviceOptions %} 
 
-    {{serviceContactList(link="accessing-an-account", title="Accessing an account")}}
+    {{serviceContactList(link="accessing-and-managing-your-account", title="Accessing and managing your account")}}
     {{serviceContactList(link="searching-for-a-job", title="Searching for a job")}}
-    {{serviceContactList(link="completing-an-application", title="Completing an application")}}
-    {{serviceContactList(link="managing-a-job-offer", title="Managing a job offer")}}
-    {{serviceContactList(link="nhs-jobs-website-support", title="A problem on the website")}}
+    {{serviceContactList(link="completing-your-application", title="Completing your application")}}
+    {{serviceContactList(link="managing-your-application", title="Managing your application")}}
+    {{serviceContactList(link="nhs-jobs-website-support", title="A problem with the website")}}
     {{serviceContactList(link="application-support-email", title="Sending a CV")}}
 
 {% endblock %}
 
-{% block serviceCallDetails %}
 
-<p><strong>Telephone:</strong> 0300 330 1013</p>
-<p>Current waiting time is <strong>20 minutes</strong></p>
-<p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
-<p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers" aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call charges​​​​​​</a></p>
+{% block serviceExtras %}
 
-{% endblock %}
+    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Need more support?</h2>
+    <p>Read our help and support options if your questions have not been answered through our common queries.</p>
+    {{ actionLink({
+      text: 'Help and support for applicants (opens in new tab)',
+      attributes: { target: '_blank' },
+      href: 'https://www.nhsbsa.nhs.uk/nhs-jobs-help-and-support/help-and-support-applicants'
+    }) }}
 
-{% block serviceEmailDetails %}
+    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you're looking for?</h2>
+    <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
 
-<p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
-<p>We aim to respond to your email within 2 working days.</p>
+    {{ button({
+      text: 'Start now',
+      href: 'reference-number'
+    }) }}
+
+    {% call details({
+      summaryText: 'Alternative contact methods'
+    }) %}
+      
+      <p>Telephone: <strong>0300 330 1013</strong></p>
+      <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
+
+      <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
+      <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
+
+    {% endcall %}
+
+
 
 {% endblock %}
