@@ -1,0 +1,58 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Speak to Stakeholder Engagement team" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">NHS Jobs</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+      <p>The Stakeholder Engagement team build and maintain relationships with recruitment teams that use NHS Jobs. We work to understand our stakeholders and support their experience using the service.</p>
+      <p>The team answer queries and identify opportunities for collaborative working. We also develop networks as well as share knowledge between organisations.</p>
+      <p>Contact the Stakeholder Engagement Team to help with your query.</p>
+      <form action="/{{folder}}/stakeholder-engagement-team" method="post" novalidate>
+
+        {{ button({
+        "text": "Start now",
+        "classes": "nhsuk-u-margin-top-3"
+        }) }}
+
+      </form>
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Alternative contact methods
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><strong>Telephone:</strong> 0300 330 1013</p>
+          <p>Current waiting time is <strong>20 minutes</strong></p>
+          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
+              charges​​​​​​</a></p>
+          <p><strong>Email:</strong> nhsjobsengagement@nhsbsa.nhs.uk</p>
+          <p>We aim to respond to your email within 2 working days.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

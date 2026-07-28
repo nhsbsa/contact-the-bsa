@@ -1,0 +1,357 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Check your answers"%}
+{% set hideBack ="true" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>{{pageTitle}}</h1>
+
+    <dl class="nhsuk-summary-list">
+
+      {% if (data['which-service']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Service
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['which-service']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which service you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['which-service'] == "NHS Jobs") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          NHS Jobs query type
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['select-your-query-nhs-jobs']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> which NHS Jobs query type you are contacting us about</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['enter-organisation-name']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-organisation-name']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add organisation</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['application-reference']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have application reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['application-reference']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add application reference</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['application-reference'] == "Yes") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Application reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-application-reference']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Application Reference</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
+      {% if (data['job-reference-number']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have Job reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['job-reference-number']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add Job reference number</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+
+      {% if (data['job-reference-number'] == "Yes") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Job reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-job-reference-number']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Job reference number</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
+      {% if (data['applicant-reference']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have applicant reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['applicant-reference']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add applicant reference</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['applicant-reference'] == "Yes") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Applicant reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-applicant-reference']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> Applicant Reference</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
+      {% if (data['job-listing-reference']) %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Have job listing reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['job-listing-reference']}}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a href="#">Change<span class="nhsuk-u-visually-hidden"> choice and add job listing reference</span> </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if (data['job-listing-reference'] == "Yes") %}
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Job listing reference number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {{ data['enter-job-listing-reference-number']}}
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> job listing-reference number</span>
+            </a>
+
+          </dd>
+
+        </div>
+      {% endif %}
+
+      {% if (data['reference-number']) %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Have contacted before
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['reference-number']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> if you have previous contact</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      {% if (data['reference-number'] === "Yes") %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Contact reference
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ data['enter-reference-number']}}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> reference number</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      {% endif %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['firstName']) and (data['lastName']) %}
+          {{ data['firstName']}} {{ data['lastName'] }}
+          {% else %}
+          Simon Jones
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> name</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['emailAddress']) %}
+          {{ data['emailAddress']}} 
+          {% else %}
+          simon.jones@nhsbsa.nhs.uk
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> email address</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if (data['phoneNumber']) %}
+          {{ data['phoneNumber']}}
+          {% else %}
+          Not entered
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> or add phone number</span>
+          </a>
+
+        </dd>
+
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Additional information
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if data['additionalInfo'] %}
+          {{ data['additionalInfo'] | truncate(175, false)}}
+          {% else %}
+          NO ADDITIONAL INFORMATION ADDED
+          {% endif %}
+        </dd>
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="#">
+            Change<span class="nhsuk-u-visually-hidden"> additional information</span>
+          </a>
+
+        </dd>
+      </div>
+
+    </dl>
+
+    <form action="/{{folder}}/check-your-answers" method="post" novalidate>
+
+      {{ button({
+      "text": "Confirm and send",
+      "classes": "nhsuk-u-margin-top-3"
+      }) }}
+
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}

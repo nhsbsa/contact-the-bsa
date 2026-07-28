@@ -46,6 +46,7 @@ router.use('/', (req, res, next) => {
 // Route File Versions
 // ****************************************
 
+router.use('/nhs-jobs-v2', require('./views/nhs-jobs-v2/_routes'));
 router.use('/nhs-jobs', require('./views/nhs-jobs/_routes'));
 router.use('/iteration-1', require('./views/iteration-1/_routes'));
 router.use('/mvp-ur', require('./views/mvp-ur/_routes'));

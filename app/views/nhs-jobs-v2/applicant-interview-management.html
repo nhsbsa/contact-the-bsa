@@ -1,0 +1,120 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Help with managing applications, shortlisting or interviews" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">NHS Jobs</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+
+      <p>If you are finding it hard to manage applications and interviews, use the following help and support options.</p>
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+
+      <h2 class="nhsuk-heading-m">Common queries</h2>
+      
+      <div class="nhsuk-expander-group">
+        {{ details({
+          classes: "nhsuk-expander",
+          summaryText: "How do I score applicants?",
+          html: "
+          <p>If you've selected to shortlist applications online, you can score applications using the NHS Jobs service. You can also do this while the vacancy is still open once you start to receive applications.</p>
+          <p>You can leave your scoring part way through by selecting the ‘Save your progress and come back later’ button. The paused application will show an icon to highlight the scoring of that application is in progress.</p>
+          <p>Once the vacancy closes, the shortlisting lead and any shortlisting panel members will receive a notification asking them to score applicants.</p>
+          <div>
+          <p>You will not be able to continue the previous leads scoring if you change the shortlisting lead on a vacancy.</p>
+          <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials, <a style=\"overflow-wrap: break-word\" title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+          "
+          }) }}
+          {{ details({
+          classes: "nhsuk-expander",
+          summaryText: "How do I assign an interviewee to a slot?",
+          html: "
+            <p>The interview schedule locks at midday, 48 hours before the first interview date.</p>
+            <p>Any applicants that have not yet responded will not be able to accept an interview.</p>
+            <p>You'll not be able to rearrange an interview or assign an applicant to an interview slot.</p>
+            <p>This also happens if you choose to lock the interview schedule early or set send out interview invites within 48 hours of the first scheduled interview date.</p>
+            <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
+            <p>For bitesize video tutorials, <a style=\"overflow-wrap: break-word\" title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+            "
+          }) }}
+          {{ details({
+          classes: "nhsuk-expander",
+          summaryText: "How do I rearrange an interview?",
+          html: "
+          <p>When an applicant has accepted an interview slot you can rearrange an interview by selecting the 'Rearrange an interview' button from the 'Interviews scheduled' screen.</p>
+          <p>On this screen, you'll see a list of applicants who have interviews scheduled. You can either assign them to an existing interview time or create a new one.</p>
+          <p>You can also schedule an interview on behalf of an applicant who has not selected a date or time yet. You can either assign them to an existing time and date or create a new one.</p>
+          <p>You cannot withdraw an applicant from the interview date and time once an applicant has accepted an interview. You'll mark the applicant as 'not interviewed' once all interviews are complete.</p>
+          <p>As an interviewer, if you can no longer make the dates and times sent out to applicants, you can create new ones and assign the applicants to them. This is an option until the interview schedule is locked.</p>
+          <p>You can access the applicants contact details to let them know of any changes.</p>
+          <p>Recruitment Managers cannot create new interview times or assign candidates to them.</p>
+          <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials, <a style=\"overflow-wrap: break-word\" title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+          "
+          }) }}
+      </div>
+
+      <hr>
+
+      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
+
+      <p>Read our knowledge base if your questions have not been answered through our common problems.</p>
+      {{ actionLink({
+        text: "NHSBSA knowledge base (opens in new tab)",
+        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
+        openInNewWindow: "true"
+      }) }}
+
+      <hr>
+      
+      <h2 class="nhsuk-heading-m">Need more support?</h2>
+      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
+
+      
+      <form action="/{{folder}}/applicant-interview-management" method="post" novalidate>
+
+        {{ button({
+        "text": "Start now",
+        "classes": "nhsuk-u-margin-top-3"
+        }) }}
+
+      </form>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Alternative contact methods
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><strong>Telephone:</strong> 0300 330 1013</p>
+          <p>Current waiting time is <strong>20 minutes</strong></p>
+          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
+              charges​​​​​​</a></p>
+          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
+          <p>We aim to respond to your email within 2 working days.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

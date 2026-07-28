@@ -1,0 +1,50 @@
+{% extends 'layout-contact-service.html' %}
+{% set pageTitle = "NHS Jobs (Employers)" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{%block contactIntro %}
+
+    <p>If you are a recruiting manager, please speak to the super user in your organisation. If your super user is unable to solve the matter themselves, they can escalate the issue on your behalf.</p> 
+    
+{% endblock %}
+
+{% set blueBoxTitle = 'Most common queries' %}
+
+{% set chevronIcon = "<svg class=\"nhsuk-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"27\" height=\"27\" aria-hidden=\"true\" focusable=\"false\">
+  <circle cx=\"13.333\" cy=\"13.33\" r=\"13.333\" fill=\"\" />
+  <g data-name=\"Group 1\" fill=\"none\" stroke=\"#005eb8\" stroke-linecap=\"round\" stroke-miterlimit=\"10\" stroke-width=\"2.667\">
+    <path d=\"M15.438 13l-3.771 3.771\" />
+    <path data-name=\"Path\" d=\"M11.667 9.229L15.438 13\" />
+  </g>
+</svg>" %}
+
+{% set generalURL = '/' + folder + '/reference-number' %}
+
+{% block serviceOptions %}
+
+    {{serviceContactList(link="accessing-an-account", title="Accessing an account")}}
+    {{serviceContactList(link="nhs-jobs-website-support", title="A problem on the website")}}
+    {{serviceContactList(link="applicant-interview-management", title="Managing applications, shortlisting or interviews")}}
+    {{serviceContactList(link="job-offers-pre-employment-checks-contracts", title="Managing job offers, pre-employment checks and contracts")}}
+    {{serviceContactList(link="stakeholder-engagement-team", title="Speak to Stakeholder Engagement team")}}
+
+{% endblock %}
+
+{% block serviceCallDetails %}
+
+<p><strong>Telephone:</strong> 0300 330 1013</p>
+<p>Current waiting time is <strong>20 minutes</strong></p>
+<p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+<p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers" aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call charges​​​​​​</a></p>
+
+{% endblock %}
+
+{% block serviceEmailDetails %}
+
+<p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
+<p>We aim to respond to your email within 2 working days.</p>
+
+{% endblock %}

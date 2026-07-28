@@ -1,0 +1,47 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Page not found"%}
+{% set hideBack = "true" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-u-reading-width">
+
+        <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">
+            {{pageTitle}}
+        </h1>
+
+        <p>
+            If you typed the web address, check it is correct.
+        </p>
+
+        <p>
+            If you pasted the web address, check you copied the entire address.
+        </p>
+
+        <hr>
+
+        <p>
+            If you need help, contact the NHS Pension team on <a
+                href="tel:03451212522">0345 1212 522</a>.<br>
+            This phoneline is available Monday to Friday, 8am to 6pm (except public holidays).
+        </p>
+
+        <p>
+            <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+                target="_blank">Find out about call charges</a>
+        </p>
+
+        <p>
+            Alternatively, you can email your documents to us <a class="nhsuk-link"
+                href="mailto:nhsbsa.pensionsmember@nhsbsa.nhs.uk">nhsbsa.pensionsmember@nhsbsa.nhs.uk</a><br>
+            We aim to respond to your email within 2 working days.
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

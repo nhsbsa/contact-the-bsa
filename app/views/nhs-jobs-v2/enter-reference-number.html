@@ -1,0 +1,44 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle  = "What reference number were you given for your query?" %}
+
+{% block pageTitle %}
+  {{pageTitle}} - {{serviceName}} 
+{% endblock %}
+
+{% block content %}
+
+{% set referenceNumber %}
+  <h1 class="nhsuk-heading-l">
+    {{pageTitle}}
+  </h1>
+  <div class="nhsuk-hint">
+    For example, NHS-1234567-ABC
+  </div>
+{% endset -%}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <form action="/{{folder}}/enter-reference-number" method="post" novalidate>
+      
+        {{ input({
+          label: {
+            "html": referenceNumber
+          },
+          "id": "enter-reference-number",
+          "name": "enter-reference-number",
+          "type": "text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

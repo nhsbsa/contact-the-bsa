@@ -1,0 +1,23 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "You do not have permission to view this page"%}
+{% set hideBack = "true" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-u-reading-width">
+
+        <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-5">
+            {{pageTitle}}
+        </h1>
+        <p>
+          If you think you should be able to, contact the Dental Exemption Checking team on <a href="tel:03003301293">0300 330 1293</a> or <a href="/mvp/start">start again</a>.
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

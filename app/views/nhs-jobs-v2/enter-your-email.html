@@ -1,0 +1,55 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "What is your email address?"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{folder}}/enter-your-email" method="post" novalidate>
+
+      {% call fieldset({
+        legend: {
+          "text": pageTitle,
+          "classes": "nhsuk-fieldset__legend--l",
+          "isPageHeading": true
+        }
+      }) %}
+      
+        {{ input({
+          label: {
+            "html": 'Email Address'
+          },
+          hint: {
+            text: "If you're registered, enter the email address linked to your account. Use an email address that only you have access to not a shared email."
+          },
+          "id": "emailAddress",
+          "name": "emailAddress",
+          spellcheck: false,
+          "classes": "nhsuk-input--width-20"
+        }) }}
+      
+      {% endcall %}
+
+      {{ details({
+        summaryText: "Why do we ask for your email address",
+        html: "
+        <p>We use this to send confirmation that your query has been received.</p>
+        "
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      </form>
+
+    </div>  
+
+  </div>
+{% endblock %}

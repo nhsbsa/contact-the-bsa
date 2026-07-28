@@ -1,0 +1,117 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Help with job offers, pre-employment checks and contracts" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">NHS Jobs</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+        {{pageTitle}}
+      </h1>
+
+      <p>If you are finding it hard to manage applications, use the following help and support options.</p>
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+
+      <h2 class="nhsuk-heading-m">Common queries</h2>
+      
+      <div class="nhsuk-expander-group">
+        {{ details({
+        classes: "nhsuk-expander",
+        summaryText: "How do I end a recruitment?",
+        html: "
+        <p>You can end a recruitment if:</p>
+        <ul>
+        <li>The applicant rejects a job offer or contract</li>
+        <li>You withdraw the job offer or contract</li>
+        </ul>
+        <p>NHS Jobs transfers this information to ESR, and the applicant record is terminated.</p>
+        <p>You can then make a job offer to another applicant.</p>
+        <p>You must manually close the vacancy in ESR if there are no suitable applicants.</p>
+        "
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        summaryText: "How do I issue a contract?",
+        html: "
+          <p>You can create a contract template using the NHS Jobs service. If you do not want to use the service, you can create a contract outside of the service before sending it to applicants.</p>
+          <p>The contract template online options are an addendum to an existing contract, a contract of employment, an internal secondment and external secondment. If you choose online, a 'Super user' must have created the contract template first.</p>
+          <p>Once a contract is sent, the applicant can choose to accept or reject this. You can also choose to accept or reject the contract on behalf of the applicant or withdraw your conditional offer. You can edit and resend a contract by going back into the job vacancy and selecting the applicant who you have sent the contract to.</p>
+          <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
+          <p>For bitesize video tutorials, <a style=\"overflow-wrap: break-word\" title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
+          "
+        }) }}
+        {{ details({
+        classes: "nhsuk-expander",
+        summaryText: "How do I end a recruitment?",
+        html: "
+          <p>You can end a recruitment if:</p>
+          <ul>
+          <li>The applicant rejects a job offer or contract</li>
+          <li>You withdraw the job offer or contract</li>
+          </ul>
+          <p>NHS Jobs transfers this information to ESR, and the applicant record is terminated.</p>
+          <p>You can then make a job offer to another applicant.</p>
+          <p>You must manually close the vacancy in ESR if there are no suitable applicants.</p>
+        "
+        }) }}
+      </div>
+
+      <hr>
+
+      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
+      <p>Read our knowledge base if your questions have not been answered through our common problems.</p>
+      {{ actionLink({
+        text: "NHSBSA knowledge base (opens in new tab)",
+        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
+        openInNewWindow: "true"
+      }) }}
+
+      <hr>
+
+      <h2 class="nhsuk-heading-m">Need more support?</h2>
+      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
+
+      <form action="/{{folder}}/job-offers-pre-employment-checks-contracts" method="post" novalidate>
+
+        {{ button({
+        "text": "Start now",
+        "classes": "nhsuk-u-margin-top-3"
+        }) }}
+
+      </form>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Alternative contact methods
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p><strong>Telephone:</strong> 0300 330 1013</p>
+          <p>Current waiting time is <strong>20 minutes</strong></p>
+          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
+          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
+              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
+              charges​​​​​​</a></p>
+          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
+          <p>We aim to respond to your email within 2 working days.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</div>
+<script src="https://service-manual.nhs.uk/js/main.min.js" defer></script>
+{% endblock %}

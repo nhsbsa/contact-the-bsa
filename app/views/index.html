@@ -456,6 +456,9 @@ Contact the NHSBSA
         }) }}
       </div>
     </details>
+
+
+    <!-- CONTACT US NHS JOBS -->
     <details class="nhsuk-details nhsuk-expander">
       <summary class="nhsuk-details__summary">
         <div class="nhsuk-grid-row">
@@ -499,6 +502,26 @@ Contact the NHSBSA
         }) }}
       </div>
     </details>
+
+    <!-- CONTACT US NHS JOBS v2 -->
+    {% call details({
+      summaryText: 'Contact Us - NHS Jobs (v2 July 2026)',
+      classes: 'nhsuk-expander'
+    }) %}
+
+        <h3 class="nhsuk-heading-s">Changes from previous version</h3>
+        <p>This prototype follows v7 on <a href="https://miro.com/app/board/uXjVHGG3Jvo=/?share_link_id=939668099363">NHS Jobs screen flows Miro</a></p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>Reinstating the fuller version of the services list</li>
+          <li>Routing changes</li>
+        </ul>
+        {{ button({
+          "text": "View NHS Jobs v2",
+          "href": "/nhs-jobs-v2/start"
+        }) }}
+
+    {% endcall %}
+
 
     <hr>
 
