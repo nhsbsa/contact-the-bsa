@@ -87,24 +87,18 @@ router.post('/accessing-an-account', function (req, res) {
 
 // Searching for a job
 router.post('/searching-for-a-job', function (req, res) {
-
     res.redirect('reference-number');
-
 })
 
 // Completing an application
 router.post('/completing-an-application', function (req, res) {
-
     res.redirect('application-reference');
-
 })
 
 
 // Managing a job offer
-router.post('/managing-a-job-offer', function (req, res) {
-
+router.post(['/managing-a-job-offer','/managing-your-application'], function (req, res) {
     res.redirect('application-reference');
-
 })
 
 // Problem on the website

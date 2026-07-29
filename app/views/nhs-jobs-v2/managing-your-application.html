@@ -1,5 +1,6 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "Help with managing a job offer" %}
+
+{% set pageTitle = "Help with managing your application" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -13,11 +14,11 @@
 
     <div class="nhsuk-u-reading-width">
 
-      <span class="nhsuk-caption-l">NHS Jobs</span>
+      <span class="nhsuk-caption-l">NHS Jobs: Applicant</span>
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
         {{pageTitle}}
       </h1>
-      <p>If you need help managing a job offer, use the following help and support options.</p>
+      <p>If you need help managing your application, use the following help and support options.</p>
 
     </div>
 
@@ -45,7 +46,7 @@
         <li>references</li>
         <li>home address</li>
         </ul>
-        <p>If the job vacancy needs the details of your professional registration, you'll also need to provide this using the NHS jobs service.</p>
+        <p>If the job vacancy needs the details of your professional registration, you'll also need to provide this using the NHS Jobs service.</p>
         <p>You must complete the following checks outside of the NHS Jobs service:</p>
         <ul>
         <li>identity check</li>
@@ -63,60 +64,52 @@
       {% endset %}
       
       <div class="nhsuk-expander-group">
+
+
         {{ details({
         classes: "nhsuk-expander",
         summaryText: "How do I send a query direct to the employer?",
         html: contactEmployer
         }) }}
+
+
         {{ details({
         classes: "nhsuk-expander",
         summaryText: "Where do I send my pre-employment details?",
         html: preEmployment
         }) }}
+
+
       </div>
 
       <hr>
 
-      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
+      
 
-      <p>Read our knowledge base if your questions have not been answered through our common problems.</p>
-      {{ actionLink({
-        text: "NHSBSA knowledge base (opens in new tab)",
-        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
-        openInNewWindow: "true"
-      }) }}
 
-      <hr>
+      <h2 class="nhsuk-heading-m">Can't find what you're looking for?</h2>
+      <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
 
-      <h2 class="nhsuk-heading-m">Need more support?</h2>
-      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
-
-      <form action="/{{folder}}/managing-a-job-offer" method="post" novalidate>
+      <form action="/{{folder}}/managing-your-application" method="post" novalidate>
 
         {{ button({
-        "text": "Start now",
-        "classes": "nhsuk-u-margin-top-3"
+          "text": "Start now",
+          "classes": "nhsuk-u-margin-top-3"
         }) }}
 
       </form>
 
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Alternative contact methods
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p><strong>Telephone:</strong> 0300 330 1013</p>
-          <p>Current waiting time is <strong>20 minutes</strong></p>
-          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
-              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
-              charges​​​​​​</a></p>
-          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
-          <p>We aim to respond to your email within 2 working days.</p>
-        </div>
-      </details>
+      {% call details({
+        summaryText: 'Alternative contact methods'
+      }) %}
+        
+        <p>Telephone: <strong>0300 330 1013</strong></p>
+        <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
+
+        <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
+        <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
+
+      {% endcall %}
 
     </div>
 

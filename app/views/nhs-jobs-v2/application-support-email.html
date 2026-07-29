@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "You cannot upload or send your CV"%}
+{% set pageTitle = "You cannot upload or send your CV to us"%}
 
 {% block pageTitle %}
 {{serviceName}}
@@ -10,11 +10,9 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1>
-        {{pageTitle}} 
-        </h1>
-        <p>To apply for a job, follow the instructions in the job advert.</p>
-        <p>You will need to contact the employer directly if you have questions about the application or interview process.</p>
+        <span class="nhsuk-caption-l">NHS Jobs: Applicant</span>
+        <h1>{{pageTitle}}</h1>
+        <p>If your query pertains to submitting a CV or any aspect of the recruitment process, please refer to the job advert on the NHS Jobs wesbite and contact the employer directly for further assistance.</p>
         {{ actionLink({
           text: "Go to NHS Jobs (opens in a new tab)",
           href: "https://www.jobs.nhs.uk/candidate/search",
