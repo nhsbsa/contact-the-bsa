@@ -29,6 +29,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    .nhsuk-grid-column-full {
+            padding: 0;
+        }
+
     .nhsuk-list-group__item {
         margin-bottom: 10px;
 
@@ -67,9 +71,18 @@
                     &:visited:focus {
                         background-color: $nhsuk-focus-colour;
                         color: $nhsuk-focus-text-colour;
+                        outline: none;
+                        box-shadow: none;
+
                     }
 
                 }
+
+                &:hover {
+                        background-color: nhsuk-colour("dark-blue");
+                        color: nhsuk-colour("white");
+                }
+
             }
 
             .nhsuk-icon {
@@ -82,7 +95,7 @@
                 top: 50%;
             }
 
-            /*
+            
             &:focus {
                 background-color: $nhsuk-focus-colour;
                 cursor: pointer;
@@ -95,9 +108,11 @@
                     }
                 }
             }
-            */
+            
 
         }
+
+
     }
 
     @media (max-width: 48.0624em) {
@@ -105,4 +120,10 @@
             width: 100%;
         }
     }
+}
+
+
+.nhsuk-list-item__content p:has(a:focus) + .nhsuk-icon,
+.nhsuk-list-item__content p:has(a:visited:focus) + .nhsuk-icon {
+    fill: $nhsuk-focus-text-colour !important;
 }

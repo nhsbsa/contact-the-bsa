@@ -25,7 +25,6 @@
   }) }}
 {% endblock %}
 
-
 {% block beforeContent %}
   {% if (folder == 'mvp') %} 
     <div class="versionTag">
@@ -39,7 +38,7 @@
     <div class="versionTag">
       <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us NHS Jobs</strong>
     </div>
-    {% elseif (folder == 'nhs-jobs-v2') %}
+  {% elseif (folder == 'nhs-jobs-v2') %}
     <div class="versionTag">
       <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us NHS Jobs - v2</strong>
     </div>
@@ -67,13 +66,15 @@
   {% endif %}
 {% endblock %}
 
+
+
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-full">
 
     <div class="nhsuk-u-reading-width">
 
-      <span class="nhsuk-caption-l">Contact us</span>
+      <span class="nhsuk-caption-l">{{ pageTitleCaption }}</span>
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
         {{pageTitle}}
       </h1>
@@ -85,7 +86,9 @@
 
     <div class="nhsuk-u-full-width blueBoxGrid">
 
+
       <h2 class="nhsuk-heading-l">{{blueBoxTitle}}</h2>
+      {% block blueBoxExtras %}{% endblock %}
 
       {% set chevronIcon %}
         <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
@@ -93,14 +96,20 @@
         </svg>
       {% endset %}
       
-      {% macro serviceContactList(link='#', target="_self", aria="Continue journey with this service", title="'title'") %}
+      {% macro serviceContactList( fullWidth="false", link='#', target="_self", aria="Continue journey with this service", title="'title'") %}
       
-      <li class="nhsuk-grid-column-one-half nhsuk-list-group__item">
-        <div class="nhsuk-list-item__content">
-        <p><a href="{{link}}" class="nhsuk-u-padding-4" target="{{target}}" aria-label="{{aria}}">{{title}}</a></p>
-        {{chevronIcon|safe}}
-      </div>
-      </li>
+        {% if fullWidth === 'false' %}
+          {% set classes = 'nhsuk-grid-column-one-half nhsuk-list-group__item' %}
+        {% else %}
+          {% set classes = 'nhsuk-grid-column-full nhsuk-list-group__item' %}
+        {% endif %}
+
+        <li class="{{ classes }}">
+          <div class="nhsuk-list-item__content">
+            <p><a href="{{link}}" class="nhsuk-u-padding-4" target="{{target}}" aria-label="{{aria}}">{{title}}</a></p>
+            {{chevronIcon|safe}}
+          </div>
+        </li>
       
       {% endmacro %}
 
@@ -109,29 +118,17 @@
         {% endblock %}
       </ul>
 
-      <!--h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Talk to us:</h2>
-
-      <div class="nhsuk-inset-text">
-        <span class="nhsuk-u-visually-hidden">Information: </span>
-        {% block serviceCallDetails %}
-        {% endblock %}
-      </div>
-
-      <hr>
-
-      <div class="nhsuk-inset-text">
-        <span class="nhsuk-u-visually-hidden">Information: </span>
-        {% block serviceEmailDetails %}
-        {% endblock %}
-      </div-->
-
-
-        <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you are looking for?</h2>
-        <p>You can send us a general enquiry. We will reply within 2 working days.</p>
-        <p><a href="reference-number" class="nhsuk-button">Submit a request</a></p>
-
     </div>
 
+    <div class="nhsuk-u-reading-width">
+      {% block serviceExtras %}
+
+          <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you are looking for?</h2>
+          <p>You can send us a general enquiry. We will reply within 2 working days.</p>
+          <p><a href="reference-number" class="nhsuk-button">Submit a request</a></p>
+
+        {% endblock %}
+    </div>
 
   </div>
 </div>
@@ -181,7 +178,6 @@
   </div>
 </div>
 {% endblock %}
-
 
 {% block bodyEnd %}
   {{ super() }}

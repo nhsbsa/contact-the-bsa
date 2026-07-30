@@ -98,7 +98,7 @@ router.post('/completing-an-application', function (req, res) {
 
 // Managing a job offer
 router.post(['/managing-a-job-offer','/managing-your-application'], function (req, res) {
-    res.redirect('application-reference');
+    res.redirect('enter-your-name');
 })
 
 // Problem on the website

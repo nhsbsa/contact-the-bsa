@@ -58,69 +58,6 @@
   top: 2px
 }
 
-/*
-HEADER - SIGNED IN
-*/
-
-/*
-.nhsuk-header__signedin-link {
-    @include nhsuk-font(16);
-    border-bottom: 4px solid transparent;
-    border-top: 4px solid transparent;
-    color: nhsuk-colour("white");
-    display: block;
-    padding: 6px nhsuk-spacing(3);
-    text-decoration: none;
-  
-    .nhsuk-icon__chevron-right {
-      fill: nhsuk-colour("grey-3");
-      position: absolute;
-      right: nhsuk-spacing(1);
-      top: 11px;
-    }
-  
-    &:visited {
-      @include nhsuk-media-query($from: large-desktop) {
-        color: nhsuk-colour("white");
-      }
-    }
-  
-    &:hover {
-      background-color: nhsuk-colour("blue");
-      box-shadow: none;
-      color: nhsuk-colour("white");
-      text-decoration: underline;
-  
-      .nhsuk-icon__chevron-right {
-        fill: nhsuk-colour("blue");
-      }
-  
-    }
-  
-    &:active,
-    &:focus {
-      background-color: $nhsuk-focus-colour;
-      border-bottom: $nhsuk-focus-width solid $nhsuk-focus-text-colour;
-      box-shadow: none;
-      color: $nhsuk-focus-text-colour;
-      outline: $nhsuk-focus-width solid transparent;
-      outline-offset: $nhsuk-focus-width;
-      text-decoration: none;
-  
-      &:hover {
-        background-color: $nhsuk-focus-colour;
-        color: $nhsuk-focus-text-colour;
-      }
-  
-      &:visited {
-        background-color: $nhsuk-focus-colour;
-        color: $nhsuk-focus-text-colour;
-      }
-    }
-  
-  }
-
-  */
 
 /*
 EMAIL
