@@ -54,13 +54,21 @@
                     padding-right: 62px !important;
 
                     &:visited {
+                        background-color: nhsuk-colour("blue");
                         color:nhsuk-colour("white");
                     }
 
-                    &:focus,
                     &:hover {
-                        color: $nhsuk-text-colour;
+                        background-color: nhsuk-colour("dark-blue");
+                        color: nhsuk-colour("white");
                     }
+
+                    &:focus,
+                    &:visited:focus {
+                        background-color: $nhsuk-focus-colour;
+                        color: $nhsuk-focus-text-colour;
+                    }
+
                 }
             }
 
@@ -74,19 +82,21 @@
                 top: 50%;
             }
 
-            &:focus,
-            &:hover {
+            /*
+            &:focus {
                 background-color: $nhsuk-focus-colour;
                 cursor: pointer;
 
                 p {
-                    color: $nhsuk-text-colour;
+                    color: nhsuk-colour("white");
 
                     a {
-                        color: $nhsuk-text-colour;
+                        color: nhsuk-colour("white");
                     }
                 }
             }
+            */
+
         }
     }
 
