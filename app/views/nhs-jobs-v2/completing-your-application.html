@@ -1,128 +1,48 @@
-{% extends 'layout-contact.html' %}
-{% set pageTitle = "Completing an application" %}
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Applicant" %}
+{% set pageTitle = "Help with completing your application" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
 {% endblock %}
 
-<!-- For adding page content -->
-<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
-{% block content %}
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-full">
-
-    <div class="nhsuk-u-reading-width">
-
-      <span class="nhsuk-caption-l">NHS Jobs</span>
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
-        {{pageTitle}}
-      </h1>
-
+{%block contactIntro %}
       <p>If your application is not working, use the following help and support options.</p>
-    </div>
+{% endblock %}
 
-    <div class="nhsuk-u-reading-width">
+{% set blueBoxTitle = 'Common queries' %}
 
-      <h2 class="nhsuk-heading-m">Common queries</h2>
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
 
-      {% set applyCV %}
-        <p>If you need help with a job application or want to upload your CV you'll need to contact the employer directly.</p>
-        <p>You can find their contact information on the job advert.</p>
-        {{ actionLink({
-          text: "Go to NHS Jobs (opens in a new tab)",
-          href: "https://www.jobs.nhs.uk/candidate/search",
-          openInNewWindow: true
-        }) }}
-      {% endset %}
-      
-      <div class="nhsuk-expander-group">
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "I cannot submit my application",
-        html: "
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec ornare justo. Donec posuere consectetur eros. Nullam nec congue orci. Donec vel convallis urna. Aenean lorem quam, dapibus porttitor arcu et, maximus convallis arcu. Fusce id tristique magna. Ut volutpat ex tellus, id tristique ante mattis id. Vestibulum vulputate feugiat hendrerit. Praesent egestas ac felis euismod ullamcorper.</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "What is the difference between essential and desirable criteria?",
-        html: "
-        <p>Essential criteria are the qualifications, experience, skills or knowledge you must have to apply for a role.</p>
-        <p>Desirable criteria are skills and experience that an employer would prefer. This may be used to decide who to invite to interview if they have a high volume of applications.</p>
-        <p><a href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
-        <p>For bitesize video tutorials,&nbsp;<a href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "How do I track my application?",
-        html: "
-        <p>You can choose to be notified of progress by email, telephone, and SMS text message.</p>
-        <p>Notifications will be sent if you're:</p>
-        <ul>
-        <li>unsuccessful for a role</li>
-        <li>shortlisted for an interview</li>
-        <li>sent a job offer</li>
-        <li>sent a contract of employment</li>
-        </ul>
-        <p>You'll also be notified if a job offer or contract of employment is withdrawn.</p>
-        <p><a href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
-        <p>For bitesize video tutorials,&nbsp;<a href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "Can I apply via CV or send in my CV?",
-        html: applyCV
-        }) }}
-      </div>
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
 
-      <hr>
+{% set generalURL = '/' + folder + '/reference-number' %}
 
-      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
-      <p>Read our knowledge base if your questions have not been answered through our common problems.</p>
-      {{ actionLink({
-        text: "NHSBSA knowledge base (opens in new tab)",
-        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
-        openInNewWindow: "true"
-      }) }}
 
-      <hr>
-      
-      <h2 class="nhsuk-heading-m">Need more support?</h2>
-      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
+{% block serviceOptions %} 
 
-      
-      <form action="/{{folder}}/completing-an-application" method="post" novalidate>
+    <!-- 
 
-        {{ button({
-        "text": "Start now",
-        "classes": "nhsuk-u-margin-top-3"
-        }) }}
+      What is the difference between essential and desirable criteria
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25715/en-us
 
-      </form>
+      Can I apply by CV or send my CV?
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25611/en-us
 
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Alternative contact methods
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p><strong>Telephone:</strong> 0300 330 1013</p>
-          <p>Current waiting time is <strong>20 minutes</strong></p>
-          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
-              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
-              charges​​​​​​</a></p>
-          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
-          <p>We aim to respond to your email within 2 working days.</p>
-        </div>
-      </details>
+      I cannot submit my application
+      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32005/en-us
 
-    </div>
+    -->
 
-  </div>
-</div>
+    {{ serviceContactList( fullWidth="true", target="_blank", title="What is the difference between essential and desirable criteria", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25715/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="Can I apply by CV or send my CV?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25611/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I cannot submit my application", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32005/en-us" ) }}
 
 {% endblock %}
