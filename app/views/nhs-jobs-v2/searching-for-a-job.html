@@ -1,121 +1,52 @@
-{% extends 'layout-contact.html' %}
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Applicant" %}
 {% set pageTitle = "Help with searching for a job" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
 {% endblock %}
 
-<!-- For adding page content -->
-<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
-{% block content %}
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-full">
-
-    <div class="nhsuk-u-reading-width">
-
-      <span class="nhsuk-caption-l">NHS Jobs</span>
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
-        {{pageTitle}}
-      </h1>
-
+{%block contactIntro %}
       <p>If you are trying to search for a job and it is not working, use the following help and support options.</p>
-    </div>
+{% endblock %}
 
-    <div class="nhsuk-u-reading-width">
+{% set blueBoxTitle = 'Common queries' %}
 
-      <h2 class="nhsuk-heading-m">Common queries</h2>
-      <div class="nhsuk-expander-group">
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "I do not receive email alerts",
-        html: "
-        <p>To set up email alerts, search for a job and select 'Save this search'.</p>
-        <p>You can select if you want to set up email alerts to tell you about new jobs matching the search criteria you've entered. You can also choose if you want these alerts daily or weekly.</p>
-        <p>You can set up multiple alerts and change or remove these at any time from the 'Your saved searches' section of your NHS Jobs account.</p>
-        <p>To save or edit your saved searches you must be signed into your NHS Jobs account.</p>
-        <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
-        <p>For bitesize video tutorials,&nbsp;<a title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "I cannot save my jobs or search criteria",
-        html: "
-        <p>You can save a job to view later by searching for a job and selecting 'Save this job’ when looking at the list of returned jobs that match your criteria.</p>
-        <p>You can then view or remove the job from the 'Your saved jobs' section of your NHS Jobs account.</p>
-        <p>To save or remove your saved jobs you must be signed into your NHS Jobs account.</p>
-        <p>You do not need to save a job you've applied or started to apply for. These jobs will appear in the 'Your applications' section of your NHS Jobs account.</p>
-        <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
-        <p>For bitesize video tutorials,&nbsp;<a title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        "
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "The search results don't match my search",
-        html: "
-        <p>When searching for a job, the search results may differ depending on the search field and filters you've used. &nbsp;</p>
-        <p>When searching using 'Job title or skills', our search will prioritise job listings with the key word in the job title, followed by similar results to the search term.</p>
-        <p>The results will be shown in 'best match' order. This means that the jobs closest to your search results will be shown first.</p>
-        <hr/>
-        <p>When searching by an employer's name, it will then display similar employers to give you more choice.</p>
-        <hr/>
-        <p>The NHS Jobs search will return any jobs that fully or partially match your search criteria.</p>
-        <p>Other jobs that only contain some of the words used in your search criteria, will show later in the list. This could be job title or employer name.</p>
-        <p>This will help if you're looking for a general area of work such as 'management', but will mean that jobs will become less relevant as the list goes on.</p>
-        <hr/>
-        <p>You can also use the filters at the side of the page to refine your search results. You can filter by pay grade or band, distance or working arrangements like full-time or part-time.</p>
-        <hr/>
-        <p><a title=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" href=\"https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants\" target=\"_blank\" rel=\"noopener\">Further support and user guides are available on our website</a>.</p>
-        <p>For bitesize video tutorials,&nbsp;<a title=\"https://www.youtube.com/@nhs_jobs_service?cbrd=1\" href=\"https://www.youtube.com/@NHS_Jobs_Service?cbrd=1\" target=\"_blank\" rel=\"noopener\">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        "
-        }) }}
-      </div>
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
 
-      <hr>
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
 
-      <h2 class="nhsuk-heading-m">Can't find what you are looking for?</h2>
-      <p>Read our knowledge base if your questions have not been answered through our common problems.</p>
-      {{ actionLink({
-        text: "NHSBSA knowledge base (opens in new tab)",
-        href: "https://faq.nhsbsa.nhs.uk/knowledgebase/",
-        openInNewWindow: "true"
-      }) }}
+{% set generalURL = '/' + folder + '/reference-number' %}
 
-      <hr>
-      
-      <h2 class="nhsuk-heading-m">Need more support?</h2>
-      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
 
-      <form action="/{{folder}}/searching-for-a-job" method="post" novalidate>
+{% block serviceOptions %} 
 
-        {{ button({
-        "text": "Start now",
-        "classes": "nhsuk-u-margin-top-3"
-        }) }}
+    <!-- 
 
-      </form>
+      How do I search for a job?
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28385/en-us
 
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Alternative contact methods
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p><strong>Telephone:</strong> 0300 330 1013</p>
-          <p>Current waiting time is <strong>20 minutes</strong></p>
-          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
-              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
-              charges​​​​​​</a></p>
-          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
-          <p>We aim to respond to your email within 2 working days.</p>
-        </div>
-      </details>
+      The search results don’t match my search
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28391/en-us
 
-    </div>
+      I want to save a job so I can look at it later
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28319/en-us
 
-  </div>
-</div>
+      I want to save my search criteria
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28321/en-us
+
+    -->
+
+    {{ serviceContactList( fullWidth="true", target="_blank", title="How do I search for a job?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28385/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="The search results don’t match my search", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28391/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I want to save a job so I can look at it later", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28319/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I want to save my search criteria", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-28321/en-us" ) }}
 
 {% endblock %}
