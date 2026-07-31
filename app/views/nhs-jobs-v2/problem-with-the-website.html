@@ -1,0 +1,48 @@
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Applicant" %}
+{% set pageTitle = "Help with a problem with the website" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{%block contactIntro %}
+      <p>If you need help with the NHS Jobs website, use the following help and support options.</p>
+{% endblock %}
+
+{% set blueBoxTitle = 'Common queries' %}
+
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
+
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
+
+{% set generalURL = '/' + folder + '/reference-number' %}
+
+
+{% block serviceOptions %} 
+
+    <!-- 
+
+      Why has my application information not saved?
+      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32009/en-us
+
+      I have not received my password reset email
+      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32011/en-us
+
+      My application is not showing in my NHS Jobs account
+      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32007/en-us
+
+    -->
+
+    {{ serviceContactList( fullWidth="true", target="_blank", title="Why has my application information not saved?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32009/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I have not received my password reset email", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32011/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="My application is not showing in my NHS Jobs account", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32007/en-us" ) }}
+
+{% endblock %}

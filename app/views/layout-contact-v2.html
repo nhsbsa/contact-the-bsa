@@ -126,14 +126,11 @@
           <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you're looking for?</h2>
           <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
 
-          <form action="/{{folder}}/managing-your-application" method="post" novalidate>
-
-              {{ button({
-                "text": "Start now",
-                "classes": "nhsuk-u-margin-top-3"
-              }) }}
-
-            </form>
+          {{ button({
+            text: 'Start now',
+            href: 'enter-your-name',
+            classes: 'nhsuk-u-margin-top-3'
+          }) }}
 
           {% call details({
             summaryText: 'Alternative contact methods'
