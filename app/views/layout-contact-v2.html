@@ -123,9 +123,27 @@
     <div class="nhsuk-u-reading-width">
       {% block serviceExtras %}
 
-          <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you are looking for?</h2>
-          <p>You can send us a general enquiry. We will reply within 2 working days.</p>
-          <p><a href="reference-number" class="nhsuk-button">Submit a request</a></p>
+          <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you're looking for?</h2>
+          <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
+
+          <form action="/{{folder}}/managing-your-application" method="post" novalidate>
+
+              {{ button({
+                "text": "Start now",
+                "classes": "nhsuk-u-margin-top-3"
+              }) }}
+
+            </form>
+
+          {% call details({
+            summaryText: 'Alternative contact methods'
+          }) %}
+            
+            <p>Telephone: <strong>0300 330 1013</strong></p>
+            <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
+
+            <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
+            <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
 
         {% endblock %}
     </div>

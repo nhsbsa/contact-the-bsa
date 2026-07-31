@@ -23,8 +23,6 @@
   </svg>
 {% endset %}
 
-
-
 {% set generalURL = '/' + folder + '/reference-number' %}
 
 
@@ -50,36 +48,5 @@
     {{ serviceContactList( fullWidth="true", target="_blank", title="Can I amend my application once it’s been submitted?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27535/en-us" ) }}
     {{ serviceContactList( fullWidth="true", target="_blank", title="Can I withdraw my application?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25613/en-us" ) }}
     {{ serviceContactList( fullWidth="true", target="_blank", title="I need to resubmit a withdrawn application", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32001/en-us" ) }}
-
-{% endblock %}
-
-
-{% block serviceExtras %}
-
-    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you're looking for?</h2>
-    <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
-
-    <form action="/{{folder}}/managing-your-application" method="post" novalidate>
-
-        {{ button({
-          "text": "Start now",
-          "classes": "nhsuk-u-margin-top-3"
-        }) }}
-
-      </form>
-
-    {% call details({
-      summaryText: 'Alternative contact methods'
-    }) %}
-      
-      <p>Telephone: <strong>0300 330 1013</strong></p>
-      <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
-
-      <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
-      <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
-
-    {% endcall %}
-
-
 
 {% endblock %}
