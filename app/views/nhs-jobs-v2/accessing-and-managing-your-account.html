@@ -1,180 +1,68 @@
-{% extends 'layout-contact.html' %}
-{% set pageTitle = "Help accessing an account" %}
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Applicant" %}
+{% set pageTitle = "Help accessing and managing your account" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
 {% endblock %}
 
-<!-- For adding page content -->
-<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
-{% block content %}
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-full">
-
-    <div class="nhsuk-u-reading-width">
-
-      <span class="nhsuk-caption-l">NHS Jobs</span>
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
-        {{pageTitle}}
-      </h1>
-
-      <p>If you know your login details but are having a problem logging into the system you may be using the wrong website.</p>
-      <p>We have two separate sites one for applicants and another for employers.</p>
-    </div>
-
-    <div class="nhsuk-u-reading-width">
+{%block contactIntro %}
       
-      {{ warningCallout({
-        heading: "Important",
-        headingLevel: 2,
-        html: "<p>If your account was created before 31st May 2023 you will need to create a new account as the NHS Jobs website had been upgraded to a new system. </p>"
-      }) }}
+  <p>If you know your login details but still cannot sign in, you might be on the wrong website.</p>
+  <p>NHS Jobs has a website for applicants and a website for employers.</p>
+  <p>You are currently on the <strong>applicant</strong> website.</p>
+  
+  {{ actionLink({
+    text: 'Sign in as an applicant (opens in new tab)',
+    href: 'https://www.jobs.nhs.uk/candidate/auth/login',
+    classes: 'nhsuk-u-margin-bottom-0'
+  }) }}
 
-      {% if 'applicant' in prevURL %}
-        {{ actionLink({
-          text: "Sign in as an applicant (opens in new tab)",
-          href: "https://www.jobs.nhs.uk/candidate/auth/login",
-          openInNewWindow: "true"
-        }) }}
-      {% elif 'employer' in prevURL %}
-        {{ actionLink({
-          text: "Sign in as an employer (opens in new tab)",
-          href: "https://www.jobs.nhs.uk/employer/home",
-          openInNewWindow: "true"
-        }) }}
-      {% endif %}
+  <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
 
-      <hr>
+{% endblock %}
 
-      <h2 class="nhsuk-heading-m">Need help with your account?</h2>
+{% set blueBoxTitle = 'Common queries' %}
 
-      {% set createAccount %}
-        {% if 'applicant' in prevURL %}
-          <p>To apply for a job listing on the NHS Jobs service, you must create an account.</p>
-          {{ actionLink({
-            text: "Create an account as an applicant (opens in new tab)",
-            href: "https://www.jobs.nhs.uk/candidate/auth/register/first-last-name",
-            openInNewWindow: "true"
-          }) }}
-          <p>To create a new account, select ‘Create an account' and enter your:</p>
-          <ul>
-          <li>first name</li>
-          <li>last name</li>
-          <li>email address</li>
-          </ul>
-          <p>You must also create a password.</p>
-          <p>You cannot register the same email address to more than one account.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
-          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        {% elif 'employer' in prevURL %}
-          <p>If your organisation already has an NHS Jobs account, you can ask your organisation's super-user to create an account for you.</p>
-          <p>'Super users' can add and delete departments to your organisations account.</p>
-          <p>'Super users' can also add users to a department.</p>
-          <p>Once a user is added to a department, they can view their own tasks and the tasks for the department.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
-          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-        {% endif %}
-      {% endset %}
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
+
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
+
+{% set generalURL = '/' + folder + '/reference-number' %}
 
 
-      {% set forgotPassword %}
-        {% if 'applicant' in prevURL %}
-          <p>if your login details aren't letting you login to your account and you need to reset your password you need to go to the NHS Jobs website. Click the link below to reset your password.</p>
-          {{ actionLink({
-            text: "Reset your password (opens in new tab)",
-            href: "https://www.jobs.nhs.uk/candidate/auth/forgot-password",
-            openInNewWindow: "true"
-          }) }}
-        {% elif 'employer' in prevURL %}
-          <p>if your login details aren't letting you login to your account and you need to reset your password you need to go to the NHS Jobs website. Click the link below to reset your password.</p>
-          {{ actionLink({
-            text: "Reset your password (opens in new tab)",
-            href: "https://www.jobs.nhs.uk/employer/auth/forgot-password",
-            openInNewWindow: "true"
-          }) }}
-        {% endif %}
-      {% endset %}
+{% block serviceOptions %} 
 
-      {% set deleteAccount %}
-        {% if 'applicant' in prevURL %}
-          <p>If you want to delete your account with the NHS Jobs service, you must contact us.</p>
-          <p>Your email must include your full name and the email address linked to your account.</p>
-          <p>Requests will be processed as quickly as possible. The maximum time to process a request is one calendar month.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
-          <p>For bitesize video tutorials,&nbsp;<a href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>
-          <form action="/{{folder}}/accessing-an-account" method="post" novalidate>
-            {{ button({
-            "text": "Start now",
-            "classes": "nhsuk-u-margin-top-3"
-            }) }}
-          </form>
-        {% elif 'employer' in prevURL %}
-          <p>To close your account within the new NHS Jobs service, send an email with your details.</p>
-          <p><a title="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-applicants" href="https://www.nhsbsa.nhs.uk/new-nhs-jobs-service/help-and-support-employers" target="_blank" rel="noopener">Further support and user guides are available on our website</a>.</p>
-          <p>For bitesize video tutorials, <a title="https://www.youtube.com/@nhs_jobs_service?cbrd=1" href="https://www.youtube.com/@NHS_Jobs_Service?cbrd=1" target="_blank" rel="noopener">subscribe to our NHS Jobs YouTube channel</a>. Select the bell icon for future notifications.</p>    
-          <form action="/{{folder}}/accessing-an-account" method="post" novalidate>
-            {{ button({
-            "text": "Start now",
-            "classes": "nhsuk-u-margin-top-3"
-            }) }}
-          </form>
-        {% endif %}
-      {% endset %}
+    <!-- 
 
+      I need to create an account
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25616/en-us
 
-      <div class="nhsuk-expander-group">
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "I need to create an account",
-        html: createAccount
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "I have forgotten my password and need to reset",
-        html: forgotPassword
-        }) }}
-        {{ details({
-        classes: "nhsuk-expander",
-        summaryText: "I need to cancel/delete my account",
-        html: deleteAccount
-        }) }}
-      </div>
+      I need to reset my password
+      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32003/en-us
 
-      <hr>
+      I can’t login to my account
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25664/en-us
 
-      <h2 class="nhsuk-heading-m">Need more support?</h2>
-      <p>You can send us a general enquiry. We will reply within 2 working days.</p>
+      I want to manage my  account
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25612/en-us
 
-      <form action="/{{folder}}/accessing-an-account" method="post" novalidate>
+      I need to delete my account
+      https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27793/en-us
 
-        {{ button({
-        "text": "Start now",
-        "classes": "nhsuk-u-margin-top-3"
-        }) }}
+    -->
 
-      </form>
-
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Alternative contact methods
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p><strong>Telephone:</strong> 0300 330 1013</p>
-          <p>Current waiting time is <strong>20 minutes</strong></p>
-          <p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
-          <p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers"
-              aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call
-              charges​​​​​​</a></p>
-          <p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
-          <p>We aim to respond to your email within 2 working days.</p>
-        </div>
-      </details>
-
-    </div>
-
-  </div>
-</div>
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I need to create an account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25616/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I need to reset my password", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32003/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I can’t login to my account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25664/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I want to manage my  account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25612/en-us" ) }}
+    {{ serviceContactList( fullWidth="true", target="_blank", title="I need to delete my account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27793/en-us" ) }}
 
 {% endblock %}

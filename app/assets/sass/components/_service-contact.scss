@@ -52,7 +52,7 @@
                 a {
                     color: nhsuk-colour("white");
                     font-weight: bold;
-                    text-decoration: none;
+                    text-decoration: underline;
                     width: 100%;
                     display: inline-grid;
                     padding-right: 62px !important;
@@ -63,12 +63,14 @@
                     }
 
                     &:hover {
+                        text-decoration: none;
                         background-color: nhsuk-colour("dark-blue");
                         color: nhsuk-colour("white");
                     }
 
                     &:focus,
                     &:visited:focus {
+                        text-decoration: none;
                         background-color: $nhsuk-focus-colour;
                         color: $nhsuk-focus-text-colour;
                         outline: none;
