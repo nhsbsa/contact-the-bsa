@@ -96,27 +96,45 @@
         </svg>
       {% endset %}
       
-      {% macro serviceContactList( fullWidth="false", link='#', target="_self", aria="Continue journey with this service", title="'title'") %}
+      {% macro cardList( fullWidth="false", link="#", target="_self", aria="Continue journey with this service", title="Title") %}
       
-        {% if fullWidth === 'false' %}
-          {% set classes = 'nhsuk-grid-column-one-half nhsuk-list-group__item' %}
+        {% if fullWidth === "true" %}
+          {% set classes = "nhsuk-grid-column-full nhsuk-card-group__item" %}
         {% else %}
-          {% set classes = 'nhsuk-grid-column-full nhsuk-list-group__item' %}
+          {% set classes = "nhsuk-grid-column-two-thirds nhsuk-card-group__item" %}
         {% endif %}
 
         <li class="{{ classes }}">
-          <div class="nhsuk-list-item__content">
-            <p><a href="{{link}}" class="nhsuk-u-padding-4" target="{{target}}" aria-label="{{aria}}">{{title}}</a></p>
-            {{chevronIcon|safe}}
+          <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--primary nhsuk-u-margin-bottom-4">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-xs">
+                <a target="{{ target }}" class="nhsuk-card__link" href="{{ link }}">{{ title }}</a>
+              </h2>
+              {{ chevronIcon | safe }}
+            </div>
           </div>
+
         </li>
+     
+
+        {#{ card({
+          variant: 'primary',
+          clickable: true,
+          attributes: {
+            'target': target
+          },
+          href: link,
+          classes: 'nhsuk-u-margin-bottom-4',
+          heading: title,
+          headingSize: 's'
+        }) }#}
       
       {% endmacro %}
 
-      <ul class="nhsuk-grid-row nhsuk-list-group">
-        {% block serviceOptions %}
-        {% endblock %}
-      </ul>
+     <ul class="nhsuk-grid-row nhsuk-card-group">
+      {% block serviceOptions %}
+      {% endblock %}
+     </ul>
 
     </div>
 
