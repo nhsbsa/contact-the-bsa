@@ -1,5 +1,6 @@
-{% extends 'layout-contact-service.html' %}
-{% set pageTitle = "NHS Jobs (Employers)" %}
+{% extends 'layout-contact-service-v2.html' %}
+
+{% set pageTitle = "Help for employers using NHS Jobs" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -7,7 +8,7 @@
 
 {%block contactIntro %}
 
-    <p>If you are a recruiting manager, please speak to the super user in your organisation. If your super user is unable to solve the matter themselves, they can escalate the issue on your behalf.</p> 
+    <p>If you're a recruitment manager, speak to your organisation's super user first. If they can't resolve the issue, they can raise it for you.</p> 
     
 {% endblock %}
 
@@ -23,26 +24,59 @@
 
 {% block serviceOptions %}
 
-    {{serviceContactList(link="accessing-an-account", title="Accessing an account")}}
-    {{serviceContactList(link="nhs-jobs-website-support", title="A problem on the website")}}
-    {{serviceContactList(link="applicant-interview-management", title="Managing applications, shortlisting or interviews")}}
-    {{serviceContactList(link="job-offers-pre-employment-checks-contracts", title="Managing job offers, pre-employment checks and contracts")}}
-    {{serviceContactList(link="stakeholder-engagement-team", title="Speak to Stakeholder Engagement team")}}
+    <!--
+
+      Joining NHS Jobs and accessing existing account
+      Managing a job listing
+      Managing your organisation's account
+      Speak to stakeholder engagement team
+      Create and publish a job listing
+      A problem with the website
+
+    -->
+
+    {{serviceContactList(link="employer/accessing-existing-account", title="Joining NHS Jobs and accessing existing account")}}
+    {{serviceContactList(link="employer/managing-a-job-listing", title="Managing a job listing")}}
+    {{serviceContactList(link="employer/managing-your-organisations-account", title="Managing your organisation's account")}}
+    {{serviceContactList(link="employer/stakeholder-engagement-team", title="Speak to Stakeholder Engagement team")}}
+    {{serviceContactList(link="employer/job-listing", title=" Create and publish a job listing")}}
+    {{serviceContactList(link="employer/problem-with-the-website", title="A problem with the website")}}
+
 
 {% endblock %}
 
-{% block serviceCallDetails %}
 
-<p><strong>Telephone:</strong> 0300 330 1013</p>
-<p>Current waiting time is <strong>20 minutes</strong></p>
-<p>Monday to Friday, 8am to 6pm and Saturday, 9am to 3pm.</p>
-<p><a href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers" aria-label="Call charge information - Opens in a new tab" target="_blank">Find out about call charges​​​​​​</a></p>
 
-{% endblock %}
+{% block serviceExtras %}
 
-{% block serviceEmailDetails %}
+    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Need more support?</h2>
+    <p>Read our help and support options if your questions have not been answered through our common queries.</p>
+    {{ actionLink({
+      text: 'Help and support for employers (opens in new tab)',
+      attributes: { target: '_blank' },
+      href: 'https://www.nhsbsa.nhs.uk/nhs-jobs-help-and-support/help-and-support-employers'
+    }) }}
 
-<p><strong>Email:</strong> nhsbsa.nhsjobs@nhsbsa.nhs.uk</p>
-<p>We aim to respond to your email within 2 working days.</p>
+    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you're looking for?</h2>
+    <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
+
+    {{ button({
+      text: 'Start now',
+      href: 'reference-number'
+    }) }}
+
+    {% call details({
+      summaryText: 'Alternative contact methods'
+    }) %}
+      
+      <p>Telephone: <strong>0300 330 1013</strong></p>
+      <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
+
+      <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
+      <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
+
+    {% endcall %}
+
+
 
 {% endblock %}
