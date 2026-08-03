@@ -79,7 +79,7 @@
         {{pageTitle}}
       </h1>
 
-      {%block contactIntro %}
+      {% block contactIntro %}
       {% endblock %}
 
     </div>
@@ -87,7 +87,7 @@
     <div class="nhsuk-u-full-width blueBoxGrid">
 
 
-      <h2 class="nhsuk-heading-l">{{blueBoxTitle}}</h2>
+      <h2 class="nhsuk-heading-m">{{blueBoxTitle}}</h2>
       {% block blueBoxExtras %}{% endblock %}
 
       {% set chevronIcon %}
@@ -146,7 +146,7 @@
 
           {{ button({
             text: 'Start now',
-            href: '../enter-your-name',
+            href: buttonLink,
             classes: 'nhsuk-u-margin-top-3'
           }) }}
 

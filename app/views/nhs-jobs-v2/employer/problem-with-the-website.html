@@ -1,7 +1,8 @@
 {% extends 'layout-contact-v2.html' %}
 
-{% set pageTitleCaption = "NHS Jobs: Applicant" %}
+{% set pageTitleCaption = "NHS Jobs: Employer" %}
 {% set pageTitle = "Help with a problem with the website" %}
+{% set buttonLink = "../enter-organisation-name" %}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -24,23 +25,57 @@
 {% endset %}
 
 
+
 {% block serviceOptions %} 
 
     <!-- 
 
-      Why has my application information not saved?
-      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32009/en-us
+        Can I change applicants shortlisted for interview?
+        https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32022/en-us
 
-      I have not received my password reset email
-      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32011/en-us
+        Can I remove a user from the shortlisting panel?
+        https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32015/en-us
 
-      My application is not showing in my NHS Jobs account
-      https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32007/en-us
+        Why my information not been saved?
+        https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32017/en-us
 
     -->
 
-    {{ cardList( target="_blank", title="Why has my application information not saved?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32009/en-us" ) }}
-    {{ cardList( target="_blank", title="I have not received my password reset email", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32011/en-us" ) }}
-    {{ cardList( target="_blank", title="My application is not showing in my NHS Jobs account", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32007/en-us" ) }}
+    {{ cardList( target="_blank", title="Can I change applicants shortlisted for interview?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32022/en-us" ) }}
+    {{ cardList( target="_blank", title="Can I remove a user from the shortlisting panel?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32015/en-us" ) }}
+    {{ cardList( target="_blank", title="Why my information not been saved?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32017/en-us" ) }}
+
+{% endblock %}
+
+{% block serviceExtras %}
+
+    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Need more support?</h2>
+    <p>Read our help and support options if your questions have not been answered through our common queries.</p>
+    {{ actionLink({
+      text: 'Help and support for employers (opens in new tab)',
+      attributes: { target: '_blank' },
+      href: 'https://www.nhsbsa.nhs.uk/nhs-jobs-help-and-support/help-and-support-employers'
+    }) }}
+
+    <h2 class="nhsuk-heading-m nhsuk-u-padding-top-7">Can't find what you're looking for?</h2>
+    <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
+
+    {{ button({
+      text: 'Start now',
+      href: buttonLink,
+      classes: 'nhsuk-u-margin-top-3'
+    }) }}
+
+    {% call details({
+      summaryText: 'Alternative contact methods'
+    }) %}
+      
+      <p>Telephone: <strong>0300 330 1013</strong></p>
+      <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
+
+      <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
+      <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
+
+    {% endcall %}
 
 {% endblock %}
