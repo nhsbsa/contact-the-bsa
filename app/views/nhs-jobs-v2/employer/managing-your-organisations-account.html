@@ -1,0 +1,60 @@
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Employer" %}
+{% set pageTitle = "Help with managing your organisation's account" %}
+{% set buttonLink = "../enter-organisation-name" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{%block contactIntro %}
+    <p>If you are finding it hard to manage your organisation accounts, use the following help and support options.</p>
+{% endblock %}
+
+{% set blueBoxTitle = 'Common queries' %}
+
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
+
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
+
+
+
+{% block serviceOptions %} 
+
+    <!-- 
+
+        How do I add a new user to my organisations account?
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27214/en-us
+
+        How do I delete an existing user from my organisations account?
+        https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-27211/en-us
+
+        How do I deactivate an existing user from my organisations account?
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-26448/en-us
+
+        I need to add an accredited logo to our listings
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25627/en-us
+
+        How do I turn approvals on or off?
+        https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32013/en-us
+
+        How do I search for an applicant?
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27230/en-us
+
+    -->
+
+    {{ cardList( target="_blank", title="How do I add a new user to my organisations account?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27214/en-us" ) }}
+    {{ cardList( target="_blank", title="How do I delete an existing user from my organisations account?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-27211/en-us" ) }}
+    {{ cardList( target="_blank", title="How do I deactivate an existing user from my organisations account?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-26448/en-us" ) }}
+    {{ cardList( target="_blank", title="I need to add an accredited logo to our listings", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25627/en-us" ) }}
+    {{ cardList( target="_blank", title="How do I turn approvals on or off?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32013/en-us" ) }}
+    {{ cardList( target="_blank", title="How do I search for an applicant?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27230/en-us" ) }}
+
+{% endblock %}

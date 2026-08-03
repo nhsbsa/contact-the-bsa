@@ -1,0 +1,48 @@
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Employer" %}
+{% set pageTitle = "Help with managing a job listing" %}
+{% set buttonLink = "../applicant-reference" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{%block contactIntro %}
+    <p>If you are finding it hard to manage job listings, use the following help and support options.</p>
+{% endblock %}
+
+{% set blueBoxTitle = 'Common queries' %}
+
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
+
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
+
+
+
+{% block serviceOptions %} 
+
+    <!-- 
+
+        How do I delete job listings from my dashboard?
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25644/en-us
+
+        I need to change and republish a live job listing
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25658/en-us
+
+        I need to close a job listing
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27813/en-us
+
+    -->
+
+    {{ cardList( target="_blank", title="How do I delete job listings from my dashboard?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25644/en-us" ) }}
+    {{ cardList( target="_blank", title="I need to change and republish a live job listing", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25658/en-us" ) }}
+    {{ cardList( target="_blank", title="I need to close a job listing", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27813/en-us" ) }}
+
+{% endblock %}
