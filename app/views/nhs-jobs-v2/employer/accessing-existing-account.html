@@ -1,0 +1,49 @@
+{% extends 'layout-contact-v2.html' %}
+
+{% set pageTitleCaption = "NHS Jobs: Employer" %}
+{% set pageTitle = "Help with joining NHS Jobs and accessing existing account" %}
+{% set buttonLink = "../enter-organisation-name" %}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{%block contactIntro %}
+    <p>If you know your login details but still cannot sign in, you might be on the wrong website.</p> 
+    <p>NHS Jobs has a website for applicants and a website for employers. You are currently on the <strong>employer</strong> website.</p>
+{% endblock %}
+
+{% set blueBoxTitle = 'Common queries' %}
+
+{% block blueBoxExtras %}
+  <p>All links open in a new tab.</p>
+{% endblock %}
+
+{% set chevronIcon %}
+  <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+    <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+  </svg>
+{% endset %}
+
+
+
+{% block serviceOptions %} 
+
+    <!-- 
+
+        I want to join NHS Jobs and advertise my jobs
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us
+
+        How do I access my account in the NHS Jobs Service?
+        https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us
+
+        I can’t login to my NHS Jobs account
+        https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-28379/en-us
+
+    -->
+
+    {{ cardList( target="_blank", title="I want to join NHS Jobs and advertise my jobs", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us" ) }}
+    {{ cardList( target="_blank", title="How do I access my account in the NHS Jobs Service?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us" ) }}
+    {{ cardList( target="_blank", title="I can’t login to my NHS Jobs account", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-28379/en-us" ) }}
+
+{% endblock %}
