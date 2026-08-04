@@ -9,13 +9,24 @@
 {% endblock %}
 
 {%block contactIntro %}
-    <p>If you know your login details but still cannot sign in, you might be on the wrong website.</p> 
-    <p>NHS Jobs has a website for applicants and a website for employers. You are currently on the <strong>employer</strong> website.</p>
+
+    <p>Check you're using the correct NHS Jobs website.</p>
+    <p>There are separate websites for job applicants and employers. If you're applying for jobs, use the applicant website. If you're an employer managing job adverts and applications, use the employer website.</p>
+
+    <p>You are currently on the <strong>employer</strong> website.</p>
+    
+    {{ actionLink({
+      text: 'Sign in as an employer (opens in new tab)',
+      href: 'https://www.jobs.nhs.uk/employer/auth/login',
+      classes: 'nhsuk-u-margin-bottom-0'
+    }) }}
+
+    <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
 {% endblock %}
 
-{% set blueBoxTitle = 'Common queries' %}
-
 {% block blueBoxExtras %}
+  <p>Find answers to common questions about accessing and managing your account.</p>
   <p>All links open in a new tab.</p>
 {% endblock %}
 
@@ -34,7 +45,7 @@
         I want to join NHS Jobs and advertise my jobs
         https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us
 
-        How do I access my account in the NHS Jobs Service?
+        How do I access my account in NHS Jobs?
         https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us
 
         I can’t login to my NHS Jobs account
@@ -43,7 +54,7 @@
     -->
 
     {{ cardList( target="_blank", title="I want to join NHS Jobs and advertise my jobs", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us" ) }}
-    {{ cardList( target="_blank", title="How do I access my account in the NHS Jobs Service?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us" ) }}
+    {{ cardList( target="_blank", title="How do I access my account in NHS Jobs?", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25652/en-us" ) }}
     {{ cardList( target="_blank", title="I can’t login to my NHS Jobs account", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-28379/en-us" ) }}
 
 {% endblock %}
