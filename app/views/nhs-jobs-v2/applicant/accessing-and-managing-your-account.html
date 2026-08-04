@@ -9,9 +9,9 @@
 {% endblock %}
 
 {%block contactIntro %}
-      
-  <p>If you know your login details but still cannot sign in, you might be on the wrong website.</p>
-  <p>NHS Jobs has a website for applicants and a website for employers.</p>
+
+  <p>Check you're using the correct NHS Jobs website.</p>
+  <p>There are separate websites for job applicants and employers. If you're applying for jobs, use the applicant website. If you're an employer managing job adverts and applications, use the employer website.</p>
   <p>You are currently on the <strong>applicant</strong> website.</p>
   
   {{ actionLink({
@@ -24,9 +24,8 @@
 
 {% endblock %}
 
-{% set blueBoxTitle = 'Common queries' %}
-
 {% block blueBoxExtras %}
+  <p>Find answers to common questions about accessing and managing your account.</p>
   <p>All links open in a new tab.</p>
 {% endblock %}
 
@@ -50,7 +49,7 @@
       I can’t login to my account
       https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25664/en-us
 
-      I want to manage my  account
+      I want to change something in my account
       https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25612/en-us
 
       I need to delete my account
@@ -61,7 +60,7 @@
     {{ cardList( target="_blank", title="I need to create an account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25616/en-us" ) }}
     {{ cardList( target="_blank", title="I need to reset my password", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32003/en-us" ) }}
     {{ cardList( target="_blank", title="I can’t login to my account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25664/en-us" ) }}
-    {{ cardList( target="_blank", title="I want to manage my account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25612/en-us" ) }}
+    {{ cardList( target="_blank", title="I want to change something in my account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-25612/en-us" ) }}
     {{ cardList( target="_blank", title="I need to delete my account", link="https://nhsbsa-live.powerappsportals.com/knowledgebase/article/KA-27793/en-us" ) }}
 
 {% endblock %}
