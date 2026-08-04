@@ -86,8 +86,7 @@
 
     <div class="nhsuk-u-full-width blueBoxGrid">
 
-
-      <h2 class="nhsuk-heading-m">{{blueBoxTitle}}</h2>
+      {% if blueBoxTitle %}<h2 class="nhsuk-heading-m">{{ blueBoxTitle }}</h2>{% endif %}
       {% block blueBoxExtras %}{% endblock %}
 
       {% set chevronIcon %}
