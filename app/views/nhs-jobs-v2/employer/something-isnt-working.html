@@ -1,7 +1,7 @@
 {% extends 'layout-contact-v2.html' %}
 
 {% set pageTitleCaption = "NHS Jobs: Employer" %}
-{% set pageTitle = "Help with a problem with the website" %}
+{% set pageTitle = "Help if something isn't working" %}
 {% set buttonLink = "../enter-organisation-name" %}
 
 {% block pageTitle %}
@@ -9,10 +9,8 @@
 {% endblock %}
 
 {%block contactIntro %}
-      <p>If you need help with the NHS Jobs website, use the following help and support options.</p>
+      <p>Find answers to common questions if something isn't working.</p>
 {% endblock %}
-
-{% set blueBoxTitle = 'Common queries' %}
 
 {% block blueBoxExtras %}
   <p>All links open in a new tab.</p>
@@ -30,20 +28,20 @@
 
     <!-- 
 
-        Can I change applicants shortlisted for interview?
+        Can I change which applicants have been shortlisted for an interview?
         https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32022/en-us
 
         Can I remove a user from the shortlisting panel?
         https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32015/en-us
 
-        Why my information not been saved?
+        Why has my information not been saved?
         https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32017/en-us
 
     -->
 
-    {{ cardList( target="_blank", title="Can I change applicants shortlisted for interview?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32022/en-us" ) }}
+    {{ cardList( target="_blank", title="Can I change which applicants have been shortlisted for an interview?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32022/en-us" ) }}
     {{ cardList( target="_blank", title="Can I remove a user from the shortlisting panel?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32015/en-us" ) }}
-    {{ cardList( target="_blank", title="Why my information not been saved?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32017/en-us" ) }}
+    {{ cardList( target="_blank", title="Why has my information not been saved?", link="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-32017/en-us" ) }}
 
 {% endblock %}
 
