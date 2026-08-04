@@ -7,8 +7,20 @@
 
 {% block content %}
 
-  <div class="nhsuk-grid-row">
+  {% if data['select-your-query-nhs-jobs'] === 'Employer' %}
+    {% set hintHTML %}
+      <p>It would be helpful if you tell us more about your enquiry.</p>
+      <p><strong>Do not include personal or financial information.</strong></p>
+    {% endset %}
+  {% else %}
+    {% set hintHTML %}
+      <p>It would be helpful if you tell us more about your enquiry.</p>
+      <p>If your query pertains to submitting a CV or any aspect of the recruitment process, please refer to the job advert on the NHS Jobs website and contact the employer directly for further assistance.</p>
+      <p><strong>Do not include personal or financial information.</strong></p>
+    {% endset %}
+  {% endif %}
 
+  <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
       <form action="/{{folder}}/enter-additional-information" method="post" novalidate>
@@ -23,7 +35,7 @@
             isPageHeading: "true"
           },
           hint: {
-            text: "Do not include personal or financial information, for example, your National Insurance number or credit card details"
+            html: hintHTML
           }
         }) }}
 
