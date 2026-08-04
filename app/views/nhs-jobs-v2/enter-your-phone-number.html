@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "What is your phone number? (optional)"%}
+{% set pageTitle = "What is your phone number?"%}
 
 {% block pageTitle %}
 {{pageTitle}} - {{serviceName}}
@@ -8,36 +8,28 @@
 {% block content %}
 
   <div class="nhsuk-grid-row">
-
     <div class="nhsuk-grid-column-two-thirds">
 
       <form action="/{{folder}}/enter-your-phone-number" method="post" novalidate>
-
-      {% call fieldset({
-        legend: {
-          "text": pageTitle,
-          "classes": "nhsuk-fieldset__legend--l",
-          "isPageHeading": true
-        }
-      }) %}
       
-        {{ input({
-          label: {
-            "html": 'Phone number'
-          },
-          hint: {
-            text: "For international numbers include the country code"
-          },
-          "id": "phoneNumber",
-          "name": "phoneNumber",
-          spellcheck: false,
-          "classes": "nhsuk-input--width-20"
-        }) }}
-      
-      {% endcall %}
+      {{ input({
+        label: {
+          text: pageTitle + '(optional)',
+          size: 'l',
+          isPageHeading: true
+        },
+        hint: {
+          text: 'For international numbers include the country code. For example 01632 960 001, +44 808 157 0192, +44 (078) 900 982, or +380 (44)-1234567.'
+        },
+        id: 'phoneNumber',
+        name: 'phoneNumber',
+        spellcheck: false,
+        classes: 'nhsuk-input--width-20',
+        inputmode: 'tel'
+      }) }}
 
       {{ button({
-        "text": "Continue"
+        text: 'Continue'
       }) }}
 
       </form>
