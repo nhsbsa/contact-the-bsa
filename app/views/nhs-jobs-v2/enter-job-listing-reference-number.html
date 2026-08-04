@@ -18,11 +18,6 @@
 
     <div class="nhsuk-grid-column-two-thirds">
 
-      {% set findRef %}
-            <p>You can find the reference number next to the job title in both 'Draft' and 'Pre-employment checks'. It’s an 11-character code that starts with 'A'.</p>
-            <p><img class="nhsuk-image__img nhsuk-u-width-one-half" src="/images/job-ref-help.png" alt="Example of where to find the job reference number"></p>
-      {% endset %}
-
         <form action="/{{folder}}/enter-job-listing-reference-number" method="post" novalidate>
       
         {{ input({
@@ -35,10 +30,10 @@
           "classes": "nhsuk-input--width-10"
         }) }}
 
-        {{ details({
-          summaryText: "How to find the job reference number",
-          html: findRef
-        }) }}
+         {% call details({ summaryText: "How to find the job reference number" }) %}
+            <p>You can find the reference number under the job title on your main dashboard. It's an 11-character code that starts with a letter.</p>
+            <p><img class="nhsuk-image__img nhsuk-u-width-one-half" src="/assets/images/job-ref-applicant-help.png" alt="Example of where to find the job reference number"></p>
+        {% endcall %}
 
         {{ button({
           "text": "Continue"

@@ -7,46 +7,38 @@
 
 {% block content %}
 
-  <h1 class="nhsuk-heading-l">
-    {{pageTitle}}
-  </h1>
-  <div class="nhsuk-hint">
-    For example, AR-250619-06712
-  </div>
-
   <div class="nhsuk-grid-row">
-
     <div class="nhsuk-grid-column-two-thirds">
 
-      {% set findRef %}
-            <p>You can find the applicant reference number below the applicants name within the job listing in your account. It's an 13-character code that starts with 'A'.</p>
-            <p><img class="nhsuk-image__img nhsuk-u-width-one-half" src="/images/applicant-reference.png" alt="Example of where to find the applicant reference number"></p>
-      {% endset %}
+      <form action="/{{folder}}/enter-applicant-reference" method="post" novalidate>
 
-        <form action="/{{folder}}/enter-applicant-reference" method="post" novalidate>
-      
-        {{ input({
+        {{ characterCount({
+          name: 'enter-applicant-reference',
+          id: 'enter-applicant-reference',
+          maxlength: 500,
+          classes: 'nhsuk-input--width-20',
           label: {
-            "html": accountNumber
+            text: pageTitle,
+            size: 'l',
+            isPageHeading: true
           },
-          "id": "enter-applicant-reference",
-          "name": "enter-applicant-reference",
-          "type": "text",
-          "classes": "nhsuk-input--width-10"
+          hint: {
+            text: 'For example, AR-250619-06712. If you need to send us many reference numbers, add each one on a separate line.'
+          }
         }) }}
 
-        {{ details({
-          summaryText: "How to find the applicant reference number",
-          html: findRef
-        }) }}
+        {% call details({ summaryText: "How to find the applicant reference number" }) %}
+          <p>You can find the applicant reference number below the applicants name within the job listing in your account. It's an 13-character code that starts with 'AR'.</p>
+            <p><img class="nhsuk-image__img nhsuk-u-width-one-half" src="/assets/images/applicant-reference.png" alt="Example of where to find the applicant reference number"></p>
+        {% endcall %}
 
         {{ button({
-          "text": "Continue"
+          text: 'Continue'
         }) }}
 
       </form>
 
     </div>  
-
   </div>
+
 {% endblock %}

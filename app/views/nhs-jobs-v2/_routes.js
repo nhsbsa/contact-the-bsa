@@ -215,13 +215,8 @@ router.post('/applicant-reference', function (req, res) {
 router.post('/enter-applicant-reference', function (req, res) {
 
     var applicantRef = req.session.data['enter-applicant-reference'];
-
-    if (applicantRef) {
-        res.redirect('job-listing-reference');
-    } else {
-        res.redirect('enter-applicant-reference');
-    }
-
+    res.redirect('job-listing-reference');
+    
 })
 
 // Do you have a job listing reference number?
