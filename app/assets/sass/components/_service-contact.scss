@@ -53,6 +53,7 @@
             p {
                 color: nhsuk-colour("white");
                 margin: 0;
+                height: 100%;
 
                 a {
                     color: nhsuk-colour("white");
@@ -117,11 +118,12 @@
             .nhsuk-icon {
                 display: block;
                 fill: #ffffff;
-                margin-top: -13px;
+                margin-top: 0;
                 pointer-events: none;
                 position: absolute;
                 right: 11px;
                 top: 50%;
+                transform: translate(0,-50%);
             }
 
             
@@ -158,4 +160,9 @@
 .nhsuk-list-item__content p:has(a:focus) + .nhsuk-icon,
 .nhsuk-list-item__content p:has(a:visited:focus) + .nhsuk-icon {
     fill: $nhsuk-focus-text-colour !important;
+}
+
+.nhsuk-list-item__content p:has(a:focus),
+.nhsuk-list-item__content p:has(a:visited:focus) {
+    background-color: $nhsuk-focus-colour !important;
 }
