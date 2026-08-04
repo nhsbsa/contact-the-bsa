@@ -1,5 +1,5 @@
 {% extends 'layout-contact.html' %}
-{% set pageTitle = "You cannot upload or send your CV to us"%}
+{% set pageTitle = "Why you cannot apply using a CV"%}
 
 {% block pageTitle %}
 {{serviceName}}
@@ -12,13 +12,12 @@
 
         <span class="nhsuk-caption-l">NHS Jobs: Applicant</span>
         <h1>{{pageTitle}}</h1>
-        <p>If your query pertains to submitting a CV or any aspect of the recruitment process, please refer to the job advert on the NHS Jobs wesbite and contact the employer directly for further assistance.</p>
+        <p>You cannot apply for jobs by sending us your CV. To apply, use the application form in the job advert on the NHS Jobs website.</p>
         {{ actionLink({
           text: "Go to NHS Jobs (opens in a new tab)",
           href: "https://www.jobs.nhs.uk/candidate/search",
           openInNewWindow: true
         }) }}
-
 
     </div>
 
