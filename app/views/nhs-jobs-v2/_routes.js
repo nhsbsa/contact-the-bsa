@@ -177,22 +177,17 @@ router.post('/enter-job-reference-number', function (req, res) {
 
 // Stakeholder Engagement Team
 router.post('/stakeholder-engagement-team', function (req, res) {
-
     res.redirect('enter-organisation-name');
-
 })
+
 // applicant and interview management
 router.post('/applicant-interview-management', function (req, res) {
-
     res.redirect('applicant-reference');
-
 })
 
 // Managing Job Offers, pre-employment checks and contracts
 router.post('/job-offers-pre-employment-checks-contracts', function (req, res) {
-
     res.redirect('applicant-reference');
-
 })
 
 // Do you have an applicant reference number?
@@ -203,9 +198,9 @@ router.post('/applicant-reference', function (req, res) {
     if (applicantReference == "Yes") {
         res.redirect('enter-applicant-reference');
     } else if (applicantReference == "No") {
-        res.redirect('job-listing-reference');
+        res.redirect('enter-your-name');
     } else {
-        res.redirect('job-listing-reference');
+        res.redirect('applicant-reference');
 
     }
 
@@ -213,23 +208,29 @@ router.post('/applicant-reference', function (req, res) {
 
 // Applicant reference number
 router.post('/enter-applicant-reference', function (req, res) {
-
-    var applicantRef = req.session.data['enter-applicant-reference'];
-    res.redirect('job-listing-reference');
-    
+    res.redirect('enter-your-name');
 })
 
 // Do you have a job listing reference number?
 router.post('/job-listing-reference', function (req, res) {
 
     var listingReference = req.session.data['job-listing-reference'];
+    var employerRoute = req.session.data.employerRoute;
 
-    if (listingReference == "Yes") {
+    if ( listingReference == "Yes" ) {
         res.redirect('enter-job-listing-reference-number');
-    } else if (listingReference == "No") {
-        res.redirect('enter-organisation-name');
+
+    } else if ( listingReference == "No" ) {
+        
+        if( employerRoute === 'jobListingApplicant' ){
+            res.redirect('applicant-reference');
+        } else {
+            res.redirect('enter-your-name');
+        }
+        
+        //res.redirect('enter-organisation-name');
     } else {
-        res.redirect('enter-organisation-name');
+        res.redirect('job-listing-reference');
 
     }
 
@@ -239,9 +240,16 @@ router.post('/job-listing-reference', function (req, res) {
 router.post('/enter-job-listing-reference-number', function (req, res) {
 
     var jobListingRef = req.session.data['enter-job-listing-reference-number'];
+    var employerRoute = req.session.data.employerRoute;
 
     if (jobListingRef) {
-        res.redirect('enter-organisation-name');
+
+         if( employerRoute === 'jobListingApplicant' ){
+            res.redirect('applicant-reference');
+        } else {
+            res.redirect('enter-your-name');
+        }
+
     } else {
         res.redirect('enter-job-listing-reference-number');
     }
@@ -252,9 +260,18 @@ router.post('/enter-job-listing-reference-number', function (req, res) {
 router.post('/enter-organisation-name', function (req, res) {
 
     var organisationName = req.session.data['enter-organisation-name'];
+    var employerRoute = req.session.data.employerRoute;
 
     if (organisationName) {
-        res.redirect('reference-number');
+
+        if( employerRoute === 'jobListing' || employerRoute === 'jobListingApplicant' ){
+            res.redirect('job-listing-reference');
+        } else {
+            res.redirect('enter-your-name');
+        }
+
+        //res.redirect('reference-number');
+
     } else {
         res.redirect('enter-organisation-name');
     }

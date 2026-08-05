@@ -33,14 +33,21 @@
       Create and publish a job listing
       Something isn't working
 
+      ?employerRoute=
+      ?employerRoute=jobListing
+      ?employerRoute=jobListingApplicant
+
     -->
 
     {{serviceContactList(link="employer/accessing-existing-account", title="Joining NHS Jobs and accessing an existing account")}}
-    {{serviceContactList(link="employer/managing-a-job-listing", title="Managing a job listing")}}
+    
+    {{serviceContactList(link="employer/managing-a-job-listing?employerRoute=jobListingApplicant", title="Managing a job listing")}}
+    
     {{serviceContactList(link="employer/managing-your-organisations-account", title="Managing your organisation's account")}}
     {{serviceContactList(link="employer/stakeholder-engagement-team", title="Speak to stakeholder engagement team")}}
-    {{serviceContactList(link="employer/create-and-publish-a-job-listing", title=" Create and publish a job listing")}}
-    {{serviceContactList(link="employer/something-isnt-working", title="Something isn't working")}}
+    
+    {{serviceContactList(link="employer/create-and-publish-a-job-listing?employerRoute=jobListing", title=" Create and publish a job listing")}}
+    {{serviceContactList(link="employer/something-isnt-working?employerRoute=jobListing", title="Something isn't working")}}
 
 
 {% endblock %}
