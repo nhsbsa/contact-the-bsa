@@ -31,17 +31,17 @@ router.post('/which-service', function (req, res) {
     if (whichService) {
 
         if (whichService == "Support with Healthcare Costs") {
-            res.redirect('/iteration-1/select-your-query-healthcare-costs');
+            res.redirect('/mvp/select-your-query-healthcare-costs');
         } else if (whichService == "Support with Medical Exemptions and Penalty Charges") {
-            res.redirect('/iteration-1/select-your-query-exemptions-charges');
+            res.redirect('/mvp/select-your-query-exemptions-charges');
         } else if (whichService == "Support for Students and Healthcare Professionals") {
-            res.redirect('/iteration-1/select-your-query-students-healthcare-professionals');
+            res.redirect('/mvp/select-your-query-students-healthcare-professionals');
         } else if (whichService == "Pensions and Employee Benefits") {
-            res.redirect('/iteration-1/select-your-query-pensions-employee-benefits');
+            res.redirect('/mvp/select-your-query-pensions-employee-benefits');
         } else if (whichService == "NHS Jobs") {
             res.redirect('select-your-query-nhs-jobs');
         } else {
-            res.redirect('/iteration-1/reference-number');
+            res.redirect('/mvp/reference-number');
         }
 
 
@@ -310,9 +310,9 @@ router.post('/enter-your-name', function (req, res) {
             (whichService == "My NHS Pension portal" || whichService == "NHS Pension Scheme" || whichService == "Total Reward Statement") &&
             (pensionNumber == "No, I do not know my NHS Pension number" || pensionNumber == "I'm not sure")
         ) {
-            res.redirect('enter-your-national-insurance-number');
+            res.redirect('../mvp/enter-your-national-insurance-number');
         } else {
-            res.redirect('enter-date-of-birth');
+            res.redirect('../mvp/enter-date-of-birth');
         }
     } else {
         res.redirect('enter-your-name');
