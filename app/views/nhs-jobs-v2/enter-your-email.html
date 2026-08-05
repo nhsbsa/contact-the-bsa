@@ -8,7 +8,7 @@
 {% block content %}
 
   {% if data['select-your-query-nhs-jobs'] === 'Applicant' %}
-    {% set hintText = { text: 'You must use an email address that is only used by you. Using a shared email address could result in your personal information being passed onto other people.' } %}
+    {% set hintText = { text: 'You must use an email address that is only used by you.' } %}
   {% else %}
     {% set hintText = {} %}
   {% endif %}
@@ -39,7 +39,7 @@
 
           {{ input({
             label: {
-              html: 'Confirm email Address'
+              html: 'Confirm your email Address'
             },
             id: 'confirmEmailAddress',
             name: 'confirmEmailAddress',
