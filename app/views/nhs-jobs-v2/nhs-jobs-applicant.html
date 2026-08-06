@@ -5,9 +5,27 @@
 {{pageTitle}} - {{serviceName}}
 {% endblock %}
 
-{%block contactIntro %}
+{% block contactIntro %}
 
-    <p>Select the reason you're contacting us.</p>
+    {% if data.warning === 'warning' %}
+
+      {{ warningCallout({
+        heading: 'Important',
+        html: '<p>You cannot apply for jobs by sending us your CV. To apply, use the application form in the job advert on the <a class="nhsuk-link" target="_blank" href="https://www.jobs.nhs.uk/candidate">NHS Jobs website (opens in a new tab)</a>.</p>'
+      }) }}
+
+    {% elif data.warning === 'inset' %}
+
+      {{ insetText({
+        classes: 'nhsuk-u-margin-top-2',
+        html: '<p>You cannot apply for jobs by sending us your CV. To apply, use the application form in the job advert on the <a class="nhsuk-link" target="_blank" href="https://www.jobs.nhs.uk/candidate">NHS Jobs website (opens in a new tab)</a>.</p>'
+      }) }}
+
+    {% else %}
+
+      <p>Select the reason you're contacting us.</p>
+
+    {% endif %}
     
 {% endblock %}
 

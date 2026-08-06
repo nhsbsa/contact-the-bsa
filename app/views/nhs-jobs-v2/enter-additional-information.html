@@ -13,11 +13,23 @@
     {% endset %}
   {% else %}
     {% set hintHTML %}
-      
+
+
+    {% if data.warning === 'warning' %}
+
+      {{ warningCallout({
+        heading: 'Important',
+        html: '<p>You cannot apply for jobs by sending us your CV. To apply, use the application form in the job advert on the <a class="nhsuk-link" target="_blank" href="https://www.jobs.nhs.uk/candidate">NHS Jobs website (opens in a new tab)</a>.</p>'
+      }) }}
+
+    {% else %}
+
       {{ insetText({
         classes: 'nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4',
-        text: 'You cannot apply for jobs by sending us your CV. To apply, use the application form in the job advert on the NHS Jobs website.'
+        html: '<p>You cannot apply for jobs by sending us your CV. To apply, use the application form in the job advert on the <a class="nhsuk-link" target="_blank" href="https://www.jobs.nhs.uk/candidate">NHS Jobs website (opens in a new tab)</a>.</p>'
       }) }}
+
+    {% endif %}
 
       <p><strong>Do not include personal or financial information.</strong></p>
     {% endset %}
