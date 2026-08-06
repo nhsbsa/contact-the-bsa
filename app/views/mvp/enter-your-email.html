@@ -7,45 +7,51 @@
 
 {% block content %}
 
-  <div class="nhsuk-grid-row">
+  {% set hintText = { text: 'You must use an email address that is only used by you. Using a shared email address could result in your personal information being passed on to other people.' } %}
 
+  <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
       <form action="/{{folder}}/enter-your-email" method="post" novalidate>
 
-      {% call fieldset({
-        legend: {
-          "text": pageTitle,
-          "classes": "nhsuk-fieldset__legend--l",
-          "isPageHeading": true
-        }
-      }) %}
-      
-        {{ input({
-          label: {
-            "html": 'Email Address'
-          },
-          hint: {
-            text: "You must use an email address that is only used by you. Using a shared email address could result in your personal information being passed on to other people."
-          },
-          "id": "emailAddress",
-          "name": "emailAddress",
-          spellcheck: false,
-          "classes": "nhsuk-input--width-20"
+        {% call fieldset({
+          legend: {
+            "text": pageTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        }) %}
+        
+          {{ input({
+            label: {
+              html: 'Email address'
+            },
+            hint: hintText,
+            id: 'emailAddress',
+            name: 'emailAddress',
+            spellcheck: false,
+            classes: 'nhsuk-input--width-20'
+          }) }}
+
+          {{ input({
+            label: {
+              html: 'Confirm your email Address'
+            },
+            id: 'confirmEmailAddress',
+            name: 'confirmEmailAddress',
+            spellcheck: false,
+            classes: 'nhsuk-input--width-20'
+          }) }}
+        
+        {% endcall %}
+
+        {% call details({summaryText: 'Why do we ask for your email address?' }) %}
+          <p>We use this to send you a confirmation email to let you know we've received your query.</p>
+        {% endcall %}
+
+        {{ button({
+          text: 'Continue'
         }) }}
-      
-      {% endcall %}
-
-      {{ details({
-        summaryText: "Why do we ask for your email address",
-        html: "
-        <p>We use this to send confirmation that your query has been received.</p>
-        "
-      }) }}
-
-      {{ button({
-        "text": "Continue"
-      }) }}
 
       </form>
 
