@@ -1,0 +1,24 @@
+{% extends 'layout-contact.html' %}
+{% set pageTitle = "Loading"%}
+
+{% block pageTitle %}
+{{pageTitle}} - {{serviceName}}
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block beforeContent %}{% endblock %}
+
+{% block content %}
+
+        <!-- LOADING SCREEN CAN BE TOGGLED ON/OFF AND THE DELAY SET FROM data/session-data-defaults.js -->
+
+        <script type="text/javascript">
+            setTimeout("window.location='your-query-has-been-received'",{{ data.loadingScreenDelay }});
+        </script>
+
+        <h1 class="nhsuk-body nhsuk-u-text-align-centre">Sending your message. This make take a few moments.</h1>
+        <div class="nhsuk-spinner"></div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
