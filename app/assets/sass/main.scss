@@ -189,3 +189,32 @@ EMAIL
     }
   }
 }
+
+
+
+//
+// SPINNER
+//
+
+body:has(.nhsuk-spinner) {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.nhsuk-spinner {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 10px solid rgba(0,0,0, 0.4);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: nhsuk-spin 1.8s linear infinite;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+@keyframes nhsuk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

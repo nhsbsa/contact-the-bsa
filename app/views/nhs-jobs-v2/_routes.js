@@ -391,7 +391,11 @@ router.post('/enter-additional-information', function (req, res) {
 
 router.post('/check-your-answers', function (req, res) {
 
-    res.redirect('your-query-has-been-received');
+    if( req.session.data.useLoadingScreen === 'true' ){
+        res.redirect('loading');
+    } else {
+        res.redirect('your-query-has-been-received');
+    }
 
 })
 
