@@ -10,6 +10,8 @@
 
 {% block content %}
 
+        <!-- LOADING SCREEN CAN BE TOGGLED ON/OFF AND THE DELAY SET FROM data/session-data-defaults.js -->
+
         <script type="text/javascript">
             setTimeout("window.location='your-query-has-been-received'",{{ data.loadingScreenDelay }});
         </script>
