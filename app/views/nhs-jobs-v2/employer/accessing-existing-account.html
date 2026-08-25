@@ -1,4 +1,8 @@
-{% extends 'layout-contact-v2.html' %}
+{% if data.settings[version].employerApplicantPagesVersion === 'v2' %}
+  {% extends 'layout-contact-v3.html' %}
+{% else %}
+  {% extends 'layout-contact-v2.html' %}
+{% endif %}
 
 {% set pageTitleCaption = "NHS Jobs: Employer" %}
 {% set pageTitle = "Help with joining NHS Jobs and accessing existing account" %}
@@ -27,7 +31,6 @@
 
 {% block blueBoxExtras %}
   <p>Find answers to common questions about accessing and managing your account.</p>
-  <p>All links open in a new tab.</p>
 {% endblock %}
 
 {% set chevronIcon %}

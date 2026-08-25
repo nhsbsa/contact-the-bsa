@@ -1,0 +1,222 @@
+<!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+{% extends "prototype-kit-template.njk" %}
+
+{% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/assets/sass/main.css" rel="stylesheet">
+{% endblock %}
+
+{% set serviceName = "Contact the NHS Business Services Authority (NHSBSA)" %}
+
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    logo: {
+      href: '#',
+      ariaLabel: serviceName
+    },
+    service: {
+      text: serviceName,
+      href: '/'
+    }
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if (folder == 'mvp') %} 
+    <div class="versionTag">
+      <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us MVP </strong>
+    </div>
+    {% elseif (folder == 'iteration-1') %}
+    <div class="versionTag">
+      <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us Iteration 1</strong>
+    </div>
+    {% elseif (folder == 'nhs-jobs') %}
+    <div class="versionTag">
+      <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us NHS Jobs</strong>
+    </div>
+  {% elseif (folder == 'nhs-jobs-v2') %}
+    <div class="versionTag">
+      <strong class="nhsuk-tag nhsuk-phase-banner__content__tag nhsuk-tag--grey">Contact us NHS Jobs - v2</strong>
+    </div>
+  {% endif %}
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-phase-banner">
+      <p class="nhsuk-phase-banner__content">
+        <strong class="nhsuk-tag nhsuk-phase-banner__content__tag">
+          Beta
+        </strong>
+        <span class="nhsuk-phase-banner__text">
+          This is a new service – <a class="nhsuk-link" href="https://online1.snapsurveys.com/ContactNHSBSAFormIssue" target="_blank">your feedback will help us to improve it (opens in a new tab).</a>
+        </span>
+      </p>
+    </div>
+  </div> 
+  {% from 'back-link/macro.njk' import backLink %}
+  {% if not hideBack %}
+    <div class="nhsuk-width-container">
+      {{ backLink({
+        "href": "javascript:history.go(-1)",
+        "text": "Back"
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <div class="nhsuk-u-reading-width">
+
+      <span class="nhsuk-caption-l">{{ pageTitleCaption }}</span>
+      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">{{pageTitle}}</h1>
+
+      {% block contactIntro %}
+      {% endblock %}
+
+    </div>
+
+    <div class="nhsuk-u-full-width blueBoxGrid">
+
+      {% if blueBoxTitle %}<h2 class="nhsuk-heading-m">{{ blueBoxTitle }}</h2>{% endif %}
+      {% block blueBoxExtras %}{% endblock %}
+
+      {% set chevronIcon %}
+        <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+          <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z"></path>
+        </svg>
+      {% endset %}
+      
+      {% macro cardList( fullWidth="false", link="#", target="_self", aria="Continue journey with this service", title="Title") %}
+      
+        {% if fullWidth === "true" %}
+          {% set classes = "nhsuk-grid-column-full nhsuk-card-group__item" %}
+        {% else %}
+          {% set classes = "nhsuk-grid-column-full nhsuk-u-reading-width-rems nhsuk-card-group__item" %}
+        {% endif %}
+
+        <li class="{{ classes }}">
+          <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--primary nhsuk-u-margin-bottom-4">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-xs">
+                <a target="{{ target }}" class="nhsuk-card__link" href="{{ link }}">{{ title }}{% if target === "_blank" %} <br /><span class="nhsuk-u-font-weight-normal nhsuk-body-s nhsuk-u-margin-bottom-0">(opens in a new tab)</span>{% endif %}</a>
+              </h2>
+              {{ chevronIcon | safe }}
+            </div>
+          </div>
+
+        </li>
+     
+
+        {#{ card({
+          variant: 'primary',
+          clickable: true,
+          attributes: {
+            'target': target
+          },
+          href: link,
+          classes: 'nhsuk-u-margin-bottom-4',
+          heading: title,
+          headingSize: 's'
+        }) }#}
+      
+      {% endmacro %}
+
+     <ul class="nhsuk-grid-row nhsuk-card-group">
+      {% block serviceOptions %}
+      {% endblock %}
+     </ul>
+
+    </div>
+
+    <div class="nhsuk-u-reading-width">
+      {% block serviceExtras %}
+
+        {% call card() %}
+          <h2 class="nhsuk-heading-l">Can't find what you're looking for?</h2>
+          <p>Send us an enquiry on this web form. We will reply within 2 working days.</p>
+
+          {{ button({
+            text: 'Contact us',
+            href: buttonLink,
+            classes: 'nhsuk-u-margin-top-3'
+          }) }}
+
+          {% call details({
+            summaryText: 'Alternative contact methods'
+          }) %}
+            
+            <p>Telephone: <strong>0300 330 1013</strong></p>
+            <p>Telephone outside UK: <strong>+44 300 330 1013</strong></p>
+
+            <p><a target="_blank" class="nhsbsa-link" href="https://www.nhsbsa.nhs.uk/contact-us/call-charges-and-phone-numbers">Find out more about call charges (opens in new tab)</a></p>
+            <p>We're available Monday to Friday between 8am to 6pm GMT/BST, except Bank Holidays including Christmas Day, Boxing Day and New Year's Day.</p>
+
+          {% endcall %}
+
+        {% endcall %}
+
+        {% endblock %}
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+{% block footer %}
+{{ footer({
+  meta: {
+    items: [
+    {
+      href: "https://www.nhsbsa.nhs.uk/our-policies/privacy",
+      text: "Privacy policy"
+    },
+    {
+      href: "/cookies/cookies",
+      text: "Cookies"
+    },
+    {
+      href: "https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions",
+      text: "Terms and conditions"
+    },
+    {
+      href: "#",
+      text: "Accessibility statement"
+    },
+    {
+      href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+      text: "Reset data"
+    }
+    ]
+  },
+  copyright:{
+    html: "&copy; Crown copyright"
+  }
+}) }}
+<div class="app-ogl-footer">
+  <div class="nhsuk-width-container">
+    <p class="app-ogl-footer--text">
+      <svg xmlns="http://www.w3.org/2000/svg" height="17" width="41" role="presentation" focusable="false" viewBox="0 0 483.2 195.7">
+        <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"></path>
+      </svg>
+      All content is available under the <a class="nhsuk-footer__list-item-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license" target="_blank">Open Government Licence v3.0<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a>, except where otherwise stated.
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script type="module" src="/assets/javascript/main.js"></script>
+  {% include 'includes/scripts.html' %}
+  {% block pageScripts %}{% endblock %}
+{% endblock %}

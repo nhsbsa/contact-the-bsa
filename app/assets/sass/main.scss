@@ -218,3 +218,7 @@ body:has(.nhsuk-spinner) {
     transform: rotate(360deg);
   }
 }
+
+.nhsuk-u-reading-width-rems {
+  max-width: 46rem;
+}

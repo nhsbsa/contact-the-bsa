@@ -1,4 +1,8 @@
-{% extends 'layout-contact-v2.html' %}
+{% if data.settings[version].employerApplicantPagesVersion === 'v2' %}
+  {% extends 'layout-contact-v3.html' %}
+{% else %}
+  {% extends 'layout-contact-v2.html' %}
+{% endif %}
 
 {% set pageTitleCaption = "NHS Jobs: Applicant" %}
 {% set pageTitle = "Help if something isn't working" %}
@@ -12,9 +16,7 @@
       <p>Find answers to common questions if something isn't working.</p>
 {% endblock %}
 
-{% block blueBoxExtras %}
-  <p>All links open in a new tab.</p>
-{% endblock %}
+{% block blueBoxExtras %}{% endblock %}
 
 {% set chevronIcon %}
   <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
