@@ -7,7 +7,8 @@ module.exports = {
 
     settings: {
         ['nhs-jobs-v2']: {
-            employerApplicantPagesVersion: 'v2'
+            employerApplicantPagesVersion: 'v2', // v1, v2
+            employerApplicantPagesLinkColour: 'blue' // blue, white
         } 
     }
 

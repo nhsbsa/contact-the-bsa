@@ -1,5 +1,15 @@
+<!-- 
+
+  THESE TOGGLE THE TEMPLATE BASED ON SETTINGS IN THE session-data-defaults.js FILE
+  
+-->
+
 {% if data.settings[version].employerApplicantPagesVersion === 'v2' %}
-  {% extends 'layout-contact-v3.html' %}
+  {% if data.settings[version].employerApplicantPagesLinkColour === 'blue' %}
+    {% extends 'layout-contact-v3--blue.html' %}
+  {% else %}
+    {% extends 'layout-contact-v3--white.html' %}
+  {% endif %}
 {% else %}
   {% extends 'layout-contact-v2.html' %}
 {% endif %}
